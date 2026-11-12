@@ -300,7 +300,10 @@ export const LoginView: React.FC<LoginViewProps> = ({
           rawErr.includes('response') ||
           rawErr.includes('fetch');
 
-        if (isTechnicalOrNetwork) {
+        if (rawErr.includes('database unavailable')) {
+          // The server is up but cannot reach MongoDB: say so, instead of a vague "try again" that never works.
+          setErrorMessage('The school database is not connected right now, so sign-in is unavailable. Please contact the administrator.');
+        } else if (isTechnicalOrNetwork) {
           setErrorMessage('Unable to sign in right now. Please try again.');
         } else {
           setErrorMessage(result.error || 'Unable to sign in right now. Please try again.');
