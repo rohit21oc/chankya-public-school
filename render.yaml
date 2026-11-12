@@ -3,14 +3,15 @@
 # ONE web service is enough: the Node server (dist/server.cjs) serves both the API
 # and the built website (dist/), so no separate static site and no CORS setup is needed.
 #
-# Always-on needs a paid plan (starter). The free plan sleeps after inactivity.
+# FREE plan (no card needed): the service sleeps after ~15 min without traffic and takes
+# ~30-60 s to wake on the next visit. To keep it always-on later, change `plan` to `starter`.
 # Values marked `sync: false` are asked in the Render dashboard on first deploy
 # (secrets are never stored in this file).
 services:
   - type: web
     name: chanakya-public-school
     runtime: node
-    plan: starter
+    plan: free
     region: singapore          # closest Render region to Bihar
     buildCommand: npm ci --include=dev && npm run build
     startCommand: npm start
