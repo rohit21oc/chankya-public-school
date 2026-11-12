@@ -1,29 +1,53 @@
+# Render Blueprint - Chanakya Public School & Coaching Centre
+#
+# ONE web service is enough: the Node server (dist/server.cjs) serves both the API
+# and the built website (dist/), so no separate static site and no CORS setup is needed.
+#
+# Always-on needs a paid plan (starter). The free plan sleeps after inactivity.
+# Values marked `sync: false` are asked in the Render dashboard on first deploy
+# (secrets are never stored in this file).
 services:
-  # ---------------------------------------------------------------------------
-  # Frontend React SPA Deployment on Render (Static Site)
-  # Fixes Render 404 "Not Found" on browser refresh (F5), direct entry, and bookmarks
-  # Service name matching live domain: https://your-school-domain.example
-  # ---------------------------------------------------------------------------
   - type: web
-    name: chanakyapublicschool
-    runtime: static
-    buildCommand: npm run build
-    staticPublishPath: ./dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-
-  # ---------------------------------------------------------------------------
-  # Central School ERP Backend API (Node.js Web Service)
-  # Live domain: https://your-backend.example
-  # ---------------------------------------------------------------------------
-  - type: web
-    name: chanakyapublicschool
+    name: chanakya-public-school
     runtime: node
-    plan: free
-    buildCommand: npm run build
+    plan: starter
+    region: singapore          # closest Render region to Bihar
+    buildCommand: npm ci --include=dev && npm run build
     startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
     envVars:
       - key: NODE_ENV
         value: production
+      - key: NODE_VERSION
+        value: "20"
+      # --- required ---
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ID_CARD_QR_SECRET
+        generateValue: true
+      - key: FRONTEND_URL        # e.g. https://chanakya-public-school.onrender.com (later your own domain)
+        sync: false
+      - key: INITIAL_ADMIN_NAME
+        sync: false
+      - key: INITIAL_ADMIN_EMAIL
+        sync: false
+      - key: INITIAL_ADMIN_PASSWORD
+        sync: false
+      # --- optional: fill in the dashboard when the feature is needed ---
+      - key: BREVO_API_KEY
+        sync: false
+      - key: BREVO_SENDER_EMAIL
+        sync: false
+      - key: R2_ACCESS_KEY
+        sync: false
+      - key: R2_SECRET_KEY
+        sync: false
+      - key: R2_BUCKET
+        sync: false
+      - key: R2_ENDPOINT
+        sync: false
+      - key: R2_REGION
+        value: auto
