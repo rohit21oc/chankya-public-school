@@ -19,7 +19,7 @@ import { startFakePhonePe } from './lib/fakePhonePe.mjs';
 
 const BASE = process.env.BASE_URL || 'http://localhost:3000';
 if (!/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(BASE)) { console.error('Refusing to run: BASE_URL must be localhost.'); process.exit(2); }
-const S = process.env.JWT_SECRET || 'residential_pds_sheohar_jwt_production_secret_key_2026';
+const S = process.env.JWT_SECRET || 'residential_cps_sheohar_jwt_production_secret_key_2026';
 const WH_USER = process.env.PP_WEBHOOK_USERNAME || 'whuser';
 const WH_PASS = process.env.PP_WEBHOOK_PASSWORD || 'whpass';
 const WH_HMAC = process.env.PP_WEBHOOK_HMAC_SECRET || 'hmacsecret';

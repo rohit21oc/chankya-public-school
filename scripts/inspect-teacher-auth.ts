@@ -10,7 +10,7 @@ async function main() {
     console.error('MONGODB_URI not found in env');
     return;
   }
-  await mongoose.connect(uri, { dbName: 'pds_school_erp' });
+  await mongoose.connect(uri, { dbName: 'cps_school_erp' });
   const db = mongoose.connection.db;
   if (!db) {
     console.error('Failed to get database handle');

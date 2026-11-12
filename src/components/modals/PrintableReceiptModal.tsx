@@ -147,7 +147,7 @@ const ReceiptSlip: React.FC<ReceiptSlipProps> = ({
             {effectiveLogo ? (
               <img
                 src={effectiveLogo}
-                alt={settings?.schoolName || 'Residential PDS Public School Sheohar'}
+                alt={settings?.schoolName || 'Chanakya Public School & Coaching Centre'}
                 className="w-10 h-10 sm:w-11 sm:h-11 object-contain border border-slate-200 rounded-md p-0.5 bg-white shrink-0 block print:w-11 print:h-11"
                 referrerPolicy="no-referrer"
                 onError={handleLogoError}
@@ -159,7 +159,7 @@ const ReceiptSlip: React.FC<ReceiptSlipProps> = ({
             )}
             <div>
               <h3 className="text-xs sm:text-[13px] font-black uppercase tracking-wide text-slate-900 leading-tight font-serif">
-                {settings?.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR'}
+                {settings?.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE'}
               </h3>
               <p className="text-[9px] text-slate-600 leading-tight mt-0.5">
                 {settings?.schoolAddress || NOT_CONFIGURED}

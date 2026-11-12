@@ -1,5 +1,5 @@
 /** Where half-filled staff forms are kept in the browser (see useStaffDraft). */
-export const STAFF_DRAFT_PREFIX = 'pds-staff-draft:v1:';
+export const STAFF_DRAFT_PREFIX = 'cps-staff-draft:v1:';
 
 /** Remove every saved staff draft. Called on sign-out so a shared computer keeps nothing. */
 export function clearAllStaffDrafts() {

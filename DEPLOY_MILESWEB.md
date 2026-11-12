@@ -15,30 +15,30 @@ Database MongoDB Atlas hi rahega (MilesWeb par MongoDB nahi chahiye).
 |---|---|
 | Node.js version | 22.x (ya 20.x se upar) |
 | Application mode | Production |
-| Application root | `residentialpdsschool` |
+| Application root | `chanakyapublicschool` |
 | Application URL | apna domain (root, koi sub-path nahi) |
 | Application startup file | `app.cjs` |
 
 Create dabao, phir app ko **Stop** kar do (code aane tak).
-Upar jo command dikhe (`source /home/<user>/nodevenv/residentialpdsschool/22/bin/activate && cd ...`) use copy kar lo.
+Upar jo command dikhe (`source /home/<user>/nodevenv/chanakyapublicschool/22/bin/activate && cd ...`) use copy kar lo.
 
 ## 2. Code lao aur build karo (SSH / cPanel Terminal)
 ```bash
 # app folder ko code se bharo (private repo: GitHub token ya deploy key lagega)
-cd ~ && rm -rf residentialpdsschool.tmp
-git clone https://github.com/rohit21oc/residentialpdsschool.git residentialpdsschool.tmp
-cp -a residentialpdsschool.tmp/. residentialpdsschool/ && rm -rf residentialpdsschool.tmp
+cd ~ && rm -rf chanakyapublicschool.tmp
+git clone https://github.com/rohit21oc/chanakyapublicschool.git chanakyapublicschool.tmp
+cp -a chanakyapublicschool.tmp/. chanakyapublicschool/ && rm -rf chanakyapublicschool.tmp
 
-# .env ko File Manager se ~/residentialpdsschool/.env par upload karo, phir:
-chmod 600 ~/residentialpdsschool/.env
+# .env ko File Manager se ~/chanakyapublicschool/.env par upload karo, phir:
+chmod 600 ~/chanakyapublicschool/.env
 
 # Node environment me jao (Step 1 wali command) aur deploy script chalao
-source ~/nodevenv/residentialpdsschool/22/bin/activate
-cd ~/residentialpdsschool && bash scripts/milesweb-deploy.sh
+source ~/nodevenv/chanakyapublicschool/22/bin/activate
+cd ~/chanakyapublicschool && bash scripts/milesweb-deploy.sh
 ```
 Phir cPanel me app **Start / Restart** karo.
 
-Aage har update ke liye bas: `source ...activate && cd ~/residentialpdsschool && bash scripts/milesweb-deploy.sh`
+Aage har update ke liye bas: `source ...activate && cd ~/chanakyapublicschool && bash scripts/milesweb-deploy.sh`
 
 **SSH nahi hai to:** apne computer par `npm install && npm run build` karo, phir `dist/`, `data/`, `app.cjs`, `package.json`,
 `package-lock.json` ko zip karke File Manager se app folder me upload/extract karo, `.env` upload karo,

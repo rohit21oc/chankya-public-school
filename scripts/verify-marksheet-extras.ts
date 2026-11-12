@@ -17,14 +17,14 @@ const subjects: any[] = [
 ];
 const student: any = {
   id: 's1', name: 'Rohit Kumar', className: 'Class 2', classId: 'c2', section: 'A', admissionNumber: '64010009',
-  rollNumber: '1', registrationNumber: 'PDS2026020009', dob: '2003-12-27', gender: 'Male',
+  rollNumber: '1', registrationNumber: 'CPS2026020009', dob: '2003-12-27', gender: 'Male',
   fatherName: 'Kishori Sahni', motherName: 'Malti Devi',
 };
 const mk = (subjectId: string, marks: number, extra: any = {}): any => ({ id: `${subjectId}${marks}`, examId: 'e1', studentId: 's1', subjectId, marksObtained: marks, maxMarks: 100, isAbsent: false, ...extra });
 
 const pass = buildMarksheet(subjects, [mk('en', 60), mk('ma', 70)]);
 const text = buildMarksheetQrText(student, pass);
-check('QR has name, class, admission, roll, registration', /Student Name: ROHIT KUMAR/.test(text) && /Class & Section: Class 2 - A/.test(text) && /Admission No: 64010009/.test(text) && /Roll No: 1/.test(text) && /Registration No: PDS2026020009/.test(text));
+check('QR has name, class, admission, roll, registration', /Student Name: ROHIT KUMAR/.test(text) && /Class & Section: Class 2 - A/.test(text) && /Admission No: 64010009/.test(text) && /Roll No: 1/.test(text) && /Registration No: CPS2026020009/.test(text));
 check('QR has DOB, gender, parents', /Date of Birth: 2003-12-27/.test(text) && /Gender: MALE/.test(text) && /Father's Name: KISHORI SAHNI/.test(text) && /Mother's Name: MALTI DEVI/.test(text));
 check('QR has result, obtained marks, percentage', /Result: PASS/.test(text) && /Obtained Marks: 130 \/ 200/.test(text) && /Percentage: 65\.00%/.test(text));
 check('QR has no attendance', !/attendance/i.test(text));

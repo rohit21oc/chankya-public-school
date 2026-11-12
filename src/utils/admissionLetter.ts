@@ -197,7 +197,7 @@ export function buildAdmissionLetterModel(
       contactLine: contactParts.join('  •  '),
       boardLine: boardParts.join('  •  '),
     },
-    referenceNo: `PDS/ADM/${student.admissionNumber}`,
+    referenceNo: `CPS/ADM/${student.admissionNumber}`,
     letterDate: formatLetterDate(now),
     student: {
       name: text(student.name),

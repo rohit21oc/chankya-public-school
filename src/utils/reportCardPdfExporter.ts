@@ -120,7 +120,7 @@ async function buildSingleReportCardPage(
   doc.setFont('times', 'bold');
   doc.setFontSize(17);
   doc.setTextColor(11, 31, 75);
-  const schoolName = (settings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR').toUpperCase();
+  const schoolName = (settings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE').toUpperCase();
   doc.text(schoolName, pageWidth / 2 + 6, currentY + 7, { align: 'center', maxWidth: innerW - 30 });
 
   doc.setFont('helvetica', 'normal');
@@ -196,7 +196,7 @@ async function buildSingleReportCardPage(
   const col2X = col1X + 78;
   const father = student.fatherName || student.parentName || '';
   const mother = student.motherName || '';
-  const regNo = student.registrationNumber || `PDS${student.admissionNumber}`;
+  const regNo = student.registrationNumber || `CPS${student.admissionNumber}`;
 
   const particularsLeft: [string, string][] = [
     ['Student Name', student.name.toUpperCase()],
@@ -545,7 +545,7 @@ export async function exportBulkReportCardsToPdf(options: BulkReportCardPdfOptio
       doc.deletePage(doc.getNumberOfPages());
     }
 
-    const schoolClean = (settings.schoolName || 'PDS_School').replace(/[^a-zA-Z0-9]/g, '_');
+    const schoolClean = (settings.schoolName || 'CPS_School').replace(/[^a-zA-Z0-9]/g, '_');
     const examClean = (exam?.name || exam?.title || 'Exam').replace(/[^a-zA-Z0-9]/g, '_');
     const filename = `${schoolClean}_Class_ReportCards_${examClean}_${uniqueStudents.length}Students.pdf`;
 

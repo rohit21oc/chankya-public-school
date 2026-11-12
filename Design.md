@@ -1,21 +1,21 @@
 # Design System & Institutional Branding Manual
 
-## RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR
+## CHANAKYA PUBLIC SCHOOL & COACHING CENTRE
 **Institutional Design Language, Visual Tokens & Component Architecture**
 
 ---
 
 ### 1. Institutional Identity & Official Brand Assets
 
-* **Official Institution Name:** RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR
-* **Campus Address:** BRC Near Shahpur Road, Sheohar, Bihar - 843329
-* **CBSE Affiliation Code:** 10030206405
-* **School Code:** PDS-7821
+* **Official Institution Name:** CHANAKYA PUBLIC SCHOOL & COACHING CENTRE
+* **Campus Address:** Kushahar Ward 07, Kushahar, Sheohar, Bihar - 843329
+* **CBSE Affiliation Code:** 10034104008
+* **School Code:** CPS-7821
 * **Affiliated Board:** Central Board of Secondary Education (CBSE), New Delhi
-* **Institutional Email:** residentialpdspublicschool@gmail.com
-* **Primary Mobile Contacts:** +91 9507595491, +91 8271676713
-* **Office & Landline Contacts:** +91 9939115492, 06222-796505
-* **Official Crest / Logo Key in Cloudflare R2:** `school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png`
+* **Institutional Email:** cpskushahar@gmail.com
+* **Primary Mobile Contacts:** +91 8207870192, +91 8207870192
+* **Office & Landline Contacts:** +91 8207870192, 06222-796505
+* **Official Crest / Logo Key in Cloudflare R2:** `school/school-logo/logo.png`
 
 ---
 
@@ -212,7 +212,7 @@ Standardized printable documents are configured in `src/index.css` under `@media
 
 2. **Official Fee Payment Receipts (`PrintableReceiptModal.tsx`):**
    - Format: A4 portrait or A5 voucher.
-   - Header: School name, CBSE Affiliation Code 10030206405, campus address, receipt number, date, payment mode, transaction ID.
+   - Header: School name, CBSE Affiliation Code 10034104008, campus address, receipt number, date, payment mode, transaction ID.
    - Table: Itemized fee ledger heads (Tuition, Transport, Hostel, Late Fine, Discount).
    - Footer: Total Amount Received in words, outstanding balance, cashier signature, authorized stamp.
 
@@ -245,7 +245,7 @@ Standardized printable documents are configured in `src/index.css` under `@media
 
 To maintain visual purity across the codebase, adhere to these normalization rules:
 1. **Never use non-institutional primary blues:** Always use `bg-blue-600` or `bg-[#0B1F4B]`, not cyan, teal, or indigo.
-2. **Never hardcode school name variations:** Always use `RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR` or bind dynamically to `settings.schoolName`.
+2. **Never hardcode school name variations:** Always use `CHANAKYA PUBLIC SCHOOL & COACHING CENTRE` or bind dynamically to `settings.schoolName`.
 3. **Modal Z-Index Uniformity:** Backdrops use `z-50`; nested tooltips or dropdowns use `z-60`. Never introduce arbitrary `z-[9999]`.
 4. **Card Padding Uniformity:** Standard cards use `p-6`; compact list items use `p-4`.
 5. **Border Consistency:** Standard card borders use `border border-slate-200`; dark theme top bars use `border-b border-slate-800`.
@@ -320,8 +320,8 @@ All transactional emails dispatched via Brevo adhere to the school's official vi
    - **Primary CTA Buttons:** Solid `#1e3a8a` with 8px radius, bold white text (`#ffffff`), 14px/36px padding, and 0.5px letter spacing.
 
 2. **Institutional Header Block:**
-   - **Title:** `RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR` (20px uppercase, font-weight 800).
-   - **Address Subtitle:** `BRC Near Shahpur Road, Sheohar, Bihar - 843329` (13px `#cbd5e1`).
+   - **Title:** `CHANAKYA PUBLIC SCHOOL & COACHING CENTRE` (20px uppercase, font-weight 800).
+   - **Address Subtitle:** `Kushahar Ward 07, Kushahar, Sheohar, Bihar - 843329` (13px `#cbd5e1`).
    - **Portal Badge:** `School Management ERP Portal` (12px `#93c5fd` uppercase tracking).
 
 3. **Core Email Templates:**

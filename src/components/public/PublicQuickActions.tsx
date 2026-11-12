@@ -55,8 +55,8 @@ export const PublicQuickActions: React.FC<PublicQuickActionsProps> = ({
     },
     {
       id: 'hostel',
-      title: 'Residential Hostel',
-      desc: '24×7 Boarding & Care',
+      title: 'Campus & Facilities',
+      desc: 'Explore our school campus',
       icon: Home,
       iconBg: 'bg-emerald-100 text-[#16803C]',
       borderHover: 'hover:border-[#16803C]',

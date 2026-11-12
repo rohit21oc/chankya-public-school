@@ -71,7 +71,7 @@ for (const c of cases) {
   check("Shows the student's name", flat.includes(firstWord));
   check('Shows the class', flat.includes(String(c.student.className)));
   check('Shows the school name', flat.toUpperCase().includes(String(c.settings.schoolName).toUpperCase().split(' ')[0]));
-  for (const bad of ['MongoDB', 'PDS123', 'undefined', 'null', 'NaN', 'New Delhi', 'Password: 20', '[object']) {
+  for (const bad of ['MongoDB', 'CPS123', 'undefined', 'null', 'NaN', 'New Delhi', 'Password: 20', '[object']) {
     check(`Contains no "${bad}"`, !flat.includes(bad));
   }
   if (!c.settings.paymentOptions) {

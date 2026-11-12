@@ -10,7 +10,7 @@ import { apiService } from '../src/services/apiService';
 function runAssertions() {
   console.log('================================================================');
   console.log('MOBILE APP PART 1 VERIFICATION: UI/UX DESIGN & MODULE STRUCTURE');
-  console.log('RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR');
+  console.log('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE');
   console.log('================================================================\n');
 
   let passed = 0;
@@ -183,7 +183,7 @@ function runAssertions() {
   const studentUser: User = {
     id: 's-101',
     name: 'Aarav Sharma',
-    username: 'PDS-2026-001',
+    username: 'CPS-2026-001',
     role: 'STUDENT',
     studentId: 's-101',
   };

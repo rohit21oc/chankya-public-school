@@ -1,6 +1,6 @@
 # System Architecture Documentation
 
-## RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR
+## CHANAKYA PUBLIC SCHOOL & COACHING CENTRE
 **Single-School Institutional ERP & Digital Campus Platform**
 
 ---
@@ -14,8 +14,8 @@ The application is structured as a full-stack, decoupled-capable, single-school 
 * **Object Storage:** Cloudflare R2 (S3-compatible API) for persistent binary media, student photographs, faculty documents, and public website assets.
 * **Email Subsystem:** Brevo Transactional Email API (REST v3: `https://api.brevo.com/v3/smtp/email`) for secure password resets, student admission confirmations, staff account credentials, and administrative password updates.
 * **Production Deployment:** Hosted on Render with separate optimized services:
-  - Frontend SPA: Static Web Service (`https://residentialpdsschool.in`) with `/* -> /index.html` rewrite rules.
-  - Backend API: Node.js Web Service (`https://residentialpdsschool.onrender.com`) running bundled `dist/server.cjs`.
+  - Frontend SPA: Static Web Service (`https://your-school-domain.example`) with `/* -> /index.html` rewrite rules.
+  - Backend API: Node.js Web Service (`https://your-backend.example`) running bundled `dist/server.cjs`.
 
 ```
                                     +-----------------------------------------+
@@ -26,7 +26,7 @@ The application is structured as a full-stack, decoupled-capable, single-school 
                                                          v
                                     +-----------------------------------------+
                                     |         React 19 SPA (Render)           |
-                                    |  residentialpdspublicschool.onrender.com|
+                                    |  your-backend.example|
                                     +--------------------+--------------------+
                                                          |
                                   HTTPS REST API Calls   |  Live SSE Stream
@@ -34,7 +34,7 @@ The application is structured as a full-stack, decoupled-capable, single-school 
                                                          v
                                     +-----------------------------------------+
                                     |        Node.js / Express Backend        |
-                                    |      residentialpdsschool.onrender.com  |
+                                    |      your-backend.example  |
                                     +--------+------------------+-------------+
                                              |                  |
                        Mongoose 9 / MongoClient                 | AWS S3 SDK (v3)
@@ -43,7 +43,7 @@ The application is structured as a full-stack, decoupled-capable, single-school 
                           +-------------------------+  +-------------------------+
                           |   MongoDB Atlas Cloud   |  |      Cloudflare R2      |
                           | (Single Source of Truth)|  |     (Object Storage)    |
-                          |  Database: pds_school_erp| |  Bucket: school-documents|
+                          |  Database: cps_school_erp| |  Bucket: school-documents|
                           +-------------------------+  +-------------------------+
                                              |
                                              v Brevo Transactional Email API (REST v3)
@@ -89,7 +89,7 @@ The entry point `src/main.tsx` mounts `<App />` from `src/App.tsx`. The componen
 
 #### 2.3 Custom SPA Router Service (`src/services/routerService.ts`)
 Instead of heavy external routing libraries, the ERP uses a purpose-built, high-performance HTML5 History API router:
-* **Deep Linking & Refresh Preservation:** Listens to `popstate` and dispatches custom `pds:route_change` events.
+* **Deep Linking & Refresh Preservation:** Listens to `popstate` and dispatches custom `cps:route_change` events.
 * **URL Structure:**
   - `/` or `/website`: Public school landing page.
   - `/login`: Portal authentication.
@@ -103,9 +103,9 @@ Instead of heavy external routing libraries, the ERP uses a purpose-built, high-
 #### 2.4 Data Layer, State & Real-Time Sync
 1. **Central Service Cache & LocalStorage Boundary (`src/services/api.ts`):**
    - Maintains an in-memory reactive cache of all ERP collections.
-   - Frontend `localStorage` (key `'pds_school_erp'`) is utilized **exclusively as an optimistic, read-only, and offline-draft cache** to ensure instant initial UI hydration and prevent data loss during network hiccups. It is **never** the backend production source of truth.
+   - Frontend `localStorage` (key `'cps_school_erp'`) is utilized **exclusively as an optimistic, read-only, and offline-draft cache** to ensure instant initial UI hydration and prevent data loss during network hiccups. It is **never** the backend production source of truth.
    - On application mount, `api.syncWithServer()` issues parallel `fetch` calls to `/api/*` endpoints to hydrate cache directly from the authoritative MongoDB Atlas database.
-   - Emits custom window events (`pradnya_entity_*`, `academic-session-changed`) to trigger instantaneous UI re-renders.
+   - Emits custom window events (`cps_entity_*`, `academic-session-changed`) to trigger instantaneous UI re-renders.
 2. **Real-time Push Stream (`src/services/realtimeService.ts`):**
    - Establishes a native `EventSource` connection to `/api/realtime/events`.
    - Server maintains an in-memory 250-event circular buffer (`recentEventsBuffer`) and dispatches a keepalive heartbeat every 15 seconds (`: heartbeat\n\n`) to prevent proxy/load-balancer connection drops.
@@ -113,8 +113,8 @@ Instead of heavy external routing libraries, the ERP uses a purpose-built, high-
    - Updates local cache in real time without requiring manual page reloads.
    - Graceful Degradation: If SSE is closed by an aggressive firewall, falls back to lightweight polling (`/api/realtime/poll?since=...`).
 3. **API Configuration & Remote Backend Auto-Detection (`src/services/apiConfig.ts`):**
-   - Detects whether the app is running on Render production frontend (`residentialpdspublicschool.onrender.com`), static preview hosting, or local full-stack server.
-   - Routes requests to `https://residentialpdsschool.onrender.com` when running on the production frontend domain.
+   - Detects whether the app is running on Render production frontend (`your-backend.example`), static preview hosting, or local full-stack server.
+   - Routes requests to `https://your-backend.example` when running on the production frontend domain.
    - Injects `Authorization: Bearer <token>` automatically on all protected requests via `getAuthHeaders()`.
    - Validates client JWT token expiration client-side via `isJwtTokenExpired()`.
 
@@ -155,7 +155,7 @@ Instead of heavy external routing libraries, the ERP uses a purpose-built, high-
 * **Environment Variable:** `MONGODB_URI` (must be a valid MongoDB Atlas connection string, e.g. `mongodb+srv://...`).
 * **URI Sanitization (`sanitizeMongoUri`):** Automatically decodes, trims, and cleans accidentally URL-encoded or quoted credentials.
 * **Connection Pooling:** MongoClient with `serverSelectionTimeoutMS: 5000` and `connectTimeoutMS: 5000`.
-* **Database Name:** Defaults to `pds_school_erp`.
+* **Database Name:** Defaults to `cps_school_erp`.
 * **Index Configuration:**
   - `students`: `{ id: 1 }` (unique), `{ admissionNumber: 1 }` (unique), `{ classId: 1, section: 1, rollNumber: 1 }`.
   - `users`: `{ username: 1 }` (unique), `{ email: 1 }`, `{ role: 1 }`, `{ email: 1, userType: 1 }`.
@@ -262,14 +262,14 @@ Acts as a unified service coordinating MongoDB read/writes with Mongoose bulk op
 * **Configuration:**
   - `BREVO_API_KEY`: API key stored strictly in backend environment variables. Never exposed to frontend, GitHub, or public code.
   - `BREVO_SENDER_EMAIL`: Registered/verified sender email address.
-  - `BREVO_SENDER_NAME`: Institutional sender name (default: `RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR`).
+  - `BREVO_SENDER_NAME`: Institutional sender name (default: `CHANAKYA PUBLIC SCHOOL & COACHING CENTRE`).
 * **Supported Transactional Use Cases:**
   1. *Forgot Password:* Single-use cryptographic reset link expiring in 15 minutes. Plaintext passwords never sent.
   2. *Student Admission / Parent Credentials:* Automatic confirmation upon student enrollment with Admission Number / login ID and password instructions.
   3. *Staff Account Creation:* Automated welcome email dispatching Employee ID and temporary password with mandatory change-on-first-login notice.
   4. *Admin Password Reset:* Issued temporary password sent via Brevo only when explicitly requested; bcrypt hash updated in MongoDB immediately.
 * **Branding & Templates:**
-  - All emails rendered with institutional branding: **RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR**, address (`BRC Near Shahpur Road, Sheohar, Bihar - 843329`), secure action buttons, and official confidentiality footer.
+  - All emails rendered with institutional branding: **CHANAKYA PUBLIC SCHOOL & COACHING CENTRE**, address (`Kushahar Ward 07, Kushahar, Sheohar, Bihar - 843329`), secure action buttons, and official confidentiality footer.
 * **Logging Sanitization:** All error messages and logs strip Brevo API keys, passwords, tokens, and authorization hashes before writing to stdout.
 * **Dynamic Production Link Resolution:**
   - Password reset links are dynamically anchored to the canonical production frontend domain:
@@ -292,7 +292,7 @@ Acts as a unified service coordinating MongoDB read/writes with Mongoose bulk op
 
 #### 6.3 SMS Gateway & Idempotency Subsystem Architecture (`server/services/smsService.ts`)
 * **Core Gateway Integration:**
-  - Pluggable provider adapter supporting external gateways (Fast2SMS) and verified internal institutional gateway (`PDS_SMS_GATEWAY`) with sender ID `PDSSHR`.
+  - Pluggable provider adapter supporting external gateways (Fast2SMS) and verified internal institutional gateway (`CPS_SMS_GATEWAY`) with sender ID `CPSKSH`.
   - Phone Normalization: Cleans incoming mobile numbers to standard 10-digit Indian numbers (`[6-9]\d{9}`), stripping international `+91`, prefixes, and spaces.
   - GSM Credit Calculation: 1 credit unit per 160 GSM characters (`Math.ceil(charCount / 160)`).
 * **Strict Server-Side Idempotency Architecture:**
@@ -319,7 +319,7 @@ Acts as a unified service coordinating MongoDB read/writes with Mongoose bulk op
            |
            v
 [HTTP Request via fetch]
-   POST https://residentialpdsschool.onrender.com/api/fee-ledgers/:id/collect
+   POST https://your-backend.example/api/fee-ledgers/:id/collect
    Headers: { "Content-Type": "application/json", "Authorization": "Bearer <jwt>" }
            |
            v
@@ -414,8 +414,8 @@ Acts as a unified service coordinating MongoDB read/writes with Mongoose bulk op
         -> If not found: Proceed to Gateway Dispatch
                                 |
                                 v
-                [SMS Gateway Adapter (PDS / Fast2SMS / Gateway)]
-        Dispatches HTTP POST to SMS Provider with institutional Sender ID (PDSSHR)
+                [SMS Gateway Adapter (Fast2SMS / Gateway)]
+        Dispatches HTTP POST to SMS Provider with institutional Sender ID (CPSKSH)
         Parses gateway response & message ID
                                 |
                                 v
@@ -479,12 +479,12 @@ Defined in `/.env.example` and configured in production:
 | `R2_REGION` | Backend | Cloudflare S3 region (`auto`) | Backend Config |
 | `BREVO_API_KEY` | Backend | Brevo Transactional Email REST API Key | **CRITICAL SECRET** (Never expose to client) |
 | `BREVO_SENDER_EMAIL` | Backend | Verified sender email for Brevo | Backend Config |
-| `BREVO_SENDER_NAME` | Backend | Institutional sender name (`RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR`) | Backend Config |
+| `BREVO_SENDER_NAME` | Backend | Institutional sender name (`CHANAKYA PUBLIC SCHOOL & COACHING CENTRE`) | Backend Config |
 | `EMAIL_FROM` | Backend | Fallback display sender header | Backend Config |
 | `SMS_PROVIDER` | Backend | Active SMS provider gateway (`fast2sms` or `mock`) | Backend Config |
 | `FAST2SMS_API_KEY` | Backend | Fast2SMS / Gateway API Key | Backend Secret |
-| `SMS_SENDER_ID` | Backend | DLT registered sender ID (default `PDSSHR`) | Backend Config |
-| `FRONTEND_URL` | Backend | Canonical frontend URL (`https://residentialpdsschool.in`)| Backend Config |
+| `SMS_SENDER_ID` | Backend | DLT registered sender ID (default `CPSKSH`) | Backend Config |
+| `FRONTEND_URL` | Backend | Canonical frontend URL (`https://your-school-domain.example`)| Backend Config |
 | `APP_URL` | Backend | General application domain reference | Backend Config |
 | `VITE_API_URL` | Frontend | Remote backend API URL for static frontend builds | Public Config |
 | `GEMINI_API_KEY` | Backend | Server-side Gemini AI key (reserved for server capabilities) | Backend Secret |
@@ -496,8 +496,8 @@ Defined in `/.env.example` and configured in production:
 The production environment on Render is configured via `/render.yaml`:
 
 #### 9.1 Frontend Service (Static Site)
-* **Service Name:** `residentialpdspublicschool`
-* **Live Domain:** `https://residentialpdsschool.in`
+* **Service Name:** `chanakyapublicschool`
+* **Live Domain:** `https://your-school-domain.example`
 * **Type:** Static Site (`runtime: static`)
 * **Build Command:** `npm run build`
 * **Publish Directory:** `./dist`
@@ -511,8 +511,8 @@ The production environment on Render is configured via `/render.yaml`:
   *Crucial:* Guarantees that refreshing the page on deep routes (`/students`, `/fees/collection`, `/reset-password?token=...`) serves `index.html` instead of returning a Render 404 error.
 
 #### 9.2 Backend Service (Node.js Web Service)
-* **Service Name:** `residentialpdsschool`
-* **Live Domain:** `https://residentialpdsschool.onrender.com`
+* **Service Name:** `chanakyapublicschool`
+* **Live Domain:** `https://your-backend.example`
 * **Type:** Web Service (`runtime: node`, `plan: free`)
 * **Build Command:** `npm run build`
 * **Start Command:** `npm start` (executes `node dist/server.cjs`)
@@ -604,8 +604,6 @@ The production environment on Render is configured via `/render.yaml`:
     │   └── views/                             # Primary module view containers (Students, Fees, etc.)
     │       └── public-website/                # CMS tabs for hero slider, leadership, gallery, etc.
     ├── constants/                             # Admission constants and school logo
-    ├── data/
-    │   └── mockDatabase.ts                    # Fallback default objects
     ├── hooks/
     │   └── useRealtime.ts                     # React hook for real-time SSE subscriptions
     ├── services/

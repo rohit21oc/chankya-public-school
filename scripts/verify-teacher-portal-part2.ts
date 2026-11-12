@@ -53,17 +53,17 @@ async function runPart2Tests() {
   console.log('TEACHER PORTAL PART 2 — MY STUDENTS & DOCUMENTS SUITE');
   console.log('====================================================\n');
 
-  // 1. Authenticate Teacher (PDS0010 - Anil Kumar Mishra)
+  // 1. Authenticate Teacher (CPS0010 - Anil Kumar Mishra)
   console.log('--- Step 1: Teacher Authentication ---');
   const teacherLogin = await api('/auth/login', {
     method: 'POST',
     body: {
-      identifier: 'PDS0010',
+      identifier: 'CPS0010',
       password: 'admin123',
       loginType: 'STAFF_ADMIN',
     },
   });
-  assert(teacherLogin.status === 200 && Boolean(teacherLogin.data?.token), 'Teacher Login PDS0010 succeeds');
+  assert(teacherLogin.status === 200 && Boolean(teacherLogin.data?.token), 'Teacher Login CPS0010 succeeds');
   const teacherToken = teacherLogin.data?.token;
   const teacherHeaders = { Authorization: `Bearer ${teacherToken}` };
   assert(teacherLogin.data?.user?.role === 'TEACHER', 'Authenticated role is strictly TEACHER');

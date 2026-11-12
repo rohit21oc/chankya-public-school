@@ -47,17 +47,17 @@ async function run() {
     const loginRes = await api('/api/auth/login', {
       method: 'POST',
       body: {
-        identifier: 'PDS0002',
+        identifier: 'CPS0002',
         password: 'admin123',
         loginType: 'STAFF_ADMIN',
       },
     });
 
-    assert(loginRes.ok && loginRes.data?.success === true, 'Teacher login successful with PDS0002', `Token length: ${loginRes.data?.token?.length}`);
+    assert(loginRes.ok && loginRes.data?.success === true, 'Teacher login successful with CPS0002', `Token length: ${loginRes.data?.token?.length}`);
     teacherToken = loginRes.data?.token;
     teacherUser = loginRes.data?.user;
     assert(teacherUser?.role === 'TEACHER', 'Authenticated user has TEACHER role', `Role: ${teacherUser?.role}`);
-    assert(teacherUser?.employeeId === 'PDS0002', 'Authenticated user employeeId is PDS0002', `EmployeeId: ${teacherUser?.employeeId}`);
+    assert(teacherUser?.employeeId === 'CPS0002', 'Authenticated user employeeId is CPS0002', `EmployeeId: ${teacherUser?.employeeId}`);
   } catch (err: any) {
     assert(false, 'Teacher login failed', err.message);
   }
@@ -81,7 +81,7 @@ async function run() {
 
     // Verify teacher profile info
     assert(!!summary.teacher?.name, 'Summary contains teacher profile', `Teacher: ${summary.teacher?.name} (${summary.teacher?.designation})`);
-    assert(summary.teacher?.employeeId === 'PDS0002', 'Summary teacher matches authenticated employeeId', `ID: ${summary.teacher?.employeeId}`);
+    assert(summary.teacher?.employeeId === 'CPS0002', 'Summary teacher matches authenticated employeeId', `ID: ${summary.teacher?.employeeId}`);
 
     // Verify assigned classes
     assert(Array.isArray(summary.assignedClasses), 'Assigned classes array exists in summary', `Count: ${summary.assignedClasses?.length}`);

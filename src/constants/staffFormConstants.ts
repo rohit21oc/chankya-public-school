@@ -1,6 +1,6 @@
 /**
  * Comprehensive Institutional Constants for Faculty & Staff Registration & Profile Management
- * Residential PDS Public School Sheohar
+ * Chanakya Public School & Coaching Centre
  */
 
 export const INDIAN_STATES: string[] = [

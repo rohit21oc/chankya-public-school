@@ -12,7 +12,7 @@ export function validateNewPassword(pw: unknown): string | null {
   if (p.length > 128) return 'The password is too long (max 128 characters).';
   if (!/[A-Za-z]/.test(p) || !/\d/.test(p)) return PASSWORD_RULE_TEXT;
   if (/^(.)\1+$/.test(p)) return 'Choose a password that is harder to guess.';
-  const common = ['password1', 'password123', '12345678a', 'qwerty123', 'abc12345', 'pds12345', 'school123', 'welcome1'];
+  const common = ['password1', 'password123', '12345678a', 'qwerty123', 'abc12345', 'cps12345', 'school123', 'welcome1'];
   if (common.includes(p.toLowerCase())) return 'That password is too common. Choose another.';
   return null;
 }

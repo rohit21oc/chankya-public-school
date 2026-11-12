@@ -18,7 +18,8 @@ import { authStorage } from './authStorage';
 import { setFileBaseUrl } from '../utils/branding';
 import type { TeacherDashboardSummary, TeacherAuthorizedAssignments } from '../types/teacher';
 
-export const DEFAULT_PRODUCTION_API_URL = 'https://residentialpdsschool.in';
+// Set EXPO_PUBLIC_API_URL (or change this) to your own backend URL before building the app.
+export const DEFAULT_PRODUCTION_API_URL = 'https://set-your-backend-url.example';
 
 export interface ApiRequestOptions {
   timeoutMs?: number;

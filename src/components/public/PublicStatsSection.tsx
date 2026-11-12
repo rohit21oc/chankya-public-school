@@ -35,7 +35,7 @@ export const PublicStatsSection: React.FC = () => {
   const stats = [
     {
       id: 'stat-1',
-      number: statsData ? statsData.classRange : 'Nursery–Class 8',
+      number: statsData ? statsData.classRange : 'Class 1–8',
       label: 'Classes & Academic Wings',
       sub: statsData ? `${statsData.activeClasses} active graded levels` : 'Comprehensive co-ed schooling',
       icon: Award,
@@ -61,14 +61,14 @@ export const PublicStatsSection: React.FC = () => {
       id: 'stat-4',
       number: statsData ? String(statsData.activeClasses) : '0',
       label: 'Active Class Sections',
-      sub: statsData ? `${statsData.activeSubjects} curriculum subjects taught` : 'CBSE aligned curriculum',
+      sub: statsData ? `${statsData.activeSubjects} curriculum subjects taught` : 'Class 1 to 8 curriculum',
       icon: Building,
       color: 'text-indigo-400',
     },
     {
       id: 'stat-5',
       number: statsData ? String(statsData.activeRooms) : '0',
-      label: 'Residential Hostel Rooms',
+      label: 'Hostel Rooms',
       sub: 'Dormitories, dining & warden support',
       icon: ShieldCheck,
       color: 'text-teal-400',
@@ -83,6 +83,9 @@ export const PublicStatsSection: React.FC = () => {
     },
   ];
 
+  // Hostel / transport tiles only make sense when the school has set those up.
+  const visibleStats = stats.filter((st) => !(['stat-5', 'stat-6'].includes(st.id) && (!statsData || Number(st.number) === 0)));
+
   return (
     <section id="stats" className="py-14 sm:py-20 bg-slate-900 text-white relative overflow-hidden">
       {/* Subtle ambient lighting */}
@@ -95,12 +98,12 @@ export const PublicStatsSection: React.FC = () => {
             Excellence by the Numbers
           </h3>
           <p className="text-xs sm:text-sm text-slate-400">
-            The foundation of Residential PDS Public School Sheohar rests on verified milestones and uncompromising quality.
+            The foundation of Chanakya Public School & Coaching Centre rests on verified milestones and uncompromising quality.
           </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
-          {stats.map((st) => {
+          {visibleStats.map((st) => {
             const Icon = st.icon;
             return (
               <div

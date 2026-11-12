@@ -22,8 +22,8 @@ async function reconcileTeacherAuth() {
     process.exit(1);
   }
 
-  await mongoose.connect(mongoUri, { dbName: 'pds_school_erp' });
-  console.log('Connected to MongoDB (pds_school_erp)');
+  await mongoose.connect(mongoUri, { dbName: 'cps_school_erp' });
+  console.log('Connected to MongoDB (cps_school_erp)');
 
   // 1. Reconcile Admin Accounts in UserModel
   const adminDataPath = path.resolve(process.cwd(), 'data/adminAccounts.json');

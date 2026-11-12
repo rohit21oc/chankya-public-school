@@ -24,7 +24,7 @@ const read = (f: string) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', f
 const students: any[] = read('students.json');
 const attendance: any[] = read('attendance.json');
 const holidays: any[] = read('holidays.json');
-const meta = { schoolName: 'Residential PDS Public School', schoolAddress: 'Sheohar, Bihar', affiliationLine: '', className: 'Class 8', section: 'A', printDate: '21 Oct 2026' };
+const meta = { schoolName: 'Chanakya Public School & Coaching Centre', schoolAddress: 'Sheohar, Bihar', affiliationLine: '', className: 'Class 8', section: 'A', printDate: '21 Oct 2026' };
 
 function render(name: string, roster: any[], recs: any[], year: number, month: number) {
   const model = buildAttendanceRegisterModel(roster, recs, holidays, year, month);

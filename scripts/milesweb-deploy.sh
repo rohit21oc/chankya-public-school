@@ -1,8 +1,8 @@
 #!/bin/bash
 # Update and restart the ERP on MilesWeb (cPanel Node.js app), run over SSH from the app folder:
-#   cd ~/residentialpdsschool && bash scripts/milesweb-deploy.sh
+#   cd ~/chanakyapublicschool && bash scripts/milesweb-deploy.sh
 # Before the first run, enter the Node.js environment cPanel shows at the top of "Setup Node.js App", e.g.
-#   source ~/nodevenv/residentialpdsschool/22/bin/activate
+#   source ~/nodevenv/chanakyapublicschool/22/bin/activate
 set -euo pipefail
 cd "$(dirname "$0")/.."
 

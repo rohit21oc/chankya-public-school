@@ -254,7 +254,7 @@ export const StudentsView: React.FC<StudentsViewProps> = ({
   // Unfinished admission saved on this device (auto-saved by the admission form)
   const admissionDraft = React.useMemo(() => {
     try {
-      const raw = localStorage.getItem('pds_student_admission_draft');
+      const raw = localStorage.getItem('cps_student_admission_draft');
       if (!raw) return null;
       const d = JSON.parse(raw);
       const f = d?.formData || {};

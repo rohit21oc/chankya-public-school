@@ -1,7 +1,7 @@
 import React from 'react';
 import { fileUploadService } from '../services/fileUploadService';
 
-export const DEFAULT_CANONICAL_LOGO_KEY = 'school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png';
+export const DEFAULT_CANONICAL_LOGO_KEY = 'school/school-logo/logo.png';
 
 /**
  * Dynamically resolves the school logo URL from Cloudflare R2 / Server storage.

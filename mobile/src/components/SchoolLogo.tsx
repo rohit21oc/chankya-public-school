@@ -12,7 +12,7 @@ export const SchoolLogo: React.FC<{ size?: number; framed?: boolean }> = ({ size
       { width: size, height: size, borderRadius: size / 2 },
     ]}
     accessible
-    accessibilityLabel="Residential PDS Public School logo"
+    accessibilityLabel="Chanakya Public School & Coaching Centre logo"
   >
     <Image source={LOGO} style={{ width: size - (framed ? 4 : 0), height: size - (framed ? 4 : 0) }} resizeMode="contain" />
   </View>

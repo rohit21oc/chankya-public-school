@@ -113,12 +113,12 @@ export const AuditLogsView: React.FC<AuditLogsViewProps> = ({ currentUser, userR
       fetchLogs(page, pageSize);
     };
 
-    window.addEventListener('pradnya_entity_audit_logs', handleAuditUpdate);
-    window.addEventListener('pradnya_realtime_event', handleAuditUpdate);
+    window.addEventListener('cps_entity_audit_logs', handleAuditUpdate);
+    window.addEventListener('cps_realtime_event', handleAuditUpdate);
 
     return () => {
-      window.removeEventListener('pradnya_entity_audit_logs', handleAuditUpdate);
-      window.removeEventListener('pradnya_realtime_event', handleAuditUpdate);
+      window.removeEventListener('cps_entity_audit_logs', handleAuditUpdate);
+      window.removeEventListener('cps_realtime_event', handleAuditUpdate);
     };
   }, [fetchLogs, page, pageSize]);
 
@@ -208,7 +208,7 @@ export const AuditLogsView: React.FC<AuditLogsViewProps> = ({ currentUser, userR
       ]);
 
       const schoolHeader = [
-        `"RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR"`,
+        `"CHANAKYA PUBLIC SCHOOL & COACHING CENTRE"`,
         `"SYSTEM SECURITY AUDIT LOG EXPORT"`,
         `"Academic Session: ${academicSession}"`,
         `"Export Generated At: ${new Date().toLocaleString('en-IN')}"`,
@@ -222,7 +222,7 @@ export const AuditLogsView: React.FC<AuditLogsViewProps> = ({ currentUser, userR
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.setAttribute('href', url);
-      link.setAttribute('download', `PDS_Security_Audit_Log_${new Date().toISOString().split('T')[0]}.csv`);
+      link.setAttribute('download', `CPS_Security_Audit_Log_${new Date().toISOString().split('T')[0]}.csv`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -301,7 +301,7 @@ export const AuditLogsView: React.FC<AuditLogsViewProps> = ({ currentUser, userR
             </p>
           </div>
           <div className="pt-2 text-xs text-slate-400">
-            RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR • Security Protocol ISO 27001
+            CHANAKYA PUBLIC SCHOOL & COACHING CENTRE • Security Protocol ISO 27001
           </div>
         </div>
       </div>
@@ -339,7 +339,7 @@ export const AuditLogsView: React.FC<AuditLogsViewProps> = ({ currentUser, userR
                   </span>
                 </h1>
                 <p className="text-xs text-slate-500 font-medium">
-                  RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR • Academic Session: {academicSession}
+                  CHANAKYA PUBLIC SCHOOL & COACHING CENTRE • Academic Session: {academicSession}
                 </p>
               </div>
             </div>

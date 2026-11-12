@@ -162,7 +162,7 @@ export function isValidMerchantId(id: unknown): id is string {
   return typeof id === 'string' && /^[A-Za-z0-9_-]{1,63}$/.test(id);
 }
 
-export function newMerchantOrderId(prefix = 'PDS'): string {
+export function newMerchantOrderId(prefix = 'CPS'): string {
   return `${prefix}-${Date.now()}-${crypto.randomBytes(5).toString('hex')}`.slice(0, 63);
 }
 

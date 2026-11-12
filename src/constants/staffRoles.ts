@@ -2,7 +2,7 @@ import { UserRole } from '../types';
 
 /**
  * EXACT 10 PORTAL ROLES FOR FACULTY & STAFF
- * Residential PDS Public School Sheohar
+ * Chanakya Public School & Coaching Centre
  */
 export type PortalStaffRole =
   | 'SUPER_ADMIN'

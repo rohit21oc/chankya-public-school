@@ -180,7 +180,7 @@ export const StudentAdmissionView: React.FC<StudentAdmissionViewProps> = ({
   const [enableStudentPortal, setEnableStudentPortal] = useState(true);
   const [studentInitialPassword, setStudentInitialPassword] = useState('2012-05-15');
   const [enableParentPortal, setEnableParentPortal] = useState(true);
-  const [parentInitialPassword, setParentInitialPassword] = useState('PDS123');
+  const [parentInitialPassword, setParentInitialPassword] = useState('CPS123');
 
   // Automatically keep student initial password in sync with student DOB
   useEffect(() => {
@@ -207,11 +207,11 @@ export const StudentAdmissionView: React.FC<StudentAdmissionViewProps> = ({
   const [saveStatus, setSaveStatus] = useState<string | null>(null);
   const [previewData, setPreviewData] = useState({
     admissionNumber: '64010009',
-    registrationNumber: 'PDS2026100009',
+    registrationNumber: 'CPS2026100009',
     rollNumber: '1',
   });
 
-  const DRAFT_STORAGE_KEY = 'pds_student_admission_draft';
+  const DRAFT_STORAGE_KEY = 'cps_student_admission_draft';
 
   // Time of the last automatic save, shown next to the form ("Auto-saved 09:41")
   const [autoSavedAt, setAutoSavedAt] = useState<string | null>(null);
@@ -276,7 +276,7 @@ export const StudentAdmissionView: React.FC<StudentAdmissionViewProps> = ({
     setEnableStudentPortal(true);
     setStudentInitialPassword('2012-05-15');
     setEnableParentPortal(true);
-    setParentInitialPassword('PDS123');
+    setParentInitialPassword('CPS123');
     setSaveStatus(null);
     // Refresh preview identifiers
     const numbers = api.getNextStudentNumbers(initialFormData.classId, initialFormData.section);
@@ -821,7 +821,7 @@ export const StudentAdmissionView: React.FC<StudentAdmissionViewProps> = ({
         await api.updateStudentPortalStatus(student.id, { loginEnabled: false, accountStatus: 'INACTIVE' });
       }
 
-      const effectiveParentPassword = parentInitialPassword || 'PDS123';
+      const effectiveParentPassword = parentInitialPassword || 'CPS123';
       if (enableParentPortal && effectivePhone) {
         const p1: any = await api.updateParentPortalStatus(effectivePhone, { loginEnabled: true, accountStatus: 'ACTIVE' });
         const p2: any = await api.resetParentPassword(effectivePhone, effectiveParentPassword);
@@ -993,7 +993,7 @@ export const StudentAdmissionView: React.FC<StudentAdmissionViewProps> = ({
                 )}
               </div>
               <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-                {settings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL'} • Single-School Unified Ledger & Student Onboarding Desk
+                {settings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE'} • Single-School Unified Ledger & Student Onboarding Desk
               </p>
             </div>
           </div>

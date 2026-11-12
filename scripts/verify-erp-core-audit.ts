@@ -20,7 +20,7 @@ import { MongoClient, Db } from 'mongodb';
 const BASE = process.env.AUDIT_BASE_URL || 'http://localhost:3000';
 const MONGODB_URI = process.env.MONGODB_URI || '';
 const JWT_SECRET = process.env.JWT_SECRET || '';
-const DB_NAME = 'pds_school_erp';
+const DB_NAME = 'cps_school_erp';
 const RUN = Date.now().toString().slice(-6);
 
 type Result = { name: string; ok: boolean; detail?: string };

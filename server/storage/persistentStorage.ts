@@ -153,7 +153,7 @@ class PersistentStorageManager {
       const cleanUri = sanitizeMongoUri(rawUri);
       if (mongoose.connection.readyState !== 1) {
         await mongoose.connect(cleanUri, {
-          dbName: 'pds_school_erp',
+          dbName: 'cps_school_erp',
           maxPoolSize: 20,
           minPoolSize: 2,
           maxIdleTimeMS: 45000,
@@ -479,7 +479,7 @@ class PersistentStorageManager {
     }
     // No saved settings anywhere: identity only, no invented contact / principal details.
     return {
-      schoolName: 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+      schoolName: 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
       currentAcademicSession: '2026-2027',
       workingDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       gradingSystem: OFFICIAL_GRADING_SYSTEM,
@@ -2470,7 +2470,7 @@ class PersistentStorageManager {
       const cleanUri = sanitizeMongoUri(rawUri);
       if (mongoose.connection.readyState === 0 || mongoose.connection.readyState === 3) {
         await mongoose.connect(cleanUri, {
-          dbName: 'pds_school_erp',
+          dbName: 'cps_school_erp',
           maxPoolSize: 20,
           minPoolSize: 2,
           maxIdleTimeMS: 45000,
@@ -2907,7 +2907,7 @@ class PersistentStorageManager {
     }
     return {
       singleRecord: true,
-      aboutSchool: 'A premier educational institution dedicated to excellence in academics, character, and leadership.',
+      aboutSchool: 'A co-educational school in Kushahar, Sheohar, Bihar, offering Classes 1 to 8.',
       vision: 'To foster visionary leaders grounded in values, curiosity, and global perspective.',
       visionStatement: 'To foster visionary leaders grounded in values, curiosity, and global perspective.',
       visionPoints: [
@@ -2918,14 +2918,14 @@ class PersistentStorageManager {
       mission: 'To empower students through holistic education and rigorous scholarship.',
       missionStatement: 'To empower students through holistic education and rigorous scholarship.',
       missionPoints: [
-        'State-of-the-art laboratory and digital classroom infrastructure.',
-        'Continuous mentor-student guidance in a safe residential boarding environment.',
-        'Affordable, accessible, high-caliber CBSE curriculum in Sheohar, Bihar.'
+        'Strong basics in Mathematics, Science and Social Science.',
+        'Computer education, Music, Dance and Yoga alongside academics.',
+        'Caring teachers and a safe, supportive school environment.'
       ],
-      chairmanMessage: 'Welcome to RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR. Our vision is to empower every child with knowledge, confidence, and leadership.',
-      principalMessage: 'Education is the most powerful catalyst for institutional and societal transformation. We nurture every student with academic diligence and character.',
-      academicsOverview: 'CBSE affiliated curriculum from Pre-Primary through Senior Secondary with experiential learning, smart classrooms, and individualized mentorship.',
-      hostelOverview: 'Safe, disciplined, and comfortable residential hostel wings with modern amenities, nutritious dining, dedicated study hours, and 24x7 supervision.',
+      chairmanMessage: '',
+      principalMessage: '',
+      academicsOverview: 'Classes 1 to 8, following the State curriculum in primary classes and NCERT in upper primary classes.',
+      hostelOverview: '',
     };
   }
 

@@ -34,7 +34,7 @@ async function runTest(name: string, fn: () => Promise<void>) {
 
 async function runSuite() {
   console.log('====================================================');
-  console.log('RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR');
+  console.log('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE');
   console.log('Authentication & Password Management Verification');
   console.log('====================================================\n');
 
@@ -44,14 +44,14 @@ async function runSuite() {
   const staffRolesToTest = [
     { role: 'SUPER_ADMIN', identifier: 'admin', expectedRole: 'SUPER_ADMIN' },
     { role: 'SCHOOL_ADMIN', identifier: 'schooladmin', expectedRole: 'SCHOOL_ADMIN' },
-    { role: 'PRINCIPAL', identifier: 'PDS0001', expectedRole: 'PRINCIPAL' },
-    { role: 'TEACHER', identifier: 'PDS0002', expectedRole: 'TEACHER' },
-    { role: 'ACCOUNTANT', identifier: 'PDS0004', expectedRole: 'ACCOUNTANT' },
-    { role: 'HR_STAFF', identifier: 'PDS0005', expectedRole: 'HR_STAFF' },
-    { role: 'HOSTEL_WARDEN', identifier: 'PDS0006', expectedRole: 'HOSTEL_WARDEN' },
-    { role: 'TRANSPORT_MANAGER', identifier: 'PDS0007', expectedRole: 'TRANSPORT_MANAGER' },
-    { role: 'ACADEMIC_COORDINATOR', identifier: 'PDS0008', expectedRole: 'ACADEMIC_COORDINATOR' },
-    { role: 'VICE_PRINCIPAL', identifier: 'PDS0009', expectedRole: 'VICE_PRINCIPAL' },
+    { role: 'PRINCIPAL', identifier: 'CPS0001', expectedRole: 'PRINCIPAL' },
+    { role: 'TEACHER', identifier: 'CPS0002', expectedRole: 'TEACHER' },
+    { role: 'ACCOUNTANT', identifier: 'CPS0004', expectedRole: 'ACCOUNTANT' },
+    { role: 'HR_STAFF', identifier: 'CPS0005', expectedRole: 'HR_STAFF' },
+    { role: 'HOSTEL_WARDEN', identifier: 'CPS0006', expectedRole: 'HOSTEL_WARDEN' },
+    { role: 'TRANSPORT_MANAGER', identifier: 'CPS0007', expectedRole: 'TRANSPORT_MANAGER' },
+    { role: 'ACADEMIC_COORDINATOR', identifier: 'CPS0008', expectedRole: 'ACADEMIC_COORDINATOR' },
+    { role: 'VICE_PRINCIPAL', identifier: 'CPS0009', expectedRole: 'VICE_PRINCIPAL' },
   ];
 
   for (const item of staffRolesToTest) {
@@ -167,12 +167,12 @@ async function runSuite() {
   // TEST 5: AUTHENTICATED USER CHANGE PASSWORD
   // ----------------------------------------------------
   await runTest('Logged-in User Change Password', async () => {
-    // 1. Login as teacher PDS0002
+    // 1. Login as teacher CPS0002
     const loginRes = await fetch(`${BASE_URL}/api/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        identifier: 'PDS0002',
+        identifier: 'CPS0002',
         password: 'admin123',
         loginType: 'STAFF_ADMIN',
       }),
@@ -203,7 +203,7 @@ async function runSuite() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        identifier: 'PDS0002',
+        identifier: 'CPS0002',
         password: 'TeacherPass#2026',
         loginType: 'STAFF_ADMIN',
       }),
@@ -286,7 +286,7 @@ async function runSuite() {
       },
       body: JSON.stringify({
         targetType: 'STAFF',
-        targetId: 'PDS0001',
+        targetId: 'CPS0001',
         newPassword: 'HackedPassword#1',
         sendEmail: false,
       }),
@@ -295,7 +295,7 @@ async function runSuite() {
       throw new Error(`RBAC Failure: School Admin was able to reset Principal (HTTP ${principalResetRes.status})`);
     }
 
-    // 5. Authorized Reset: Super Admin resets teacher PDS0003 password
+    // 5. Authorized Reset: Super Admin resets teacher CPS0003 password
     const authResetRes = await fetch(`${BASE_URL}/api/admin/reset-password-direct`, {
       method: 'POST',
       headers: {
@@ -304,7 +304,7 @@ async function runSuite() {
       },
       body: JSON.stringify({
         targetType: 'STAFF',
-        targetId: 'PDS0003',
+        targetId: 'CPS0003',
         newPassword: 'TeacherThree#2026',
         sendEmail: false,
       }),
@@ -314,22 +314,22 @@ async function runSuite() {
       throw new Error(`Super Admin reset staff password failed: ${authResetData.error}`);
     }
 
-    // Verify teacher PDS0003 can now log in with new password
-    const pds3Login = await fetch(`${BASE_URL}/api/auth/login`, {
+    // Verify teacher CPS0003 can now log in with new password
+    const cps3Login = await fetch(`${BASE_URL}/api/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        identifier: 'PDS0003',
+        identifier: 'CPS0003',
         password: 'TeacherThree#2026',
         loginType: 'STAFF_ADMIN',
       }),
     });
-    const pds3Data = await pds3Login.json();
-    if (!pds3Data.success) {
-      throw new Error('Teacher PDS0003 could not log in with admin-reset password');
+    const cps3Data = await cps3Login.json();
+    if (!cps3Data.success) {
+      throw new Error('Teacher CPS0003 could not log in with admin-reset password');
     }
 
-    // Restore PDS0003 password back to admin123
+    // Restore CPS0003 password back to admin123
     await fetch(`${BASE_URL}/api/admin/reset-password-direct`, {
       method: 'POST',
       headers: {
@@ -338,7 +338,7 @@ async function runSuite() {
       },
       body: JSON.stringify({
         targetType: 'STAFF',
-        targetId: 'PDS0003',
+        targetId: 'CPS0003',
         newPassword: 'admin123',
         sendEmail: false,
       }),

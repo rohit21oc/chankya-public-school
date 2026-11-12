@@ -31,9 +31,9 @@ interface KeyValueStore {
   remove(key: string): Promise<void>;
 }
 
-const KEY_TOKEN = 'pds_mobile_token';
-const KEY_USER = 'pds_mobile_user';
-const KEY_CHILD = 'pds_mobile_active_student_id';
+const KEY_TOKEN = 'cps_mobile_token';
+const KEY_USER = 'cps_mobile_user';
+const KEY_CHILD = 'cps_mobile_active_student_id';
 
 /**
  * Where the sign-in is kept between app launches.

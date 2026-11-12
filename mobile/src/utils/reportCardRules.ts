@@ -1,6 +1,6 @@
 /**
  * Report Card Evaluation & Calculation Rules
- * RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR
+ * CHANAKYA PUBLIC SCHOOL & COACHING CENTRE
  *
  * Implements CBSE scholastic assessment 9-point evaluation grading scale,
  * subject-wise pass/fail criteria, and promotional result determination.

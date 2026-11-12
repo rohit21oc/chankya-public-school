@@ -505,11 +505,11 @@ export const AttendanceView: React.FC<AttendanceViewProps> = ({ currentUser: pro
   const weekOffSet = workingDaySet((activeSchoolSettings as any)?.workingDays);
   const isWeekOffDay = (y: number, m: number, d: number) =>
     isWeekOff(`${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`, weekOffSet);
-  const schoolName = activeSchoolSettings?.schoolName || 'Residential P.D.S. Public School';
+  const schoolName = activeSchoolSettings?.schoolName || 'Chanakya Public School & Coaching Centre';
   const schoolLogoSrc = getSchoolLogoSrc(activeSchoolSettings?.schoolLogo);
   const schoolAddress = activeSchoolSettings?.schoolAddress || '';
   const affiliationNumber = activeSchoolSettings?.affiliationNumber || activeSchoolSettings?.affiliationCode || '';
-  const affiliatedBoard = activeSchoolSettings?.affiliatedBoard || 'CBSE';
+  const affiliatedBoard = activeSchoolSettings?.affiliatedBoard || '';
 
   const selectedClassObj = availableClasses.find((c) => c.classId === selectedClassId);
   const currentClassName = selectedClassObj?.className || (selectedClassId ? `Class ${selectedClassId}` : 'All Classes');
@@ -607,7 +607,7 @@ export const AttendanceView: React.FC<AttendanceViewProps> = ({ currentUser: pro
     const meta = {
       schoolName,
       schoolAddress,
-      affiliationLine: affiliationNumber ? `Affiliation No: ${affiliationNumber} (${affiliatedBoard})` : '',
+      affiliationLine: affiliationNumber ? `Affiliation No: ${affiliationNumber}${affiliatedBoard ? ` (${affiliatedBoard})` : ''}` : '',
       className: currentClassName,
       section: selectedSection,
       printDate,
@@ -858,7 +858,7 @@ export const AttendanceView: React.FC<AttendanceViewProps> = ({ currentUser: pro
       await api.applyStaffLeaveAsync({
         staffId: activeUser.id,
         staffName: activeUser.name,
-        employeeId: activeUser.employeeId || 'PDS0000',
+        employeeId: activeUser.employeeId || 'CPS0000',
         leaveType: leaveForm.leaveType,
         startDate: leaveForm.startDate,
         endDate: leaveForm.endDate,
@@ -1573,7 +1573,7 @@ export const AttendanceView: React.FC<AttendanceViewProps> = ({ currentUser: pro
                   {schoolAddress && (
                     <p className="text-[8pt] text-slate-600 mt-0.5 leading-tight">
                       {schoolAddress}
-                      {affiliationNumber ? ` • Affiliation No: ${affiliationNumber} (${affiliatedBoard})` : ''}
+                      {affiliationNumber ? ` • Affiliation No: ${affiliationNumber}${affiliatedBoard ? ` (${affiliatedBoard})` : ''}` : ''}
                     </p>
                   )}
                   <div className="text-[9pt] font-black uppercase text-slate-800 tracking-wider mt-1">

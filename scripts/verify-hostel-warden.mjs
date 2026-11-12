@@ -10,7 +10,7 @@ import jwt from 'jsonwebtoken';
 
 const B = process.env.BASE_URL || 'http://localhost:3000';
 if (!/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(B)) { console.error('Refusing to run: BASE_URL must be localhost.'); process.exit(2); }
-const S = process.env.JWT_SECRET || 'residential_pds_sheohar_jwt_production_secret_key_2026';
+const S = process.env.JWT_SECRET || 'residential_cps_sheohar_jwt_production_secret_key_2026';
 const read = (f) => JSON.parse(fs.readFileSync(new URL(`../data/${f}`, import.meta.url), 'utf8'));
 const admin = read('adminAccounts.json').find((a) => a.role === 'SUPER_ADMIN');
 const ADMIN = jwt.sign({ userId: admin.id, role: admin.role }, S, { expiresIn: '30m' });
@@ -93,7 +93,7 @@ r = await call('GET', '/api/hostel-warden/me', ADMIN);
 check('Super Admin sees every hostel', r.s === 200 && r.j.hostels.length === hostels.hostels.length, short(r));
 
 // --- the warden's own record wins over another staff member with the same (school) email ---
-const sharedEmail = `office${stamp}@pds.test`;
+const sharedEmail = `office${stamp}@cps.test`;
 await call('PUT', `/api/staff/${warden.id}`, ADMIN, { email: sharedEmail, hostelAssignment: { hostelId: MY.id, hostelName: MY.name }, hostelId: MY.id });
 const { staff: vp } = await mkStaff('Vice Principal Test', '204', { portalRole: 'VICE_PRINCIPAL', designation: 'Vice Principal', department: 'Senior Wing', email: sharedEmail });
 check('A Vice Principal with the same email is registered after the warden', !!vp?.id);

@@ -22,9 +22,9 @@ for (const [label, make] of [['student admission', createStudentAdmissionFormPdf
   });
 }
 t('letterhead never prints old demo values: they show as Not configured', () => {
-  const l = letterheadLines({ schoolAddress: 'Campus-1, Vidya Vihar, Sheohar', email: 'principal@pdsresidential.edu.in', contactNumber: '+91 94312 87650' } as any);
+  const l = letterheadLines({ schoolAddress: 'Campus-1, Vidya Vihar, Sheohar', email: 'principal@chanakyaschool.example', contactNumber: '+91 94312 87650' } as any);
   assert.ok(l.address.includes('Not configured'));
-  assert.ok(!l.contact.includes('94312') && !l.contact.includes('pdsresidential'));
+  assert.ok(!l.contact.includes('94312') && !l.contact.includes('chanakyaschool'));
   assert.ok(l.contact.includes('Not configured'));
   assert.ok(l.affiliation.includes('Not configured'));
 });

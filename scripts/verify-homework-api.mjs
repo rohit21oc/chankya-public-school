@@ -34,7 +34,7 @@ async function mkTeacher(name, phone, cls, sec, clsName, subj) {
 const t1 = await mkTeacher(`HW Teacher One ${stamp}`, `91${String(stamp).padStart(5,'0')}101`, 'c-1', 'A', 'Class 1', 'Hindi Course-A');
 const t2 = await mkTeacher(`HW Teacher Two ${stamp}`, `91${String(stamp).padStart(5,'0')}102`, 'c-2', 'A', 'Class 2', 'English Language & Literature');
 const mongo = await MongoClient.connect(process.env.MONGODB_URI);
-await mongo.db('pds_school_erp').collection('users').updateMany({ id: { $in: [t1.id, t2.id] } }, { $set: { mustChangePassword: false } });
+await mongo.db('cps_school_erp').collection('users').updateMany({ id: { $in: [t1.id, t2.id] } }, { $set: { mustChangePassword: false } });
 const login = async (body) => { const [s, b] = await call('POST', '/api/auth/login', null, body); return [s, b, b.token || b.accessToken]; };
 let [s1, b1, tok1] = await login({ identifier: t1.employeeId, password: 'HwTest@2026x', loginType: 'STAFF' });
 let [s2, b2, tok2] = await login({ identifier: t2.employeeId, password: 'HwTest@2026x', loginType: 'STAFF' });
@@ -149,7 +149,7 @@ check('student no longer sees deleted homework', !v.includes(hwId));
 // ---- persistence in MongoDB
 const pr = await fetch(`${B}/api/homework`, { method: 'POST', headers: H(adminTok), body: JSON.stringify({ classId: 'c-8', section: 'A', subjectId: 's-3', title: 'Persist check', instructions: 'Read chapter 2.', dueDate: today, attachmentFileKey: 'school/homework/p.pdf', attachmentName: 'p.pdf', attachmentSize: 10 }) });
 const hwp = await pr.json();
-const col = mongo.db('pds_school_erp').collection('homework');
+const col = mongo.db('cps_school_erp').collection('homework');
 await new Promise((x) => setTimeout(x, 800));
 let doc = await col.findOne({ id: hwp.id });
 check('created homework is stored in MongoDB', !!doc);

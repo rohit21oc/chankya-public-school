@@ -92,7 +92,7 @@ t('nothing to allocate when no bill is open or the payment is zero', () => {
 t('the online minimum is one rupee', () => assert.equal(MIN_ONLINE_PAYMENT_PAISE, 100));
 
 // ---------- receipt PDF ----------
-const school = { schoolName: 'Test Residential School', schoolAddress: 'Sheohar, Bihar', affiliatedBoard: 'CBSE', affiliationNumber: '10030206405' };
+const school = { schoolName: 'Test Residential School', schoolAddress: 'Sheohar, Bihar', affiliatedBoard: 'CBSE', affiliationNumber: '10034104008' };
 const full: any = {
   receiptNumber: 'REC-2026-0099',
   studentName: 'ROHIT KUMAR',

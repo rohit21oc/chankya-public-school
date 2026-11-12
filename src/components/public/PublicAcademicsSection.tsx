@@ -20,26 +20,16 @@ export const PublicAcademicsSection: React.FC<PublicAcademicsSectionProps> = ({
   onOpenEnquiry,
   onOpenCalendarModal,
 }) => {
-  const [selectedWing, setSelectedWing] = useState<'all' | 'pre-primary' | 'primary' | 'middle'>('all');
+  const [selectedWing, setSelectedWing] = useState<'all' | 'primary' | 'middle'>('all');
 
   const wings = [
-    {
-      id: 'pre-primary',
-      title: 'Foundational Wing',
-      subtitle: 'Nursery, LKG, UKG',
-      age: 'Ages 3 to 6 Years',
-      desc: 'Play-way methodology, sensory stimulation, phonics, storytelling, foundational numeracy, and joyful learning in a nurturing child-friendly environment.',
-      subjects: ['English Phonics', 'Rhymes & Storytelling', 'Number Work', 'Art & Craft', 'EVS & Moral Etiquette'],
-      color: 'border-pink-200 bg-pink-50/40 text-pink-900',
-      badgeColor: 'bg-pink-100 text-pink-800',
-    },
     {
       id: 'primary',
       title: 'Primary Wing',
       subtitle: 'Classes 1st to 5th',
       age: 'Ages 6 to 11 Years',
-      desc: 'Developing conceptual clarity, fluent reading, mathematical logic, environmental science, and strong moral principles through creative group projects.',
-      subjects: ['English Grammar & Literature', 'Mathematics', 'Environmental Studies', 'Hindi Language', 'General Knowledge', 'Computer Basics'],
+      desc: 'Building strong basics in numeracy and environmental awareness, with early Science, Social Science and Computer learning, plus Music and Dance to keep learning joyful.',
+      subjects: ['Mathematics', 'Environmental Studies (Classes 1-2)', 'Science (Classes 3-5)', 'Social Science (Classes 3-5)', 'Computer (Classes 3-5)', 'Music & Dance'],
       color: 'border-blue-200 bg-blue-50/40 text-blue-900',
       badgeColor: 'bg-blue-100 text-blue-800',
     },
@@ -48,8 +38,8 @@ export const PublicAcademicsSection: React.FC<PublicAcademicsSectionProps> = ({
       title: 'Middle School Wing',
       subtitle: 'Classes 6th to 8th',
       age: 'Ages 11 to 14 Years',
-      desc: 'Deepening analytical inquiry in Science, Social Studies, advanced Mathematics, Sanskrit/Hindi, and digital computer programming with laboratory practicals.',
-      subjects: ['General Science (Physics/Chem/Bio)', 'Algebra & Geometry', 'History, Civics, Geography', 'English & Hindi', 'Sanskrit', 'Computer Coding'],
+      desc: 'Deepening understanding in Mathematics, Science and Social Science, with Computer education, Kaushal Bodh, Music and Yoga.',
+      subjects: ['Mathematics', 'Science', 'Social Science', 'Hindi, English & Urdu', 'Computer', 'Kaushal Bodh', 'Music & Yoga'],
       color: 'border-emerald-200 bg-emerald-50/40 text-emerald-900',
       badgeColor: 'bg-emerald-100 text-emerald-800',
     },
@@ -63,10 +53,10 @@ export const PublicAcademicsSection: React.FC<PublicAcademicsSectionProps> = ({
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Academic Wings & Curriculum (Nursery to 8th)
+            Academic Wings & Curriculum (Class 1 to 8)
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Following the national CBSE pedagogical framework from Nursery to Class 8, our curriculum is structured to ignite curiosity, critical reasoning, and academic distinction at every developmental stage.
+            From Class 1 to Class 8, our curriculum (State curriculum in primary classes and NCERT in upper primary classes) is structured to build curiosity, clear concepts and good values at every stage.
           </p>
 
           {/* Wing Filter Buttons */}
@@ -81,17 +71,6 @@ export const PublicAcademicsSection: React.FC<PublicAcademicsSectionProps> = ({
               }`}
             >
               All Wings
-            </button>
-            <button
-              type="button"
-              onClick={() => setSelectedWing('pre-primary')}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                selectedWing === 'pre-primary'
-                  ? 'bg-blue-900 text-white shadow-xs'
-                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-              }`}
-            >
-              Foundational (Nursery-UKG)
             </button>
             <button
               type="button"

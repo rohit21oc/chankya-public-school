@@ -45,7 +45,7 @@ const set = (patch: Partial<ActivityState>) => {
 
 // --- small per-login memory on the phone (secure store; plain memory if it is not there) -----------
 const mem = new Map<string, string>();
-const key = (u: User) => `pds.activity.${String(u.id).replace(/[^A-Za-z0-9._-]/g, '_')}`;
+const key = (u: User) => `cps.activity.${String(u.id).replace(/[^A-Za-z0-9._-]/g, '_')}`;
 async function readSaved(u: User): Promise<{ clearedAt: string; seenNoticesAt: string; dismissed?: Record<string, string> } | null> {
   try {
     // eslint-disable-next-line @typescript-eslint/no-var-requires

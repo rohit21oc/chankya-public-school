@@ -498,7 +498,7 @@ export const ParentStudentsView: React.FC<ParentStudentsViewProps> = ({
                 </div>
                 <div className="flex items-baseline gap-2">
                   <span className="text-lg font-black text-slate-900">Good Standing</span>
-                  <span className="text-[11px] text-emerald-700 font-bold">CBSE 9-Point Scale</span>
+                  <span className="text-[11px] text-emerald-700 font-bold">9-Point Scale</span>
                 </div>
                 <p className="text-[10px] text-slate-400 mt-1">
                   Official report card available for published exams
@@ -631,7 +631,7 @@ export const ParentStudentsView: React.FC<ParentStudentsViewProps> = ({
                     <FileCheck className="w-5 h-5 text-indigo-700" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900">CBSE Report Card</h4>
+                    <h4 className="text-xs font-bold text-slate-900">Report Card</h4>
                     <span className="text-[10px] text-slate-500">Published Assessments</span>
                   </div>
                 </div>

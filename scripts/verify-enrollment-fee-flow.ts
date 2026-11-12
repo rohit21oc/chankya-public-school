@@ -5,7 +5,7 @@ const BASE_URL = 'http://localhost:3000';
 
 async function testEnrollmentFeeFlow() {
   console.log('========================================================================');
-  console.log('RESIDENTIAL PDS PUBLIC SCHOOL - ENROLLMENT DATE & FEE FLOW VERIFICATION');
+  console.log('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE - ENROLLMENT DATE & FEE FLOW VERIFICATION');
   console.log('========================================================================\n');
 
   // STEP 1: Login as SUPER_ADMIN
@@ -42,7 +42,7 @@ async function testEnrollmentFeeFlow() {
     body: JSON.stringify({
       id: testStudentId,
       admissionNumber: testAdmNo,
-      registrationNumber: `PDS2026${testAdmNo}`,
+      registrationNumber: `CPS2026${testAdmNo}`,
       name: 'Aarav Kumar (Enrollment Test)',
       firstName: 'Aarav',
       lastName: 'Kumar',

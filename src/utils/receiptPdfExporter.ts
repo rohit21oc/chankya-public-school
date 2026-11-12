@@ -62,8 +62,8 @@ export async function getLogoBase64Async(settings?: SchoolSettings): Promise<str
     try {
       const fs = await import('fs');
       const candidatePaths = [
-        'data/storage/school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png',
-        './data/storage/school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png',
+        'data/storage/school/school-logo/logo.png',
+        './data/storage/school/school-logo/logo.png',
       ];
       if (typeof logoCandidate === 'string' && logoCandidate.trim()) {
         candidatePaths.unshift(`data/storage/${logoCandidate.trim()}`);
@@ -84,7 +84,7 @@ export async function getLogoBase64Async(settings?: SchoolSettings): Promise<str
   try {
     const logoUrl =
       getSchoolLogoSrc(logoCandidate) ||
-      '/api/files/content?key=school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png';
+      '/api/files/content?key=school/school-logo/logo.png';
     const res = await fetch(getApiUrl(logoUrl));
     if (res.ok) {
       const blob = await res.blob();
@@ -244,7 +244,7 @@ function drawReceiptSlip(
     doc.setTextColor(243, 210, 122); // #F3D27A (Gold)
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(8);
-    doc.text('PDS', badgeX + 6.5, badgeY + 6.5, { align: 'center' });
+    doc.text('CPS', badgeX + 6.5, badgeY + 6.5, { align: 'center' });
     doc.setFontSize(5);
     doc.setTextColor(255, 255, 255);
     doc.text('PUBLIC', badgeX + 6.5, badgeY + 10.5, { align: 'center' });
@@ -620,8 +620,8 @@ export function generateReceiptPdfDoc(params: ReceiptPdfParams): jsPDF {
     try {
       const fs = require('fs');
       const candidatePaths = [
-        'data/storage/school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png',
-        './data/storage/school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png',
+        'data/storage/school/school-logo/logo.png',
+        './data/storage/school/school-logo/logo.png',
       ];
       if (typeof effectiveParams.settings?.schoolLogo === 'string' && effectiveParams.settings.schoolLogo.trim()) {
         candidatePaths.unshift(`data/storage/${effectiveParams.settings.schoolLogo.trim()}`);

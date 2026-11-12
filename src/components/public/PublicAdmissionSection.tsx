@@ -176,7 +176,7 @@ export const PublicAdmissionSection: React.FC = () => {
             Admissions & Online Enquiry
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Admissions are open for Nursery to Class 8. Submit an enquiry online or track the status of an existing admission application.
+            Submit an admission enquiry online for Class 1 to Class 8, or track the status of an existing admission application.
           </p>
 
           {/* Sub Navigation Tabs */}
@@ -229,7 +229,7 @@ export const PublicAdmissionSection: React.FC = () => {
                   Admission Enquiry Successfully Registered!
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto">
-                  Thank you for your interest in Residential PDS Public School Sheohar. Your enquiry has been received by our Admissions Desk.
+                  Thank you for your interest in Chanakya Public School & Coaching Centre. Your enquiry has been received by our Admissions Desk.
                 </p>
 
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 inline-block text-left my-2">
@@ -418,7 +418,7 @@ export const PublicAdmissionSection: React.FC = () => {
                         className="mt-0.5 w-4 h-4 rounded text-blue-900 border-slate-300 focus:ring-blue-600 shrink-0 cursor-pointer"
                       />
                       <span className="text-xs text-slate-600 leading-snug">
-                        I understand that the information submitted through this form may be used by RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR to respond to my enquiry or process my request. I have read and agree to the{' '}
+                        I understand that the information submitted through this form may be used by CHANAKYA PUBLIC SCHOOL & COACHING CENTRE to respond to my enquiry or process my request. I have read and agree to the{' '}
                         <a
                           href="/privacy-policy"
                           onClick={(e) => {
@@ -536,7 +536,7 @@ export const PublicAdmissionSection: React.FC = () => {
 
                     <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
                       <span>Submitted: {new Date(enq.submittedAt).toLocaleDateString()}</span>
-                      <span>Helpline: 06222796505</span>
+                      <span>Helpline: 8207870192</span>
                     </div>
                   </div>
                 ))}

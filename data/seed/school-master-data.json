@@ -1,88 +1,14 @@
 {
-  "_about": "School master data for scripts/seed-school-master-data.ts. Taken from the live Render site on 23 Oct 2026. Fee configurations are not seeded; set them up in the ERP.",
+  "_about": "Master data (settings, classes, subjects) for CHANAKYA PUBLIC SCHOOL & COACHING CENTRE, built from the UDISE+ DCF (UDISE code 10034104008). Check and edit, then run: npm run seed:master (dry run) and npm run seed:master -- --apply.",
   "school_settings": {
-    "schoolName": "RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR",
-    "schoolCode": "10030206405",
-    "registrationNumber": "10030206405",
-    "affiliationNumber": "10030206405",
-    "affiliationCode": "10030206405",
-    "affiliatedBoard": "BSEB",
-    "classesOffered": "Nursery to 8",
-    "principalName": "Nilam Devi",
-    "schoolAddress": "BRC Near Shahpur Road, Sheohar, Bihar - 843329",
-    "additionalAddress": "BRC ROAD, SHEOHAR, WARD NO. 14",
-    "contactNumber": "95075 95491",
-    "headerContacts": [
-      "9507595491",
-      "8271676713"
-    ],
-    "footerContacts": [
-      "9507595491",
-      "8271676713",
-      "9939115492"
-    ],
-    "helplineNumber": "06222796505",
-    "email": "residentialpdspublicschool@gmail.com",
-    "website": "https://residentialpdssheohar.edu.in",
-    "googleMapsUrl": "https://www.google.com/maps/place/PDS+PUBLIC+SCHOOL/@26.5125425,85.2865357,745m/data=!3m2!1e3!4b1!4m6!3m5!1s0x39ece71e1548a643:0x68ea7ac1528724d4!8m2!3d26.5125425!4d85.2891106!16s%2Fg%2F11rv6286td",
-    "latitude": 26.5125425,
-    "longitude": 85.2891106,
-    "plusCode": "G77Q+2J Sheohar, Bihar",
-    "logoFileKey": "school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png",
-    "schoolLogo": "school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png",
+    "singleSchool": true,
+    "additionalAddress": "",
+    "affiliatedBoard": "",
+    "affiliationCode": "",
+    "affiliationNumber": "",
+    "contactNumber": "82078 70192",
     "currentAcademicSession": "2026-2027",
-    "schoolTiming": {
-      "startTime": "09:00 AM",
-      "endTime": "03:15 PM"
-    },
-    "schoolStartTime": "09:00 AM",
-    "schoolEndTime": "03:15 PM",
-    "workingDays": [
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "academicSessions": [
-      {
-        "id": "session-2025-2026",
-        "name": "2025-2026",
-        "startDate": "2025-04-01",
-        "endDate": "2026-03-31",
-        "status": "INACTIVE",
-        "isDefault": false,
-        "description": "Preceding academic session (Archived)"
-      },
-      {
-        "id": "session-2026-2027",
-        "name": "2026-2027",
-        "startDate": "2026-04-01",
-        "endDate": "2027-03-31",
-        "status": "ACTIVE",
-        "isDefault": true,
-        "description": "Current regular academic session (Active)"
-      },
-      {
-        "id": "session-2027-2028",
-        "name": "2027-2028",
-        "startDate": "2027-04-01",
-        "endDate": "2028-03-31",
-        "status": "INACTIVE",
-        "isDefault": false,
-        "description": "Upcoming academic session (Planned)"
-      },
-      {
-        "id": "session-2028-2029",
-        "name": "2028-2029",
-        "startDate": "2028-04-01",
-        "endDate": "2029-03-31",
-        "status": "INACTIVE",
-        "isDefault": false,
-        "description": ""
-      }
-    ],
+    "email": "cpskushahar@gmail.com",
     "gradingSystem": [
       {
         "id": "grd-1",
@@ -165,134 +91,114 @@
         "academicSession": "2026-2027"
       }
     ],
+    "logoFileKey": "",
+    "principalName": "Raju Kumar",
+    "registrationNumber": "",
+    "schoolAddress": "Kushahar Ward 07, Kushahar, Sheohar, Bihar - 843329",
+    "schoolCode": "10034104008",
+    "schoolLogo": "",
+    "schoolName": "CHANAKYA PUBLIC SCHOOL & COACHING CENTRE",
+    "schoolTiming": {
+      "startTime": "08:00 AM",
+      "endTime": "02:00 PM"
+    },
+    "website": "",
+    "workingDays": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "academicSessions": [
+      {
+        "id": "ses-3",
+        "name": "2027-2028",
+        "startDate": "2027-04-01",
+        "endDate": "2028-03-31",
+        "status": "INACTIVE",
+        "description": "Upcoming academic session (Planned)",
+        "isDefault": false,
+        "createdAt": "2026-06-01T00:00:00.000Z",
+        "updatedAt": "2026-10-08T05:51:41.230Z"
+      },
+      {
+        "id": "ses-1",
+        "name": "2026-2027",
+        "startDate": "2026-04-01",
+        "endDate": "2027-03-31",
+        "status": "ACTIVE",
+        "description": "Current regular academic session (Active)",
+        "isDefault": true,
+        "createdAt": "2026-01-01T00:00:00.000Z",
+        "updatedAt": "2026-10-08T05:52:09.229Z"
+      }
+    ],
+    "classesOffered": "Class 1 to 8",
+    "footerContacts": [
+      "82078 70192"
+    ],
+    "googleMapsUrl": "",
+    "headerContacts": [
+      "82078 70192"
+    ],
+    "helplineNumber": "",
+    "latitude": null,
+    "longitude": null,
+    "plusCode": "",
+    "principalSignature": "",
+    "principalSignatureFileKey": "",
+    "updatedAt": "2026-11-12T00:00:00.000Z",
     "bankDetails": {
-      "accountHolderName": "RESIDENTIAL PDS PUBLIC SCHOOL",
-      "bankName": "State Bank of India (SBI)",
-      "accountNumber": "38947291054",
-      "ifsc": "SBIN0002124",
-      "branch": "Sheohar Main Branch, Collectorate Road, Sheohar",
-      "upiId": "residentialpdspublicschool@sbi",
-      "upiQrCodeFileKey": "school/school-logo/75f1504b-8949-47d9-9045-05a836c86406.jpeg",
-      "instructions": "Please mention Student Admission Number in the payment narration. Send payment receipt or UTR screenshot on WhatsApp 9507595491."
+      "accountHolderName": "",
+      "bankName": "",
+      "accountNumber": "",
+      "ifsc": "",
+      "branch": "",
+      "upiId": "",
+      "upiQrCode": "",
+      "upiQrCodeFileKey": "",
+      "instructions": ""
     },
     "paymentOptions": {
-      "accountHolderName": "RESIDENTIAL PDS PUBLIC SCHOOL",
-      "bankName": "State Bank of India (SBI)",
-      "accountNumber": "38947291054",
-      "ifsc": "SBIN0002124",
-      "branch": "Sheohar Main Branch, Collectorate Road, Sheohar",
-      "upiId": "residentialpdspublicschool@sbi",
-      "upiQrCodeFileKey": "school/school-logo/75f1504b-8949-47d9-9045-05a836c86406.jpeg",
-      "instructions": "Please mention Student Admission Number in the payment narration. Send payment receipt or UTR screenshot on WhatsApp 9507595491."
-    }
+      "accountHolderName": "",
+      "bankName": "",
+      "accountNumber": "",
+      "ifsc": "",
+      "branch": "",
+      "upiId": "",
+      "upiQrCode": "",
+      "upiQrCodeFileKey": "",
+      "instructions": ""
+    },
+    "feeSettings": {
+      "lateFeeAmount": 0,
+      "dueDayOfMonth": 10,
+      "lateFeeStartDay": 11
+    },
+    "schoolStartTime": "08:00 AM",
+    "schoolEndTime": "02:00 PM"
   },
   "classes": [
     {
-      "id": "c-nur",
-      "name": "Nursery",
-      "numericOrder": 0,
-      "sections": [
-        "A"
-      ],
-      "detailedSections": [
-        {
-          "id": "c-nur-A",
-          "name": "A",
-          "maxCapacity": 30,
-          "roomNumber": "Room 001",
-          "status": "ACTIVE"
-        }
-      ],
-      "maxCapacity": 30,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "c-lkg",
-      "name": "LKG",
-      "numericOrder": 2,
-      "sections": [
-        "A"
-      ],
-      "detailedSections": [
-        {
-          "id": "c-lkg-A",
-          "name": "A",
-          "maxCapacity": 30,
-          "roomNumber": "Room 002",
-          "status": "ACTIVE"
-        }
-      ],
-      "maxCapacity": 30,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "c-ukg",
-      "name": "UKG",
-      "numericOrder": 3,
-      "sections": [
-        "A"
-      ],
-      "detailedSections": [
-        {
-          "id": "c-ukg-A",
-          "name": "A",
-          "maxCapacity": 30,
-          "roomNumber": "Room 003",
-          "status": "ACTIVE"
-        }
-      ],
-      "maxCapacity": 30,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "c-1790998355737",
-      "name": "ELP",
-      "numericOrder": 4,
-      "sections": [
-        "A",
-        "B"
-      ],
-      "detailedSections": [
-        {
-          "id": "c-1790998355737-A",
-          "name": "A",
-          "maxCapacity": 40,
-          "roomNumber": "Room 261",
-          "status": "ACTIVE"
-        },
-        {
-          "id": "c-1790998355737-B",
-          "name": "B",
-          "maxCapacity": 40,
-          "roomNumber": "Room 262",
-          "status": "ACTIVE"
-        }
-      ],
-      "maxCapacity": 40,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
+      "_id": "6acf78174597c170172dff30",
       "id": "c-1",
-      "name": "Class 1",
-      "numericOrder": 5,
-      "sections": [
-        "A",
-        "B"
-      ],
+      "__v": 0,
+      "academicSession": "2026-2027",
+      "classTeacherId": null,
+      "classTeacherName": null,
+      "createdAt": "2026-10-14T12:39:51.556Z",
       "detailedSections": [
         {
-          "id": "c-1-A",
+          "id": "sec-c1-a",
           "name": "A",
           "maxCapacity": 40,
           "roomNumber": "Room 101",
           "status": "ACTIVE"
         },
         {
-          "id": "c-1-B",
+          "id": "sec-c1-b",
           "name": "B",
           "maxCapacity": 40,
           "roomNumber": "Room 102",
@@ -300,55 +206,69 @@
         }
       ],
       "maxCapacity": 40,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "c-2",
-      "name": "Class 2",
-      "numericOrder": 6,
+      "name": "Class 1",
+      "numericOrder": 1,
       "sections": [
         "A",
         "B"
       ],
+      "status": "ACTIVE",
+      "updatedAt": "2026-10-14T12:39:51.556Z"
+    },
+    {
+      "_id": "6acf78174597c170172dff31",
+      "id": "c-2",
+      "__v": 0,
+      "academicSession": "2026-2027",
+      "classTeacherId": "t-1789975305012",
+      "classTeacherName": "Anil Kumar Mishra",
+      "createdAt": "2026-10-14T12:39:51.556Z",
       "detailedSections": [
         {
-          "id": "c-2-A",
+          "id": "sec-c2-a",
           "name": "A",
           "maxCapacity": 40,
+          "classTeacherId": "t-3",
+          "classTeacherName": "Rajeev Kumar",
           "roomNumber": "Room 103",
           "status": "ACTIVE"
         },
         {
-          "id": "c-2-B",
+          "id": "sec-c2-b",
           "name": "B",
           "maxCapacity": 40,
+          "classTeacherId": "t-1789975305012",
+          "classTeacherName": "Anil Kumar Mishra",
           "roomNumber": "Room 104",
           "status": "ACTIVE"
         }
       ],
       "maxCapacity": 40,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "c-3",
-      "name": "Class 3",
-      "numericOrder": 7,
+      "name": "Class 2",
+      "numericOrder": 2,
       "sections": [
         "A",
         "B"
       ],
+      "status": "ACTIVE",
+      "updatedAt": "2026-10-14T12:39:51.556Z"
+    },
+    {
+      "_id": "6acf78174597c170172dff32",
+      "id": "c-3",
+      "__v": 0,
+      "academicSession": "2026-2027",
+      "createdAt": "2026-10-14T12:39:51.556Z",
       "detailedSections": [
         {
-          "id": "c-3-A",
+          "id": "sec-c3-a",
           "name": "A",
           "maxCapacity": 40,
           "roomNumber": "Room 105",
           "status": "ACTIVE"
         },
         {
-          "id": "c-3-B",
+          "id": "sec-c3-b",
           "name": "B",
           "maxCapacity": 40,
           "roomNumber": "Room 106",
@@ -356,27 +276,31 @@
         }
       ],
       "maxCapacity": 40,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "c-4",
-      "name": "Class 4",
-      "numericOrder": 8,
+      "name": "Class 3",
+      "numericOrder": 3,
       "sections": [
         "A",
         "B"
       ],
+      "status": "ACTIVE",
+      "updatedAt": "2026-10-14T12:39:51.556Z"
+    },
+    {
+      "_id": "6acf78174597c170172dff33",
+      "id": "c-4",
+      "__v": 0,
+      "academicSession": "2026-2027",
+      "createdAt": "2026-10-14T12:39:51.556Z",
       "detailedSections": [
         {
-          "id": "c-4-A",
+          "id": "sec-c4-a",
           "name": "A",
           "maxCapacity": 40,
           "roomNumber": "Room 107",
           "status": "ACTIVE"
         },
         {
-          "id": "c-4-B",
+          "id": "sec-c4-b",
           "name": "B",
           "maxCapacity": 40,
           "roomNumber": "Room 108",
@@ -384,27 +308,31 @@
         }
       ],
       "maxCapacity": 40,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "c-5",
-      "name": "Class 5",
-      "numericOrder": 9,
+      "name": "Class 4",
+      "numericOrder": 4,
       "sections": [
         "A",
         "B"
       ],
+      "status": "ACTIVE",
+      "updatedAt": "2026-10-14T12:39:51.556Z"
+    },
+    {
+      "_id": "6acf78174597c170172dff34",
+      "id": "c-5",
+      "__v": 0,
+      "academicSession": "2026-2027",
+      "createdAt": "2026-10-14T12:39:51.556Z",
       "detailedSections": [
         {
-          "id": "c-5-A",
+          "id": "sec-c5-a",
           "name": "A",
           "maxCapacity": 40,
           "roomNumber": "Room 109",
           "status": "ACTIVE"
         },
         {
-          "id": "c-5-B",
+          "id": "sec-c5-b",
           "name": "B",
           "maxCapacity": 40,
           "roomNumber": "Room 110",
@@ -412,27 +340,31 @@
         }
       ],
       "maxCapacity": 40,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "c-6",
-      "name": "Class 6",
-      "numericOrder": 10,
+      "name": "Class 5",
+      "numericOrder": 5,
       "sections": [
         "A",
         "B"
       ],
+      "status": "ACTIVE",
+      "updatedAt": "2026-10-14T12:39:51.556Z"
+    },
+    {
+      "_id": "6acf78174597c170172dff35",
+      "id": "c-6",
+      "__v": 0,
+      "academicSession": "2026-2027",
+      "createdAt": "2026-10-14T12:39:51.556Z",
       "detailedSections": [
         {
-          "id": "c-6-A",
+          "id": "sec-c6-a",
           "name": "A",
           "maxCapacity": 40,
           "roomNumber": "Room 111",
           "status": "ACTIVE"
         },
         {
-          "id": "c-6-B",
+          "id": "sec-c6-b",
           "name": "B",
           "maxCapacity": 40,
           "roomNumber": "Room 112",
@@ -440,27 +372,31 @@
         }
       ],
       "maxCapacity": 40,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "c-7",
-      "name": "Class 7",
-      "numericOrder": 11,
+      "name": "Class 6",
+      "numericOrder": 6,
       "sections": [
         "A",
         "B"
       ],
+      "status": "ACTIVE",
+      "updatedAt": "2026-10-14T12:39:51.556Z"
+    },
+    {
+      "_id": "6acf78174597c170172dff36",
+      "id": "c-7",
+      "__v": 0,
+      "academicSession": "2026-2027",
+      "createdAt": "2026-10-14T12:39:51.556Z",
       "detailedSections": [
         {
-          "id": "c-7-A",
+          "id": "sec-c7-a",
           "name": "A",
           "maxCapacity": 40,
           "roomNumber": "Room 113",
           "status": "ACTIVE"
         },
         {
-          "id": "c-7-B",
+          "id": "sec-c7-b",
           "name": "B",
           "maxCapacity": 40,
           "roomNumber": "Room 114",
@@ -468,27 +404,31 @@
         }
       ],
       "maxCapacity": 40,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "c-8",
-      "name": "Class 8",
-      "numericOrder": 12,
+      "name": "Class 7",
+      "numericOrder": 7,
       "sections": [
         "A",
         "B"
       ],
+      "status": "ACTIVE",
+      "updatedAt": "2026-10-14T12:39:51.556Z"
+    },
+    {
+      "_id": "6acf78174597c170172dff37",
+      "id": "c-8",
+      "__v": 0,
+      "academicSession": "2026-2027",
+      "createdAt": "2026-10-14T12:39:51.556Z",
       "detailedSections": [
         {
-          "id": "c-8-A",
+          "id": "sec-c8-a",
           "name": "A",
           "maxCapacity": 40,
           "roomNumber": "Room 115",
           "status": "ACTIVE"
         },
         {
-          "id": "c-8-B",
+          "id": "sec-c8-b",
           "name": "B",
           "maxCapacity": 40,
           "roomNumber": "Room 116",
@@ -496,20 +436,23 @@
         }
       ],
       "maxCapacity": 40,
+      "name": "Class 8",
+      "numericOrder": 8,
+      "sections": [
+        "A",
+        "B"
+      ],
       "status": "ACTIVE",
-      "academicSession": "2026-2027"
+      "updatedAt": "2026-10-14T12:39:51.556Z"
     }
   ],
   "subjects": [
     {
       "id": "s-1",
       "name": "Mathematics",
-      "code": "MATH-041",
+      "code": "MATH",
       "type": "CORE",
       "classIds": [
-        "c-nur",
-        "c-lkg",
-        "c-ukg",
         "c-1",
         "c-2",
         "c-3",
@@ -521,109 +464,61 @@
       ],
       "maxMarks": 100,
       "passMarks": 33,
+      "theoryMarks": 80,
+      "practicalMarks": 20,
+      "credits": 4,
       "status": "ACTIVE",
+      "department": "Mathematics",
       "academicSession": "2026-2027"
     },
     {
       "id": "s-2",
-      "name": "English",
-      "code": "ENG-101",
-      "type": "CORE",
-      "classIds": [
-        "c-nur",
-        "c-lkg",
-        "c-ukg",
-        "c-1",
-        "c-2",
-        "c-3",
-        "c-4",
-        "c-5",
-        "c-6",
-        "c-7",
-        "c-8"
-      ],
-      "maxMarks": 100,
-      "passMarks": 33,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "s-5",
-      "name": "Hindi",
-      "code": "HIN-002",
-      "type": "CORE",
-      "classIds": [
-        "c-nur",
-        "c-lkg",
-        "c-ukg",
-        "c-1790998355737",
-        "c-1",
-        "c-2",
-        "c-3",
-        "c-4",
-        "c-5",
-        "c-6",
-        "c-7",
-        "c-8"
-      ],
-      "maxMarks": 100,
-      "passMarks": 33,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "s-9",
-      "name": "EVS",
-      "code": "EVS-010",
+      "name": "Environmental Studies (EVS)",
+      "code": "EVS",
       "type": "CORE",
       "classIds": [
         "c-1",
-        "c-2",
-        "c-3",
-        "c-4",
-        "c-5"
+        "c-2"
       ],
       "maxMarks": 100,
       "passMarks": 33,
+      "theoryMarks": 80,
+      "practicalMarks": 20,
+      "credits": 4,
       "status": "ACTIVE",
+      "department": "Science",
       "academicSession": "2026-2027"
     },
     {
       "id": "s-3",
       "name": "Science",
-      "code": "SCI-086",
+      "code": "SCI",
       "type": "CORE",
       "classIds": [
+        "c-3",
+        "c-4",
+        "c-5",
         "c-6",
         "c-7",
         "c-8"
       ],
       "maxMarks": 100,
       "passMarks": 33,
+      "theoryMarks": 80,
+      "practicalMarks": 20,
+      "credits": 4,
       "status": "ACTIVE",
+      "department": "Science",
       "academicSession": "2026-2027"
     },
     {
       "id": "s-4",
       "name": "Social Science",
-      "code": "SST-087",
+      "code": "SST",
       "type": "CORE",
       "classIds": [
-        "c-6",
-        "c-7",
-        "c-8"
-      ],
-      "maxMarks": 100,
-      "passMarks": 33,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "s-skt",
-      "name": "Sanskrit",
-      "code": "SKT-122",
-      "type": "CORE",
-      "classIds": [
+        "c-3",
+        "c-4",
         "c-5",
         "c-6",
         "c-7",
@@ -631,17 +526,76 @@
       ],
       "maxMarks": 100,
       "passMarks": 33,
+      "theoryMarks": 80,
+      "practicalMarks": 20,
+      "credits": 4,
       "status": "ACTIVE",
+      "department": "Social Science",
       "academicSession": "2026-2027"
     },
     {
-      "id": "s-comp",
+      "id": "s-5",
+      "name": "Hindi",
+      "code": "HIN",
+      "type": "CORE",
+      "classIds": [
+        "c-6",
+        "c-7",
+        "c-8"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "theoryMarks": 80,
+      "practicalMarks": 20,
+      "credits": 4,
+      "status": "ACTIVE",
+      "department": "Languages",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-6",
+      "name": "English",
+      "code": "ENG",
+      "type": "CORE",
+      "classIds": [
+        "c-6",
+        "c-7",
+        "c-8"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "theoryMarks": 80,
+      "practicalMarks": 20,
+      "credits": 4,
+      "status": "ACTIVE",
+      "department": "Languages",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-7",
+      "name": "Urdu",
+      "code": "URD",
+      "type": "CORE",
+      "classIds": [
+        "c-6",
+        "c-7",
+        "c-8"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "theoryMarks": 80,
+      "practicalMarks": 20,
+      "credits": 4,
+      "status": "ACTIVE",
+      "department": "Languages",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-8",
       "name": "Computer",
-      "code": "COMP-165",
-      "type": "CORE",
+      "code": "COMP",
+      "type": "ELECTIVE",
       "classIds": [
-        "c-1",
-        "c-2",
         "c-3",
         "c-4",
         "c-5",
@@ -651,125 +605,91 @@
       ],
       "maxMarks": 100,
       "passMarks": 33,
+      "theoryMarks": 80,
+      "practicalMarks": 20,
+      "credits": 4,
       "status": "ACTIVE",
+      "department": "Computer",
       "academicSession": "2026-2027"
     },
     {
-      "id": "s-hin-gram",
-      "name": "Hindi Grammar",
-      "code": "HIN-GRAM",
-      "type": "CORE",
+      "id": "s-9",
+      "name": "Kaushal Bodh",
+      "code": "KB",
+      "type": "ELECTIVE",
       "classIds": [
-        "c-1",
-        "c-2",
-        "c-3",
-        "c-4",
-        "c-5",
         "c-6",
         "c-7",
         "c-8"
       ],
       "maxMarks": 100,
       "passMarks": 33,
+      "theoryMarks": 80,
+      "practicalMarks": 20,
+      "credits": 4,
       "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "s-eng-gram",
-      "name": "English Grammar",
-      "code": "ENG-GRAM",
-      "type": "CORE",
-      "classIds": [
-        "c-1",
-        "c-2",
-        "c-3",
-        "c-4",
-        "c-5",
-        "c-6",
-        "c-7",
-        "c-8"
-      ],
-      "maxMarks": 100,
-      "passMarks": 33,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "s-gk",
-      "name": "General Knowledge",
-      "code": "GK-101",
-      "type": "CORE",
-      "classIds": [
-        "c-ukg",
-        "c-3",
-        "c-4",
-        "c-5",
-        "c-6",
-        "c-7",
-        "c-8"
-      ],
-      "maxMarks": 100,
-      "passMarks": 33,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "s-conv",
-      "name": "Conversation",
-      "code": "CONV-102",
-      "type": "ACTIVITY",
-      "classIds": [
-        "c-nur",
-        "c-lkg",
-        "c-ukg"
-      ],
-      "maxMarks": 100,
-      "passMarks": 33,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "s-write",
-      "name": "Writing",
-      "code": "WRITE-104",
-      "type": "ACTIVITY",
-      "classIds": [
-        "c-lkg",
-        "c-ukg"
-      ],
-      "maxMarks": 100,
-      "passMarks": 33,
-      "status": "ACTIVE",
-      "academicSession": "2026-2027"
-    },
-    {
-      "id": "s-draw",
-      "name": "Drawing",
-      "code": "DRAW-103",
-      "type": "ACTIVITY",
-      "classIds": [
-        "c-nur",
-        "c-lkg",
-        "c-ukg",
-        "c-1",
-        "c-2",
-        "c-3",
-        "c-4"
-      ],
-      "maxMarks": 100,
-      "passMarks": 33,
-      "status": "ACTIVE",
+      "department": "Skills",
       "academicSession": "2026-2027"
     },
     {
       "id": "s-10",
-      "name": "Physical & Health Education",
-      "code": "PHE-048",
+      "name": "Music",
+      "code": "MUS",
       "type": "ACTIVITY",
-      "classIds": [],
+      "classIds": [
+        "c-1",
+        "c-2",
+        "c-3",
+        "c-4",
+        "c-5",
+        "c-6",
+        "c-7",
+        "c-8"
+      ],
       "maxMarks": 100,
       "passMarks": 33,
-      "status": "INACTIVE",
+      "theoryMarks": 0,
+      "practicalMarks": 0,
+      "credits": 1,
+      "status": "ACTIVE",
+      "department": "Co-curricular",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-11",
+      "name": "Dance",
+      "code": "DAN",
+      "type": "ACTIVITY",
+      "classIds": [
+        "c-1",
+        "c-2"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "theoryMarks": 0,
+      "practicalMarks": 0,
+      "credits": 1,
+      "status": "ACTIVE",
+      "department": "Co-curricular",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-12",
+      "name": "Yoga",
+      "code": "YOG",
+      "type": "ACTIVITY",
+      "classIds": [
+        "c-6",
+        "c-7",
+        "c-8"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "theoryMarks": 0,
+      "practicalMarks": 0,
+      "credits": 1,
+      "status": "ACTIVE",
+      "department": "Co-curricular",
       "academicSession": "2026-2027"
     }
   ]

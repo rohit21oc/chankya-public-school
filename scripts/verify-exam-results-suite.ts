@@ -7,7 +7,7 @@ const BASE_URL = 'http://localhost:3000';
 
 async function runExamResultsSuite() {
   console.log('========================================================================');
-  console.log('RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR - EXAM RESULTS & TABULATION SUITE');
+  console.log('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE - EXAM RESULTS & TABULATION SUITE');
   console.log('========================================================================\n');
 
   // 1. Authenticate as Staff/Admin
@@ -255,11 +255,11 @@ async function runExamResultsSuite() {
   // 6. Test Result Sheet HTML Generation for All 5 Classes
   console.log('>>> [6/7] Verifying Result Sheet HTML Generation for Nursery, LKG, UKG, Class 1, Class 5...');
   const fakeSettings: any = {
-    schoolName: 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
-    schoolAddress: 'BRC Near Shahpur Road, Sheohar, Bihar - 843329',
+    schoolName: 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
+    schoolAddress: 'Kushahar Ward 07, Kushahar, Sheohar, Bihar - 843329',
     affiliatedBoard: 'CBSE',
-    affiliationCode: '10030206405',
-    schoolCode: 'PDS-7821',
+    affiliationCode: '10034104008',
+    schoolCode: 'CPS-7821',
     currentAcademicSession: '2026-2027',
   };
 
@@ -279,7 +279,7 @@ async function runExamResultsSuite() {
     if (!html.includes('Official Tabulation & Result Sheet')) {
       throw new Error(`Result sheet HTML for ${tc.name} missing official title`);
     }
-    if (!html.includes('10030206405')) {
+    if (!html.includes('10034104008')) {
       throw new Error(`Result sheet HTML for ${tc.name} missing affiliation code`);
     }
     if (!html.includes(tc.name)) {

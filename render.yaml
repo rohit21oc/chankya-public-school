@@ -2,10 +2,10 @@ services:
   # ---------------------------------------------------------------------------
   # Frontend React SPA Deployment on Render (Static Site)
   # Fixes Render 404 "Not Found" on browser refresh (F5), direct entry, and bookmarks
-  # Service name matching live domain: https://residentialpdsschool.in
+  # Service name matching live domain: https://your-school-domain.example
   # ---------------------------------------------------------------------------
   - type: web
-    name: residentialpdspublicschool
+    name: chanakyapublicschool
     runtime: static
     buildCommand: npm run build
     staticPublishPath: ./dist
@@ -16,10 +16,10 @@ services:
 
   # ---------------------------------------------------------------------------
   # Central School ERP Backend API (Node.js Web Service)
-  # Live domain: https://residentialpdsschool.onrender.com
+  # Live domain: https://your-backend.example
   # ---------------------------------------------------------------------------
   - type: web
-    name: residentialpdsschool
+    name: chanakyapublicschool
     runtime: node
     plan: free
     buildCommand: npm run build

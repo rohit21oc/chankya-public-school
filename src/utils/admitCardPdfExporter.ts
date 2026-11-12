@@ -117,7 +117,7 @@ async function buildSingleAdmitCardPage(
   // School Details (Centered between logo and right badge)
   doc.setFont('times', 'bold');
   doc.setTextColor(11, 31, 75);
-  const schoolName = (settings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR').toUpperCase();
+  const schoolName = (settings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE').toUpperCase();
   // Keep the name inside the space between the logo and the badge: shrink until it fits.
   const nameMaxWidth = pageWidth - margin * 2 - 22 - 40;
   let nameSize = 15;
@@ -611,7 +611,7 @@ export async function exportBulkAdmitCardsToPdf(options: BulkAdmitCardPdfOptions
       doc.deletePage(doc.getNumberOfPages());
     }
 
-    const schoolClean = (settings.schoolName || 'PDS_School').replace(/[^a-zA-Z0-9]/g, '_');
+    const schoolClean = (settings.schoolName || 'CPS_School').replace(/[^a-zA-Z0-9]/g, '_');
     const examClean = (exam?.name || exam?.title || 'Exam').replace(/[^a-zA-Z0-9]/g, '_');
     const filename = `${schoolClean}_AdmitCards_${examClean}_${uniqueStudents.length}Students.pdf`;
 

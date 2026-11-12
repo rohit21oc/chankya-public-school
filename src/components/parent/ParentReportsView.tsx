@@ -426,7 +426,7 @@ export const ParentReportsView: React.FC<ParentReportsViewProps> = ({
   const handleDownloadMarksheetPdf = async () => {
     if (!selectedChild || !currentExam || isExportingReportPdf) return;
     setIsExportingReportPdf(true);
-    setReportFeedback('Compiling official CBSE A4 Marksheet PDF...');
+    setReportFeedback('Compiling official A4 Marksheet PDF...');
 
     try {
       const success = await exportReportCardToPdf({
@@ -513,7 +513,7 @@ export const ParentReportsView: React.FC<ParentReportsViewProps> = ({
                 </span>
               </div>
               <p className="text-xs text-slate-500 font-medium mt-0.5">
-                Official Student Identity Cards & Published CBSE Examination Marksheets • {settings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR'}
+                Official Student Identity Cards & Published Examination Marksheets • {settings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE'}
               </p>
             </div>
           </div>
@@ -777,7 +777,7 @@ export const ParentReportsView: React.FC<ParentReportsViewProps> = ({
               <div className="w-full flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
                 <span className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-blue-600" />
-                  <span>Official CBSE Student ID Card Preview</span>
+                  <span>Official Student ID Card Preview</span>
                 </span>
                 <span className="text-[11px] font-mono text-slate-400">
                   Standard CR80 HD Format
@@ -966,7 +966,7 @@ export const ParentReportsView: React.FC<ParentReportsViewProps> = ({
                       onClick={handleDownloadMarksheetPdf}
                       disabled={isExportingReportPdf}
                       className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-semibold text-xs shadow-xs transition-colors cursor-pointer disabled:opacity-50"
-                      title="Download official A4 CBSE Marksheet PDF"
+                      title="Download official A4 Marksheet PDF"
                     >
                       {isExportingReportPdf ? (
                         <Loader2 className="w-3.5 h-3.5 animate-spin text-emerald-400" />
@@ -979,7 +979,7 @@ export const ParentReportsView: React.FC<ParentReportsViewProps> = ({
                     <button
                       onClick={() => setIsReportCardModalOpen(true)}
                       className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs shadow-xs transition-colors cursor-pointer"
-                      title="Preview and print official CBSE Marksheet"
+                      title="Preview and print official Marksheet"
                     >
                       <Printer className="w-3.5 h-3.5" />
                       <span>Print Marksheet</span>
@@ -1063,7 +1063,7 @@ export const ParentReportsView: React.FC<ParentReportsViewProps> = ({
 
                 {/* Overall Grade */}
                 <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
-                  <span className="text-[11px] font-semibold text-slate-500 block">CBSE Scholastic Grade</span>
+                  <span className="text-[11px] font-semibold text-slate-500 block">Scholastic Grade</span>
                   <div className="text-lg sm:text-xl font-bold font-mono text-blue-700 mt-1">
                     {marksEvaluation.overallGrade}
                   </div>
@@ -1198,8 +1198,8 @@ export const ParentReportsView: React.FC<ParentReportsViewProps> = ({
               {/* Official CBSE Marksheet Footer Notice */}
               <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-500 text-[11px] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <p>
-                  • Computer-generated marks statement from {settings.schoolName || 'Residential PDS Public School Sheohar'}.
-                  Grades correspond to CBSE 8-point scholastic grading schema.
+                  • Computer-generated marks statement from {settings.schoolName || 'Chanakya Public School & Coaching Centre'}.
+                  Grades correspond to the school's scholastic grading scale.
                 </p>
                 <button
                   onClick={() => setIsReportCardModalOpen(true)}

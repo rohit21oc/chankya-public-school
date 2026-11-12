@@ -1,12 +1,8 @@
 /**
  * Browser origins allowed to call the API (CORS) and to be used in emailed links.
- * Extra origins can be added with CORS_ORIGINS (comma separated) or FRONTEND_URL / APP_URL.
+ * Your own website origin(s) must be set with FRONTEND_URL (and CORS_ORIGINS, comma separated, for extras such as the www. version).
  */
 export const BASE_ALLOWED_ORIGINS = [
-  'https://residentialpdsschool.in',
-  'https://residentialpdsschool.onrender.com',
-  'https://residentialpdssheohar.edu.in',
-  'https://www.residentialpdssheohar.edu.in',
   'http://localhost:3000',
   'http://localhost:5173',
   'http://localhost:4200',
@@ -34,9 +30,10 @@ export function resetLinkBase(clientOrigin: unknown, env: { FRONTEND_URL?: strin
   const clean = (u: string) => u.trim().replace(/\/+$/, '');
   if (isAllowedOrigin(clientOrigin)) {
     const lower = clientOrigin.toLowerCase();
-    if (!lower.includes('residentialpdsschool.onrender.com') && !lower.includes('localhost:8080')) return clean(clientOrigin);
+    if (!lower.includes('localhost:8080')) return clean(clientOrigin);
   }
   const envFrontend = env.FRONTEND_URL || env.APP_URL;
-  if (envFrontend && envFrontend.startsWith('http') && !envFrontend.includes('residentialpdsschool.onrender.com')) return clean(envFrontend);
-  return 'https://residentialpdsschool.in';
+  if (envFrontend && envFrontend.startsWith('http')) return clean(envFrontend);
+  // No FRONTEND_URL configured: fall back to the local dev server rather than to any public website.
+  return 'http://localhost:3000';
 }

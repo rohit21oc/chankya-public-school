@@ -58,7 +58,7 @@ export const AdmissionSuccessPage: React.FC<AdmissionSuccessPageProps> = ({
     if (payment.upiQrCode) {
       setGeneratedUpiQr(fileUploadService.getFileUrl(payment.upiQrCode));
     } else if (payment.upiId) {
-      const schoolName = settings.schoolName || 'Residential PDS Public School';
+      const schoolName = settings.schoolName || 'Chanakya Public School & Coaching Centre';
       const upiUrl = `upi://pay?pa=${payment.upiId}&pn=${encodeURIComponent(schoolName)}&cu=INR&tn=Admission%20Fee%20${student.admissionNumber}`;
       QRCode.toDataURL(upiUrl, { width: 140, margin: 1 })
         .then((url) => setGeneratedUpiQr(url))
@@ -152,7 +152,7 @@ export const AdmissionSuccessPage: React.FC<AdmissionSuccessPageProps> = ({
             Admission Successfully Completed
           </h3>
           <p className="text-xs text-slate-500 mt-1 max-w-md mx-auto">
-            The candidate has been officially admitted into {settings.schoolName || 'Residential PDS Public School'}.
+            The candidate has been officially admitted into {settings.schoolName || 'Chanakya Public School & Coaching Centre'}.
             Student fee profile and admission letter credentials have been persisted.
           </p>
         </div>
@@ -361,7 +361,7 @@ export const AdmissionSuccessPage: React.FC<AdmissionSuccessPageProps> = ({
           )}
           <div className="flex-1 text-center">
             <h1 className="text-xl font-black uppercase tracking-tight text-slate-950">
-              {settings.schoolName || 'Residential PDS Public School'}
+              {settings.schoolName || 'Chanakya Public School & Coaching Centre'}
             </h1>
             <p className="text-xs text-slate-600 font-medium">
               {settings.schoolAddress || NOT_CONFIGURED}
@@ -378,7 +378,7 @@ export const AdmissionSuccessPage: React.FC<AdmissionSuccessPageProps> = ({
             OFFICIAL STUDENT ADMISSION LETTER & FEE DOSSIER
           </h2>
           <span className="text-[10px] text-slate-300 font-bold">
-            Academic Session: {student.academicSession} • Ref No: PDS/ADM/{student.admissionNumber}
+            Academic Session: {student.academicSession} • Ref No: CPS/ADM/{student.admissionNumber}
           </span>
         </div>
 
@@ -556,7 +556,7 @@ export const AdmissionSuccessPage: React.FC<AdmissionSuccessPageProps> = ({
             <div className="border-t border-slate-400 pt-1 font-bold text-slate-800">
               Principal / Admission Incharge
             </div>
-            <span className="text-[10px] text-slate-500">Residential PDS Public School, Sheohar</span>
+            <span className="text-[10px] text-slate-500">Chanakya Public School & Coaching Centre, Sheohar</span>
           </div>
         </div>
       </div>

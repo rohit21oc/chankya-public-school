@@ -1,21 +1,21 @@
 # Product Requirements Document (PRD)
 
-## RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR
+## CHANAKYA PUBLIC SCHOOL & COACHING CENTRE
 **Single-School Institutional ERP & Public Digital Campus Portal**
 
 ---
 
 ### 1. Document Overview & School Identity
 
-* **Product Name:** Residential PDS Public School ERP & Digital Campus
-* **School Name:** RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR
-* **Campus Address:** BRC Near Shahpur Road, Sheohar, Bihar - 843329
-* **CBSE Affiliation Code:** 10030206405
-* **School Code:** PDS-7821
+* **Product Name:** Chanakya Public School & Coaching Centre ERP & Digital Campus
+* **School Name:** CHANAKYA PUBLIC SCHOOL & COACHING CENTRE
+* **Campus Address:** Kushahar Ward 07, Kushahar, Sheohar, Bihar - 843329
+* **CBSE Affiliation Code:** 10034104008
+* **School Code:** CPS-7821
 * **Affiliated Board:** Central Board of Secondary Education (CBSE), New Delhi
-* **Institutional Email:** residentialpdspublicschool@gmail.com
-* **Primary Telephone:** +91 9507595491, +91 8271676713
-* **Office & Landline Contacts:** +91 9939115492, 06222-796505
+* **Institutional Email:** cpskushahar@gmail.com
+* **Primary Telephone:** +91 8207870192, +91 8207870192
+* **Office & Landline Contacts:** +91 8207870192, 06222-796505
 * **Current Academic Session:** 2026-2027
 
 ---
@@ -25,7 +25,7 @@
 #### 2.1 Single-School Architecture (Non-Negotiable)
 This system is engineered strictly as a **Single-School Enterprise Resource Planning (ERP) platform**. 
 * **NOT Multi-Tenant:** There are no school IDs, tenant partitions, or multi-tenant database routing.
-* **Centralized Single Campus:** All 33 database collections in MongoDB Atlas belong to RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR.
+* **Centralized Single Campus:** All 33 database collections in MongoDB Atlas belong to CHANAKYA PUBLIC SCHOOL & COACHING CENTRE.
 * **Database as Sole Production Source of Truth:** MongoDB Atlas is the single production source of truth. The backend maintains an existing in-memory fallback strictly for development or preview environments when MongoDB is unavailable.
 * **Frontend Cache Boundary:** Frontend `localStorage` is strictly an optimistic, read, and offline-draft cache for instantaneous UI rendering; it is NEVER the backend production source of truth.
 * **Institutional Ownership:** The branding, configuration, fee categories, academic sessions, and portal settings are dedicated solely to this campus.
@@ -63,10 +63,10 @@ The system provides exactly three distinct login experiences:
 1. **STAFF / ADMIN LOGIN (One Common Login Page):**
    - Single unified authentication entry point supporting all 10 administrative and faculty roles (`SUPER_ADMIN`, `SCHOOL_ADMIN`, `PRINCIPAL`, `VICE_PRINCIPAL`, `ACADEMIC_COORDINATOR`, `ACCOUNTANT`, `TEACHER`, `HOSTEL_WARDEN`, `TRANSPORT_MANAGER`, `HR_STAFF`).
    - Strictly NO separate login pages for Teacher, Admin, Principal, Accountant, etc.
-   - User inputs User ID, Employee ID (e.g. `PDS0001` - `PDS0010`), Email, or Phone + Password.
+   - User inputs User ID, Employee ID (e.g. `CPS0001` - `CPS0010`), Email, or Phone + Password.
    - **Backend Authorization Mandate:** Role is determined exclusively and securely on the backend from authoritative database records upon verification. The frontend NEVER chooses, switches, or submits a user role.
 2. **STUDENT LOGIN:**
-   - Case-insensitive 8-digit Admission Number (e.g., `64010001`) or Registration Number (`PDS2026100001`).
+   - Case-insensitive 8-digit Admission Number (e.g., `64010001`) or Registration Number (`CPS2026100001`).
    - Verified securely against student's Date of Birth (DD-MM-YYYY format with leap year validation) or custom portal password.
 3. **PARENT LOGIN:**
    - 10-digit registered parent mobile number.
@@ -339,7 +339,7 @@ The system provides exactly three distinct login experiences:
      - Cloudflare R2 Attachments: Official circulars support PDF, DOCX, and image attachments up to 25MB uploaded to Cloudflare R2 storage with file preview and download modals.
      - Immediate SMS Broadcast Option: Toggling instant SMS broadcast upon circular creation dispatches real-time SMS alerts to registered parent mobile numbers of the targeted audience.
   2. *SMS Gateway Dispatch Center (`SmsCenterTab`):*
-     - Real-time institutional SMS gateway integration with provider support (PDS Gateway / Fast2SMS) and sender ID (`PDSSHR`).
+     - Real-time institutional SMS gateway integration with provider support (Gateway / Fast2SMS) and sender ID (`CPSKSH`).
      - Live Gateway Telemetry: Today dispatched, today failed, total dispatched, and active provider statistics from MongoDB Atlas.
      - Quick Automated Triggers: Pre-configured, one-click institutional trigger workflows for Daily Absentees, Overdue Fee Reminders, Exam Schedule Announcements, Admit Cards Published, Results Declared, and Emergency Weather/Holiday Advisories.
      - Live Quick Trigger Preview (`GET /api/sms/quick-triggers/preview`): Calculates total eligible recipients, validates 10-digit Indian mobile numbers, counts already-sent messages today, and renders a live resolved sample message with GSM credit unit estimation (160 characters/unit) without sending.
@@ -364,7 +364,7 @@ The system provides exactly three distinct login experiences:
   - `GET /api/sms/stats`, `GET /api/sms/history`, `GET /api/sms/quick-triggers/preview`, `POST /api/sms/quick-triggers/dispatch`, `POST /api/sms/send`
   - `GET /api/homework/options` (assignable class → section → subject tree), `GET /api/homework`, `POST /api/homework`, `PUT /api/homework/:id`, `DELETE /api/homework/:id`
   - `GET /api/study-materials`, `POST /api/study-materials`, `DELETE /api/study-materials/:id`
-* **Persistence:** MongoDB Atlas `notices`, `sms_logs`, `homework`, `study_materials`, `file_metadata`. Attachments in Cloudflare R2 bucket (`pds-school`).
+* **Persistence:** MongoDB Atlas `notices`, `sms_logs`, `homework`, `study_materials`, `file_metadata`. Attachments in Cloudflare R2 bucket (`cps-school`).
 
 ---
 
@@ -423,7 +423,7 @@ The system provides exactly three distinct login experiences:
 * **Target Users:** All user personas.
 * **Core Workflows:**
   1. *Unified Multi-Role Login:*
-     - Identifier input accepts: Username, Email, Normalized Mobile Phone (10 digits), Employee ID (e.g., `EMP-101`), Student Admission Number (e.g., `PDS-2026-0001`), or Registration Number.
+     - Identifier input accepts: Username, Email, Normalized Mobile Phone (10 digits), Employee ID (e.g., `EMP-101`), Student Admission Number (e.g., `CPS-2026-0001`), or Registration Number.
      - Password verification using `bcrypt` (10 salt rounds).
      - Account lockout protection: 5 consecutive failed login attempts trigger a 15-minute temporary lockout.
      - "Remember Me" toggle creates a 7-day JWT token; standard session creates a 12-hour JWT token.

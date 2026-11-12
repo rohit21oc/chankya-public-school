@@ -331,7 +331,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
     return todaySlots.sort((a, b) => Number(a.periodNumber) - Number(b.periodNumber));
   }, [timetable, todayDay, isTeacher, isStudent, isParent, resolvedStudent, user]);
 
-  // Class-wise student distribution (Active classes Nursery to 8, active students only)
+  // Class-wise student distribution (Active classes, active students only)
   const classDistribution = useMemo(() => {
     const activeClasses = classes
       .filter((cls) => cls.status === 'ACTIVE' && (cls as any).isActive !== false && cls.name !== 'ELP')
@@ -444,7 +444,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 Welcome back, {user.name}
               </h1>
               <p className="text-xs text-slate-600">
-                {settings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR'}
+                {settings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE'}
               </p>
             </div>
 
@@ -1326,7 +1326,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               </div>
               <div className="mt-2.5 pt-2 border-t border-slate-200 text-[11px] flex justify-between text-slate-500">
                 <span>Affiliation Code: <strong className="font-mono text-slate-800">{SID().affiliationNo || NOT_CONFIGURED}</strong></span>
-                <span>{SID().board ? `${SID().board} Affiliated • CBSE Pattern` : 'CBSE Pattern'}</span>
+                <span>{SID().board ? `${SID().board} Affiliated` : 'Recognised School'}</span>
               </div>
             </div>
           </div>

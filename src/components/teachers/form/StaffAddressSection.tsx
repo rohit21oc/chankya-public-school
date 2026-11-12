@@ -254,7 +254,7 @@ export const StaffAddressSection: React.FC<StaffAddressSectionProps> = ({
             placeholder={
               value.sameAsPermanentAddress
                 ? 'Automatically synchronized with Residential Address'
-                : 'e.g. School Staff Quarters, Residential PDS Campus, Sheohar'
+                : 'e.g. School Staff Quarters, Kushahar, Sheohar'
             }
             value={value.currentAddress}
             onChange={(e) => updateCurrent('currentAddress', e.target.value)}

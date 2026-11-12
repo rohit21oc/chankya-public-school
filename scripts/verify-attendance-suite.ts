@@ -100,7 +100,7 @@ async function verifyAttendance() {
   const adminToken = adminLogin.data.token;
   if (!adminToken) throw new Error('Admin login failed');
 
-  const teacherLogin = await postJson('/api/auth/login', { identifier: 'PDS0002', password: 'admin123', loginType: 'STAFF_ADMIN' });
+  const teacherLogin = await postJson('/api/auth/login', { identifier: 'CPS0002', password: 'admin123', loginType: 'STAFF_ADMIN' });
   const teacherToken = teacherLogin.data.token;
   if (!teacherToken) throw new Error('Teacher login failed');
 
@@ -173,7 +173,7 @@ async function verifyAttendance() {
   // Admin manages staff attendance
   const adminStaffAtt = await postJson('/api/staff-attendance', {
     date: '2026-10-15',
-    records: [{ staffId: 't-1', employeeId: 'PDS0001', status: 'PRESENT', checkInTime: '08:00 AM' }],
+    records: [{ staffId: 't-1', employeeId: 'CPS0001', status: 'PRESENT', checkInTime: '08:00 AM' }],
   }, adminToken);
   if (adminStaffAtt.status !== 200) throw new Error(`Admin staff attendance failed: ${JSON.stringify(adminStaffAtt.data)}`);
   console.log('✓ Admin successfully recorded staff attendance. Count:', adminStaffAtt.data.count);
@@ -181,7 +181,7 @@ async function verifyAttendance() {
   // 7. Test Staff Leave Application & Automatic Attendance Reflection
   const applyLeave = await postJson('/api/staff-leaves', {
     staffId: 't-2',
-    employeeId: 'PDS0002',
+    employeeId: 'CPS0002',
     staffName: 'Mrs. Sunita Verma',
     leaveType: 'CASUAL',
     startDate: '2026-11-02',
@@ -202,13 +202,13 @@ async function verifyAttendance() {
   console.log('✓ Leave approved by Admin/Principal.');
 
   // Check staff attendance on 2026-11-02 to confirm auto-reflected
-  const checkStaffAtt = await getJson('/api/staff-attendance?date=2026-11-02&staffId=PDS0002', adminToken);
-  const foundLeaveAtt = checkStaffAtt.data.find((a: any) => a.employeeId === 'PDS0002' && a.status === 'LEAVE');
+  const checkStaffAtt = await getJson('/api/staff-attendance?date=2026-11-02&staffId=CPS0002', adminToken);
+  const foundLeaveAtt = checkStaffAtt.data.find((a: any) => a.employeeId === 'CPS0002' && a.status === 'LEAVE');
   if (!foundLeaveAtt) throw new Error('Approved leave did not automatically reflect in staff attendance!');
   console.log('✓ Approved leave automatically reflected in staff attendance records as LEAVE!');
 
   // 8. Staff Calendar Endpoint
-  const staffCal = await getJson('/api/attendance/staff-calendar/PDS0002', teacherToken);
+  const staffCal = await getJson('/api/attendance/staff-calendar/CPS0002', teacherToken);
   if (staffCal.status !== 200 || !staffCal.data.records) throw new Error('Staff calendar failed');
   console.log('✓ Staff attendance calendar returned records:', staffCal.data.records.length, 'leaves:', staffCal.data.leaves.length);
 

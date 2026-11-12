@@ -1,109 +1,5 @@
 [
   {
-    "_id": "6acf78174597c170172dff2c",
-    "id": "c-nur",
-    "__v": 0,
-    "academicSession": "2026-2027",
-    "createdAt": "2026-10-14T12:39:51.556Z",
-    "detailedSections": [
-      {
-        "id": "sec-nur-a",
-        "name": "A",
-        "maxCapacity": 30,
-        "roomNumber": "Room 001",
-        "status": "ACTIVE"
-      }
-    ],
-    "maxCapacity": 30,
-    "name": "Nursery",
-    "numericOrder": 0,
-    "sections": [
-      "A"
-    ],
-    "status": "ACTIVE",
-    "updatedAt": "2026-10-14T12:39:51.556Z"
-  },
-  {
-    "_id": "6acf78174597c170172dff2d",
-    "id": "c-lkg",
-    "__v": 0,
-    "academicSession": "2026-2027",
-    "createdAt": "2026-10-14T12:39:51.556Z",
-    "detailedSections": [
-      {
-        "id": "sec-lkg-a",
-        "name": "A",
-        "maxCapacity": 30,
-        "roomNumber": "Room 002",
-        "status": "ACTIVE"
-      }
-    ],
-    "maxCapacity": 30,
-    "name": "LKG",
-    "numericOrder": 2,
-    "sections": [
-      "A"
-    ],
-    "status": "ACTIVE",
-    "updatedAt": "2026-10-14T12:39:51.556Z"
-  },
-  {
-    "_id": "6acf78174597c170172dff2e",
-    "id": "c-ukg",
-    "__v": 0,
-    "academicSession": "2026-2027",
-    "createdAt": "2026-10-14T12:39:51.556Z",
-    "detailedSections": [
-      {
-        "id": "sec-ukg-a",
-        "name": "A",
-        "maxCapacity": 30,
-        "roomNumber": "Room 003",
-        "status": "ACTIVE"
-      }
-    ],
-    "maxCapacity": 30,
-    "name": "UKG",
-    "numericOrder": 3,
-    "sections": [
-      "A"
-    ],
-    "status": "ACTIVE",
-    "updatedAt": "2026-10-14T12:39:51.556Z"
-  },
-  {
-    "_id": "6acf78174597c170172dff2f",
-    "id": "c-1790998355737",
-    "__v": 0,
-    "academicSession": "2026-2027",
-    "createdAt": "2026-10-14T12:39:51.556Z",
-    "detailedSections": [
-      {
-        "id": "sec-1790998355737-0",
-        "name": "A",
-        "maxCapacity": 40,
-        "roomNumber": "Room 261",
-        "status": "ACTIVE"
-      },
-      {
-        "id": "sec-1790998355737-1",
-        "name": "B",
-        "maxCapacity": 40,
-        "roomNumber": "Room 262",
-        "status": "ACTIVE"
-      }
-    ],
-    "maxCapacity": 40,
-    "name": "ELP",
-    "numericOrder": 4,
-    "sections": [
-      "A",
-      "B"
-    ],
-    "status": "ACTIVE",
-    "updatedAt": "2026-10-14T12:39:51.556Z"
-  },
-  {
     "_id": "6acf78174597c170172dff30",
     "id": "c-1",
     "__v": 0,
@@ -129,7 +25,7 @@
     ],
     "maxCapacity": 40,
     "name": "Class 1",
-    "numericOrder": 5,
+    "numericOrder": 1,
     "sections": [
       "A",
       "B"
@@ -167,7 +63,7 @@
     ],
     "maxCapacity": 40,
     "name": "Class 2",
-    "numericOrder": 6,
+    "numericOrder": 2,
     "sections": [
       "A",
       "B"
@@ -199,7 +95,7 @@
     ],
     "maxCapacity": 40,
     "name": "Class 3",
-    "numericOrder": 7,
+    "numericOrder": 3,
     "sections": [
       "A",
       "B"
@@ -231,7 +127,7 @@
     ],
     "maxCapacity": 40,
     "name": "Class 4",
-    "numericOrder": 8,
+    "numericOrder": 4,
     "sections": [
       "A",
       "B"
@@ -263,7 +159,7 @@
     ],
     "maxCapacity": 40,
     "name": "Class 5",
-    "numericOrder": 9,
+    "numericOrder": 5,
     "sections": [
       "A",
       "B"
@@ -295,7 +191,7 @@
     ],
     "maxCapacity": 40,
     "name": "Class 6",
-    "numericOrder": 10,
+    "numericOrder": 6,
     "sections": [
       "A",
       "B"
@@ -327,7 +223,7 @@
     ],
     "maxCapacity": 40,
     "name": "Class 7",
-    "numericOrder": 11,
+    "numericOrder": 7,
     "sections": [
       "A",
       "B"
@@ -359,7 +255,7 @@
     ],
     "maxCapacity": 40,
     "name": "Class 8",
-    "numericOrder": 12,
+    "numericOrder": 8,
     "sections": [
       "A",
       "B"

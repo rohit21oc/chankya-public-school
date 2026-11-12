@@ -31,7 +31,7 @@ type Feedback =
   | { tone: 'confirm'; result: ScanResult; message: string; code: string; status: 'PRESENT' | 'LATE' };
 
 const REPEAT_WINDOW_MS = 4000;
-const CAMERA_KEY = 'pds.idScan.cameraId';
+const CAMERA_KEY = 'cps.idScan.cameraId';
 
 function readSavedCamera(): string {
   try {

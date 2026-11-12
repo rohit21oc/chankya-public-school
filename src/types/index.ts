@@ -304,7 +304,7 @@ export interface Student {
   id: string;
   schoolId?: string;
   admissionNumber: string; // 8 digits (e.g. 20260401)
-  registrationNumber: string; // PDS2026040001
+  registrationNumber: string; // CPS2026040001
   rollNumber: string; // digits only, unique class-wise
   name: string;
   firstName?: string;
@@ -515,7 +515,7 @@ export interface StaffPayrollRecord {
 
 export interface TeacherStaff {
   id: string;
-  employeeId: string; // PDS0001
+  employeeId: string; // CPS0001
   name: string;
   photo?: string;
   photoFileKey?: string;

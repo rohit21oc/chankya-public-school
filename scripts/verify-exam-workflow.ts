@@ -11,7 +11,7 @@ const BASE_URL = 'http://localhost:3000';
 
 async function runVerification() {
   console.log('========================================================================');
-  console.log('RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR - EXAMS & RESULTS VERIFICATION');
+  console.log('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE - EXAMS & RESULTS VERIFICATION');
   console.log('========================================================================\n');
 
   // Step 1: Admin Login

@@ -19,12 +19,12 @@ const teacher: User = {
   name: 'Test Teacher',
   username: 'tt01',
   role: 'TEACHER',
-  employeeId: 'PDS0010',
+  employeeId: 'CPS0010',
   phone: '9000000001',
 } as User;
 
 console.log('\n--- Own identifier ---');
-check('identifier is the signed-in employee ID', ownStaffIdentifier(teacher) === 'PDS0010');
+check('identifier is the signed-in employee ID', ownStaffIdentifier(teacher) === 'CPS0010');
 check('falls back to user id, never username', ownStaffIdentifier({ ...teacher, employeeId: undefined } as User) === 't-1789975305012');
 
 console.log('\n--- ID card view: no invented values ---');
@@ -34,7 +34,7 @@ check('no server record => no employee ID invented', noRecord.employeeId === und
 check('no server record => no department invented', noRecord.department === undefined);
 check('no server record => no school phone substituted', noRecord.phone === undefined || noRecord.phone === teacher.phone);
 
-const partial = { id: 't-1', name: 'Anil', employeeId: 'PDS0010', role: 'TEACHER', department: '', phone: '' } as unknown as Staff;
+const partial = { id: 't-1', name: 'Anil', employeeId: 'CPS0010', role: 'TEACHER', department: '', phone: '' } as unknown as Staff;
 const v = buildIdCardView(partial, teacher);
 check('record present => available', v.available === true);
 check('empty department stays undefined (not a default)', v.department === undefined);
@@ -47,8 +47,8 @@ const recs: StaffAttendanceRecord[] = [
   { staffId: 't-1789975305012', staffName: 'Me', date: '2026-10-02', status: 'ABSENT' },
   { staffId: 't-1789975305012', staffName: 'Me', date: '2026-10-05', status: 'LEAVE' },
   { staffId: 't-1789975305012', staffName: 'Me', date: '2026-09-30', status: 'PRESENT' },
-  { staffId: 't-2', employeeId: 'PDS0002', staffName: 'Other', date: '2026-10-01', status: 'ABSENT' },
-  { staffId: 'x', employeeId: 'PDS0010', staffName: 'Me by emp', date: '2026-10-03', status: 'LATE' },
+  { staffId: 't-2', employeeId: 'CPS0002', staffName: 'Other', date: '2026-10-01', status: 'ABSENT' },
+  { staffId: 'x', employeeId: 'CPS0010', staffName: 'Me by emp', date: '2026-10-03', status: 'LATE' },
 ];
 const s = summarizeOwnAttendance(recs, teacher, '2026-10');
 check('excludes other staff records even if returned', s.records.every((r) => r.staffId !== 't-2'));

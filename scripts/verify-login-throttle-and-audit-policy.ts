@@ -71,7 +71,7 @@ check('lock ends after the cooldown', !t.check('ip', 'acct', T0 + 61_000).blocke
 for (let i = 0; i < 5; i++) t.recordFailure('ip', 'acct', T0 + 62_000);
 const second = t.check('ip', 'acct', T0 + 63_000);
 check('second lock is longer (doubles)', second.blocked && second.retryAfterSec > 100);
-check('identity: phone formats collapse, text is lower-cased', loginIdentity({ identifier: '+91 98765-43210' }) === '9876543210' && loginIdentity({ identifier: 'PDS0002' }) === 'pds0002');
+check('identity: phone formats collapse, text is lower-cased', loginIdentity({ identifier: '+91 98765-43210' }) === '9876543210' && loginIdentity({ identifier: 'CPS0002' }) === 'cps0002');
 server.close();
 
 // ---------- audit policy ----------

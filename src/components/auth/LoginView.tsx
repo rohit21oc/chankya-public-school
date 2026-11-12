@@ -154,16 +154,16 @@ export const LoginView: React.FC<LoginViewProps> = ({
       }
     };
 
-    window.addEventListener('pradnya_entity_settings', handleSettingsUpdated);
+    window.addEventListener('cps_entity_settings', handleSettingsUpdated);
     window.addEventListener('academic-session-changed', handleSettingsUpdated);
-    window.addEventListener('pradnya_data_updated', handleSettingsUpdated);
+    window.addEventListener('cps_data_updated', handleSettingsUpdated);
     window.addEventListener('storage', handleSettingsUpdated);
 
     return () => {
       isMounted = false;
-      window.removeEventListener('pradnya_entity_settings', handleSettingsUpdated);
+      window.removeEventListener('cps_entity_settings', handleSettingsUpdated);
       window.removeEventListener('academic-session-changed', handleSettingsUpdated);
-      window.removeEventListener('pradnya_data_updated', handleSettingsUpdated);
+      window.removeEventListener('cps_data_updated', handleSettingsUpdated);
       window.removeEventListener('storage', handleSettingsUpdated);
     };
   }, []);

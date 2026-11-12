@@ -12,8 +12,8 @@ async function main() {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      identifier: 'residentialpdsschool',
-      password: 'Pdsschool@321',
+      identifier: 'chanakyapublicschool',
+      password: 'Chanakyaschool@321',
       loginType: 'STAFF_ADMIN',
     }),
   });
@@ -22,7 +22,7 @@ async function main() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        identifier: 'PDS0009',
+        identifier: 'CPS0009',
         password: 'admin123',
         loginType: 'STAFF_ADMIN',
       }),

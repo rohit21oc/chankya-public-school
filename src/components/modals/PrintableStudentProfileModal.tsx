@@ -92,7 +92,7 @@ export const PrintableStudentProfileModal: React.FC<PrintableStudentProfileModal
                 )}
                 <div>
                   <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-950 uppercase font-serif">
-                    {settings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR'}
+                    {settings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE'}
                   </h1>
                   <p className="text-xs font-medium text-slate-700">
                     {settings.schoolAddress || NOT_CONFIGURED}
@@ -267,7 +267,7 @@ export const PrintableStudentProfileModal: React.FC<PrintableStudentProfileModal
                 <div className="border border-slate-300 border-t-0 p-3 text-xs space-y-1.5 bg-white">
                   <div className="flex justify-between">
                     <span className="text-slate-600">Previous School:</span>
-                    <strong className="text-slate-900">{student.previousSchool || 'Admitted directly / PDS Sheohar'}</strong>
+                    <strong className="text-slate-900">{student.previousSchool || 'Admitted directly'}</strong>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-600">Previous Class & Marks:</span>
@@ -305,7 +305,7 @@ export const PrintableStudentProfileModal: React.FC<PrintableStudentProfileModal
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-600">Medical Consultant:</span>
-                    <strong className="text-slate-900">{student.doctorName || 'Dr. Rajeshwar Sharma'} ({student.doctorContact || '95075 95491'})</strong>
+                    <strong className="text-slate-900">{student.doctorName || 'Not provided'} ({student.doctorContact || 'Not provided'})</strong>
                   </div>
                 </div>
               </div>
@@ -319,7 +319,7 @@ export const PrintableStudentProfileModal: React.FC<PrintableStudentProfileModal
                     <span className="text-slate-400 font-serif italic">Verified Record</span>
                   </div>
                   <p className="mt-1 font-bold text-slate-800">Class Teacher Signature</p>
-                  <p className="text-[10px] text-slate-500">RESIDENTIAL PDS PUBLIC SCHOOL</p>
+                  <p className="text-[10px] text-slate-500">CHANAKYA PUBLIC SCHOOL & COACHING CENTRE</p>
                 </div>
 
                 <div>
@@ -334,10 +334,10 @@ export const PrintableStudentProfileModal: React.FC<PrintableStudentProfileModal
 
                 <div>
                   <div className="h-14 flex items-end justify-center border-b border-slate-400 pb-1">
-                    <span className="font-serif italic font-bold text-slate-800">Dr. Rajeshwar Sharma</span>
+                    <span className="font-serif italic font-bold text-slate-800">{settings.principalName || ""}</span>
                   </div>
                   <p className="mt-1 font-bold text-slate-800">Principal Signature</p>
-                  <p className="text-[10px] text-slate-500">RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR</p>
+                  <p className="text-[10px] text-slate-500">CHANAKYA PUBLIC SCHOOL & COACHING CENTRE</p>
                 </div>
               </div>
 

@@ -444,13 +444,13 @@ export const SmsComposerModal: React.FC<SmsComposerModalProps> = ({
             <textarea
               rows={4}
               required
-              placeholder="Type message to send... (e.g. RESIDENTIAL PDS PUBLIC SCHOOL: Dear Parent...)"
+              placeholder="Type message to send... (e.g. CHANAKYA PUBLIC SCHOOL & COACHING CENTRE: Dear Parent...)"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               className="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:ring-1 focus:ring-blue-600 focus:outline-hidden font-normal leading-relaxed"
             ></textarea>
             <p className="text-[10px] text-slate-400">
-              Sender ID: <strong className="font-mono text-slate-600">PDSSHR</strong>
+              Sender ID: <strong className="font-mono text-slate-600">CPSKSH</strong>
             </p>
           </div>
         </div>

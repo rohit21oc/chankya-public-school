@@ -4,12 +4,12 @@ const BASE_URL = 'http://localhost:3000';
 
 async function testAllRolesProfile() {
   const credentials = [
-    { role: 'ACCOUNTANT', id: 'PDS0004', pass: 'admin123' },
-    { role: 'HR_STAFF', id: 'PDS0005', pass: 'admin123' },
-    { role: 'HOSTEL_WARDEN', id: 'PDS0006', pass: 'admin123' },
-    { role: 'TRANSPORT_MANAGER', id: 'PDS0007', pass: 'admin123' },
-    { role: 'ACADEMIC_COORDINATOR', id: 'PDS0008', pass: 'admin123' },
-    { role: 'VICE_PRINCIPAL', id: 'PDS0009', pass: 'admin123' },
+    { role: 'ACCOUNTANT', id: 'CPS0004', pass: 'admin123' },
+    { role: 'HR_STAFF', id: 'CPS0005', pass: 'admin123' },
+    { role: 'HOSTEL_WARDEN', id: 'CPS0006', pass: 'admin123' },
+    { role: 'TRANSPORT_MANAGER', id: 'CPS0007', pass: 'admin123' },
+    { role: 'ACADEMIC_COORDINATOR', id: 'CPS0008', pass: 'admin123' },
+    { role: 'VICE_PRINCIPAL', id: 'CPS0009', pass: 'admin123' },
   ];
 
   console.log('Testing My Profile for multiple staff roles...\n');

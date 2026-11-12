@@ -1,6 +1,6 @@
 /**
  * Official Indian States & Union Territories and Bihar Districts
- * Residential PDS Public School, Sheohar
+ * Chanakya Public School & Coaching Centre, Sheohar
  */
 
 export const INDIAN_STATES: string[] = [

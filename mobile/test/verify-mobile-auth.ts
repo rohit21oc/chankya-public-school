@@ -1,9 +1,9 @@
 /**
  * Mobile App Phase 1 Verification Test Suite
- * RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR
+ * CHANAKYA PUBLIC SCHOOL & COACHING CENTRE
  *
  * Genuine Live-Backend End-to-End Tests:
- * 1. Backend Connectivity & Health Check (Render https://residentialpdsschool.onrender.com)
+ * 1. Backend Connectivity & Health Check (Render https://your-backend.example)
  * 2. Admin & Staff Common Login (no role dropdown, backend RBAC resolution)
  * 3. Student Portal Login (Admission No + DOB)
  * 4. Parent Portal Login (Registered Mobile + Child DOB + Multi-Child Switcher)
@@ -39,17 +39,17 @@ async function assert(name: string, fn: () => Promise<void>) {
 
 async function runMobileSuite() {
   console.log('================================================================');
-  console.log('RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR - MOBILE APP PHASE 1 TESTS');
+  console.log('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE - MOBILE APP PHASE 1 TESTS');
   console.log('================================================================\n');
 
   // 1. Backend Health & Connectivity
   console.log('--- 1. Backend Connectivity ---');
-  await assert('Production Backend Connectivity (Render https://residentialpdsschool.onrender.com)', async () => {
+  await assert('Production Backend Connectivity (Render https://your-backend.example)', async () => {
     const res = await apiService.request('/api/health');
     if (!res.ok || !res.data) {
       throw new Error(`Health check failed: ${res.error || res.status}`);
     }
-    if (!res.data.school?.includes('PDS PUBLIC SCHOOL')) {
+    if (!res.data.school?.includes('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE')) {
       throw new Error(`Unexpected school name in health check: ${res.data.school}`);
     }
   });
@@ -57,9 +57,9 @@ async function runMobileSuite() {
   // 2. Staff & Admin Common Login
   console.log('\n--- 2. Staff / Admin Common Login Flows ---');
 
-  await assert('Super Admin Authentication (residentialpdsschool)', async () => {
+  await assert('Super Admin Authentication (chanakyapublicschool)', async () => {
     await authStorage.clearSession();
-    const res = await apiService.loginStaff('residentialpdsschool', 'Pdsschool@321', true);
+    const res = await apiService.loginStaff('chanakyapublicschool', 'Chanakyaschool@321', true);
     if (!res.success || !res.user || !res.token) {
       throw new Error(`Admin login failed: ${res.error}`);
     }
@@ -74,22 +74,22 @@ async function runMobileSuite() {
     }
   });
 
-  await assert('Teacher Authentication (PDS0002 - Mrs. Sunita Verma)', async () => {
+  await assert('Teacher Authentication (CPS0002 - Mrs. Sunita Verma)', async () => {
     await authStorage.clearSession();
-    const res = await apiService.loginStaff('PDS0002', 'admin123', true);
+    const res = await apiService.loginStaff('CPS0002', 'admin123', true);
     if (!res.success || !res.user || !res.token) {
       throw new Error(`Teacher login failed: ${res.error}`);
     }
     if (res.user.role !== 'TEACHER') {
       throw new Error(`Expected TEACHER role, got ${res.user.role}`);
     }
-    if (res.user.employeeId !== 'PDS0002') {
-      throw new Error(`Expected employeeId PDS0002, got ${res.user.employeeId}`);
+    if (res.user.employeeId !== 'CPS0002') {
+      throw new Error(`Expected employeeId CPS0002, got ${res.user.employeeId}`);
     }
   });
 
   await assert('Invalid Staff Password Rejection', async () => {
-    const res = await apiService.loginStaff('residentialpdsschool', 'WrongPassword!123', false);
+    const res = await apiService.loginStaff('chanakyapublicschool', 'WrongPassword!123', false);
     if (res.success) {
       throw new Error('Expected login to fail for invalid password');
     }
@@ -101,9 +101,9 @@ async function runMobileSuite() {
   // 3. Student Portal Login
   console.log('\n--- 3. Student Portal Login Flows ---');
 
-  await assert('Student Login with Admission Number (PDS2026NUR01 + DOB 10-04-2022)', async () => {
+  await assert('Student Login with Admission Number (CPS2026NUR01 + DOB 10-04-2022)', async () => {
     await authStorage.clearSession();
-    const res = await apiService.loginStudent('PDS2026NUR01', '10-04-2022', true);
+    const res = await apiService.loginStudent('CPS2026NUR01', '10-04-2022', true);
     if (!res.success || !res.user || !res.token) {
       throw new Error(`Student login failed: ${res.error}`);
     }
@@ -116,7 +116,7 @@ async function runMobileSuite() {
   });
 
   await assert('Student Invalid DOB Rejection', async () => {
-    const res = await apiService.loginStudent('PDS2026NUR01', '01-01-2000', false);
+    const res = await apiService.loginStudent('CPS2026NUR01', '01-01-2000', false);
     if (res.success) {
       throw new Error('Expected student login to fail for mismatched DOB');
     }
@@ -149,19 +149,19 @@ async function runMobileSuite() {
   // 5. Live Authorized Data Services
   console.log('\n--- 5. Authorized Data Services ---');
 
-  await assert('Super Admin Fetches Live School Settings (CBSE Affiliation 10030206405)', async () => {
-    await apiService.loginStaff('residentialpdsschool', 'Pdsschool@321', true);
+  await assert('Super Admin Fetches Live School Settings (CBSE Affiliation 10034104008)', async () => {
+    await apiService.loginStaff('chanakyapublicschool', 'Chanakyaschool@321', true);
     const res = await apiService.getSchoolSettings();
     if (!res.ok || !res.data) {
       throw new Error(`Failed to fetch school settings: ${res.error}`);
     }
-    if (!res.data.schoolName?.includes('PDS PUBLIC SCHOOL')) {
+    if (!res.data.schoolName?.includes('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE')) {
       throw new Error(`Unexpected school name: ${res.data.schoolName}`);
     }
   });
 
   await assert('Teacher Fetches Scoped Student Records', async () => {
-    await apiService.loginStaff('PDS0002', 'admin123', true);
+    await apiService.loginStaff('CPS0002', 'admin123', true);
     const res = await apiService.getStudents(10);
     if (!res.ok || !Array.isArray(res.data)) {
       throw new Error(`Failed to fetch scoped students: ${res.error}`);
@@ -177,7 +177,7 @@ async function runMobileSuite() {
   });
 
   await assert('Super Admin Fetches Faculty & Staff Directory Records', async () => {
-    await apiService.loginStaff('residentialpdsschool', 'Pdsschool@321', true);
+    await apiService.loginStaff('chanakyapublicschool', 'Chanakyaschool@321', true);
     const res = await apiService.getStaffList(10);
     if (!res.ok || !Array.isArray(res.data)) {
       throw new Error(`Failed to fetch staff list: ${res.error}`);
@@ -192,7 +192,7 @@ async function runMobileSuite() {
   });
 
   await assert('Authenticated User Fetches Official Circulars / Notices', async () => {
-    await apiService.loginStaff('residentialpdsschool', 'Pdsschool@321', true);
+    await apiService.loginStaff('chanakyapublicschool', 'Chanakyaschool@321', true);
     const res = await apiService.getNotices();
     if (!res.ok || !Array.isArray(res.data)) {
       throw new Error(`Failed to fetch notices: ${res.error}`);
@@ -273,7 +273,7 @@ async function runMobileSuite() {
     const teacherUser: any = {
       id: 't-2',
       name: 'Mrs. Sunita Verma',
-      username: 'PDS0002',
+      username: 'CPS0002',
       role: 'TEACHER',
       permissions: ['students.view', 'attendance.view', 'academics.view', 'timetable.view', 'communication.view', 'documents.view'],
     };
@@ -289,7 +289,7 @@ async function runMobileSuite() {
 
   await assert('Session Persistence & Invalidation on Logout', async () => {
     // 1. Establish session
-    await apiService.loginStaff('residentialpdsschool', 'Pdsschool@321', true);
+    await apiService.loginStaff('chanakyapublicschool', 'Chanakyaschool@321', true);
     if (!authStorage.isAuthenticated()) {
       throw new Error('authStorage did not record session as authenticated');
     }

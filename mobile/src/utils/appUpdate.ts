@@ -9,7 +9,7 @@ export interface AppUpdateDecision {
   packageName: string;
 }
 
-const PACKAGE = 'in.residentialpdsschool.app';
+const PACKAGE = 'in.chanakyapublicschool.app';
 const toInt = (v: unknown): number => {
   const n = Math.floor(Number(v));
   return Number.isFinite(n) && n > 0 ? n : 0;

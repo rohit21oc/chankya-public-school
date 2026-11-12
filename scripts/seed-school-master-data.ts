@@ -87,9 +87,9 @@ async function main() {
 
   const client = new MongoClient(uri, { serverSelectionTimeoutMS: 15000 });
   await client.connect();
-  // Same database choice as server/db/mongo.ts: the name in the URI, else pds_school_erp.
+  // Same database choice as server/db/mongo.ts: the name in the URI, else cps_school_erp.
   const named = client.options.dbName;
-  const dbName = named && named !== 'test' ? named : 'pds_school_erp';
+  const dbName = named && named !== 'test' ? named : 'cps_school_erp';
   const db = client.db(dbName);
   console.log(`${apply ? 'APPLY' : 'DRY RUN'} on database "${dbName}"\n`);
 

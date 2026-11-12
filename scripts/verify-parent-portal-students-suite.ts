@@ -23,7 +23,7 @@ function recordFail(step: string, details: string) {
 async function runSuite() {
   console.log('========================================================================');
   console.log('VERIFYING PARENT PORTAL STUDENTS MODULE SUITE');
-  console.log('Single Source of Truth: MongoDB Atlas (pds_school_erp)');
+  console.log('Single Source of Truth: MongoDB Atlas (cps_school_erp)');
   console.log('========================================================================\n');
 
   // Step 1: Admin Login to prepare test data if needed
@@ -32,8 +32,8 @@ async function runSuite() {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      identifier: 'residentialpdsschool',
-      password: 'Pdsschool@321',
+      identifier: 'chanakyapublicschool',
+      password: 'Chanakyaschool@321',
       loginType: 'STAFF_ADMIN',
     }),
   });
@@ -43,7 +43,7 @@ async function runSuite() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        identifier: 'PDS0009',
+        identifier: 'CPS0009',
         password: 'admin123',
         loginType: 'STAFF_ADMIN',
       }),
@@ -71,7 +71,7 @@ async function runSuite() {
     },
     body: JSON.stringify({
       id: 'st-parent-child-1',
-      admissionNumber: 'PDS-CHILD-01',
+      admissionNumber: 'CPS-CHILD-01',
       rollNumber: '10',
       name: 'Aarav Sharma',
       className: 'Class 6',
@@ -100,7 +100,7 @@ async function runSuite() {
     },
     body: JSON.stringify({
       id: 'st-parent-child-2',
-      admissionNumber: 'PDS-CHILD-02',
+      admissionNumber: 'CPS-CHILD-02',
       rollNumber: '18',
       name: 'Ananya Sharma',
       className: 'Class 8',
@@ -129,7 +129,7 @@ async function runSuite() {
     },
     body: JSON.stringify({
       id: 'st-other-family-child',
-      admissionNumber: 'PDS-OTHER-99',
+      admissionNumber: 'CPS-OTHER-99',
       rollNumber: '45',
       name: 'Rohan Verma',
       className: 'Class 10',
@@ -164,7 +164,7 @@ async function runSuite() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         identifier: parentMobile,
-        password: 'PDS123',
+        password: 'CPS123',
         loginType: 'PARENT',
       }),
     });

@@ -172,7 +172,7 @@ export const PublicManagementProfileModal: React.FC<PublicManagementProfileModal
                   {member.name}
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-500 font-semibold pt-1">
-                  RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR
+                  CHANAKYA PUBLIC SCHOOL & COACHING CENTRE
                 </p>
               </div>
 

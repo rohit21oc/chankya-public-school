@@ -7,13 +7,13 @@ import { CertificateType, SchoolSettings, Student } from '../src/types';
 
 // Real school settings
 const realSettings: SchoolSettings = {
-  schoolName: 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+  schoolName: 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
   schoolAddress: 'Sheohar, Bihar - 843329',
-  affiliationCode: '10030206405',
-  schoolCode: 'PDS-7821',
+  affiliationCode: '10034104008',
+  schoolCode: 'CPS-7821',
   affiliatedBoard: 'Central Board of Secondary Education (CBSE), New Delhi',
-  schoolLogo: 'school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png',
-  principalSignature: 'school/school-logo/4f810c82-2cc5-4300-a78d-94597ee47bca.png',
+  schoolLogo: 'school/school-logo/logo.png',
+  principalSignature: 'school/school-logo/principal-signature.png',
   principalName: 'Mr. R. K. Sharma',
   currentAcademicSession: '2026-2027',
 } as any;
@@ -25,7 +25,7 @@ const testStudents: { label: string; student: any }[] = [
     student: {
       id: 'st-audit-test-1789894770498',
       admissionNumber: '64010010',
-      registrationNumber: 'PDS202610010',
+      registrationNumber: 'CPS202610010',
       rollNumber: '08',
       name: 'Rohan Sharma',
       photo: 'school/students/photos/2026/09/rohan-sharma-photo.jpg',
@@ -50,7 +50,7 @@ const testStudents: { label: string; student: any }[] = [
     student: {
       id: 'st-1789555727192',
       admissionNumber: '64010009',
-      registrationNumber: 'PDS202610009',
+      registrationNumber: 'CPS202610009',
       rollNumber: '14',
       name: 'ROHIT KUMAR',
       photo: 'school/students/photos/2026/09/4db3df4f-bc9b-4e93-bb8f-57f05fabc7fd.png',
@@ -74,7 +74,7 @@ const testStudents: { label: string; student: any }[] = [
     student: {
       id: 'st-64013068-long',
       admissionNumber: '64013068',
-      registrationNumber: 'PDS202613068/REG/NORTH-ZONE',
+      registrationNumber: 'CPS202613068/REG/NORTH-ZONE',
       rollNumber: '25',
       name: 'Anirudh Raghavendra Pratap Singh',
       photo: 'school/students/photos/2026/09/rohan-sharma-photo.jpg',

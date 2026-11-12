@@ -10,7 +10,7 @@ const mem = new Map<string, string>();
 
 const b64 = (o: object) => Buffer.from(JSON.stringify(o)).toString('base64').replace(/=+$/, '').replace(/\+/g, '-').replace(/\//g, '_');
 const jwt = (expSecFromNow: number) => `${b64({ alg: 'HS256' })}.${b64({ exp: Math.floor(Date.now() / 1000) + expSecFromNow })}.sig`;
-const user: any = { id: 'u1', name: 'Test', role: 'TEACHER', employeeId: 'PDS0002' };
+const user: any = { id: 'u1', name: 'Test', role: 'TEACHER', employeeId: 'CPS0002' };
 
 let n = 0;
 const t = async (name: string, fn: () => Promise<void> | void) => { await fn(); n++; console.log('PASS', name); };
@@ -18,8 +18,8 @@ const t = async (name: string, fn: () => Promise<void> | void) => { await fn(); 
 (async () => {
   // --- restart simulation: values saved by an earlier launch exist before the module loads ---
   const good = jwt(3600);
-  mem.set('pds_mobile_token', good);
-  mem.set('pds_mobile_user', JSON.stringify(user));
+  mem.set('cps_mobile_token', good);
+  mem.set('cps_mobile_user', JSON.stringify(user));
   const { authStorage } = await import('../src/services/authStorage');
   const { apiService } = await import('../src/services/apiService');
 
@@ -33,15 +33,15 @@ const t = async (name: string, fn: () => Promise<void> | void) => { await fn(); 
   await t('setSession with remember-me writes the sign-in to the persistent store', async () => {
     const tok = jwt(7200);
     await authStorage.setSession(tok, user, true);
-    assert.equal(mem.get('pds_mobile_token'), tok);
-    assert.ok(mem.get('pds_mobile_user')!.includes('PDS0002'));
+    assert.equal(mem.get('cps_mobile_token'), tok);
+    assert.ok(mem.get('cps_mobile_user')!.includes('CPS0002'));
   });
 
   await t('updateUser and active child are persisted too', () => {
     authStorage.updateUser({ name: 'Renamed' } as any);
-    assert.ok(mem.get('pds_mobile_user')!.includes('Renamed'));
+    assert.ok(mem.get('cps_mobile_user')!.includes('Renamed'));
     authStorage.setActiveStudentId('st-9');
-    assert.equal(mem.get('pds_mobile_active_student_id'), 'st-9');
+    assert.equal(mem.get('cps_mobile_active_student_id'), 'st-9');
   });
 
   await t('network failure while verifying does NOT sign the user out', async () => {
@@ -49,7 +49,7 @@ const t = async (name: string, fn: () => Promise<void> | void) => { await fn(); 
     const r = await apiService.verifyCurrentSession();
     assert.equal(r.valid, true);
     assert.ok(authStorage.getToken());
-    assert.ok(mem.get('pds_mobile_token'));
+    assert.ok(mem.get('cps_mobile_token'));
   });
 
   await t('server error (500) while verifying does NOT sign the user out', async () => {
@@ -64,14 +64,14 @@ const t = async (name: string, fn: () => Promise<void> | void) => { await fn(); 
     const r = await apiService.verifyCurrentSession();
     assert.equal(r.valid, false);
     assert.equal(authStorage.getToken(), null);
-    assert.equal(mem.has('pds_mobile_token'), false);
-    assert.equal(mem.has('pds_mobile_user'), false);
+    assert.equal(mem.has('cps_mobile_token'), false);
+    assert.equal(mem.has('cps_mobile_user'), false);
   });
 
   await t('without remember-me nothing is saved (and an older save is removed)', async () => {
-    mem.set('pds_mobile_token', 'old');
+    mem.set('cps_mobile_token', 'old');
     await authStorage.setSession(jwt(3600), user, false);
-    assert.equal(mem.has('pds_mobile_token'), false);
+    assert.equal(mem.has('cps_mobile_token'), false);
     assert.ok(authStorage.getToken());
   });
 

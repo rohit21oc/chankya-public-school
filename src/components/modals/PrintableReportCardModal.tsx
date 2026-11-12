@@ -320,7 +320,7 @@ export const PrintableReportCardModal: React.FC<PrintableReportCardModalProps> =
     const session = currentExam?.academicSession || st.academicSession || activeSettings.currentAcademicSession || '2026-2027';
     const father = st.fatherName || st.parentName || '';
     const mother = st.motherName || '';
-    const regNo = st.registrationNumber || `PDS${st.admissionNumber}`;
+    const regNo = st.registrationNumber || `CPS${st.admissionNumber}`;
 
     const photoSrc =
       photosMap.get(st.id) ||

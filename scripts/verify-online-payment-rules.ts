@@ -19,11 +19,11 @@ let n = 0;
 const t = async (name: string, fn: () => void | Promise<void>) => { await fn(); n++; console.log('PASS', name); };
 
 const order = (o: Partial<PaymentOrderRecord> = {}): PaymentOrderRecord => ({
-  id: 'po-1', gateway: 'PHONEPE', orderId: 'PDS-1-a', studentId: 's1', payAll: false, ledgerIds: ['l1'], amountPaise: 225000, currency: 'INR',
+  id: 'po-1', gateway: 'PHONEPE', orderId: 'CPS-1-a', studentId: 's1', payAll: false, ledgerIds: ['l1'], amountPaise: 225000, currency: 'INR',
   status: 'INITIATED', attempts: [], history: [], createdBy: { userId: 'u', role: 'PARENT', name: 'P' },
   createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(), expiresAt: new Date(Date.now() + ORDER_TTL_MS).toISOString(), ...o,
 });
-const done = (o: any = {}) => ({ merchantOrderId: 'PDS-1-a', state: 'COMPLETED', amount: 225000, paymentDetails: [{ transactionId: 'OM1', paymentMode: 'UPI_QR', amount: 225000, state: 'COMPLETED' }], ...o });
+const done = (o: any = {}) => ({ merchantOrderId: 'CPS-1-a', state: 'COMPLETED', amount: 225000, paymentDetails: [{ transactionId: 'OM1', paymentMode: 'UPI_QR', amount: 225000, state: 'COMPLETED' }], ...o });
 
 await t('only PhonePe COMPLETED for the exact amount, for this order, with a completed transaction passes', () => {
   const ok = checkCompletedOrder(order(), done()) as any;
@@ -35,7 +35,7 @@ await t('only PhonePe COMPLETED for the exact amount, for this order, with a com
   assert.equal((checkCompletedOrder(order(), done({ amount: 100 })) as any).code, 'AMOUNT_MISMATCH');
   assert.equal((checkCompletedOrder(order(), done({ amount: '225001' })) as any).code, 'AMOUNT_MISMATCH');
   assert.equal((checkCompletedOrder(order(), done({ amount: '225000' })) as any).ok, true, 'amount may arrive as a string');
-  assert.equal((checkCompletedOrder(order(), done({ merchantOrderId: 'PDS-OTHER' })) as any).code, 'ORDER_MISMATCH');
+  assert.equal((checkCompletedOrder(order(), done({ merchantOrderId: 'CPS-OTHER' })) as any).code, 'ORDER_MISMATCH');
   assert.equal((checkCompletedOrder(order(), done({ paymentDetails: [{ transactionId: 'OM1', state: 'FAILED' }] })) as any).code, 'NO_TRANSACTION');
   assert.equal((checkCompletedOrder(order(), null as any) as any).ok, false);
 });

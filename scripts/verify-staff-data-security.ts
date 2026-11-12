@@ -23,7 +23,7 @@ const BASE = 'http://localhost:3000';
 const JWT_SECRET = crypto.randomBytes(32).toString('hex');
 
 // Fixture identities from the repository seed data (not credentials).
-const TEACHER_SELF = { userId: 't-1789975305012', employeeId: 'PDS0010' };
+const TEACHER_SELF = { userId: 't-1789975305012', employeeId: 'CPS0010' };
 const TEACHER_OTHER_ID = 't-2';
 
 const SECRET_KEYS = [

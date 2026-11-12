@@ -442,7 +442,7 @@ export const ParentFeesView: React.FC<ParentFeesViewProps> = ({
                 Fees & Accounts Ledger
               </h1>
               <p className="text-xs text-slate-500 font-medium">
-                RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR • Session {settings.currentAcademicSession || '2026-2027'}
+                CHANAKYA PUBLIC SCHOOL & COACHING CENTRE • Session {settings.currentAcademicSession || '2026-2027'}
               </p>
             </div>
           </div>
@@ -1310,7 +1310,7 @@ export const ParentFeesView: React.FC<ParentFeesViewProps> = ({
                     Official School Payment & Bank Transfer Information
                   </h3>
                   <p className="text-xs text-slate-300 mt-0.5">
-                    RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR • Institutional Accounts Desk
+                    CHANAKYA PUBLIC SCHOOL & COACHING CENTRE • Institutional Accounts Desk
                   </p>
                 </div>
               </div>
@@ -1330,7 +1330,7 @@ export const ParentFeesView: React.FC<ParentFeesViewProps> = ({
                   <p>
                     <span className="text-slate-400">Account Name:</span>{' '}
                     <strong className="text-white font-sans">
-                      {settings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR'}
+                      {settings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE'}
                     </strong>
                   </p>
                   <p>
@@ -1369,7 +1369,7 @@ export const ParentFeesView: React.FC<ParentFeesViewProps> = ({
                   <p>
                     <span className="text-slate-400">Virtual Payment Address (VPA):</span>{' '}
                     <strong className="text-emerald-300 font-sans block text-sm mt-0.5">
-                      {(settings as any).upiDetails?.upiId || 'pds.sheohar@upi'}
+                      {(settings as any).upiDetails?.upiId || 'Not configured'}
                     </strong>
                   </p>
                   <p className="text-[11px] text-slate-300 pt-1 font-sans">

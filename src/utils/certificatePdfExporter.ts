@@ -378,7 +378,7 @@ export async function exportCertificateToPdf(options: CertificatePdfOptions): Pr
     // Student Shared Data
     const studentFather = student.fatherName || student.parentName || 'Father';
     const studentMother = student.motherName || 'Verified Mother';
-    const regNo = student.registrationNumber || `PDS${student.admissionNumber}`;
+    const regNo = student.registrationNumber || `CPS${student.admissionNumber}`;
     const studentAddress = `${student.address || ''}, ${student.city || ''}, ${student.state || 'Bihar'} - ${student.pincode || '843329'}`.trim();
     const affCode = settings.affiliationCode || settings.affiliationNumber || NOT_CONFIGURED;
     const schCode = settings.schoolCode || NOT_CONFIGURED;

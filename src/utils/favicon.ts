@@ -32,7 +32,7 @@ export function applySchoolFavicon(
   // 2. If still empty, inspect persisted cache in localStorage
   if (!effectiveTarget) {
     try {
-      const stored = localStorage.getItem('pds_school_erp');
+      const stored = localStorage.getItem('cps_school_erp');
       if (stored) {
         const parsed = JSON.parse(stored);
         if (parsed?.settings) {

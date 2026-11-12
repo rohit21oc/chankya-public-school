@@ -167,7 +167,7 @@ export const AddStaffModal: React.FC<AddStaffModalProps> = ({
 
   // 6. Portal Access
   const [enableLogin, setEnableLogin] = useState(true);
-  const [initialPassword, setInitialPassword] = useState('Pds@2026');
+  const [initialPassword, setInitialPassword] = useState('Cps@2026');
   const [showPassword, setShowPassword] = useState(false);
   const [accountStatus, setAccountStatus] = useState<'ACTIVE' | 'INACTIVE' | 'SUSPENDED' | 'LEFT_SCHOOL'>('ACTIVE');
 
@@ -481,7 +481,7 @@ export const AddStaffModal: React.FC<AddStaffModalProps> = ({
                 </div>
                 <div>
                   <span className="text-[10px] font-bold tracking-wider uppercase text-blue-300 block">
-                    Residential PDS Public School, Sheohar
+                    Chanakya Public School & Coaching Centre, Sheohar
                   </span>
                   <h2 className="text-xl font-black tracking-tight text-white">
                     Registration Completed
@@ -830,7 +830,7 @@ export const AddStaffModal: React.FC<AddStaffModalProps> = ({
                   type="email"
                   value={emailAddress}
                   onChange={(e) => setEmailAddress(e.target.value)}
-                  placeholder="e.g. rajesh.sharma@pds.school.edu"
+                  placeholder="e.g. rajesh.sharma@cps.school.edu"
                   className="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 focus:outline-hidden"
                 />
               </div>

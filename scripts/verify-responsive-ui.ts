@@ -8,7 +8,7 @@
  * Needs a running server (UI_AUDIT_BASE_URL, default http://localhost:3000), a staff account to sign in
  * with (UI_AUDIT_USER / UI_AUDIT_PASSWORD) and Playwright with Chromium. Playwright is not a project
  * dependency; point NODE_PATH at an existing install, e.g.
- *   NODE_PATH=$(npm root -g) UI_AUDIT_USER=PDS0001 UI_AUDIT_PASSWORD=... npx tsx scripts/verify-responsive-ui.ts ./ui-shots
+ *   NODE_PATH=$(npm root -g) UI_AUDIT_USER=CPS0001 UI_AUDIT_PASSWORD=... npx tsx scripts/verify-responsive-ui.ts ./ui-shots
  */
 import fs from 'fs';
 import path from 'path';

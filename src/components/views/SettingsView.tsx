@@ -219,7 +219,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
   const handleUpiQrUploaded = async (res: UploadResult) => {
     const fileKey = res.fileKey || res.previewUrl;
     const currentPayment = formData.paymentOptions || {
-      accountHolderName: 'RESIDENTIAL PDS PUBLIC SCHOOL',
+      accountHolderName: 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
       bankName: 'State Bank of India (SBI)',
       accountNumber: '',
       ifsc: '',
@@ -655,7 +655,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                   <input
                     type="text"
                     required
-                    placeholder="e.g. RESIDENTIAL PDS PUBLIC SCHOOL"
+                    placeholder="e.g. CHANAKYA PUBLIC SCHOOL & COACHING CENTRE"
                     value={formData.paymentOptions?.accountHolderName ?? ''}
                     onChange={(e) => {
                       const val = e.target.value;
@@ -708,7 +708,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                     <input
                       type="text"
                       required
-                      placeholder="e.g. 38947291054"
+                      placeholder="e.g. 123456789012"
                       value={formData.paymentOptions?.accountNumber ?? ''}
                       onChange={(e) => {
                         const val = e.target.value.replace(/\s+/g, '');
@@ -734,7 +734,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                     <input
                       type="text"
                       required
-                      placeholder="e.g. SBIN0002124"
+                      placeholder="e.g. SBIN0001234"
                       value={formData.paymentOptions?.ifsc ?? ''}
                       onChange={(e) => {
                         const val = e.target.value.toUpperCase().replace(/\s+/g, '');
@@ -796,7 +796,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                   <input
                     type="text"
                     required
-                    placeholder="e.g. residentialpdspublicschool@sbi"
+                    placeholder="e.g. chanakyapublicschool@sbi"
                     value={formData.paymentOptions?.upiId ?? ''}
                     onChange={(e) => {
                       const val = e.target.value.toLowerCase().trim();

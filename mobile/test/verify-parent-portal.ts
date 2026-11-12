@@ -180,7 +180,7 @@ check('Home lets the app exit', parentBackAction([], 'home') === 'exit');
 console.log('\n-- Student ID card QR privacy');
 {
   const child = { id: 'st-1', admissionNumber: 'ADM-1', name: 'Asha', className: 'Class 2', section: 'A', rollNumber: '4', dob: '2015-01-01', fatherMobile: '9999999999', parentPhone: '9999999999' };
-  const signed = 'PDS1.S.c3QtMQ.abcdefghijklmnopqrstuv';
+  const signed = 'CPS1.S.c3QtMQ.abcdefghijklmnopqrstuv';
   const m = buildStudentIdCardModel(child, {}, signed);
   check('QR shows the signed code from the server, nothing else', m.qrToken === signed);
   check('QR has no date of birth or phone number', !String(m.qrToken).includes('2015') && !String(m.qrToken).includes('9999999999'));

@@ -75,10 +75,10 @@ export const EditStaffPageView: React.FC<EditStaffPageViewProps> = ({
 
   // Check if target staff is the Root Super Admin
   const isTargetRootSuperAdmin =
-    staff.employeeId === 'PDS0001' ||
+    staff.employeeId === 'CPS0001' ||
     staff.systemRole === 'SUPER_ADMIN' ||
     staff.portalRole === 'SUPER_ADMIN' ||
-    staff.email?.toLowerCase() === 'superadmin@pdsschool.edu.in';
+    staff.email?.toLowerCase() === 'superadmin@chanakyaschool.example';
 
   // Protect Root Super Admin from being altered by School Admin
   if (isTargetRootSuperAdmin && isSchoolAdmin) {
@@ -538,7 +538,7 @@ export const EditStaffPageView: React.FC<EditStaffPageViewProps> = ({
         phone: mobileNumber.trim(),
         email: emailAddress.trim() || undefined,
         alternatePhone: alternateMobile.trim() || undefined,
-        address: addressState.permanentAddress.trim() || 'Staff Quarters, PDS Campus',
+        address: addressState.permanentAddress.trim() || 'Staff Quarters, School Campus',
         city: addressState.permanentCity || 'Sheohar',
         state: addressState.permanentState || 'Bihar',
         pincode: addressState.permanentPincode || '843329',

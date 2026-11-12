@@ -4,11 +4,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const BASE_URL = 'http://localhost:3000';
-const JWT_SECRET = process.env.JWT_SECRET || 'residential_pds_sheohar_jwt_production_secret_key_2026';
+const JWT_SECRET = process.env.JWT_SECRET || 'residential_cps_sheohar_jwt_production_secret_key_2026';
 
 async function verifyRealFlow() {
   console.log('====================================================');
-  console.log('RESIDENTIAL PDS PUBLIC SCHOOL - AUTH & SESSION TEST');
+  console.log('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE - AUTH & SESSION TEST');
   console.log('====================================================\n');
 
   // STEP 1: Login as SUPER_ADMIN
@@ -171,38 +171,38 @@ async function verifyRealFlow() {
   const postRefreshUpdated: any = await postRefreshPutRes.json();
   console.log(`[PASS] Protected PUT after refresh succeeded: "${postRefreshUpdated.remarks}"\n`);
 
-  // STEP 8: Also test with PDS0014 (Rohit Kumar, SUPER_ADMIN)
-  console.log('>>> STEP 8: Test PDS0014 (Rohit Kumar, Staff SUPER_ADMIN)');
-  const pds0014Login = await fetch(`${BASE_URL}/api/auth/login`, {
+  // STEP 8: Also test with CPS0014 (Rohit Kumar, SUPER_ADMIN)
+  console.log('>>> STEP 8: Test CPS0014 (Rohit Kumar, Staff SUPER_ADMIN)');
+  const cps0014Login = await fetch(`${BASE_URL}/api/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      identifier: 'PDS0014',
+      identifier: 'CPS0014',
       password: 'Rohit@123',
       loginType: 'STAFF_ADMIN',
     }),
   });
-  if (pds0014Login.status !== 200) {
-    throw new Error(`PDS0014 login failed with HTTP ${pds0014Login.status}`);
+  if (cps0014Login.status !== 200) {
+    throw new Error(`CPS0014 login failed with HTTP ${cps0014Login.status}`);
   }
-  const pds0014Data: any = await pds0014Login.json();
-  console.log(`  - PDS0014 login OK: ${pds0014Data.user.name} (${pds0014Data.user.role})`);
+  const cps0014Data: any = await cps0014Login.json();
+  console.log(`  - CPS0014 login OK: ${cps0014Data.user.name} (${cps0014Data.user.role})`);
 
-  const pds0014Put = await fetch(`${BASE_URL}/api/students/${targetStudent.id}`, {
+  const cps0014Put = await fetch(`${BASE_URL}/api/students/${targetStudent.id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${pds0014Data.token}`,
+      Authorization: `Bearer ${cps0014Data.token}`,
     },
     body: JSON.stringify({
       ...targetStudent,
-      remarks: `Updated by PDS0014 at ${new Date().toISOString()}`,
+      remarks: `Updated by CPS0014 at ${new Date().toISOString()}`,
     }),
   });
-  if (pds0014Put.status !== 200) {
-    throw new Error(`PDS0014 Student PUT failed with HTTP ${pds0014Put.status}`);
+  if (cps0014Put.status !== 200) {
+    throw new Error(`CPS0014 Student PUT failed with HTTP ${cps0014Put.status}`);
   }
-  console.log(`[PASS] PDS0014 Student PUT succeeded\n`);
+  console.log(`[PASS] CPS0014 Student PUT succeeded\n`);
 
   console.log('====================================================');
   console.log('ALL VERIFICATION STEPS PASSED WITH 100% SUCCESS!');

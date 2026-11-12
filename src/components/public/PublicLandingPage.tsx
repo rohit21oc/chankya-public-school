@@ -60,7 +60,7 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
         setNotices(api.getNotices());
       }
     };
-    window.addEventListener('pradnya_entity_notices', handleNoticeChange);
+    window.addEventListener('cps_entity_notices', handleNoticeChange);
 
     api.getHeroSlides().then((slides) => {
       if (isMounted && Array.isArray(slides)) {
@@ -70,7 +70,7 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
 
     return () => {
       isMounted = false;
-      window.removeEventListener('pradnya_entity_notices', handleNoticeChange);
+      window.removeEventListener('cps_entity_notices', handleNoticeChange);
     };
   }, []);
 

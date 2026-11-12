@@ -158,7 +158,7 @@ export const ContactSettingsTab: React.FC<ContactSettingsTabProps> = ({
               type="text"
               value={affiliationCode}
               onChange={(e) => setAffiliationCode(e.target.value)}
-              placeholder="e.g. 10030206405"
+              placeholder="e.g. 10034104008"
               className="w-full px-3 py-2 rounded-lg border border-slate-200 font-mono font-bold text-slate-900 focus:ring-2 focus:ring-amber-500 focus:outline-hidden"
             />
           </div>
@@ -188,7 +188,7 @@ export const ContactSettingsTab: React.FC<ContactSettingsTabProps> = ({
               type="tel"
               value={primaryPhone}
               onChange={(e) => setPrimaryPhone(e.target.value)}
-              placeholder="+91 95075 95491"
+              placeholder="+91 82078 70192"
               className="w-full px-3 py-2 rounded-lg border border-slate-200 font-bold text-slate-900 focus:ring-2 focus:ring-amber-500 focus:outline-hidden"
             />
           </div>
@@ -210,7 +210,7 @@ export const ContactSettingsTab: React.FC<ContactSettingsTabProps> = ({
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="info@pdspublicschool.com"
+              placeholder="info@chanakyaschool.example"
               className="w-full px-3 py-2 rounded-lg border border-slate-200 font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-hidden"
             />
           </div>
@@ -231,7 +231,7 @@ export const ContactSettingsTab: React.FC<ContactSettingsTabProps> = ({
               type="url"
               value={facebookUrl}
               onChange={(e) => setFacebookUrl(e.target.value)}
-              placeholder="https://facebook.com/pdspublicschool"
+              placeholder="https://facebook.com/chanakyapublicschool"
               className="w-full px-3 py-1.5 rounded-lg border border-slate-200 focus:outline-hidden"
             />
           </div>
@@ -242,7 +242,7 @@ export const ContactSettingsTab: React.FC<ContactSettingsTabProps> = ({
               type="url"
               value={youtubeUrl}
               onChange={(e) => setYoutubeUrl(e.target.value)}
-              placeholder="https://youtube.com/@pdspublicschool"
+              placeholder="https://youtube.com/@chanakyapublicschool"
               className="w-full px-3 py-1.5 rounded-lg border border-slate-200 focus:outline-hidden"
             />
           </div>
@@ -253,7 +253,7 @@ export const ContactSettingsTab: React.FC<ContactSettingsTabProps> = ({
               type="url"
               value={instagramUrl}
               onChange={(e) => setInstagramUrl(e.target.value)}
-              placeholder="https://instagram.com/pdssheohar"
+              placeholder="https://instagram.com/chanakyapublicschool"
               className="w-full px-3 py-1.5 rounded-lg border border-slate-200 focus:outline-hidden"
             />
           </div>
