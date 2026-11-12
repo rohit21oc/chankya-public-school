@@ -1,0 +1,42 @@
+[
+  {
+    "id": "hst-1790870039054-5yq6vb",
+    "capacity": 0,
+    "createdAt": "2026-10-01T15:53:59.055Z",
+    "emergencyPhone": "7645050131",
+    "floors": [
+      1,
+      2,
+      3
+    ],
+    "messFee": 2500,
+    "monthlyFee": 2000,
+    "name": "Boys Hostel",
+    "status": "ACTIVE",
+    "totalRooms": 9,
+    "type": "BOYS",
+    "updatedAt": "2026-10-14T13:28:07.158Z",
+    "wardenName": "Rohit",
+    "wardenPhone": "7645050131"
+  },
+  {
+    "id": "hst-1790870312671-kcn4vd",
+    "capacity": 0,
+    "createdAt": "2026-10-01T15:58:32.671Z",
+    "emergencyPhone": "1023456987",
+    "floors": [
+      1,
+      2,
+      3
+    ],
+    "messFee": 2500,
+    "monthlyFee": 3500,
+    "name": "Girls Hostel",
+    "status": "ACTIVE",
+    "totalRooms": 0,
+    "type": "BOYS",
+    "updatedAt": "2026-10-14T13:28:07.158Z",
+    "wardenName": "Prity",
+    "wardenPhone": "1023456987"
+  }
+]

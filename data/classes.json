@@ -1,0 +1,370 @@
+[
+  {
+    "_id": "6acf78174597c170172dff2c",
+    "id": "c-nur",
+    "__v": 0,
+    "academicSession": "2026-2027",
+    "createdAt": "2026-10-14T12:39:51.556Z",
+    "detailedSections": [
+      {
+        "id": "sec-nur-a",
+        "name": "A",
+        "maxCapacity": 30,
+        "roomNumber": "Room 001",
+        "status": "ACTIVE"
+      }
+    ],
+    "maxCapacity": 30,
+    "name": "Nursery",
+    "numericOrder": 0,
+    "sections": [
+      "A"
+    ],
+    "status": "ACTIVE",
+    "updatedAt": "2026-10-14T12:39:51.556Z"
+  },
+  {
+    "_id": "6acf78174597c170172dff2d",
+    "id": "c-lkg",
+    "__v": 0,
+    "academicSession": "2026-2027",
+    "createdAt": "2026-10-14T12:39:51.556Z",
+    "detailedSections": [
+      {
+        "id": "sec-lkg-a",
+        "name": "A",
+        "maxCapacity": 30,
+        "roomNumber": "Room 002",
+        "status": "ACTIVE"
+      }
+    ],
+    "maxCapacity": 30,
+    "name": "LKG",
+    "numericOrder": 2,
+    "sections": [
+      "A"
+    ],
+    "status": "ACTIVE",
+    "updatedAt": "2026-10-14T12:39:51.556Z"
+  },
+  {
+    "_id": "6acf78174597c170172dff2e",
+    "id": "c-ukg",
+    "__v": 0,
+    "academicSession": "2026-2027",
+    "createdAt": "2026-10-14T12:39:51.556Z",
+    "detailedSections": [
+      {
+        "id": "sec-ukg-a",
+        "name": "A",
+        "maxCapacity": 30,
+        "roomNumber": "Room 003",
+        "status": "ACTIVE"
+      }
+    ],
+    "maxCapacity": 30,
+    "name": "UKG",
+    "numericOrder": 3,
+    "sections": [
+      "A"
+    ],
+    "status": "ACTIVE",
+    "updatedAt": "2026-10-14T12:39:51.556Z"
+  },
+  {
+    "_id": "6acf78174597c170172dff2f",
+    "id": "c-1790998355737",
+    "__v": 0,
+    "academicSession": "2026-2027",
+    "createdAt": "2026-10-14T12:39:51.556Z",
+    "detailedSections": [
+      {
+        "id": "sec-1790998355737-0",
+        "name": "A",
+        "maxCapacity": 40,
+        "roomNumber": "Room 261",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "sec-1790998355737-1",
+        "name": "B",
+        "maxCapacity": 40,
+        "roomNumber": "Room 262",
+        "status": "ACTIVE"
+      }
+    ],
+    "maxCapacity": 40,
+    "name": "ELP",
+    "numericOrder": 4,
+    "sections": [
+      "A",
+      "B"
+    ],
+    "status": "ACTIVE",
+    "updatedAt": "2026-10-14T12:39:51.556Z"
+  },
+  {
+    "_id": "6acf78174597c170172dff30",
+    "id": "c-1",
+    "__v": 0,
+    "academicSession": "2026-2027",
+    "classTeacherId": null,
+    "classTeacherName": null,
+    "createdAt": "2026-10-14T12:39:51.556Z",
+    "detailedSections": [
+      {
+        "id": "sec-c1-a",
+        "name": "A",
+        "maxCapacity": 40,
+        "roomNumber": "Room 101",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "sec-c1-b",
+        "name": "B",
+        "maxCapacity": 40,
+        "roomNumber": "Room 102",
+        "status": "ACTIVE"
+      }
+    ],
+    "maxCapacity": 40,
+    "name": "Class 1",
+    "numericOrder": 5,
+    "sections": [
+      "A",
+      "B"
+    ],
+    "status": "ACTIVE",
+    "updatedAt": "2026-10-14T12:39:51.556Z"
+  },
+  {
+    "_id": "6acf78174597c170172dff31",
+    "id": "c-2",
+    "__v": 0,
+    "academicSession": "2026-2027",
+    "classTeacherId": "t-1789975305012",
+    "classTeacherName": "Anil Kumar Mishra",
+    "createdAt": "2026-10-14T12:39:51.556Z",
+    "detailedSections": [
+      {
+        "id": "sec-c2-a",
+        "name": "A",
+        "maxCapacity": 40,
+        "classTeacherId": "t-3",
+        "classTeacherName": "Rajeev Kumar",
+        "roomNumber": "Room 103",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "sec-c2-b",
+        "name": "B",
+        "maxCapacity": 40,
+        "classTeacherId": "t-1789975305012",
+        "classTeacherName": "Anil Kumar Mishra",
+        "roomNumber": "Room 104",
+        "status": "ACTIVE"
+      }
+    ],
+    "maxCapacity": 40,
+    "name": "Class 2",
+    "numericOrder": 6,
+    "sections": [
+      "A",
+      "B"
+    ],
+    "status": "ACTIVE",
+    "updatedAt": "2026-10-14T12:39:51.556Z"
+  },
+  {
+    "_id": "6acf78174597c170172dff32",
+    "id": "c-3",
+    "__v": 0,
+    "academicSession": "2026-2027",
+    "createdAt": "2026-10-14T12:39:51.556Z",
+    "detailedSections": [
+      {
+        "id": "sec-c3-a",
+        "name": "A",
+        "maxCapacity": 40,
+        "roomNumber": "Room 105",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "sec-c3-b",
+        "name": "B",
+        "maxCapacity": 40,
+        "roomNumber": "Room 106",
+        "status": "ACTIVE"
+      }
+    ],
+    "maxCapacity": 40,
+    "name": "Class 3",
+    "numericOrder": 7,
+    "sections": [
+      "A",
+      "B"
+    ],
+    "status": "ACTIVE",
+    "updatedAt": "2026-10-14T12:39:51.556Z"
+  },
+  {
+    "_id": "6acf78174597c170172dff33",
+    "id": "c-4",
+    "__v": 0,
+    "academicSession": "2026-2027",
+    "createdAt": "2026-10-14T12:39:51.556Z",
+    "detailedSections": [
+      {
+        "id": "sec-c4-a",
+        "name": "A",
+        "maxCapacity": 40,
+        "roomNumber": "Room 107",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "sec-c4-b",
+        "name": "B",
+        "maxCapacity": 40,
+        "roomNumber": "Room 108",
+        "status": "ACTIVE"
+      }
+    ],
+    "maxCapacity": 40,
+    "name": "Class 4",
+    "numericOrder": 8,
+    "sections": [
+      "A",
+      "B"
+    ],
+    "status": "ACTIVE",
+    "updatedAt": "2026-10-14T12:39:51.556Z"
+  },
+  {
+    "_id": "6acf78174597c170172dff34",
+    "id": "c-5",
+    "__v": 0,
+    "academicSession": "2026-2027",
+    "createdAt": "2026-10-14T12:39:51.556Z",
+    "detailedSections": [
+      {
+        "id": "sec-c5-a",
+        "name": "A",
+        "maxCapacity": 40,
+        "roomNumber": "Room 109",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "sec-c5-b",
+        "name": "B",
+        "maxCapacity": 40,
+        "roomNumber": "Room 110",
+        "status": "ACTIVE"
+      }
+    ],
+    "maxCapacity": 40,
+    "name": "Class 5",
+    "numericOrder": 9,
+    "sections": [
+      "A",
+      "B"
+    ],
+    "status": "ACTIVE",
+    "updatedAt": "2026-10-14T12:39:51.556Z"
+  },
+  {
+    "_id": "6acf78174597c170172dff35",
+    "id": "c-6",
+    "__v": 0,
+    "academicSession": "2026-2027",
+    "createdAt": "2026-10-14T12:39:51.556Z",
+    "detailedSections": [
+      {
+        "id": "sec-c6-a",
+        "name": "A",
+        "maxCapacity": 40,
+        "roomNumber": "Room 111",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "sec-c6-b",
+        "name": "B",
+        "maxCapacity": 40,
+        "roomNumber": "Room 112",
+        "status": "ACTIVE"
+      }
+    ],
+    "maxCapacity": 40,
+    "name": "Class 6",
+    "numericOrder": 10,
+    "sections": [
+      "A",
+      "B"
+    ],
+    "status": "ACTIVE",
+    "updatedAt": "2026-10-14T12:39:51.556Z"
+  },
+  {
+    "_id": "6acf78174597c170172dff36",
+    "id": "c-7",
+    "__v": 0,
+    "academicSession": "2026-2027",
+    "createdAt": "2026-10-14T12:39:51.556Z",
+    "detailedSections": [
+      {
+        "id": "sec-c7-a",
+        "name": "A",
+        "maxCapacity": 40,
+        "roomNumber": "Room 113",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "sec-c7-b",
+        "name": "B",
+        "maxCapacity": 40,
+        "roomNumber": "Room 114",
+        "status": "ACTIVE"
+      }
+    ],
+    "maxCapacity": 40,
+    "name": "Class 7",
+    "numericOrder": 11,
+    "sections": [
+      "A",
+      "B"
+    ],
+    "status": "ACTIVE",
+    "updatedAt": "2026-10-14T12:39:51.556Z"
+  },
+  {
+    "_id": "6acf78174597c170172dff37",
+    "id": "c-8",
+    "__v": 0,
+    "academicSession": "2026-2027",
+    "createdAt": "2026-10-14T12:39:51.556Z",
+    "detailedSections": [
+      {
+        "id": "sec-c8-a",
+        "name": "A",
+        "maxCapacity": 40,
+        "roomNumber": "Room 115",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "sec-c8-b",
+        "name": "B",
+        "maxCapacity": 40,
+        "roomNumber": "Room 116",
+        "status": "ACTIVE"
+      }
+    ],
+    "maxCapacity": 40,
+    "name": "Class 8",
+    "numericOrder": 12,
+    "sections": [
+      "A",
+      "B"
+    ],
+    "status": "ACTIVE",
+    "updatedAt": "2026-10-14T12:39:51.556Z"
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "name": "pds-school-mobile",
+  "displayName": "RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "android:prebuild": "expo prebuild --platform android",
+    "android:prebuild:clean": "expo prebuild --platform android --clean",
+    "web": "expo start --web",
+    "lint": "tsc --noEmit",
+    "test": "tsx test/verify-mobile-auth.ts",
+    "test:offline": "npx tsx test/verify-source-parses.ts && npx tsx test/verify-teacher-portal-audit.ts && npx tsx test/verify-payroll-attendance.ts && npx tsx test/verify-request-cache.ts && npx tsx test/verify-id-card.ts && npx tsx test/verify-report-card-and-payroll.ts && npx tsx test/verify-requested-fixes.ts && npx tsx test/verify-teacher-assignments.ts && npx tsx test/verify-teacher-profile.ts && npx tsx test/verify-teacher-home-model.ts && npx tsx test/verify-home-redesign.ts && npx tsx test/verify-parent-portal.ts && npx tsx test/verify-homework-and-attendance.ts && npx tsx test/verify-marksheet-and-picker.ts && npx tsx test/verify-notice-rules.ts && npx tsx test/verify-dob-input.ts && npx tsx test/verify-student-portal.ts && npx tsx test/verify-messages-extras.ts && npx tsx test/verify-push-routing.ts && npx tsx test/verify-activity.ts && npx tsx test/verify-exam-schedule.ts && npx tsx test/verify-enquiries.ts"
+  },
+  "dependencies": {
+    "expo": "~54.0.38",
+    "expo-asset": "~12.0.14",
+    "expo-build-properties": "~1.0.10",
+    "expo-camera": "~17.0.10",
+    "expo-constants": "~18.0.14",
+    "expo-device": "~8.0.10",
+    "expo-font": "~14.0.12",
+    "expo-image-picker": "~17.0.11",
+    "expo-notifications": "~0.32.17",
+    "expo-secure-store": "~15.0.8",
+    "expo-splash-screen": "~31.0.13",
+    "expo-status-bar": "~3.0.9",
+    "expo-system-ui": "~6.0.9",
+    "expo-updates": "~29.0.20",
+    "qrcode": "^1.5.4",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-safe-area-context": "~5.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.0",
+    "@types/react": "~19.1.10",
+    "babel-preset-expo": "~54.0.12",
+    "typescript": "^5.3.3"
+  },
+  "private": true
+}

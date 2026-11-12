@@ -1,0 +1,6 @@
+{
+  "name": "RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR",
+  "description": "Single-school management ERP and public portal for RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR, Bihar. Affiliation Code: 10030206405.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

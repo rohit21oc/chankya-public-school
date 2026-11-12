@@ -1,0 +1,23 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+.expo/
+android/
+ios/
+mobile/android/
+mobile/ios/
+mobile/.expo/
+
+
+*.jks
+
+# Android release signing (never commit keys)
+mobile/android/keystore.properties
+*.keystore
+*.jks
+data/archives/

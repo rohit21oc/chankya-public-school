@@ -1,0 +1,14 @@
+[
+  {
+    "periodNumber": 1,
+    "name": "Period 1",
+    "startTime": "08:00 AM",
+    "endTime": "08:45 AM"
+  },
+  {
+    "periodNumber": 2,
+    "name": "Period 2",
+    "startTime": "08:45 AM",
+    "endTime": "09:30 AM"
+  }
+]

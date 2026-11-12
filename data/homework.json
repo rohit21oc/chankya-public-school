@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "6ab25e7e191ec7f9e8902eed",
+    "id": "hw-1",
+    "classId": "c-10",
+    "className": "Class 10",
+    "section": "A",
+    "subjectName": "Mathematics",
+    "title": "NCERT Chapter 4 - Quadratic Equations Exercise 4.3",
+    "instructions": "Solve Questions 1 through 8 in your practice notebook. Show step-by-step discriminant calculations.",
+    "assignedDate": "2026-09-12",
+    "dueDate": "2026-09-15",
+    "teacherName": "Mrs. Sunita Verma",
+    "attachmentName": "quadratic_practice_hints.pdf"
+  },
+  {
+    "_id": "6ab25e7e191ec7f9e8902eee",
+    "id": "hw-2",
+    "classId": "c-10",
+    "className": "Class 10",
+    "section": "A",
+    "subjectName": "Science",
+    "title": "Chemical Reactions and Equations Lab Observations",
+    "instructions": "Complete the write-up for Redox reactions and write balanced chemical equations with state symbols.",
+    "assignedDate": "2026-09-11",
+    "dueDate": "2026-09-14",
+    "teacherName": "Mr. Arvind Kulshrestha",
+    "attachmentName": "redox_reactions_worksheet.pdf",
+    "attachmentFileKey": "homework/hw-2-redox-worksheet.pdf",
+    "attachmentSize": 450000
+  }
+]

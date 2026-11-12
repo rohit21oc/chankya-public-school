@@ -1,0 +1,352 @@
+[
+  {
+    "id": "hr-1790870078476-hi5slk",
+    "amenities": [
+      "Bed & Mattress",
+      "Wardrobe",
+      "Study Desk"
+    ],
+    "beds": [
+      {
+        "bedNumber": "Bed A",
+        "allocatedStudentId": "st-1790942622523",
+        "allocatedStudentName": "RAVI RAJ",
+        "allocatedAdmissionNo": "64013069",
+        "allocationDate": "2026-10-01",
+        "status": "OCCUPIED"
+      },
+      {
+        "bedNumber": "Bed B",
+        "allocatedStudentId": "st-test-payfull-1791287356718",
+        "allocatedStudentName": "Aarav Test Sharma",
+        "allocatedAdmissionNo": "64012049",
+        "allocationDate": "2026-10-11",
+        "status": "OCCUPIED"
+      },
+      {
+        "bedNumber": "Bed C",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed D",
+        "status": "AVAILABLE"
+      }
+    ],
+    "capacity": 4,
+    "capacityBeds": 4,
+    "createdAt": "2026-10-01T15:54:38.716Z",
+    "floor": 1,
+    "hostelId": "hst-1790870039054-5yq6vb",
+    "hostelName": "Boys Hostel",
+    "monthlyFee": 2000,
+    "occupiedBeds": 2,
+    "roomNumber": "101",
+    "roomType": "Standard 2-Bed Sharing",
+    "status": "AVAILABLE",
+    "updatedAt": "2026-10-14T13:28:07.244Z"
+  },
+  {
+    "id": "hr-1790870087927-e6xpw",
+    "amenities": [
+      "Bed & Mattress",
+      "Wardrobe",
+      "Study Desk"
+    ],
+    "beds": [
+      {
+        "bedNumber": "Bed A",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed B",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed C",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed D",
+        "status": "AVAILABLE"
+      }
+    ],
+    "capacity": 4,
+    "capacityBeds": 4,
+    "createdAt": "2026-10-01T15:54:48.166Z",
+    "floor": 1,
+    "hostelId": "hst-1790870039054-5yq6vb",
+    "hostelName": "Boys Hostel",
+    "monthlyFee": 2000,
+    "occupiedBeds": 0,
+    "roomNumber": "102",
+    "roomType": "Standard 2-Bed Sharing",
+    "status": "AVAILABLE",
+    "updatedAt": "2026-10-14T13:28:07.244Z"
+  },
+  {
+    "id": "hr-1790870097485-are2ql",
+    "amenities": [
+      "Bed & Mattress",
+      "Wardrobe",
+      "Study Desk"
+    ],
+    "beds": [
+      {
+        "bedNumber": "Bed A",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed B",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed C",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed D",
+        "status": "AVAILABLE"
+      }
+    ],
+    "capacity": 4,
+    "capacityBeds": 4,
+    "createdAt": "2026-10-01T15:54:57.723Z",
+    "floor": 1,
+    "hostelId": "hst-1790870039054-5yq6vb",
+    "hostelName": "Boys Hostel",
+    "monthlyFee": 2000,
+    "occupiedBeds": 0,
+    "roomNumber": "103",
+    "roomType": "Standard 2-Bed Sharing",
+    "status": "AVAILABLE",
+    "updatedAt": "2026-10-14T13:28:07.244Z"
+  },
+  {
+    "id": "hr-1790870104755-nnb7n4",
+    "amenities": [
+      "Bed & Mattress",
+      "Wardrobe",
+      "Study Desk"
+    ],
+    "beds": [
+      {
+        "bedNumber": "Bed A",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed B",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed C",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed D",
+        "status": "AVAILABLE"
+      }
+    ],
+    "capacity": 4,
+    "capacityBeds": 4,
+    "createdAt": "2026-10-01T15:55:04.998Z",
+    "floor": 2,
+    "hostelId": "hst-1790870039054-5yq6vb",
+    "hostelName": "Boys Hostel",
+    "monthlyFee": 2000,
+    "occupiedBeds": 0,
+    "roomNumber": "201",
+    "roomType": "Standard 2-Bed Sharing",
+    "status": "AVAILABLE",
+    "updatedAt": "2026-10-14T13:28:07.244Z"
+  },
+  {
+    "id": "hr-1790870109992-ay5kw",
+    "amenities": [
+      "Bed & Mattress",
+      "Wardrobe",
+      "Study Desk"
+    ],
+    "beds": [
+      {
+        "bedNumber": "Bed A",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed B",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed C",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed D",
+        "status": "AVAILABLE"
+      }
+    ],
+    "capacity": 4,
+    "capacityBeds": 4,
+    "createdAt": "2026-10-01T15:55:10.230Z",
+    "floor": 2,
+    "hostelId": "hst-1790870039054-5yq6vb",
+    "hostelName": "Boys Hostel",
+    "monthlyFee": 2000,
+    "occupiedBeds": 0,
+    "roomNumber": "202",
+    "roomType": "Standard 2-Bed Sharing",
+    "status": "AVAILABLE",
+    "updatedAt": "2026-10-14T13:28:07.244Z"
+  },
+  {
+    "id": "hr-1790870114911-wbv1h",
+    "amenities": [
+      "Bed & Mattress",
+      "Wardrobe",
+      "Study Desk"
+    ],
+    "beds": [
+      {
+        "bedNumber": "Bed A",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed B",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed C",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed D",
+        "status": "AVAILABLE"
+      }
+    ],
+    "capacity": 4,
+    "capacityBeds": 4,
+    "createdAt": "2026-10-01T15:55:15.148Z",
+    "floor": 2,
+    "hostelId": "hst-1790870039054-5yq6vb",
+    "hostelName": "Boys Hostel",
+    "monthlyFee": 2000,
+    "occupiedBeds": 0,
+    "roomNumber": "203",
+    "roomType": "Standard 2-Bed Sharing",
+    "status": "AVAILABLE",
+    "updatedAt": "2026-10-14T13:28:07.244Z"
+  },
+  {
+    "id": "hr-1790870121698-ncyrj",
+    "amenities": [
+      "Bed & Mattress",
+      "Wardrobe",
+      "Study Desk"
+    ],
+    "beds": [
+      {
+        "bedNumber": "Bed A",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed B",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed C",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed D",
+        "status": "AVAILABLE"
+      }
+    ],
+    "capacity": 4,
+    "capacityBeds": 4,
+    "createdAt": "2026-10-01T15:55:21.936Z",
+    "floor": 3,
+    "hostelId": "hst-1790870039054-5yq6vb",
+    "hostelName": "Boys Hostel",
+    "monthlyFee": 2000,
+    "occupiedBeds": 0,
+    "roomNumber": "301",
+    "roomType": "Standard 2-Bed Sharing",
+    "status": "AVAILABLE",
+    "updatedAt": "2026-10-14T13:28:07.244Z"
+  },
+  {
+    "id": "hr-1790870127125-nbq0y",
+    "amenities": [
+      "Bed & Mattress",
+      "Wardrobe",
+      "Study Desk"
+    ],
+    "beds": [
+      {
+        "bedNumber": "Bed A",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed B",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed C",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed D",
+        "status": "AVAILABLE"
+      }
+    ],
+    "capacity": 4,
+    "capacityBeds": 4,
+    "createdAt": "2026-10-01T15:55:27.363Z",
+    "floor": 3,
+    "hostelId": "hst-1790870039054-5yq6vb",
+    "hostelName": "Boys Hostel",
+    "monthlyFee": 2000,
+    "occupiedBeds": 0,
+    "roomNumber": "302",
+    "roomType": "Standard 2-Bed Sharing",
+    "status": "AVAILABLE",
+    "updatedAt": "2026-10-14T13:28:07.244Z"
+  },
+  {
+    "id": "hr-1790870132281-8u5xtp",
+    "amenities": [
+      "Bed & Mattress",
+      "Wardrobe",
+      "Study Desk"
+    ],
+    "beds": [
+      {
+        "bedNumber": "Bed A",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed B",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed C",
+        "status": "AVAILABLE"
+      },
+      {
+        "bedNumber": "Bed D",
+        "status": "AVAILABLE"
+      }
+    ],
+    "capacity": 4,
+    "capacityBeds": 4,
+    "createdAt": "2026-10-01T15:55:32.519Z",
+    "floor": 3,
+    "hostelId": "hst-1790870039054-5yq6vb",
+    "hostelName": "Boys Hostel",
+    "monthlyFee": 2000,
+    "occupiedBeds": 0,
+    "roomNumber": "303",
+    "roomType": "Standard 2-Bed Sharing",
+    "status": "AVAILABLE",
+    "updatedAt": "2026-10-14T13:28:07.244Z"
+  }
+]

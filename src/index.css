@@ -1,0 +1,478 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #0B1F4B;
+    --primary-dark: #051437;
+    --primary-royal: #123B8C;
+    --primary-bright: #1D5FD1;
+    --accent-gold: #D9A441;
+    --accent-gold-light: #F3D27A;
+    --surface: #FFFFFF;
+    --surface-soft: #F7F9FC;
+    --text-main: #101828;
+    --text-muted: #667085;
+    --border-color: #E4E7EC;
+    --success: #16803C;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-main);
+    background-color: var(--surface-soft);
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Animations and Utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 6mm 8mm;
+  }
+  
+  html, body, #root, #root > div, main {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* When fee receipt modal is active during print: isolate strictly to 1 A4 portrait page */
+  body.receipt-modal-active {
+    background: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    height: auto !important;
+    max-height: 297mm !important;
+  }
+
+  /* Completely remove background app layout from print rendering for all document modals */
+  body.receipt-modal-active > #root,
+  body.report-card-modal-active > #root,
+  body.certificate-modal-active > #root,
+  body.admit-card-modal-active > #root,
+  body.id-card-modal-active > #root {
+    display: none !important;
+  }
+
+  body.receipt-modal-active * {
+    visibility: hidden;
+  }
+
+  body.receipt-modal-active #receipt-modal-portal-root,
+  body.receipt-modal-active #receipt-modal-portal-root *,
+  body.receipt-modal-active #printable-fee-receipt-container,
+  body.receipt-modal-active #printable-fee-receipt-container * {
+    visibility: visible !important;
+  }
+
+  /* Flatten modal wrapper and dialog during print */
+  body.receipt-modal-active #receipt-modal-portal-root {
+    position: static !important;
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  body.receipt-modal-active #receipt-modal-dialog {
+    position: static !important;
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Strictly isolate printable container to exactly 1 A4 portrait sheet (2 copies) */
+  body.receipt-modal-active #printable-fee-receipt-container {
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: 194mm !important;
+    max-width: 194mm !important;
+    height: 272mm !important;
+    max-height: 272mm !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    page-break-before: avoid !important;
+    break-before: avoid !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    z-index: 999999 !important;
+  }
+
+  body.receipt-modal-active .receipt-slip-item {
+    height: 132mm !important;
+    max-height: 132mm !important;
+    overflow: hidden !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    box-sizing: border-box !important;
+  }
+
+  /* When an ID card modal is active during print: isolate it completely */
+  body.id-card-modal-active * {
+    visibility: hidden !important;
+  }
+  body.id-card-modal-active #printable-id-card-view,
+  body.id-card-modal-active #printable-id-card-view *,
+  body.id-card-modal-active #bulk-cards-print-stage,
+  body.id-card-modal-active #bulk-cards-print-stage * {
+    visibility: visible !important;
+  }
+  body.id-card-modal-active .id-card-modal-root {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  body.id-card-modal-active #printable-card-zoom-wrapper {
+    transform: none !important;
+  }
+  /* Bulk print: the dialog is height-limited on screen (94vh, overflow hidden), which cut the
+     printout to the first card or two. Let every wrapper grow and give each card its own page. */
+  body.id-card-modal-active .id-card-modal-root,
+  body.id-card-modal-active .id-card-modal-root div:has(#bulk-cards-print-stage) {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    display: block !important;
+    position: static !important;
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+  body.id-card-modal-active #bulk-cards-print-stage {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  body.id-card-modal-active #bulk-cards-print-stage > div {
+    display: flex !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    background: transparent !important;
+    border: none !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    break-after: page !important;
+    page-break-after: always !important;
+  }
+  body.id-card-modal-active #bulk-cards-print-stage > div:last-child {
+    break-after: auto !important;
+    page-break-after: auto !important;
+  }
+  body.id-card-modal-active #printable-id-card-view {
+    position: absolute !important;
+    left: 50% !important;
+    top: 5mm !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    width: auto !important;
+  }
+
+  /* When report card modal is active during print */
+  body.report-card-modal-active * {
+    visibility: hidden !important;
+  }
+  body.report-card-modal-active .report-card-modal-root,
+  body.report-card-modal-active .report-card-modal-root * {
+    visibility: visible !important;
+  }
+  body.report-card-modal-active .report-card-modal-root {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  body.report-card-modal-active .report-card-page {
+    width: 194mm !important;
+    max-width: 194mm !important;
+    height: auto !important;
+    max-height: 275mm !important;
+    margin: 0 auto !important;
+    padding: 4mm 6mm !important;
+    box-sizing: border-box !important;
+    background: #ffffff !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    overflow: hidden !important;
+  }
+  body.report-card-modal-active .report-card-page:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  /* When result sheet is printing */
+  body.result-sheet-print-active * {
+    visibility: hidden !important;
+  }
+  body.result-sheet-print-active #printable-result-sheet,
+  body.result-sheet-print-active #printable-result-sheet * {
+    visibility: visible !important;
+  }
+  body.result-sheet-print-active #printable-result-sheet {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    display: block !important;
+  }
+
+  /* When admit card modal is active during print */
+  body.admit-card-modal-active * {
+    visibility: hidden !important;
+  }
+  body.admit-card-modal-active .admit-card-modal-root,
+  body.admit-card-modal-active .admit-card-modal-root * {
+    visibility: visible !important;
+  }
+  body.admit-card-modal-active .admit-card-modal-root {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  body.admit-card-modal-active .admit-card-page {
+    width: 194mm !important;
+    max-width: 194mm !important;
+    height: auto !important;
+    max-height: 275mm !important;
+    margin: 0 auto !important;
+    padding: 4mm 6mm !important;
+    box-sizing: border-box !important;
+    background: #ffffff !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    overflow: hidden !important;
+  }
+  body.admit-card-modal-active .admit-card-page:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  /* When attendance register is printing */
+  body.attendance-register-print-active * {
+    visibility: hidden !important;
+  }
+  body.attendance-register-print-active #printable-monthly-register,
+  body.attendance-register-print-active #printable-monthly-register * {
+    visibility: visible !important;
+  }
+  body.attendance-register-print-active #printable-monthly-register {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  /* When certificate modal is active during print: isolate to clean A4 sheet */
+  body.certificate-modal-active * {
+    visibility: hidden !important;
+  }
+  body.certificate-modal-active .certificate-modal-root,
+  body.certificate-modal-active .certificate-modal-root * {
+    visibility: visible !important;
+  }
+  body.certificate-modal-active .certificate-modal-root {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  body.certificate-modal-active .certificate-sheet-container {
+    width: 194mm !important;
+    max-width: 194mm !important;
+    height: auto !important;
+    max-height: 275mm !important;
+    margin: 0 auto !important;
+    padding: 6mm 8mm !important;
+    background: #ffffff !important;
+    border: 4.5px double #0f172a !important;
+    box-sizing: border-box !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  body.report-card-modal-active .print\:hidden,
+  body.certificate-modal-active .print\:hidden,
+  body.admit-card-modal-active .print\:hidden,
+  body.id-card-modal-active .print\:hidden,
+  body.result-sheet-print-active .print\:hidden,
+  .print\:hidden {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
+
+/* Click feedback: anything clickable shows a hand, and presses in when clicked (all screens). */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href],
+  summary,
+  select:not(:disabled),
+  label[for],
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled),
+  input[type="file"]:not(:disabled),
+  input[type="submit"]:not(:disabled) {
+    cursor: pointer;
+  }
+  button:disabled,
+  [aria-disabled="true"],
+  input:disabled {
+    cursor: not-allowed;
+  }
+  button,
+  [role="button"],
+  a[href] {
+    touch-action: manipulation; /* no 300ms tap delay on phones */
+    -webkit-tap-highlight-color: transparent;
+    transition: scale 120ms ease, background-color 150ms ease, border-color 150ms ease, color 150ms ease, box-shadow 150ms ease, opacity 150ms ease;
+  }
+  button:not(:disabled):active,
+  [role="button"]:not([aria-disabled="true"]):active {
+    scale: 0.96;
+  }
+  button:not(:disabled):hover,
+  [role="button"]:not([aria-disabled="true"]):hover {
+    filter: brightness(0.97);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  button, [role="button"], a[href] { transition: none !important; }
+  button:not(:disabled):active, [role="button"]:not([aria-disabled="true"]):active { scale: 1; }
+}
+
+@keyframes notifToastIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.notif-toast { animation: notifToastIn 180ms ease-out; }
+
+@keyframes cookie-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes topbar-ping {
+  0% { transform: scale(1); opacity: 0.55; }
+  75%, 100% { transform: scale(2.6); opacity: 0; }
+}
+.topbar-ping { animation: topbar-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite; }
+@media (prefers-reduced-motion: reduce) { .topbar-ping { animation: none; opacity: 0; } }

@@ -1,0 +1,776 @@
+{
+  "_about": "School master data for scripts/seed-school-master-data.ts. Taken from the live Render site on 23 Oct 2026. Fee configurations are not seeded; set them up in the ERP.",
+  "school_settings": {
+    "schoolName": "RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR",
+    "schoolCode": "10030206405",
+    "registrationNumber": "10030206405",
+    "affiliationNumber": "10030206405",
+    "affiliationCode": "10030206405",
+    "affiliatedBoard": "BSEB",
+    "classesOffered": "Nursery to 8",
+    "principalName": "Nilam Devi",
+    "schoolAddress": "BRC Near Shahpur Road, Sheohar, Bihar - 843329",
+    "additionalAddress": "BRC ROAD, SHEOHAR, WARD NO. 14",
+    "contactNumber": "95075 95491",
+    "headerContacts": [
+      "9507595491",
+      "8271676713"
+    ],
+    "footerContacts": [
+      "9507595491",
+      "8271676713",
+      "9939115492"
+    ],
+    "helplineNumber": "06222796505",
+    "email": "residentialpdspublicschool@gmail.com",
+    "website": "https://residentialpdssheohar.edu.in",
+    "googleMapsUrl": "https://www.google.com/maps/place/PDS+PUBLIC+SCHOOL/@26.5125425,85.2865357,745m/data=!3m2!1e3!4b1!4m6!3m5!1s0x39ece71e1548a643:0x68ea7ac1528724d4!8m2!3d26.5125425!4d85.2891106!16s%2Fg%2F11rv6286td",
+    "latitude": 26.5125425,
+    "longitude": 85.2891106,
+    "plusCode": "G77Q+2J Sheohar, Bihar",
+    "logoFileKey": "school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png",
+    "schoolLogo": "school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png",
+    "currentAcademicSession": "2026-2027",
+    "schoolTiming": {
+      "startTime": "09:00 AM",
+      "endTime": "03:15 PM"
+    },
+    "schoolStartTime": "09:00 AM",
+    "schoolEndTime": "03:15 PM",
+    "workingDays": [
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "academicSessions": [
+      {
+        "id": "session-2025-2026",
+        "name": "2025-2026",
+        "startDate": "2025-04-01",
+        "endDate": "2026-03-31",
+        "status": "INACTIVE",
+        "isDefault": false,
+        "description": "Preceding academic session (Archived)"
+      },
+      {
+        "id": "session-2026-2027",
+        "name": "2026-2027",
+        "startDate": "2026-04-01",
+        "endDate": "2027-03-31",
+        "status": "ACTIVE",
+        "isDefault": true,
+        "description": "Current regular academic session (Active)"
+      },
+      {
+        "id": "session-2027-2028",
+        "name": "2027-2028",
+        "startDate": "2027-04-01",
+        "endDate": "2028-03-31",
+        "status": "INACTIVE",
+        "isDefault": false,
+        "description": "Upcoming academic session (Planned)"
+      },
+      {
+        "id": "session-2028-2029",
+        "name": "2028-2029",
+        "startDate": "2028-04-01",
+        "endDate": "2029-03-31",
+        "status": "INACTIVE",
+        "isDefault": false,
+        "description": ""
+      }
+    ],
+    "gradingSystem": [
+      {
+        "id": "grd-1",
+        "grade": "A1",
+        "minPercentage": 91,
+        "maxPercentage": 100,
+        "gradePoint": 10,
+        "status": "PASS",
+        "description": "Outstanding",
+        "academicSession": "2026-2027"
+      },
+      {
+        "id": "grd-2",
+        "grade": "A2",
+        "minPercentage": 81,
+        "maxPercentage": 90,
+        "gradePoint": 9,
+        "status": "PASS",
+        "description": "Excellent",
+        "academicSession": "2026-2027"
+      },
+      {
+        "id": "grd-3",
+        "grade": "B1",
+        "minPercentage": 71,
+        "maxPercentage": 80,
+        "gradePoint": 8,
+        "status": "PASS",
+        "description": "Very Good",
+        "academicSession": "2026-2027"
+      },
+      {
+        "id": "grd-4",
+        "grade": "B2",
+        "minPercentage": 61,
+        "maxPercentage": 70,
+        "gradePoint": 7,
+        "status": "PASS",
+        "description": "Good",
+        "academicSession": "2026-2027"
+      },
+      {
+        "id": "grd-5",
+        "grade": "C1",
+        "minPercentage": 51,
+        "maxPercentage": 60,
+        "gradePoint": 6,
+        "status": "PASS",
+        "description": "Fair",
+        "academicSession": "2026-2027"
+      },
+      {
+        "id": "grd-6",
+        "grade": "C2",
+        "minPercentage": 41,
+        "maxPercentage": 50,
+        "gradePoint": 5,
+        "status": "PASS",
+        "description": "Average",
+        "academicSession": "2026-2027"
+      },
+      {
+        "id": "grd-7",
+        "grade": "D",
+        "minPercentage": 33,
+        "maxPercentage": 40,
+        "gradePoint": 4,
+        "status": "PASS",
+        "description": "Pass",
+        "academicSession": "2026-2027"
+      },
+      {
+        "id": "grd-8",
+        "grade": "E/F",
+        "minPercentage": 0,
+        "maxPercentage": 32,
+        "gradePoint": 0,
+        "status": "FAIL",
+        "description": "Essential Repeat",
+        "academicSession": "2026-2027"
+      }
+    ],
+    "bankDetails": {
+      "accountHolderName": "RESIDENTIAL PDS PUBLIC SCHOOL",
+      "bankName": "State Bank of India (SBI)",
+      "accountNumber": "38947291054",
+      "ifsc": "SBIN0002124",
+      "branch": "Sheohar Main Branch, Collectorate Road, Sheohar",
+      "upiId": "residentialpdspublicschool@sbi",
+      "upiQrCodeFileKey": "school/school-logo/75f1504b-8949-47d9-9045-05a836c86406.jpeg",
+      "instructions": "Please mention Student Admission Number in the payment narration. Send payment receipt or UTR screenshot on WhatsApp 9507595491."
+    },
+    "paymentOptions": {
+      "accountHolderName": "RESIDENTIAL PDS PUBLIC SCHOOL",
+      "bankName": "State Bank of India (SBI)",
+      "accountNumber": "38947291054",
+      "ifsc": "SBIN0002124",
+      "branch": "Sheohar Main Branch, Collectorate Road, Sheohar",
+      "upiId": "residentialpdspublicschool@sbi",
+      "upiQrCodeFileKey": "school/school-logo/75f1504b-8949-47d9-9045-05a836c86406.jpeg",
+      "instructions": "Please mention Student Admission Number in the payment narration. Send payment receipt or UTR screenshot on WhatsApp 9507595491."
+    }
+  },
+  "classes": [
+    {
+      "id": "c-nur",
+      "name": "Nursery",
+      "numericOrder": 0,
+      "sections": [
+        "A"
+      ],
+      "detailedSections": [
+        {
+          "id": "c-nur-A",
+          "name": "A",
+          "maxCapacity": 30,
+          "roomNumber": "Room 001",
+          "status": "ACTIVE"
+        }
+      ],
+      "maxCapacity": 30,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "c-lkg",
+      "name": "LKG",
+      "numericOrder": 2,
+      "sections": [
+        "A"
+      ],
+      "detailedSections": [
+        {
+          "id": "c-lkg-A",
+          "name": "A",
+          "maxCapacity": 30,
+          "roomNumber": "Room 002",
+          "status": "ACTIVE"
+        }
+      ],
+      "maxCapacity": 30,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "c-ukg",
+      "name": "UKG",
+      "numericOrder": 3,
+      "sections": [
+        "A"
+      ],
+      "detailedSections": [
+        {
+          "id": "c-ukg-A",
+          "name": "A",
+          "maxCapacity": 30,
+          "roomNumber": "Room 003",
+          "status": "ACTIVE"
+        }
+      ],
+      "maxCapacity": 30,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "c-1790998355737",
+      "name": "ELP",
+      "numericOrder": 4,
+      "sections": [
+        "A",
+        "B"
+      ],
+      "detailedSections": [
+        {
+          "id": "c-1790998355737-A",
+          "name": "A",
+          "maxCapacity": 40,
+          "roomNumber": "Room 261",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "c-1790998355737-B",
+          "name": "B",
+          "maxCapacity": 40,
+          "roomNumber": "Room 262",
+          "status": "ACTIVE"
+        }
+      ],
+      "maxCapacity": 40,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "c-1",
+      "name": "Class 1",
+      "numericOrder": 5,
+      "sections": [
+        "A",
+        "B"
+      ],
+      "detailedSections": [
+        {
+          "id": "c-1-A",
+          "name": "A",
+          "maxCapacity": 40,
+          "roomNumber": "Room 101",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "c-1-B",
+          "name": "B",
+          "maxCapacity": 40,
+          "roomNumber": "Room 102",
+          "status": "ACTIVE"
+        }
+      ],
+      "maxCapacity": 40,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "c-2",
+      "name": "Class 2",
+      "numericOrder": 6,
+      "sections": [
+        "A",
+        "B"
+      ],
+      "detailedSections": [
+        {
+          "id": "c-2-A",
+          "name": "A",
+          "maxCapacity": 40,
+          "roomNumber": "Room 103",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "c-2-B",
+          "name": "B",
+          "maxCapacity": 40,
+          "roomNumber": "Room 104",
+          "status": "ACTIVE"
+        }
+      ],
+      "maxCapacity": 40,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "c-3",
+      "name": "Class 3",
+      "numericOrder": 7,
+      "sections": [
+        "A",
+        "B"
+      ],
+      "detailedSections": [
+        {
+          "id": "c-3-A",
+          "name": "A",
+          "maxCapacity": 40,
+          "roomNumber": "Room 105",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "c-3-B",
+          "name": "B",
+          "maxCapacity": 40,
+          "roomNumber": "Room 106",
+          "status": "ACTIVE"
+        }
+      ],
+      "maxCapacity": 40,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "c-4",
+      "name": "Class 4",
+      "numericOrder": 8,
+      "sections": [
+        "A",
+        "B"
+      ],
+      "detailedSections": [
+        {
+          "id": "c-4-A",
+          "name": "A",
+          "maxCapacity": 40,
+          "roomNumber": "Room 107",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "c-4-B",
+          "name": "B",
+          "maxCapacity": 40,
+          "roomNumber": "Room 108",
+          "status": "ACTIVE"
+        }
+      ],
+      "maxCapacity": 40,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "c-5",
+      "name": "Class 5",
+      "numericOrder": 9,
+      "sections": [
+        "A",
+        "B"
+      ],
+      "detailedSections": [
+        {
+          "id": "c-5-A",
+          "name": "A",
+          "maxCapacity": 40,
+          "roomNumber": "Room 109",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "c-5-B",
+          "name": "B",
+          "maxCapacity": 40,
+          "roomNumber": "Room 110",
+          "status": "ACTIVE"
+        }
+      ],
+      "maxCapacity": 40,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "c-6",
+      "name": "Class 6",
+      "numericOrder": 10,
+      "sections": [
+        "A",
+        "B"
+      ],
+      "detailedSections": [
+        {
+          "id": "c-6-A",
+          "name": "A",
+          "maxCapacity": 40,
+          "roomNumber": "Room 111",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "c-6-B",
+          "name": "B",
+          "maxCapacity": 40,
+          "roomNumber": "Room 112",
+          "status": "ACTIVE"
+        }
+      ],
+      "maxCapacity": 40,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "c-7",
+      "name": "Class 7",
+      "numericOrder": 11,
+      "sections": [
+        "A",
+        "B"
+      ],
+      "detailedSections": [
+        {
+          "id": "c-7-A",
+          "name": "A",
+          "maxCapacity": 40,
+          "roomNumber": "Room 113",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "c-7-B",
+          "name": "B",
+          "maxCapacity": 40,
+          "roomNumber": "Room 114",
+          "status": "ACTIVE"
+        }
+      ],
+      "maxCapacity": 40,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "c-8",
+      "name": "Class 8",
+      "numericOrder": 12,
+      "sections": [
+        "A",
+        "B"
+      ],
+      "detailedSections": [
+        {
+          "id": "c-8-A",
+          "name": "A",
+          "maxCapacity": 40,
+          "roomNumber": "Room 115",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "c-8-B",
+          "name": "B",
+          "maxCapacity": 40,
+          "roomNumber": "Room 116",
+          "status": "ACTIVE"
+        }
+      ],
+      "maxCapacity": 40,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "s-1",
+      "name": "Mathematics",
+      "code": "MATH-041",
+      "type": "CORE",
+      "classIds": [
+        "c-nur",
+        "c-lkg",
+        "c-ukg",
+        "c-1",
+        "c-2",
+        "c-3",
+        "c-4",
+        "c-5",
+        "c-6",
+        "c-7",
+        "c-8"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-2",
+      "name": "English",
+      "code": "ENG-101",
+      "type": "CORE",
+      "classIds": [
+        "c-nur",
+        "c-lkg",
+        "c-ukg",
+        "c-1",
+        "c-2",
+        "c-3",
+        "c-4",
+        "c-5",
+        "c-6",
+        "c-7",
+        "c-8"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-5",
+      "name": "Hindi",
+      "code": "HIN-002",
+      "type": "CORE",
+      "classIds": [
+        "c-nur",
+        "c-lkg",
+        "c-ukg",
+        "c-1790998355737",
+        "c-1",
+        "c-2",
+        "c-3",
+        "c-4",
+        "c-5",
+        "c-6",
+        "c-7",
+        "c-8"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-9",
+      "name": "EVS",
+      "code": "EVS-010",
+      "type": "CORE",
+      "classIds": [
+        "c-1",
+        "c-2",
+        "c-3",
+        "c-4",
+        "c-5"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-3",
+      "name": "Science",
+      "code": "SCI-086",
+      "type": "CORE",
+      "classIds": [
+        "c-6",
+        "c-7",
+        "c-8"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-4",
+      "name": "Social Science",
+      "code": "SST-087",
+      "type": "CORE",
+      "classIds": [
+        "c-6",
+        "c-7",
+        "c-8"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-skt",
+      "name": "Sanskrit",
+      "code": "SKT-122",
+      "type": "CORE",
+      "classIds": [
+        "c-5",
+        "c-6",
+        "c-7",
+        "c-8"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-comp",
+      "name": "Computer",
+      "code": "COMP-165",
+      "type": "CORE",
+      "classIds": [
+        "c-1",
+        "c-2",
+        "c-3",
+        "c-4",
+        "c-5",
+        "c-6",
+        "c-7",
+        "c-8"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-hin-gram",
+      "name": "Hindi Grammar",
+      "code": "HIN-GRAM",
+      "type": "CORE",
+      "classIds": [
+        "c-1",
+        "c-2",
+        "c-3",
+        "c-4",
+        "c-5",
+        "c-6",
+        "c-7",
+        "c-8"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-eng-gram",
+      "name": "English Grammar",
+      "code": "ENG-GRAM",
+      "type": "CORE",
+      "classIds": [
+        "c-1",
+        "c-2",
+        "c-3",
+        "c-4",
+        "c-5",
+        "c-6",
+        "c-7",
+        "c-8"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-gk",
+      "name": "General Knowledge",
+      "code": "GK-101",
+      "type": "CORE",
+      "classIds": [
+        "c-ukg",
+        "c-3",
+        "c-4",
+        "c-5",
+        "c-6",
+        "c-7",
+        "c-8"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-conv",
+      "name": "Conversation",
+      "code": "CONV-102",
+      "type": "ACTIVITY",
+      "classIds": [
+        "c-nur",
+        "c-lkg",
+        "c-ukg"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-write",
+      "name": "Writing",
+      "code": "WRITE-104",
+      "type": "ACTIVITY",
+      "classIds": [
+        "c-lkg",
+        "c-ukg"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-draw",
+      "name": "Drawing",
+      "code": "DRAW-103",
+      "type": "ACTIVITY",
+      "classIds": [
+        "c-nur",
+        "c-lkg",
+        "c-ukg",
+        "c-1",
+        "c-2",
+        "c-3",
+        "c-4"
+      ],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "status": "ACTIVE",
+      "academicSession": "2026-2027"
+    },
+    {
+      "id": "s-10",
+      "name": "Physical & Health Education",
+      "code": "PHE-048",
+      "type": "ACTIVITY",
+      "classIds": [],
+      "maxMarks": 100,
+      "passMarks": 33,
+      "status": "INACTIVE",
+      "academicSession": "2026-2027"
+    }
+  ]
+}

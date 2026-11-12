@@ -1,0 +1,602 @@
+[
+  {
+    "_id": "6aa909765aab9839ef50bbf3",
+    "fileKey": "school/school-logo/77fc4000-3119-49f8-9b2c-96dc6c1bd657.png",
+    "contentType": "image/png",
+    "fileSize": 1697877,
+    "folder": "school-logo",
+    "isTemporary": false,
+    "originalFileName": "ChatGPT Image Sep 15, 2026, 07_46_59 AM.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-15T09:01:41.947Z",
+    "associatedEntity": {
+      "type": "SCHOOL_LOGO",
+      "id": "school-main"
+    }
+  },
+  {
+    "_id": "6aa91bd65aab9839ef50bf1d",
+    "fileKey": "school/school-logo/fe144828-de57-4ce4-a14e-cb1e8fd1f879.png",
+    "contentType": "image/png",
+    "fileSize": 1697877,
+    "folder": "school-logo",
+    "isTemporary": false,
+    "originalFileName": "ChatGPT Image Sep 15, 2026, 07_46_59 AM.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-15T10:20:06.156Z",
+    "associatedEntity": {
+      "type": "SCHOOL_LOGO",
+      "id": "school-main"
+    }
+  },
+  {
+    "_id": "6aa91cd45aab9839ef50bf38",
+    "fileKey": "school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png",
+    "contentType": "image/png",
+    "fileSize": 1697877,
+    "folder": "school-logo",
+    "isTemporary": false,
+    "originalFileName": "ChatGPT Image Sep 15, 2026, 07_46_59 AM.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-15T10:24:20.849Z",
+    "associatedEntity": {
+      "type": "SCHOOL_LOGO",
+      "id": "school-main"
+    }
+  },
+  {
+    "_id": "6aa922385aab9839ef50bf86",
+    "fileKey": "school/study-materials/2026/d885eedf-c811-4cb9-b80c-e36702f85b6b.png",
+    "contentType": "image/png",
+    "fileSize": 167706,
+    "folder": "study-materials",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR__1_-removebg-preview.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-15T10:47:20.404Z",
+    "associatedEntity": {
+      "type": "STUDENT",
+      "id": "st-1"
+    }
+  },
+  {
+    "_id": "6aa9224d5aab9839ef50bf88",
+    "fileKey": "school/study-materials/2026/3f8679cd-5dc6-48ca-bd1c-4152f5993440.png",
+    "contentType": "image/png",
+    "fileSize": 167706,
+    "folder": "study-materials",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR__1_-removebg-preview.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-15T10:47:41.794Z",
+    "associatedEntity": {
+      "type": "STUDENT",
+      "id": "st-1"
+    }
+  },
+  {
+    "_id": "6aaa79f25aab9839ef50e90d",
+    "fileKey": "school/students/photos/2026/09/a9264c1c-cded-4d48-a539-ae15a2fc8a75.png",
+    "contentType": "image/png",
+    "fileSize": 167706,
+    "folder": "students/photos",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR__1_-removebg-preview.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-16T11:13:53.952Z"
+  },
+  {
+    "_id": "6aaa7c275aab9839ef50e925",
+    "fileKey": "school/students/photos/2026/09/b3b5fccb-5766-431c-9fde-e02412d9fe0f.png",
+    "contentType": "image/png",
+    "fileSize": 167706,
+    "folder": "students/photos",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR__1_-removebg-preview.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-16T11:23:19.754Z"
+  },
+  {
+    "_id": "6aaa7c465aab9839ef50e941",
+    "fileKey": "school/students/photos/2026/09/b76f01b6-34a1-4124-a281-2fcde4255328.png",
+    "contentType": "image/png",
+    "fileSize": 167706,
+    "folder": "students/photos",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR__1_-removebg-preview.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-16T11:23:50.096Z"
+  },
+  {
+    "_id": "6aaa7d175aab9839ef50e94c",
+    "fileKey": "school/students/documents/2026/211aeb90-9a76-4370-bb79-87673fa6ae5f.pdf",
+    "contentType": "application/pdf",
+    "fileSize": 474438,
+    "folder": "students/documents",
+    "isTemporary": false,
+    "originalFileName": "utility_bills.pdf",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-16T11:27:19.046Z"
+  },
+  {
+    "_id": "6aaa81e85aab9839ef50e984",
+    "fileKey": "school/students/photos/2026/09/1651ec0b-7c1b-4b9d-9222-a89d72a5607f.png",
+    "contentType": "image/png",
+    "fileSize": 167706,
+    "folder": "students/photos",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR__1_-removebg-preview.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-16T11:47:52.666Z",
+    "associatedEntity": {
+      "type": "STUDENT",
+      "id": "st-1789555652877"
+    }
+  },
+  {
+    "_id": "6aaa87085aab9839ef50e9d0",
+    "fileKey": "school/teachers/photos/2026/09/85c78dcd-50b9-4cdc-bd43-3631fcd27705.png",
+    "contentType": "image/png",
+    "fileSize": 167706,
+    "folder": "teachers/photos",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR__1_-removebg-preview.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-16T12:09:44.375Z",
+    "associatedEntity": {
+      "type": "STAFF",
+      "id": "t-7"
+    }
+  },
+  {
+    "_id": "6aaa87505aab9839ef50e9d5",
+    "fileKey": "school/students/photos/2026/09/56190119-1c0f-44ed-affc-5576538eb972.png",
+    "contentType": "image/png",
+    "fileSize": 127718,
+    "folder": "students/photos",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-16T12:10:56.029Z",
+    "associatedEntity": {
+      "type": "STUDENT",
+      "id": "st-1"
+    }
+  },
+  {
+    "_id": "6aaaa04e5aab9839ef50ed89",
+    "fileKey": "school/study-materials/2026/f89fd750-af6a-46e6-a0a3-937b0b0855b6.docx",
+    "contentType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "fileSize": 43527,
+    "folder": "study-materials",
+    "isTemporary": false,
+    "originalFileName": "PDS School - Development Agreement (Revised).docx",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-16T13:57:33.944Z",
+    "associatedEntity": {
+      "type": "STAFF",
+      "id": "t-1"
+    }
+  },
+  {
+    "_id": "6aaaa59b5aab9839ef50edc2",
+    "fileKey": "school/teachers/photos/2026/09/b134a942-1d54-41e2-8a00-5861f4dbf9cf.png",
+    "contentType": "image/png",
+    "fileSize": 127718,
+    "folder": "teachers/photos",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-16T14:20:11.789Z",
+    "associatedEntity": {
+      "type": "STAFF",
+      "id": "t-1789568826831"
+    }
+  },
+  {
+    "_id": "6aaaa6c45aab9839ef50edd4",
+    "fileKey": "school/study-materials/2026/77bad7e4-3031-42d0-a487-ff1a2b4e257b.docx",
+    "contentType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "fileSize": 43527,
+    "folder": "study-materials",
+    "isTemporary": false,
+    "originalFileName": "PDS School - Development Agreement (Revised).docx",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-16T14:25:08.371Z",
+    "associatedEntity": {
+      "type": "STAFF",
+      "id": "t-1789568826831"
+    }
+  },
+  {
+    "_id": "6aaaa8bc5aab9839ef50ee56",
+    "fileKey": "school/teachers/photos/2026/09/ff102e60-c3de-4d36-93dd-0b1ef2a4943b.png",
+    "contentType": "image/png",
+    "fileSize": 1697877,
+    "folder": "teachers/photos",
+    "isTemporary": false,
+    "originalFileName": "ChatGPT Image Sep 15, 2026, 07_46_59 AM.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-16T14:33:31.922Z",
+    "associatedEntity": {
+      "type": "STAFF",
+      "id": "t-1"
+    }
+  },
+  {
+    "_id": "6aaad4ba5aab9839ef50f0de",
+    "fileKey": "school/students/photos/2026/09/6bcd59f0-3d53-4dd2-9c71-1a9dd83fd624.png",
+    "contentType": "image/png",
+    "fileSize": 167706,
+    "folder": "students/photos",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR__1_-removebg-preview.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-16T17:41:13.960Z",
+    "associatedEntity": {
+      "type": "STUDENT",
+      "id": "st-1789580618672"
+    }
+  },
+  {
+    "_id": "6aaad5545aab9839ef50f102",
+    "fileKey": "school/students/documents/2026/b0e63958-6a57-4a69-b222-3b527a638baf.docx",
+    "contentType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "fileSize": 43527,
+    "folder": "students/documents",
+    "isTemporary": false,
+    "originalFileName": "PDS School - Development Agreement (Revised).docx",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-16T17:43:48.347Z",
+    "associatedEntity": {
+      "type": "STUDENT",
+      "id": "st-1789580618672"
+    }
+  },
+  {
+    "_id": "6aabe3c05aab9839ef5106fa",
+    "fileKey": "school/teachers/photos/2026/09/fd34c40f-aaf3-40c2-b42e-9f216c7a181b.png",
+    "contentType": "image/png",
+    "fileSize": 127718,
+    "folder": "teachers/photos",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-17T12:57:36.832Z",
+    "associatedEntity": {
+      "type": "STAFF",
+      "id": "t-1"
+    }
+  },
+  {
+    "_id": "6aabec565aab9839ef5107e0",
+    "fileKey": "school/teachers/photos/2026/09/37210637-b420-44d4-ab9f-a2960d39c3d8.png",
+    "contentType": "image/png",
+    "fileSize": 1697877,
+    "folder": "teachers/photos",
+    "isTemporary": false,
+    "originalFileName": "ChatGPT Image Sep 15, 2026, 07_46_59 AM.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-17T13:34:13.983Z",
+    "associatedEntity": {
+      "type": "STAFF",
+      "id": "t-1"
+    }
+  },
+  {
+    "_id": "6aabf4115aab9839ef51084c",
+    "fileKey": "school/students/photos/2026/09/5d8b237e-877a-4f2a-81da-f5e1a15d6f7c.jpeg",
+    "contentType": "image/jpeg",
+    "fileSize": 29640,
+    "folder": "students/photos",
+    "isTemporary": false,
+    "originalFileName": "uday photo.jpg.jpeg",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-17T14:07:12.964Z"
+  },
+  {
+    "_id": "6aaf8bfc5aab9839ef51498f",
+    "fileKey": "school/students/photos/2026/09/6fd9a831-59f3-4567-b7ae-4bf5d054401b.jpg",
+    "contentType": "image/jpeg",
+    "fileSize": 23980,
+    "folder": "students/photos",
+    "isTemporary": false,
+    "originalFileName": "rohit_photoBPCL.jpg",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-20T07:32:12.855Z",
+    "associatedEntity": {
+      "type": "STUDENT",
+      "id": "st-1"
+    }
+  },
+  {
+    "_id": "6aaf8c465aab9839ef514991",
+    "fileKey": "school/study-materials/2026/7cae56a7-1af0-480b-bc25-34d158e58fdc.pdf",
+    "contentType": "application/pdf",
+    "fileSize": 243195,
+    "folder": "study-materials",
+    "isTemporary": false,
+    "originalFileName": "Staff_ID_Card_ROHIT_KUMAR_super_admin.pdf",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-20T07:33:25.892Z",
+    "associatedEntity": {
+      "type": "STUDENT",
+      "id": "st-1"
+    }
+  },
+  {
+    "_id": "6aaf8c605aab9839ef514995",
+    "fileKey": "school/study-materials/2026/a6867a68-1989-474b-8e86-4faf9ae04307.pdf",
+    "contentType": "application/pdf",
+    "fileSize": 243195,
+    "folder": "study-materials",
+    "isTemporary": false,
+    "originalFileName": "Staff_ID_Card_ROHIT_KUMAR_super_admin.pdf",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-20T07:33:52.542Z",
+    "associatedEntity": {
+      "type": "STUDENT",
+      "id": "st-1"
+    }
+  },
+  {
+    "_id": "6aaf8c745aab9839ef514997",
+    "fileKey": "school/study-materials/2026/31829b5c-60c2-46a3-9827-4b675094fcc5.png",
+    "contentType": "image/png",
+    "fileSize": 127718,
+    "folder": "study-materials",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-20T07:34:12.052Z",
+    "associatedEntity": {
+      "type": "STUDENT",
+      "id": "st-1"
+    }
+  },
+  {
+    "_id": "6aafa1815aab9839ef514a16",
+    "fileKey": "school/study-materials/2026/a430b938-c00a-440b-ad6a-33a844ebaf9b.png",
+    "contentType": "image/png",
+    "fileSize": 127718,
+    "folder": "study-materials",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-20T09:04:01.839Z",
+    "associatedEntity": {
+      "type": "STUDENT",
+      "id": "st-1"
+    }
+  },
+  {
+    "_id": "6aafa74b5aab9839ef514a55",
+    "fileKey": "school/study-materials/2026/f40d4d7c-7173-4c6d-9a5a-26a54ece609a.png",
+    "contentType": "image/png",
+    "fileSize": 127718,
+    "folder": "study-materials",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-20T09:28:43.182Z",
+    "associatedEntity": {
+      "type": "STUDENT_PHOTO",
+      "id": "st-1"
+    }
+  },
+  {
+    "_id": "6aafbcd75aab9839ef514b88",
+    "fileKey": "school/teachers/photos/2026/09/7adabb46-5cb6-4a01-9c98-aaf0368cfcf1.png",
+    "contentType": "image/png",
+    "fileSize": 1697877,
+    "folder": "teachers/photos",
+    "isTemporary": false,
+    "originalFileName": "ChatGPT Image Sep 15, 2026, 07_46_59 AM.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-20T11:00:38.905Z",
+    "associatedEntity": {
+      "type": "STAFF",
+      "id": "t-1"
+    }
+  },
+  {
+    "_id": "6ab245f25aab9839ef519687",
+    "fileKey": "school/teachers/photos/2026/09/007332f6-c64f-495f-ae07-bd79d57326b0.png",
+    "contentType": "image/png",
+    "fileSize": 1697877,
+    "folder": "teachers/photos",
+    "isTemporary": false,
+    "originalFileName": "ChatGPT Image Sep 15, 2026, 07_46_59 AM.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-22T09:10:09.867Z"
+  },
+  {
+    "_id": "6ab24ccc5aab9839ef51971c",
+    "fileKey": "school/public-website/leadership/2026/c236edae-a639-4e4e-8547-47a98acb6981.png",
+    "contentType": "image/png",
+    "fileSize": 167706,
+    "folder": "public-website/leadership",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR__1_-removebg-preview.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-22T09:39:24.755Z"
+  },
+  {
+    "_id": "6ab24cd95aab9839ef51971e",
+    "fileKey": "school/public-website/leadership/2026/58efaa94-8a52-4c8f-a2ac-e19b68878268.png",
+    "contentType": "image/png",
+    "fileSize": 167706,
+    "folder": "public-website/leadership",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR__1_-removebg-preview.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-22T09:39:37.247Z"
+  },
+  {
+    "_id": "6ab261d15aab9839ef519a35",
+    "fileKey": "school/public-website/leadership/2026/6c23dc9b-6ffe-4a8b-9453-a9c186f72abf.png",
+    "contentType": "image/png",
+    "fileSize": 167706,
+    "folder": "public-website/leadership",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR__1_-removebg-preview.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-22T11:09:05.324Z"
+  },
+  {
+    "_id": "6ab27f505aab9839ef519cbf",
+    "fileKey": "school/teachers/photos/2026/09/a6a87160-5741-451e-9569-21fb72234fcc.png",
+    "contentType": "image/png",
+    "fileSize": 1697877,
+    "folder": "teachers/photos",
+    "isTemporary": false,
+    "originalFileName": "ChatGPT Image Sep 15, 2026, 07_46_59 AM.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-22T13:14:56.366Z",
+    "associatedEntity": {
+      "type": "STAFF",
+      "id": "t-1"
+    }
+  },
+  {
+    "_id": "6ab280c75aab9839ef519cdc",
+    "fileKey": "school/teachers/photos/2026/09/fd6e1740-5dba-4f3b-baea-93d0c9235d07.jpg",
+    "contentType": "image/jpeg",
+    "fileSize": 49132,
+    "folder": "teachers/photos",
+    "isTemporary": false,
+    "originalFileName": "SAVE_20260922_110632 - Nandani raut.jpg",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-22T13:21:10.935Z",
+    "associatedEntity": {
+      "type": "STAFF",
+      "id": "t-1790083831473"
+    }
+  },
+  {
+    "_id": "6ab283215aab9839ef519d52",
+    "fileKey": "school/study-materials/2026/639d5be0-603d-4fc9-b86f-037c3136adf7.jpg",
+    "contentType": "image/jpeg",
+    "fileSize": 57619,
+    "folder": "study-materials",
+    "isTemporary": false,
+    "originalFileName": "IMG-20260922-WA0001 - Nandani raut.jpg",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-22T13:31:13.665Z",
+    "associatedEntity": {
+      "type": "STAFF",
+      "id": "t-1790083831473"
+    }
+  },
+  {
+    "_id": "6ab284645aab9839ef519d89",
+    "fileKey": "school/teachers/photos/2026/09/d2e34022-dbe9-4bfc-bd86-5388ecc633f1.jpg",
+    "contentType": "image/jpeg",
+    "fileSize": 49132,
+    "folder": "teachers/photos",
+    "isTemporary": false,
+    "originalFileName": "SAVE_20260922_110632 - Nandani raut.jpg",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-22T13:36:36.839Z"
+  },
+  {
+    "_id": "6ab285245aab9839ef519dac",
+    "fileKey": "school/teachers/photos/2026/09/db818afc-0fa6-45f4-859f-bdd83bad7bbe.jpg",
+    "contentType": "image/jpeg",
+    "fileSize": 49132,
+    "folder": "teachers/photos",
+    "isTemporary": false,
+    "originalFileName": "SAVE_20260922_110632 - Nandani raut.jpg",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-22T13:39:48.148Z",
+    "associatedEntity": {
+      "type": "STAFF",
+      "id": "t-1790083831473"
+    }
+  },
+  {
+    "_id": "6ab287035aab9839ef519e3b",
+    "fileKey": "school/teachers/photos/2026/09/037f2bb3-83e8-4ef8-a6db-5add5563d129.png",
+    "contentType": "image/png",
+    "fileSize": 1697877,
+    "folder": "teachers/photos",
+    "isTemporary": false,
+    "originalFileName": "ChatGPT Image Sep 15, 2026, 07_46_59 AM.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-22T13:47:47.142Z"
+  },
+  {
+    "_id": "6ab287255aab9839ef519e3d",
+    "fileKey": "school/teachers/photos/2026/09/5feef6ae-a389-402c-b7ec-77cd1a66e3f7.png",
+    "contentType": "image/png",
+    "fileSize": 1697877,
+    "folder": "teachers/photos",
+    "isTemporary": false,
+    "originalFileName": "ChatGPT Image Sep 15, 2026, 07_46_59 AM.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-22T13:48:21.886Z",
+    "associatedEntity": {
+      "type": "STAFF",
+      "id": "t-2"
+    }
+  },
+  {
+    "_id": "6ab2879c5aab9839ef519e47",
+    "fileKey": "school/teachers/photos/2026/09/33b31808-3860-43e1-908d-a97b013ffc9b.png",
+    "contentType": "image/png",
+    "fileSize": 1697877,
+    "folder": "teachers/photos",
+    "isTemporary": false,
+    "originalFileName": "ChatGPT Image Sep 15, 2026, 07_46_59 AM.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-22T13:50:20.101Z"
+  },
+  {
+    "_id": "6ab287ab5aab9839ef519e49",
+    "fileKey": "school/teachers/photos/2026/09/41521f1e-17e4-4c30-900b-a112a4f8a475.png",
+    "contentType": "image/png",
+    "fileSize": 1697877,
+    "folder": "teachers/photos",
+    "isTemporary": false,
+    "originalFileName": "ChatGPT Image Sep 15, 2026, 07_46_59 AM.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-22T13:50:35.350Z"
+  },
+  {
+    "_id": "6ab2891c5aab9839ef519e63",
+    "fileKey": "school/students/photos/2026/09/4db3df4f-bc9b-4e93-bb8f-57f05fabc7fd.png",
+    "contentType": "image/png",
+    "fileSize": 167706,
+    "folder": "students/photos",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR__1_-removebg-preview.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-22T13:56:43.989Z",
+    "associatedEntity": {
+      "type": "STUDENT_PHOTO",
+      "id": "st-1789555727192"
+    }
+  },
+  {
+    "_id": "6ab28eee5aab9839ef519ea4",
+    "fileKey": "school/teachers/photos/2026/09/b9f4a56e-9c34-4e04-a233-7c659ed054dc.png",
+    "contentType": "image/png",
+    "fileSize": 1697877,
+    "folder": "teachers/photos",
+    "isTemporary": false,
+    "originalFileName": "ChatGPT Image Sep 15, 2026, 07_46_59 AM.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-22T14:21:34.730Z"
+  },
+  {
+    "_id": "6ab290975aab9839ef519ed1",
+    "fileKey": "school/public-website/leadership/2026/b01b86b8-53c2-49ff-a60b-58bd9bd3f5ea.png",
+    "contentType": "image/png",
+    "fileSize": 127718,
+    "folder": "public-website/leadership",
+    "isTemporary": false,
+    "originalFileName": "ROHITKUMAR.png",
+    "storageProvider": "CLOUDFLARE_R2",
+    "uploadedAt": "2026-09-22T14:28:39.496Z"
+  }
+]

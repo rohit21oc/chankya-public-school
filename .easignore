@@ -1,0 +1,23 @@
+# Root EAS Build Ignore File
+node_modules
+node_modules/**
+dist
+dist/**
+build
+build/**
+coverage
+coverage/**
+.git
+.git/**
+.env*
+!mobile
+!mobile/**
+mobile/android
+mobile/android/**
+mobile/ios
+mobile/ios/**
+mobile/node_modules
+mobile/node_modules/**
+mobile/.expo
+mobile/.expo/**
+

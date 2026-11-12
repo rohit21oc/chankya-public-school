@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "6ab26734e45541c38ae6e72b",
+    "id": "evt-1",
+    "title": "Annual Sports Meet & Athletic Championship 2026",
+    "description": "Two days of high-energy track and field competitions, inter-house relay races, march past, and award presentations on the school athletic grounds.",
+    "eventDate": "2026-11-14",
+    "time": "08:30 AM - 04:00 PM",
+    "location": "School Main Playground, Sheohar",
+    "category": "Sports",
+    "imageUrl": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&auto=format&fit=crop&q=80",
+    "isFeatured": true,
+    "isActive": true,
+    "displayOrder": 1,
+    "createdAt": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6ab26734e45541c38ae6e72c",
+    "id": "evt-2",
+    "title": "Science & Innovation Fair: Young Scientists Expo",
+    "description": "Students from Class 4 to 10 exhibit working models, robotics prototypes, renewable energy setups, and environmental conservation projects.",
+    "eventDate": "2026-10-24",
+    "time": "09:30 AM - 02:30 PM",
+    "location": "Dr. A.P.J. Abdul Kalam Science Block",
+    "category": "Academic",
+    "imageUrl": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&auto=format&fit=crop&q=80",
+    "isFeatured": true,
+    "isActive": true,
+    "displayOrder": 2,
+    "createdAt": "2026-09-16T00:00:00.000Z"
+  },
+  {
+    "_id": "6ab26734e45541c38ae6e72d",
+    "id": "evt-3",
+    "title": "Diwali & Cultural Fest: Deepotsav Celebration",
+    "description": "Traditional rangoli making, musical performances by school choir, theatrical drama, and celebratory sweets distribution for day-scholars and hostel residents.",
+    "eventDate": "2026-11-01",
+    "time": "10:00 AM - 01:30 PM",
+    "location": "School Central Auditorium",
+    "category": "Cultural",
+    "imageUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&auto=format&fit=crop&q=80",
+    "isFeatured": false,
+    "isActive": true,
+    "displayOrder": 3,
+    "createdAt": "2026-09-17T00:00:00.000Z"
+  }
+]

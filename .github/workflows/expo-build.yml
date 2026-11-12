@@ -1,0 +1,50 @@
+name: Expo EAS Android Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: 'EAS Build Profile (preview for APK, production for AAB)'
+        required: true
+        default: 'preview'
+        type: choice
+        options:
+          - preview
+          - production
+
+jobs:
+  build:
+    name: Build Android App on EAS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: 'mobile/package.json'
+
+      - name: Setup Expo and EAS CLI
+        uses: expo/expo-github-action@v8
+        with:
+          expo-version: latest
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Install Mobile Dependencies
+        working-directory: ./mobile
+        run: npm ci || npm install
+
+      - name: Verify TypeScript & Config
+        working-directory: ./mobile
+        run: |
+          npm run lint
+          npx expo config --type public
+
+      - name: Run EAS Build
+        working-directory: ./mobile
+        run: |
+          eas build --platform android --profile ${{ github.event.inputs.profile || 'preview' }} --non-interactive

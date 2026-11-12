@@ -1,0 +1,74 @@
+[
+  {
+    "_id": "6ab25e7c191ec7f9e8902ee7",
+    "id": "fs-1",
+    "name": "Quarter 2 Tuition Fee (July - Sept 2026)",
+    "type": "TUITION",
+    "amount": 16500,
+    "classIds": [
+      "c-9",
+      "c-10",
+      "c-11",
+      "c-12"
+    ],
+    "dueDate": "2026-09-30",
+    "academicSession": "2026-2027"
+  },
+  {
+    "_id": "6ab25e7c191ec7f9e8902ee8",
+    "id": "fs-2",
+    "name": "Annual Examination & Lab Fee",
+    "type": "EXAM",
+    "amount": 3500,
+    "classIds": [
+      "c-9",
+      "c-10"
+    ],
+    "dueDate": "2026-10-15",
+    "academicSession": "2026-2027"
+  },
+  {
+    "_id": "6ab25e7c191ec7f9e8902ee9",
+    "id": "fs-3",
+    "name": "Computer & Smart Class Activity Fee",
+    "type": "COMPUTER",
+    "amount": 2200,
+    "classIds": [
+      "c-1",
+      "c-2",
+      "c-3",
+      "c-4",
+      "c-5",
+      "c-6",
+      "c-7",
+      "c-8",
+      "c-9",
+      "c-10"
+    ],
+    "dueDate": "2026-10-31",
+    "academicSession": "2026-2027"
+  },
+  {
+    "_id": "6ab25e7c191ec7f9e8902eea",
+    "id": "fs-4",
+    "name": "Transport Fee (Quarter 2)",
+    "type": "TRANSPORT",
+    "amount": 5400,
+    "classIds": [
+      "c-1",
+      "c-2",
+      "c-3",
+      "c-4",
+      "c-5",
+      "c-6",
+      "c-7",
+      "c-8",
+      "c-9",
+      "c-10",
+      "c-11",
+      "c-12"
+    ],
+    "dueDate": "2026-09-20",
+    "academicSession": "2026-2027"
+  }
+]

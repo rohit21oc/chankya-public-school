@@ -1,0 +1,126 @@
+[
+  {
+    "id": "hol-1",
+    "name": "Mahatma Gandhi Jayanti",
+    "date": "2026-10-02",
+    "type": "NATIONAL",
+    "description": "National Holiday honoring Mahatma Gandhi",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "hol-2",
+    "name": "Maha Navami / Durga Puja",
+    "date": "2026-10-20",
+    "type": "FESTIVAL",
+    "description": "Durga Puja & Maha Navami celebration",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "hol-3",
+    "name": "Dussehra / Vijayadashami",
+    "date": "2026-10-21",
+    "type": "FESTIVAL",
+    "description": "Vijayadashami festive holiday",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "hol-4",
+    "name": "Deepawali",
+    "date": "2026-11-01",
+    "type": "FESTIVAL",
+    "description": "Diwali Festival of Lights",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "hol-5",
+    "name": "Govardhan Puja & Bhai Dooj",
+    "date": "2026-11-02",
+    "endDate": "2026-11-03",
+    "type": "FESTIVAL",
+    "description": "Traditional post-Diwali festivities",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "hol-6",
+    "name": "Chhath Puja (Sandhya & Usha Arghya)",
+    "date": "2026-11-07",
+    "endDate": "2026-11-08",
+    "type": "FESTIVAL",
+    "description": "Great Sun Festival celebrated throughout Bihar",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "hol-7",
+    "name": "Guru Nanak Jayanti",
+    "date": "2026-11-24",
+    "type": "FESTIVAL",
+    "description": "Prakash Parv holiday",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "hol-8",
+    "name": "Christmas Day",
+    "date": "2026-12-25",
+    "type": "FESTIVAL",
+    "description": "Christmas Day celebration",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "hol-9",
+    "name": "Winter Vacation",
+    "date": "2026-12-26",
+    "endDate": "2026-12-31",
+    "type": "VACATION",
+    "description": "Annual winter academic break",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "hol-10",
+    "name": "New Year's Day",
+    "date": "2027-01-01",
+    "type": "SCHOOL",
+    "description": "New Year institutional holiday",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "hol-11",
+    "name": "Makar Sankranti",
+    "date": "2027-01-14",
+    "type": "FESTIVAL",
+    "description": "Makar Sankranti celebration",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "hol-12",
+    "name": "Republic Day",
+    "date": "2027-01-26",
+    "type": "NATIONAL",
+    "description": "National Republic Day flag hoisting and celebration",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "hol-13",
+    "name": "Maha Shivratri",
+    "date": "2027-02-17",
+    "type": "FESTIVAL",
+    "description": "Maha Shivratri auspicious day",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "hol-14",
+    "name": "Bihar Diwas",
+    "date": "2027-03-22",
+    "type": "STATE",
+    "description": "Bihar State Foundation Day",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "hol-15",
+    "name": "Holi Festival",
+    "date": "2027-03-24",
+    "endDate": "2027-03-25",
+    "type": "FESTIVAL",
+    "description": "Festival of Colors celebration",
+    "academicSession": "2026-2027"
+  }
+]

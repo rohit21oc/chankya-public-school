@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "6ab25e80191ec7f9e8902ef8",
+    "id": "sm-1",
+    "title": "CBSE Class 10 Mathematics Comprehensive Formula Sheet 2026",
+    "description": "Complete list of trigonometry identities, quadratic formulas, surface areas and arithmetic progression.",
+    "className": "Class 10",
+    "subject": "Mathematics",
+    "fileKey": "study-materials/cbse_class10_maths_formulas_2026.pdf",
+    "originalFileName": "cbse_class10_maths_formulas_2026.pdf",
+    "fileSize": 1420000,
+    "contentType": "application/pdf",
+    "uploadedBy": "Mrs. Sunita Verma",
+    "uploadedAt": "2026-09-10",
+    "category": "STUDY_MATERIAL"
+  },
+  {
+    "_id": "6ab25e80191ec7f9e8902ef9",
+    "id": "sm-2",
+    "title": "Physics Chapter 10 Light Reflection & Refraction Ray Diagrams",
+    "description": "High-resolution ray diagram guides for concave/convex mirrors and lenses.",
+    "className": "Class 10",
+    "subject": "Science",
+    "fileKey": "study-materials/light_reflection_ray_diagrams.pdf",
+    "originalFileName": "light_reflection_ray_diagrams.pdf",
+    "fileSize": 2850000,
+    "contentType": "application/pdf",
+    "uploadedBy": "Mr. Arvind Kulshrestha",
+    "uploadedAt": "2026-09-08",
+    "category": "STUDY_MATERIAL"
+  },
+  {
+    "_id": "6ab25e80191ec7f9e8902efa",
+    "id": "sm-3",
+    "title": "English Communicative Term 1 Prescribed Syllabus & Reading List",
+    "description": "Official CBSE prescribed literature syllabus and assessment pattern.",
+    "className": "Class 10",
+    "subject": "English",
+    "fileKey": "study-materials/cbse_class10_english_syllabus.pdf",
+    "originalFileName": "cbse_class10_english_syllabus.pdf",
+    "fileSize": 980000,
+    "contentType": "application/pdf",
+    "uploadedBy": "Dr. Meenakshi Sunder",
+    "uploadedAt": "2026-09-05",
+    "category": "SYLLABUS"
+  }
+]

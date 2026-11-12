@@ -1,0 +1,12 @@
+# EAS Build Ignore File
+# Ignore local native folders so EAS Cloud triggers clean Managed Expo Prebuild
+android
+android/**
+ios
+ios/**
+node_modules
+node_modules/**
+.expo
+.expo/**
+*.log
+

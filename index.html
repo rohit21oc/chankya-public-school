@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Page title, description, canonical, Open Graph and structured data are added per page by the server (see src/utils/seo.ts). These are the fallback for static hosting. -->
+    <title>RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR</title>
+    <meta name="description" content="RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR, a co-educational residential school in Sheohar, Bihar. Admissions, notices and results." />
+    <meta name="theme-color" content="#0B1F4B" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+    <!-- Dynamic School Logo Favicon -->
+    <link rel="icon" id="dynamic-favicon" type="image/png" href="/api/school-logo/favicon" />
+    <link rel="shortcut icon" id="dynamic-shortcut-icon" type="image/png" href="/api/school-logo/favicon" />
+    <link rel="apple-touch-icon" id="dynamic-apple-icon" href="/api/school-logo/favicon" />
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('pds_school_erp');
+          if (stored) {
+            var cache = JSON.parse(stored);
+            var logoKey = cache && cache.settings && (cache.settings.schoolLogo || cache.settings.logoFileKey);
+            if (logoKey && typeof logoKey === 'string' && logoKey.trim()) {
+              var cleanLogo = logoKey.trim();
+              var resolvedUrl = cleanLogo;
+              if (
+                !cleanLogo.startsWith('http://') &&
+                !cleanLogo.startsWith('https://') &&
+                !cleanLogo.startsWith('data:') &&
+                !cleanLogo.startsWith('blob:')
+              ) {
+                var host = window.location.hostname.toLowerCase();
+                var apiBase = '';
+                if (host.includes('residentialpdspublicschool.onrender.com')) {
+                  apiBase = 'https://residentialpdsschool.onrender.com';
+                }
+                var cleanPath = cleanLogo.replace(/^\/+/, '');
+                resolvedUrl = apiBase + '/api/files/content?key=' + encodeURIComponent(cleanPath);
+              }
+              var fav = document.getElementById('dynamic-favicon');
+              if (fav) fav.href = resolvedUrl;
+              var sc = document.getElementById('dynamic-shortcut-icon');
+              if (sc) sc.href = resolvedUrl;
+              var apple = document.getElementById('dynamic-apple-icon');
+              if (apple) apple.href = resolvedUrl;
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

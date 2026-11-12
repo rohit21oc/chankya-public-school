@@ -1,0 +1,22 @@
+/** Checks for src/utils/periodTimings.ts. Run: npx tsx scripts/verify-period-timings.ts */
+import { toMinutes, fromMinutes, toPickerValue, fromPickerValue, generatePeriods, chainAfter, nextPeriod, checkPeriods, renumber } from '../src/utils/periodTimings';
+let failures = 0;
+const check = (n: string, ok: boolean, info = '') => { if (!ok) failures++; console.log(`${ok ? 'PASS' : 'FAIL'}  ${n}${ok || !info ? '' : `  (${info})`}`); };
+check('12h / 24h parsing', toMinutes('08:05 AM') === 485 && toMinutes('12:00 PM') === 720 && toMinutes('12:10 AM') === 10 && toMinutes('14:30') === 870 && toMinutes('13:00 PM') === null && toMinutes('x') === null);
+check('format', fromMinutes(485) === '08:05 AM' && fromMinutes(720) === '12:00 PM' && fromMinutes(0) === '12:00 AM' && fromMinutes(13 * 60 + 45) === '01:45 PM');
+check('picker round trip', toPickerValue('01:45 PM') === '13:45' && fromPickerValue('13:45') === '01:45 PM' && toPickerValue('bad') === '' && fromPickerValue('') === '');
+const day = generatePeriods({ firstStart: '08:00 AM', periodMinutes: 40, count: 8, breakAfter: 4, breakMinutes: 30 });
+check('generate: 8 periods + 1 break = 9 rows', day.length === 9 && day.filter((p) => p.isBreak).length === 1, String(day.length));
+check('generate: times', day[0].startTime === '08:00 AM' && day[3].endTime === '10:40 AM' && day[4].isBreak === true && day[4].endTime === '11:10 AM' && day[8].endTime === '01:50 PM', JSON.stringify(day.map((p) => p.endTime)));
+check('generate: numbering and names', day.map((p) => p.periodNumber).join() === '1,2,3,4,5,6,7,8,9' && day[5].name === 'Period 5');
+const changed = day.map((p, i) => (i === 0 ? { ...p, endTime: '08:45 AM' } : p));
+const chained = chainAfter(changed, 0);
+check('chain: later periods move, keep their length', chained[1].startTime === '08:45 AM' && chained[1].endTime === '09:25 AM' && chained[4].endTime === '11:15 AM' && chained[8].endTime === '01:55 PM', JSON.stringify(chained.map((p) => p.startTime)));
+check('next period follows the last, same length', nextPeriod(day).startTime === '01:50 PM' && nextPeriod(day).endTime === '02:30 PM' && nextPeriod(day).name === 'Period 9');
+check('valid day has no errors', checkPeriods(day, { startTime: '07:45 AM', endTime: '02:30 PM' }).errors.length === 0);
+const overlap = renumber([{ periodNumber: 1, name: 'P1', startTime: '08:00 AM', endTime: '08:50 AM' }, { periodNumber: 2, name: 'P2', startTime: '08:40 AM', endTime: '09:20 AM' }]);
+check('overlap is an error', checkPeriods(overlap).errors.some((e) => /overlaps/.test(e)));
+check('end before start is an error', checkPeriods([{ periodNumber: 1, name: 'P1', startTime: '09:00 AM', endTime: '08:00 AM' }]).errors.length === 1);
+check('after dispersal is a warning, not an error', (() => { const r = checkPeriods(day, { startTime: '08:00 AM', endTime: '01:00 PM' }); return r.errors.length === 0 && r.warnings.some((w) => /dispersal/.test(w)); })());
+console.log(failures ? `\n${failures} failed` : '\nAll period timing checks passed.');
+process.exit(failures ? 1 : 0);

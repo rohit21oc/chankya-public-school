@@ -1,0 +1,122 @@
+[
+  {
+    "id": "tr-1",
+    "routeName": "Route 1: Sheohar Town — Shahpur Road — School Campus",
+    "routeNumber": "RT-01",
+    "startPoint": "Sheohar Zero Mile",
+    "endPoint": "Residential PDS Public School",
+    "vehicleId": "v-1",
+    "vehicleNumber": "BR-06-P-6401",
+    "driverName": "Ramesh Kumar Sharma",
+    "driverPhone": "+91 98350 12345",
+    "status": "ACTIVE",
+    "totalStudents": 4,
+    "stops": [
+      {
+        "id": "stop-1",
+        "name": "Zero Mile Circle",
+        "landmark": "Near Main Traffic Post",
+        "pickupTime": "06:45 AM",
+        "dropTime": "02:15 PM",
+        "monthlyFare": 600,
+        "stopOrder": 1,
+        "status": "ACTIVE"
+      },
+      {
+        "id": "stop-2",
+        "name": "Collectorate Gate",
+        "landmark": "Opposite District Court",
+        "pickupTime": "06:55 AM",
+        "dropTime": "02:05 PM",
+        "monthlyFare": 700,
+        "stopOrder": 2,
+        "status": "ACTIVE"
+      },
+      {
+        "id": "stop-3",
+        "name": "Hospital Chowk Sheohar",
+        "landmark": "Sadar Hospital Entrance",
+        "pickupTime": "07:05 AM",
+        "dropTime": "01:55 PM",
+        "monthlyFare": 800,
+        "stopOrder": 3,
+        "status": "ACTIVE"
+      },
+      {
+        "id": "stop-4",
+        "name": "Shahpur Road Crossing",
+        "landmark": "Near Canal Bridge",
+        "pickupTime": "07:15 AM",
+        "dropTime": "01:45 PM",
+        "monthlyFare": 900,
+        "stopOrder": 4,
+        "status": "ACTIVE"
+      },
+      {
+        "id": "stop-5",
+        "name": "Residential PDS School Gate",
+        "landmark": "School Campus Porch",
+        "pickupTime": "07:30 AM",
+        "dropTime": "01:30 PM",
+        "monthlyFare": 0,
+        "stopOrder": 5,
+        "status": "ACTIVE"
+      }
+    ]
+  },
+  {
+    "id": "tr-2",
+    "routeName": "Route 2: Piprahi — Belwa Bazar — School Campus",
+    "routeNumber": "RT-02",
+    "startPoint": "Piprahi Block More",
+    "endPoint": "Residential PDS Public School",
+    "vehicleId": "v-2",
+    "vehicleNumber": "BR-06-P-6402",
+    "driverName": "Md. Aslam Mansoori",
+    "driverPhone": "+91 97715 67890",
+    "status": "ACTIVE",
+    "totalStudents": 2,
+    "stops": [
+      {
+        "id": "stop-201",
+        "name": "Piprahi Block More",
+        "landmark": "Opposite Block Development Office",
+        "pickupTime": "06:40 AM",
+        "dropTime": "02:20 PM",
+        "monthlyFare": 850,
+        "stopOrder": 1,
+        "status": "ACTIVE"
+      },
+      {
+        "id": "stop-202",
+        "name": "Belwa High School More",
+        "landmark": "Near Belwa Bazar Temple",
+        "pickupTime": "06:55 AM",
+        "dropTime": "02:05 PM",
+        "monthlyFare": 950,
+        "stopOrder": 2,
+        "status": "ACTIVE"
+      },
+      {
+        "id": "stop-203",
+        "name": "Bus Stand Sheohar",
+        "landmark": "Private Bus Terminal",
+        "pickupTime": "07:10 AM",
+        "dropTime": "01:50 PM",
+        "monthlyFare": 750,
+        "stopOrder": 3,
+        "status": "ACTIVE"
+      },
+      {
+        "id": "stop-204",
+        "name": "Residential PDS School Gate",
+        "landmark": "School Campus Porch",
+        "pickupTime": "07:30 AM",
+        "dropTime": "01:30 PM",
+        "monthlyFare": 0,
+        "stopOrder": 4,
+        "status": "ACTIVE"
+      }
+    ]
+  }
+]
