@@ -7336,6 +7336,13 @@ async function startServer() {
   });
 
   app.get(['/api/settings', '/api/school-settings'], (req: Request, res: Response) => {
+    // Settings saved in the database before timings existed (or seeded without them) must not break the Settings page.
+    if (!(schoolSettings as any).schoolTiming) {
+      (schoolSettings as any).schoolTiming = {
+        startTime: (schoolSettings as any).schoolStartTime || '08:00 AM',
+        endTime: (schoolSettings as any).schoolEndTime || '02:00 PM',
+      };
+    }
     // Public visitors get the school profile; the principal's signature image is for signed-in staff only.
     if (getAuthContext(req).user) return res.json(schoolSettings);
     const { principalSignature, principalSignatureFileKey, examControllerSignature, examControllerSignatureFileKey, ...publicSettings } = schoolSettings as any;

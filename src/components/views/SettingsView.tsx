@@ -545,11 +545,11 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
               <label className="block font-semibold text-slate-700 mb-1">School Assembly Start</label>
               <input
                 type="text"
-                value={formData.schoolTiming.startTime}
+                value={formData.schoolTiming?.startTime ?? ''}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    schoolTiming: { ...formData.schoolTiming, startTime: e.target.value },
+                    schoolTiming: { endTime: '', ...formData.schoolTiming, startTime: e.target.value },
                   })
                 }
                 className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-1 focus:ring-blue-600 focus:outline-hidden font-mono"
@@ -560,11 +560,11 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
               <label className="block font-semibold text-slate-700 mb-1">Dispersal / End Time</label>
               <input
                 type="text"
-                value={formData.schoolTiming.endTime}
+                value={formData.schoolTiming?.endTime ?? ''}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    schoolTiming: { ...formData.schoolTiming, endTime: e.target.value },
+                    schoolTiming: { startTime: '', ...formData.schoolTiming, endTime: e.target.value },
                   })
                 }
                 className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-1 focus:ring-blue-600 focus:outline-hidden font-mono"
