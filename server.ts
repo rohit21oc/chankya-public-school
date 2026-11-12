@@ -2150,6 +2150,11 @@ async function startServer() {
       school: schoolSettings.schoolName,
       code: schoolSettings.schoolCode,
       academicSession: schoolSettings.currentAcademicSession,
+      // Logins need the database. This makes a missing/blocked MongoDB visible without opening the server logs.
+      database: {
+        configured: mongoService.getStatus().configured,
+        connected: mongoService.isConnected(),
+      },
       timestamp: new Date().toISOString(),
     });
   });
