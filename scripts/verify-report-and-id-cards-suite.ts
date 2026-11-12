@@ -20,7 +20,7 @@ function get(path: string): Promise<{ status: number; data: any }> {
 
 async function runVerification() {
   console.log('=====================================================');
-  console.log('RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR');
+  console.log('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE');
   console.log('Report & ID Cards Module Comprehensive Verification');
   console.log('=====================================================\n');
 
@@ -123,8 +123,8 @@ async function runVerification() {
   console.log('\n--- 6. QR Code & School Metadata Verification ---');
   const settingsRes = await get('/api/settings');
   assert('School settings API returns HTTP 200', settingsRes.status === 200);
-  assert('School name is RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR', settingsRes.data?.schoolName?.includes('RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR'));
-  assert('Affiliation Code is 10030206405', settingsRes.data?.affiliationCode === '10030206405');
+  assert('School name is CHANAKYA PUBLIC SCHOOL & COACHING CENTRE', settingsRes.data?.schoolName?.includes('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE'));
+  assert('Affiliation Code is 10034104008', settingsRes.data?.affiliationCode === '10034104008');
 
   console.log('\n=====================================================');
   console.log(`TOTAL TESTS: ${total} | PASSED: ${passed} | FAILED: ${total - passed}`);

@@ -13,7 +13,7 @@ export { NOT_CONFIGURED, toIdentity, affiliationLine, getSchoolIdentity } from '
 export type { SchoolIdentity } from '../utils/schoolIdentityModel';
 import { SchoolIdentity, getSchoolIdentity, setSchoolIdentity, subscribeSchoolIdentity, toIdentity } from '../utils/schoolIdentityModel';
 
-const STORE_KEY = 'pds_school_identity_v1';
+const STORE_KEY = 'cps_school_identity_v1';
 let lastFetch = 0;
 let inflight: Promise<void> | null = null;
 

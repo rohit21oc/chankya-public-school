@@ -79,11 +79,11 @@ async function runTestSuite() {
   // ----------------------------------------------------
   // TEST 3: Real Teacher Account Login & Dynamic Profile
   // ----------------------------------------------------
-  console.log('\n--- 3. Testing Real Teacher Account (PDS0011 / Sunita Verma) ---');
+  console.log('\n--- 3. Testing Real Teacher Account (CPS0011 / Sunita Verma) ---');
   const teacherLoginRes = await fetch(`${BASE_URL}/api/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ identifier: 'PDS0011', password: 'PdsTeacher@123', loginType: 'STAFF_ADMIN' }),
+    body: JSON.stringify({ identifier: 'CPS0011', password: 'CpsTeacher@123', loginType: 'STAFF_ADMIN' }),
   });
   const teacherLoginData: any = await teacherLoginRes.json();
   assert(teacherLoginRes.status === 200 && teacherLoginData.success, 'Teacher login succeeded (HTTP 200)');
@@ -94,7 +94,7 @@ async function runTestSuite() {
   });
   const teacherProfileData: any = await teacherProfileRes.json();
   assert(teacherProfileRes.status === 200 && teacherProfileData.success, 'GET /api/auth/profile for Teacher succeeded');
-  assert(teacherProfileData.profile.employeeId === 'PDS0011', 'Teacher employee ID matches PDS0011 dynamically');
+  assert(teacherProfileData.profile.employeeId === 'CPS0011', 'Teacher employee ID matches CPS0011 dynamically');
   assert(teacherProfileData.profile.name === 'Sunita Verma', 'Teacher name matches "Sunita Verma" from MongoDB');
   assert(
     Array.isArray(teacherProfileData.profile.documents),
@@ -136,7 +136,7 @@ async function runTestSuite() {
   const teacherRecheckData: any = await teacherRecheckRes.json();
   assert(teacherRecheckData.profile.emergencyContact === testContact, 'Permitted emergencyContact updated in MongoDB');
   assert(teacherRecheckData.profile.bloodGroup === 'O+', 'Permitted bloodGroup updated in MongoDB');
-  assert(teacherRecheckData.profile.employeeId === 'PDS0011', 'PROTECTED employeeId was NOT changed');
+  assert(teacherRecheckData.profile.employeeId === 'CPS0011', 'PROTECTED employeeId was NOT changed');
   assert(teacherRecheckData.profile.systemRole === 'TEACHER' || teacherRecheckData.role === 'TEACHER', 'PROTECTED role was NOT escalated');
 
   // ----------------------------------------------------
@@ -151,7 +151,7 @@ async function runTestSuite() {
       Authorization: `Bearer ${teacherLoginData.token}`,
     },
     body: JSON.stringify({
-      currentPassword: 'PdsTeacher@123',
+      currentPassword: 'CpsTeacher@123',
       newPassword: newSecret,
     }),
   });
@@ -162,7 +162,7 @@ async function runTestSuite() {
   const oldLoginRes = await fetch(`${BASE_URL}/api/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ identifier: 'PDS0011', password: 'PdsTeacher@123', loginType: 'STAFF_ADMIN' }),
+    body: JSON.stringify({ identifier: 'CPS0011', password: 'CpsTeacher@123', loginType: 'STAFF_ADMIN' }),
   });
   assert(oldLoginRes.status === 401, 'Old password FAILS immediately after change (HTTP 401)');
 
@@ -170,12 +170,12 @@ async function runTestSuite() {
   const newLoginRes = await fetch(`${BASE_URL}/api/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ identifier: 'PDS0011', password: newSecret, loginType: 'STAFF_ADMIN' }),
+    body: JSON.stringify({ identifier: 'CPS0011', password: newSecret, loginType: 'STAFF_ADMIN' }),
   });
   const newLoginData: any = await newLoginRes.json();
   assert(newLoginRes.status === 200 && newLoginData.success, 'New password SUCCEEDS immediately upon login (HTTP 200)');
 
-  // Restore teacher password back to PdsTeacher@123
+  // Restore teacher password back to CpsTeacher@123
   const restorePassRes = await fetch(`${BASE_URL}/api/auth/change-password`, {
     method: 'POST',
     headers: {
@@ -184,7 +184,7 @@ async function runTestSuite() {
     },
     body: JSON.stringify({
       currentPassword: newSecret,
-      newPassword: 'PdsTeacher@123',
+      newPassword: 'CpsTeacher@123',
     }),
   });
   const restorePassData: any = await restorePassRes.json();

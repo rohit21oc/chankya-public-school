@@ -38,7 +38,7 @@ check('Pending total skips paid, waived and duplicate ledgers', sum.totalPending
 check('Overdue counts only past due dates', sum.overdue === 3000 && sum.overdueCount === 2, `${sum.overdue}/${sum.overdueCount}`);
 check('Items sorted by due date', sum.items.map((i) => i.label).join('|') === 'September 2026|Exam Fee|November 2026');
 check('Nothing pending → zero', summarizeFeeDues([], '2026-10-22').totalPending === 0);
-const text = buildFeeDueText('PDS', 'Aman', sum, 'Last date 30 Oct');
+const text = buildFeeDueText('CPS', 'Aman', sum, 'Last date 30 Oct');
 check('Alert text mentions amount, overdue and note', text.includes('Rs.4,500') && text.includes('Rs.3,000') && text.includes('Last date 30 Oct'), text);
 
 console.log(failures ? `\n${failures} check(s) failed.` : '\nAll engagement rule checks passed.');

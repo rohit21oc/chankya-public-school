@@ -996,7 +996,7 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({
                 <div className="p-3 border border-slate-200 rounded-lg flex items-center justify-between bg-slate-50">
                   <div>
                     <h6 className="font-bold text-slate-900">Mid-Term Report Card</h6>
-                    <p className="text-[11px] text-slate-500">Official CBSE format statement of marks</p>
+                    <p className="text-[11px] text-slate-500">Official format statement of marks</p>
                   </div>
                   <button
                     onClick={() => onOpenReportCard(student)}
@@ -1580,10 +1580,10 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({
                     />
                     <button
                       type="button"
-                      onClick={() => setStudentNewPassword('PDS123')}
+                      onClick={() => setStudentNewPassword('CPS123')}
                       className="px-2.5 py-1.5 border border-slate-200 hover:bg-slate-50 text-slate-600 rounded-lg text-xs"
                     >
-                      Use "PDS123"
+                      Use "CPS123"
                     </button>
                     <button
                       type="submit"
@@ -1662,10 +1662,10 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({
                     />
                     <button
                       type="button"
-                      onClick={() => setParentNewPassword('PDS123')}
+                      onClick={() => setParentNewPassword('CPS123')}
                       className="px-2.5 py-1.5 border border-slate-200 hover:bg-slate-50 text-slate-600 rounded-lg text-xs"
                     >
-                      Use "PDS123"
+                      Use "CPS123"
                     </button>
                     <button
                       type="submit"

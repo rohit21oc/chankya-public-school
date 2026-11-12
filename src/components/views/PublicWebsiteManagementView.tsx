@@ -147,12 +147,12 @@ export const PublicWebsiteManagementView: React.FC<PublicWebsiteManagementViewPr
       }
     };
 
-    window.addEventListener('pradnya_entity_website', handleRealtime);
-    window.addEventListener('pradnya_realtime_event', handleRealtime);
+    window.addEventListener('cps_entity_website', handleRealtime);
+    window.addEventListener('cps_realtime_event', handleRealtime);
 
     return () => {
-      window.removeEventListener('pradnya_entity_website', handleRealtime);
-      window.removeEventListener('pradnya_realtime_event', handleRealtime);
+      window.removeEventListener('cps_entity_website', handleRealtime);
+      window.removeEventListener('cps_realtime_event', handleRealtime);
     };
   }, [loadAllContent]);
 
@@ -173,7 +173,7 @@ export const PublicWebsiteManagementView: React.FC<PublicWebsiteManagementViewPr
         <h3 className="text-xl font-bold text-slate-900">Administrative Access Required</h3>
         <p className="text-sm text-slate-600 leading-relaxed">
           The Public Website Management module is restricted to authorized school administrators,
-          Principal desk, and Super Administrators of Residential PDS Public School Sheohar.
+          Principal desk, and Super Administrators of Chanakya Public School & Coaching Centre.
         </p>
       </div>
     );

@@ -11,7 +11,7 @@ async function runTest() {
 
   // Connect to MongoDB Atlas to observe database state before & after
   const cleanUri = sanitizeMongoUri(process.env.MONGODB_URI);
-  await mongoose.connect(cleanUri, { dbName: 'pds_school_erp' });
+  await mongoose.connect(cleanUri, { dbName: 'cps_school_erp' });
   console.log('[Test Setup] Connected to MongoDB Atlas:', mongoose.connection.name);
 
   // We will test with the admin account 'admin' (email: 'webwraptechnology@gmail.com')
@@ -182,11 +182,11 @@ async function runTest() {
 
   console.log('\n======================================================');
   console.log(' ALL 10 ADMIN PASSWORD RESET PERSISTENCE TESTS PASSED! ');
-  console.log(' NOW TESTING TEACHER/STAFF ACCOUNT (PDS0011)...');
+  console.log(' NOW TESTING TEACHER/STAFF ACCOUNT (CPS0011)...');
   console.log('======================================================\n');
 
-  // Test with Teacher Sunita Verma (PDS0011 / sunita.verma.school@gmail.com)
-  const teacherEmpId = 'PDS0011';
+  // Test with Teacher Sunita Verma (CPS0011 / sunita.verma.school@gmail.com)
+  const teacherEmpId = 'CPS0011';
   const teacherEmail = 'sunita.verma.school@gmail.com';
   const teacherUser = await UserModel.findOne({ employeeId: teacherEmpId }).lean();
   if (teacherUser) {

@@ -92,12 +92,12 @@ export const PublicManagementTeamSection: React.FC<PublicManagementTeamSectionPr
       loadMembers();
     };
 
-    window.addEventListener('pradnya_entity_website', handleExternalUpdate);
+    window.addEventListener('cps_entity_website', handleExternalUpdate);
     window.addEventListener('leadership_updated', handleExternalUpdate);
 
     return () => {
       unsubscribe();
-      window.removeEventListener('pradnya_entity_website', handleExternalUpdate);
+      window.removeEventListener('cps_entity_website', handleExternalUpdate);
       window.removeEventListener('leadership_updated', handleExternalUpdate);
     };
   }, [loadMembers]);
@@ -346,7 +346,7 @@ export const PublicManagementTeamSection: React.FC<PublicManagementTeamSectionPr
               Our Management Team
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Meet the visionary educators and administrators steering Residential PDS Public School
+              Meet the visionary educators and administrators steering Chanakya Public School & Coaching Centre
               Sheohar towards scholastic distinction, character development, and holistic excellence.
             </p>
           </div>

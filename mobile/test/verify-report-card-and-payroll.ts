@@ -3,7 +3,7 @@
  * 1. My Payroll (Self-Service, Data Isolation, Loading, Empty & Retry)
  * 2. Report Card (Replacing Academic Performance, Marksheet, Calculations, Session Filter, RBAC)
  *
- * RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR
+ * CHANAKYA PUBLIC SCHOOL & COACHING CENTRE
  */
 
 import { User, Exam, ExamMark, StaffPayrollRecord } from '../src/types';
@@ -26,7 +26,7 @@ function assert(description: string, condition: boolean, extraInfo?: string) {
 async function run() {
   console.log('================================================================');
   console.log('VERIFYING MY PAYROLL & REPORT CARD MODULES');
-  console.log('RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR');
+  console.log('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE');
   console.log('================================================================\n');
 
   // --- 1. My Payroll Self-Service & RBAC ---
@@ -35,9 +35,9 @@ async function run() {
     const teacherUser: User = {
       id: 'st-teacher-1',
       name: 'Mrs. Sunita Verma',
-      username: 'PDS0002',
+      username: 'CPS0002',
       role: 'TEACHER',
-      employeeId: 'PDS0002',
+      employeeId: 'CPS0002',
       permissions: ['students.view', 'attendance.view', 'academics.view', 'timetable.view', 'communication.view', 'documents.view'],
     };
 
@@ -82,7 +82,7 @@ async function run() {
       {
         id: 'pr-101',
         staffId: 'st-teacher-1',
-        employeeId: 'PDS0002',
+        employeeId: 'CPS0002',
         staffName: 'Mrs. Sunita Verma',
         month: 'September 2026',
         basicSalary: 32000,
@@ -93,7 +93,7 @@ async function run() {
       {
         id: 'pr-102',
         staffId: 'st-teacher-1',
-        employeeId: 'PDS0002',
+        employeeId: 'CPS0002',
         staffName: 'Mrs. Sunita Verma',
         month: 'August 2026',
         basicSalary: 32000,
@@ -104,7 +104,7 @@ async function run() {
       {
         id: 'pr-103',
         staffId: 'st-teacher-2',
-        employeeId: 'PDS0003',
+        employeeId: 'CPS0003',
         staffName: 'Mr. Rameshwar Jha',
         month: 'September 2026',
         basicSalary: 40000,
@@ -114,7 +114,7 @@ async function run() {
       },
     ];
 
-    const currentTeacherEmpId = 'PDS0002';
+    const currentTeacherEmpId = 'CPS0002';
     const currentTeacherStaffId = 'st-teacher-1';
 
     const teacherSlips = allPayrolls.filter(
@@ -122,8 +122,8 @@ async function run() {
     );
 
     assert('Teacher receives all and only their own payroll slips (2 slips)', teacherSlips.length === 2);
-    assert('All returned payroll records belong to the authenticated employee', teacherSlips.every((p) => p.employeeId === 'PDS0002'));
-    assert('Another employee salary records (PDS0003) are never exposed', !teacherSlips.some((p) => p.employeeId === 'PDS0003'));
+    assert('All returned payroll records belong to the authenticated employee', teacherSlips.every((p) => p.employeeId === 'CPS0002'));
+    assert('Another employee salary records (CPS0003) are never exposed', !teacherSlips.some((p) => p.employeeId === 'CPS0003'));
   }
 
   // --- 3. Replace Academic Performance with Report Card ---
@@ -146,7 +146,7 @@ async function run() {
     const parentGrid = getDoMoreGridModules(parentUser).map((m) => m.id);
     assert('Parent Do More Grid contains "report-card"', parentGrid.includes('report-card'));
 
-    const teacherUser: User = { id: 't-1', name: 'Teacher', role: 'TEACHER', username: 'PDS0002' };
+    const teacherUser: User = { id: 't-1', name: 'Teacher', role: 'TEACHER', username: 'CPS0002' };
     const teacherGrid = getDoMoreGridModules(teacherUser).map((m) => m.id);
     assert('Teacher Do More Grid contains "report-card"', teacherGrid.includes('report-card'));
   }

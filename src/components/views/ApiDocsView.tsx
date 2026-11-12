@@ -28,7 +28,7 @@ export const ApiDocsView: React.FC = () => {
     "name": "Aarav Gupta",
     "rollNumber": "1",
     "admissionNumber": "20260401",
-    "registrationNumber": "PDS2026100001",
+    "registrationNumber": "CPS2026100001",
     "className": "Class 10",
     "section": "A",
     "status": "ACTIVE"
@@ -44,7 +44,7 @@ export const ApiDocsView: React.FC = () => {
   "success": true,
   "data": {
     "admissionNumber": "20260407",
-    "registrationNumber": "PDS2026100007",
+    "registrationNumber": "CPS2026100007",
     "rollNumber": "7",
     "name": "Siddharth Verma"
   }
@@ -130,7 +130,7 @@ export const ApiDocsView: React.FC = () => {
         </div>
 
         <div className="text-xs font-mono bg-slate-900 text-white px-3 py-1.5 rounded-lg">
-          Base URL: <strong>https://residentialpdspublicschool.edu.in/api/v1</strong>
+          Base URL: <strong>https://your-school-domain.example/api/v1</strong>
         </div>
       </div>
 

@@ -32,7 +32,7 @@ export const LivePreviewModal: React.FC<LivePreviewModalProps> = ({
             <Eye className="w-4 h-4 text-amber-400" />
             <span className="font-black text-white">Live Public Website Preview</span>
             <span className="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-400/30">
-              Residential PDS Public School Sheohar
+              Chanakya Public School & Coaching Centre
             </span>
           </div>
 

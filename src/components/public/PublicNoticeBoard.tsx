@@ -69,10 +69,10 @@ export const PublicNoticeBoard: React.FC<PublicNoticeBoardProps> = ({
         setInternalNotices(api.getNotices());
       }
     };
-    window.addEventListener('pradnya_entity_notices', handleUpdate);
+    window.addEventListener('cps_entity_notices', handleUpdate);
     return () => {
       isMounted = false;
-      window.removeEventListener('pradnya_entity_notices', handleUpdate);
+      window.removeEventListener('cps_entity_notices', handleUpdate);
     };
   }, [initialNotices]);
 
@@ -435,7 +435,7 @@ export const PublicNoticeBoard: React.FC<PublicNoticeBoardProps> = ({
 
             <div className="pt-3 border-t border-slate-100 flex items-center justify-between shrink-0">
               <span className="text-[11px] text-[#667085]">
-                Residential PDS Public School Sheohar
+                Chanakya Public School & Coaching Centre
               </span>
               <button
                 type="button"

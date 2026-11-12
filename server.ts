@@ -194,7 +194,7 @@ let holidays: Holiday[] = [];
 // bank or payment details: those come only from School Settings and show as
 // "Not configured" until an administrator saves them.
 const DEFAULT_SCHOOL_SETTINGS: SchoolSettings = {
-  schoolName: 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+  schoolName: 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
   schoolCode: '',
   affiliationNumber: '',
   affiliationCode: '',
@@ -321,7 +321,7 @@ setInterval(() => {
 }, 15000);
 
 // Authoritative Initial Admin & Staff Credentials (configurable via backend env)
-const INITIAL_ADMIN_USERNAME = (process.env.INITIAL_ADMIN_USERNAME || 'residentialpdsschool').trim().toLowerCase();
+const INITIAL_ADMIN_USERNAME = (process.env.INITIAL_ADMIN_USERNAME || 'chanakyapublicschool').trim().toLowerCase();
 // Starting passwords come only from the environment, never from code.
 // INITIAL_ADMIN_PASSWORD: used once, when the database has no admin account yet (existing passwords are never reset).
 // DEFAULT_USER_PASSWORD: given to new staff / parent accounts created without their own password.
@@ -722,10 +722,10 @@ export type AuthEntityMatch =
   | { type: 'STUDENT'; entity: Student & { passwordHash?: string; failedLoginAttempts?: number; lockoutUntil?: number; passwordResetToken?: string; passwordResetLinkToken?: string; passwordResetExpires?: number }; role: UserRole }
   | { type: 'PARENT'; entity: InternalParentAccount & { passwordResetToken?: string; passwordResetLinkToken?: string; passwordResetExpires?: number }; role: UserRole };
 
-const JWT_SECRET = process.env.JWT_SECRET || 'residential_pds_sheohar_jwt_production_secret_key_2026';
+const JWT_SECRET = process.env.JWT_SECRET || (process.env.NODE_ENV === 'production' ? crypto.randomBytes(48).toString('hex') : 'cps_local_development_only_secret');
 if (!process.env.JWT_SECRET && process.env.NODE_ENV === 'production') {
-  // The fallback above is public (it is in the repository), so anyone could sign a valid admin token with it.
-  console.error('[SECURITY] JWT_SECRET is not set in production. Sign-in tokens can be forged until you set a long random JWT_SECRET in the server environment.');
+  // A random temporary secret is used, so everyone is signed out on every restart until you set a long random JWT_SECRET.
+  console.error('[SECURITY] JWT_SECRET is not set in production. Set a long random JWT_SECRET in the server environment.');
 }
 configureIdCardQrSecret({ qrSecret: process.env.ID_CARD_QR_SECRET, jwtSecret: JWT_SECRET });
 if (!process.env.ID_CARD_QR_SECRET && !process.env.JWT_SECRET) {
@@ -1102,10 +1102,9 @@ export async function findAuthEntityByResetTokenAsync(token: string): Promise<{
  * Resolves the real, accessible public frontend URL for password reset links.
  * STRICT REQUIREMENTS:
  * 1. NEVER returns 'localhost', '127.0.0.1', or internal ports.
- * 2. NEVER returns the backend API URL (residentialpdsschool.onrender.com).
+ * 2. NEVER returns the backend API URL.
  * 3. NEVER returns development URLs (e.g. .run.app) or old Render domains.
- * 4. Generates the email link dynamically from the production frontend URL:
- *    https://residentialpdsschool.in
+ * 4. Generates the email link dynamically from the production frontend URL (FRONTEND_URL).
  */
 export function resolveProductionFrontendUrl(req?: Request): string {
   // Only a known site origin is accepted, so a reset link can never be pointed at another website.
@@ -1269,7 +1268,7 @@ export function buildSafeUser(match: AuthEntityMatch, session?: ServerSession): 
       id: s.id,
       name: s.name || 'Student',
       username: adm,
-      email: s.email || `${String(adm).toLowerCase()}@residentialpds.edu.in`,
+      email: s.email || `${String(adm).toLowerCase()}@chanakyaschool.example`,
       phone: s.mobile || s.parentPhone || '',
       studentId: s.id,
       role: 'STUDENT',
@@ -1302,7 +1301,7 @@ export function buildSafeUser(match: AuthEntityMatch, session?: ServerSession): 
     id: p.id,
     name: p.parentName || (p as any).name || 'Parent / Guardian',
     username: phone,
-    email: p.email || `parent.${phone}@residentialpds.edu.in`,
+    email: p.email || `parent.${phone}@chanakyaschool.example`,
     phone: p.phone || '',
     role: 'PARENT',
     status: p.accountStatus || 'ACTIVE',
@@ -1630,7 +1629,7 @@ export async function reconcileAdminWithUserModel(): Promise<void> {
           },
         }
       );
-      logAudit('SYSTEM', 'SUPER_ADMIN', 'ADMIN_MIGRATION', 'AdminAccount', 'admin-1', 'Migrated legacy admin account to residentialpdsschool');
+      logAudit('SYSTEM', 'SUPER_ADMIN', 'ADMIN_MIGRATION', 'AdminAccount', 'admin-1', 'Migrated legacy admin account to chanakyapublicschool');
     } else {
       await UserModel.create({
         id: 'admin-1',
@@ -1647,7 +1646,7 @@ export async function reconcileAdminWithUserModel(): Promise<void> {
         failedLoginAttempts: 0,
         createdAt: new Date(),
       });
-      logAudit('SYSTEM', 'SUPER_ADMIN', 'ADMIN_INIT', 'AdminAccount', 'admin-1', 'Initialized root administrator residentialpdsschool');
+      logAudit('SYSTEM', 'SUPER_ADMIN', 'ADMIN_INIT', 'AdminAccount', 'admin-1', 'Initialized root administrator chanakyapublicschool');
     }
 
     // Also migrate admin-2 if still using old admin123
@@ -2160,14 +2159,13 @@ async function startServer() {
   // ==========================================
   app.get('/api/realtime/events', (req: Request, res: Response) => {
     const origin = req.headers.origin;
-    const matchedOrigin = origin || 'https://residentialpdsschool.in';
+    const matchedOrigin = typeof origin === 'string' && isAllowedOrigin(origin) ? origin : '';
     res.writeHead(200, {
       'Content-Type': 'text/event-stream',
       'Cache-Control': 'no-cache, no-transform',
       'Connection': 'keep-alive',
       'X-Accel-Buffering': 'no',
-      'Access-Control-Allow-Origin': matchedOrigin,
-      'Access-Control-Allow-Credentials': 'true',
+      ...(matchedOrigin ? { 'Access-Control-Allow-Origin': matchedOrigin, 'Access-Control-Allow-Credentials': 'true' } : {}),
     });
 
     const clientId = `client_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
@@ -2232,7 +2230,7 @@ async function startServer() {
         title: 'Single School Management System REST API',
         version: '1.0.0',
         description:
-          'Unified RESTful API for Pradnya Demonstration Senior Secondary School web and mobile applications (Android/iOS). Designed for a single centralized school database without multi-tenant fragmentation.',
+          'Unified RESTful API for Chanakya Public School & Coaching Centre web and mobile applications (Android/iOS). Designed for a single centralized school database without multi-tenant fragmentation.',
         contact: {
           name: 'School Systems Directorate',
           email: schoolSettings.email,
@@ -2263,7 +2261,7 @@ async function startServer() {
         },
         '/teachers': {
           get: { summary: 'List teaching and administrative staff' },
-          post: { summary: 'Register new staff with serial PDS employee ID' },
+          post: { summary: 'Register new staff with serial CPS employee ID' },
         },
         '/attendance': {
           get: { summary: 'Get student attendance by Class, Section, and Date' },
@@ -2862,20 +2860,20 @@ async function startServer() {
         });
       }
 
-      // Check if password matches (authoritative MongoDB hash, custom parent account hash, default PDS123, or child DOB)
+      // Check if password matches (authoritative MongoDB hash, custom parent account hash, default CPS123, or child DOB)
       const effectiveHash = parentUserDoc?.passwordHash || parent?.passwordHash;
       const isCustomPasswordMatch = !!(effectiveHash && (effectiveHash.startsWith('$2b$') || effectiveHash.startsWith('$2a$')) && bcrypt.compareSync(enteredCredential, effectiveHash));
-      let isInitialPdsPassword = false;
+      let isInitialDefaultPassword = false;
       if (isCustomPasswordMatch) {
-        isInitialPdsPassword = true;
+        isInitialDefaultPassword = true;
       } else if (!effectiveHash || (!effectiveHash.startsWith('$2b$') && !effectiveHash.startsWith('$2a$'))) {
-        if (enteredCredential.toUpperCase() === 'PDS123') {
-          isInitialPdsPassword = true;
+        if (enteredCredential.toUpperCase() === 'CPS123') {
+          isInitialDefaultPassword = true;
         }
       }
 
       let matchingChild: any = null;
-      if (isInitialPdsPassword) {
+      if (isInitialDefaultPassword) {
         matchingChild = linkedStudents[0] || (parent?.studentIds ? students.find((s) => parent?.studentIds?.includes(s.id)) : null);
       } else {
         const dobValidation = parseAndValidateDob(enteredCredential);
@@ -2939,7 +2937,7 @@ async function startServer() {
                 email: firstChild.parentEmail || firstChild.fatherEmail || '',
                 role: 'PARENT',
                 userType: 'PARENT',
-                passwordHash: bcrypt.hashSync('PDS123', 10),
+                passwordHash: bcrypt.hashSync('CPS123', 10),
                 linkedStudentIds,
                 activeStudentId,
                 address: firstChild.address || '',
@@ -3081,7 +3079,7 @@ async function startServer() {
           return res.status(409).json({
             success: false,
             code: 'AMBIGUOUS_LOGIN',
-            error: 'This email / mobile number is used by more than one staff account. Please sign in with your Employee ID (e.g. PDS0012).',
+            error: 'This email / mobile number is used by more than one staff account. Please sign in with your Employee ID (e.g. CPS0012).',
           });
         }
       }
@@ -4591,7 +4589,7 @@ async function startServer() {
           to: targetEmail,
           userName,
           resetUrl,
-          schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+          schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
           expiresInMinutes: 15,
         });
       } catch (sendErr: any) {
@@ -5001,7 +4999,7 @@ async function startServer() {
           to: recipientEmail,
           userName: entity.name || userDoc?.name || entity.parentName || entity.username || 'User',
           identifier: entity.username || entity.employeeId || entity.admissionNumber || entity.email || 'Account',
-          schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+          schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
           portalUrl: resolveProductionFrontendUrl(req),
         })
         .then((res) => {
@@ -5037,11 +5035,11 @@ async function startServer() {
       const shouldSend = req.method === 'POST' || req.query.sendTest === 'true';
 
       if (shouldSend) {
-        const targetTo = String(req.body?.to || req.query.to || process.env.BREVO_SENDER_EMAIL || 'admin@residentialpdspublicschool.onrender.com').trim();
+        const targetTo = String(req.body?.to || req.query.to || process.env.BREVO_SENDER_EMAIL || process.env.INITIAL_ADMIN_EMAIL || '').trim();
         const startSend = Date.now();
         const sendResult = await emailService.sendEmail({
           to: targetTo,
-          subject: 'Email Service Diagnostic Verification - Residential PDS Public School',
+          subject: 'Email Service Diagnostic Verification - Chanakya Public School & Coaching Centre',
           html: `
             <div style="font-family: Arial, sans-serif; padding: 20px; color: #1e293b;">
               <h2 style="color: #1e3a8a;">Brevo Email Service Diagnostic Test</h2>
@@ -5160,7 +5158,7 @@ async function startServer() {
         isCurrentValid = true;
       } else if (entity.passwordHash && bcrypt.compareSync(currentPassword, entity.passwordHash)) {
         isCurrentValid = true;
-      } else if (!hasOwnPassword && String(currentPassword).toUpperCase() === 'PDS123') {
+      } else if (!hasOwnPassword && String(currentPassword).toUpperCase() === 'CPS123') {
         // The initial parent password is accepted only until the parent sets their own (same rule as login).
         isCurrentValid = true;
       } else {
@@ -5284,7 +5282,7 @@ async function startServer() {
           to: recipientEmail,
           userName: user.name,
           identifier: user.username || user.email || user.phone || user.id,
-          schoolName: schoolSettings.schoolName || 'Pradnya Public School',
+          schoolName: schoolSettings.schoolName || 'Chanakya Public School & Coaching Centre',
           portalUrl: portalBaseUrl,
         })
         .catch(() => {});
@@ -5510,7 +5508,7 @@ async function startServer() {
             identifier,
             temporaryPassword: cleanPassword,
             portalUrl: portalBaseUrl,
-            schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+            schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
           });
           emailDispatched = emailRes.success;
         } else {
@@ -5518,7 +5516,7 @@ async function startServer() {
             to: recipientEmail,
             userName: entity.name || entity.parentName || identifier,
             identifier,
-            schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+            schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
             portalUrl: portalBaseUrl,
           });
           emailDispatched = emailRes.success;
@@ -5574,7 +5572,7 @@ async function startServer() {
       identifier,
       temporaryPassword: temporaryPassword || undefined,
       portalUrl: portalBaseUrl,
-      schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+      schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
       instructions: customNote || undefined,
     });
 
@@ -5635,7 +5633,7 @@ async function startServer() {
       to: email,
       userName: entity.name || entity.parentName || identifier,
       resetUrl,
-      schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+      schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
       expiresInMinutes: 15,
     });
 
@@ -5845,7 +5843,7 @@ async function startServer() {
             identifier: staffMember.employeeId,
             temporaryPassword: cleanPass,
             portalUrl: portalBaseUrl,
-            schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+            schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
           });
           emailDispatched = emailRes.success;
         } else {
@@ -5853,7 +5851,7 @@ async function startServer() {
             to: staffMember.email,
             userName: staffMember.name,
             identifier: staffMember.employeeId,
-            schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+            schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
             portalUrl: portalBaseUrl,
           });
           emailDispatched = emailRes.success;
@@ -5890,7 +5888,7 @@ async function startServer() {
     const digits = '23456789';
     const specials = '#$@!';
 
-    let pwd = 'Pds';
+    let pwd = 'Cps';
     pwd += specials.charAt(crypto.randomInt(0, specials.length));
     for (let i = 0; i < 3; i++) {
       pwd += upper.charAt(crypto.randomInt(0, upper.length));
@@ -5909,7 +5907,7 @@ async function startServer() {
         if (num > maxNum) maxNum = num;
       }
     }
-    return `PDS${String(maxNum + 1).padStart(4, '0')}`;
+    return `CPS${String(maxNum + 1).padStart(4, '0')}`;
   };
 
   // Resend Staff Login Credentials via Email (handles both /api/teachers/:id/resend-credentials AND /api/admin/staff/:id/resend-credentials)
@@ -5995,7 +5993,7 @@ async function startServer() {
 
     const portalBaseUrl = resolveProductionFrontendUrl(req);
     const resetUrl = `${portalBaseUrl}/reset-password?token=${resetToken}`;
-    const schoolName = schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL, SHEOHAR';
+    const schoolName = schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE, SHEOHAR';
 
     let emailDispatched = false;
     let emailError: string | undefined = undefined;
@@ -6104,12 +6102,12 @@ async function startServer() {
       // Signed, data-free code for the card's QR (scanned by admins to mark staff attendance).
       qrToken: createIdCardQrToken('STAFF', staffMember.id),
       settings: {
-        schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
-        schoolAddress: schoolSettings.schoolAddress || 'BRC Near Shahpur Road, Sheohar, Bihar - 843329',
-        affiliationCode: schoolSettings.affiliationCode || schoolSettings.affiliationNumber || '10030206405',
-        contactNumber: schoolSettings.contactNumber || '95075 95491',
-        email: schoolSettings.email || 'contact@residentialpdssheohar.edu.in',
-        website: schoolSettings.website || 'https://residentialpdssheohar.edu.in',
+        schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
+        schoolAddress: schoolSettings.schoolAddress || 'Kushahar Ward 07, Kushahar, Sheohar, Bihar - 843329',
+        affiliationCode: schoolSettings.affiliationCode || schoolSettings.affiliationNumber || '10034104008',
+        contactNumber: schoolSettings.contactNumber || '82078 70192',
+        email: schoolSettings.email || '',
+        website: schoolSettings.website || '',
         principalSignature: schoolSettings.principalSignature || '',
         principalName: schoolSettings.principalName || '',
         schoolLogo: schoolSettings.schoolLogo || '',
@@ -6225,7 +6223,7 @@ async function startServer() {
             identifier: student.admissionNumber,
             temporaryPassword: cleanPass,
             portalUrl: portalBaseUrl,
-            schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+            schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
           });
           emailDispatched = emailRes.success;
         } else {
@@ -6233,7 +6231,7 @@ async function startServer() {
             to: recipientEmail,
             userName: student.name,
             identifier: student.admissionNumber,
-            schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+            schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
             portalUrl: portalBaseUrl,
           });
           emailDispatched = emailRes.success;
@@ -6329,7 +6327,7 @@ async function startServer() {
             identifier: parent.phone,
             temporaryPassword: String(newPassword).trim(),
             portalUrl: portalBaseUrl,
-            schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+            schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
           });
           emailDispatched = emailRes.success;
         } else {
@@ -6337,7 +6335,7 @@ async function startServer() {
             to: parent.email,
             userName: parent.parentName,
             identifier: parent.phone,
-            schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+            schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
             portalUrl: portalBaseUrl,
           });
           emailDispatched = emailRes.success;
@@ -7166,7 +7164,7 @@ async function startServer() {
             identifier: target.username,
             temporaryPassword: cleanPass,
             portalUrl: portalBaseUrl,
-            schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+            schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
           });
           emailDispatched = emailRes.success;
         } else {
@@ -7174,7 +7172,7 @@ async function startServer() {
             to: target.email,
             userName: target.name,
             identifier: target.username,
-            schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+            schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
             portalUrl: portalBaseUrl,
           });
           emailDispatched = emailRes.success;
@@ -7269,11 +7267,11 @@ async function startServer() {
     const portalBaseUrl = process.env.FRONTEND_URL || `${req.protocol}://${req.get('host')}` || 'http://localhost:3000';
     const result = await emailService.sendEmail({
       to: String(to).trim(),
-      subject: `[${schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR'}] Institutional Brevo Delivery Test`,
+      subject: `[${schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE'}] Institutional Brevo Delivery Test`,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 24px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 500px;">
           <h2 style="color: #1e3a8a; margin-top: 0;">Brevo Delivery Test Successful</h2>
-          <p>This is a verified test email sent from the <strong>${schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR'}</strong> ERP backend via Brevo API.</p>
+          <p>This is a verified test email sent from the <strong>${schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE'}</strong> ERP backend via Brevo API.</p>
           <p style="font-size: 12px; color: #64748b;">Timestamp: ${new Date().toISOString()}</p>
           <a href="${portalBaseUrl}" style="display: inline-block; background: #1e3a8a; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none;">Go to School Portal</a>
         </div>
@@ -7322,7 +7320,7 @@ async function startServer() {
     const minVersionCode = Math.min(num(cfg.minVersionCode) || num(process.env.APP_ANDROID_MIN_VERSION_CODE), latestVersionCode || Infinity) || 0;
     const storeUrl = /^https:\/\/play\.google\.com\//.test(String(cfg.storeUrl || ''))
       ? String(cfg.storeUrl)
-      : 'https://play.google.com/store/apps/details?id=in.residentialpdsschool.app';
+      : 'https://play.google.com/store/apps/details?id=in.chanakyapublicschool.app';
     res.setHeader('Cache-Control', 'no-store');
     res.json({
       success: true,
@@ -7332,7 +7330,7 @@ async function startServer() {
         minVersionCode,
         message: String(cfg.message || '').slice(0, 500),
         storeUrl,
-        packageName: 'in.residentialpdsschool.app',
+        packageName: 'in.chanakyapublicschool.app',
       },
     });
   });
@@ -9021,14 +9019,14 @@ async function startServer() {
     const used = new Set(students.map((s) => String(s.registrationNumber || '')));
     let maxSeq = 0;
     for (const v of used) {
-      const m = v.match(/^PDS\d{4}\d{2}(\d{4})$/);
+      const m = v.match(/^CPS\d{4}\d{2}(\d{4})$/);
       if (m) maxSeq = Math.max(maxSeq, Number(m[1]));
     }
     let seq = maxSeq + 1;
-    let candidate = `PDS${year}${classNumeric}${String(seq).padStart(4, '0')}`;
+    let candidate = `CPS${year}${classNumeric}${String(seq).padStart(4, '0')}`;
     while (used.has(candidate)) {
       seq++;
-      candidate = `PDS${year}${classNumeric}${String(seq).padStart(4, '0')}`;
+      candidate = `CPS${year}${classNumeric}${String(seq).padStart(4, '0')}`;
     }
     return candidate;
   }
@@ -9084,7 +9082,7 @@ async function startServer() {
     const currentClass = classes.find((c) => c.id === targetClassId);
     const classNumeric = currentClass ? String(currentClass.numericOrder).padStart(2, '0') : '10';
     const regDigits = String(students.length + 1).padStart(4, '0');
-    const registrationNumber = `PDS2026${classNumeric}${regDigits}`;
+    const registrationNumber = `CPS2026${classNumeric}${regDigits}`;
 
     const enrolledCount = students.filter(
       (s) => s.classId === targetClassId && s.section === targetSection
@@ -9785,7 +9783,7 @@ async function startServer() {
         section: newStudent.section,
         temporaryPassword: (studentData as any).temporaryPassword || undefined,
         portalUrl: portalBaseUrl,
-        schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+        schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
       }).then((res) => {
         // Brevo accepting the message is not proof of delivery; record it as accepted.
         logAudit(
@@ -10732,7 +10730,7 @@ async function startServer() {
 
       admissionLetterEmailsInFlight.add(student.id);
       try {
-        const schoolName = schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR';
+        const schoolName = schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE';
         const esc = (v: any) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string));
         const parentName = student.fatherName || student.parentName || student.motherName || 'Parent / Guardian';
         const html = `
@@ -11235,7 +11233,7 @@ async function startServer() {
 
       if (hasEmail) {
         const portalBaseUrl = resolveProductionFrontendUrl(req);
-        const schoolName = schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL, SHEOHAR';
+        const schoolName = schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE, SHEOHAR';
 
         try {
           const emailRes = await emailService.sendStaffWelcomeCredentialsEmail({
@@ -14094,7 +14092,7 @@ async function startServer() {
       teacher: {
         id: currentTeacher.id,
         name: currentTeacher.name,
-        employeeId: currentTeacher.employeeId || 'PDS0001',
+        employeeId: currentTeacher.employeeId || 'CPS0001',
         designation: currentTeacher.designation || 'Teacher / Faculty',
         department: currentTeacher.department || 'ACADEMICS',
         classTeacherOf: currentTeacher.classTeacherOf || '',
@@ -15108,7 +15106,7 @@ async function startServer() {
     saveAttendance: (records) => persistentStorage.saveAttendance(records),
     getEvents: () => websiteEvents,
     saveEvents: (events) => persistentStorage.saveEvents(events),
-    getSchoolName: () => schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+    getSchoolName: () => schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
     getSchoolPhone: () => String((schoolSettings as any).contactNumber || (schoolSettings as any).helplineNumber || ''),
     getAcademicSession: () => schoolSettings.currentAcademicSession || '2026-2027',
     logAudit: (n, r, ac, en, id, det) => logAudit(n, r, ac, en, id, det),
@@ -24387,7 +24385,7 @@ h1{font-size:20px;color:#1e293b;margin-bottom:10px}.r{margin-top:14px;padding:14
             });
 
             if (recipients.length > 0) {
-              const smsMessage = `RESIDENTIAL PDS PUBLIC SCHOOL: Circular - ${newNotice.title}. Please check student/parent portal for full notice.`;
+              const smsMessage = `CHANAKYA PUBLIC SCHOOL & COACHING CENTRE: Circular - ${newNotice.title}. Please check student/parent portal for full notice.`;
               const batchPayload = recipients.map((r) => ({
                 recipientPhone: r.phone,
                 recipientName: r.name,
@@ -24609,8 +24607,8 @@ h1{font-size:20px;color:#1e293b;margin-bottom:10px}.r{margin-top:14px;padding:14
           success: true,
           ...stats,
           gatewayStatus: stats.configured ? 'OPERATIONAL' : 'NOT_CONFIGURED',
-          senderId: schoolSettings.schoolCode || 'PDSSHR',
-          schoolName: schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+          senderId: schoolSettings.schoolCode || 'CPSKSH',
+          schoolName: schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
         });
       } catch (err: any) {
         console.error('[SmsStats]', err?.message);
@@ -24721,7 +24719,7 @@ h1{font-size:20px;color:#1e293b;margin-bottom:10px}.r{margin-top:14px;padding:14
         const { triggerType = 'DAILY_ABSENTEE', classId, section, examId } = req.query;
         const type = String(triggerType).toUpperCase();
         const todayStr = new Date().toISOString().substring(0, 10);
-        const schoolName = schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR';
+        const schoolName = schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE';
 
         let title = '';
         let templateMessage = '';
@@ -24951,7 +24949,7 @@ h1{font-size:20px;color:#1e293b;margin-bottom:10px}.r{margin-top:14px;padding:14
         }
         const type = String(triggerType).toUpperCase();
         const todayStr = new Date().toISOString().substring(0, 10);
-        const schoolName = schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR';
+        const schoolName = schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE';
 
         let recipients: any[] = [];
         let messageBuilder: (r: any) => string = () => '';
@@ -25325,7 +25323,7 @@ h1{font-size:20px;color:#1e293b;margin-bottom:10px}.r{margin-top:14px;padding:14
     },
     sendEmail: (o) => emailService.sendEmail({ to: o.to, subject: o.subject, html: o.html, attachments: o.attachments } as any),
     getSchoolEmail: () => String((schoolSettings as any).email || '').trim(),
-    getSchoolName: () => schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+    getSchoolName: () => schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
     getPortalUrl: () => resolveProductionFrontendUrl(),
     logAudit: (n, r, ac, en, id, det) => logAudit(n, r, ac, en, id, det),
     saveLocal: (name, buf) => {
@@ -26722,7 +26720,7 @@ h1{font-size:20px;color:#1e293b;margin-bottom:10px}.r{margin-top:14px;padding:14
           <circle cx="400" cy="260" r="56" fill="#3b82f6" opacity="0.25"/>
           <path d="M400 220 L450 245 L400 270 L350 245 Z M370 260 L370 288 Q400 302 430 288 L430 260" stroke="#60a5fa" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
           <text x="400" y="360" text-anchor="middle" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="22" font-weight="700">${formattedTitle}</text>
-          <text x="400" y="395" text-anchor="middle" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="15" font-weight="500">RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR</text>
+          <text x="400" y="395" text-anchor="middle" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="15" font-weight="500">CHANAKYA PUBLIC SCHOOL & COACHING CENTRE</text>
         </svg>`;
         res.setHeader('Content-Type', 'image/svg+xml');
         res.setHeader('Cache-Control', 'public, max-age=3600');
@@ -26979,7 +26977,7 @@ h1{font-size:20px;color:#1e293b;margin-bottom:10px}.r{margin-top:14px;padding:14
       }
       // Safety fallback: guaranteed 200 OK SPA HTML shell
       res.setHeader('Content-Type', 'text/html; charset=utf-8');
-      return res.status(200).send('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Residential PDS Public School</title></head><body><div id="root"></div><script type="module" src="/src/main.tsx"></script></body></html>');
+      return res.status(200).send('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Chanakya Public School & Coaching Centre</title></head><body><div id="root"></div><script type="module" src="/src/main.tsx"></script></body></html>');
     };
 
     // Explicit registration of primary SPA paths to ensure instant zero-latency match

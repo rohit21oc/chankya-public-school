@@ -123,7 +123,7 @@ export const PublicNavbar: React.FC<PublicNavbarProps> = ({
           <div
             onClick={() => handleLinkClick('home')}
             className="flex items-center gap-2.5 sm:gap-3.5 min-w-0 cursor-pointer select-none group"
-            title="RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR"
+            title="CHANAKYA PUBLIC SCHOOL & COACHING CENTRE"
           >
             {/* Proportionally sized, crisp logo container */}
             <div
@@ -135,7 +135,7 @@ export const PublicNavbar: React.FC<PublicNavbarProps> = ({
                 <>
                   <img
                     src={getSchoolLogoSrc(settings.schoolLogo)}
-                    alt="RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR Crest"
+                    alt="CHANAKYA PUBLIC SCHOOL & COACHING CENTRE Crest"
                     className="w-full h-full object-contain"
                     referrerPolicy="no-referrer"
                     onError={handleLogoError}
@@ -154,16 +154,16 @@ export const PublicNavbar: React.FC<PublicNavbarProps> = ({
             <div className="flex flex-col justify-center min-w-0">
               {/* Desktop / Tablet single or double row */}
               <h1 className="hidden sm:block text-xs sm:text-sm md:text-base font-extrabold tracking-tight text-[#0B1F4B] leading-tight group-hover:text-[#123B8C] transition-colors">
-                RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR
+                CHANAKYA PUBLIC SCHOOL & COACHING CENTRE
               </h1>
 
-              {/* Mobile stacked typography: RESIDENTIAL PDS / PUBLIC SCHOOL / SHEOHAR */}
+              {/* Mobile stacked typography: CHANAKYA PUBLIC SCHOOL / & COACHING CENTRE */}
               <div className="sm:hidden flex flex-col leading-none text-left min-w-0">
                 <span className="text-[11px] font-extrabold tracking-tight text-[#0B1F4B] truncate">
-                  RESIDENTIAL PDS
+                  CHANAKYA PUBLIC SCHOOL
                 </span>
                 <span className="text-[9px] font-bold tracking-tight text-[#123B8C] mt-0.5 truncate">
-                  PUBLIC SCHOOL, SHEOHAR
+                  & COACHING CENTRE
                 </span>
               </div>
 
@@ -340,7 +340,7 @@ export const PublicNavbar: React.FC<PublicNavbarProps> = ({
                     onClick={() => handleLinkClick('classes')}
                     className="w-full text-left px-4 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-[#123B8C] transition-colors"
                   >
-                    Wings (Nursery to 8th)
+                    Wings (Class 1 to 8)
                   </button>
                   <button
                     type="button"
@@ -502,7 +502,7 @@ export const PublicNavbar: React.FC<PublicNavbarProps> = ({
                 </div>
                 <div>
                   <div className="text-xs font-extrabold tracking-tight text-white leading-tight">
-                    RESIDENTIAL PDS PUBLIC SCHOOL
+                    CHANAKYA PUBLIC SCHOOL & COACHING CENTRE
                   </div>
                   <div className="text-[10px] text-[#F3D27A] font-medium">SHEOHAR, BIHAR</div>
                 </div>
@@ -700,7 +700,7 @@ export const PublicNavbar: React.FC<PublicNavbarProps> = ({
                         onClick={() => handleLinkClick('classes')}
                         className="w-full text-left py-1.5 hover:text-[#123B8C]"
                       >
-                        Wings (Nursery to 8th)
+                        Wings (Class 1 to 8)
                       </button>
                       <button
                         type="button"

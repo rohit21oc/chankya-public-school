@@ -100,10 +100,10 @@ async function runMyProfileVerification() {
   // -------------------------------------------------------------
   // TEST 2: TEACHER LOGIN & FULL FACULTY PROFILE
   // -------------------------------------------------------------
-  console.log('\n--- TEST 2: TEACHER (PDS0011) Login & Dynamic Profile ---');
+  console.log('\n--- TEST 2: TEACHER (CPS0011) Login & Dynamic Profile ---');
   const teacherLogin = await postJson(`${BASE_URL}/api/auth/login`, {
-    identifier: 'PDS0011',
-    password: 'PdsTeacher@123',
+    identifier: 'CPS0011',
+    password: 'CpsTeacher@123',
     loginType: 'STAFF_ADMIN',
   });
   if (!teacherLogin.ok || !teacherLogin.data?.token) {
@@ -135,8 +135,8 @@ async function runMyProfileVerification() {
   });
 
   // Verify non-empty teacher fields from DB
-  if (!teacherData.employeeId || teacherData.employeeId !== 'PDS0011') {
-    throw new Error(`Teacher profile employeeId mismatch: expected PDS0011, got ${teacherData.employeeId}`);
+  if (!teacherData.employeeId || teacherData.employeeId !== 'CPS0011') {
+    throw new Error(`Teacher profile employeeId mismatch: expected CPS0011, got ${teacherData.employeeId}`);
   }
   if (!teacherData.qualification) {
     throw new Error('Teacher qualification missing from dynamic profile');
@@ -159,7 +159,7 @@ async function runMyProfileVerification() {
       emergencyContact: '9876543299',
       // Malicious attempts to escalate role or employeeId
       role: 'SUPER_ADMIN',
-      employeeId: 'PDS_HACKED',
+      employeeId: 'CPS_HACKED',
       grossSalary: 999999,
     },
     teacherToken
@@ -183,7 +183,7 @@ async function runMyProfileVerification() {
   if (updatedT.role !== 'TEACHER') {
     throw new Error(`SECURITY BREACH: Teacher modified their own role to ${updatedT.role}!`);
   }
-  if (updatedT.employeeId !== 'PDS0011') {
+  if (updatedT.employeeId !== 'CPS0011') {
     throw new Error(`SECURITY BREACH: Teacher modified their own employeeId to ${updatedT.employeeId}!`);
   }
   if (updatedT.grossSalary === 999999) {
@@ -195,8 +195,8 @@ async function runMyProfileVerification() {
   // TEST 4: CHANGE ACCOUNT PASSWORD FLOW
   // -------------------------------------------------------------
   console.log('\n--- TEST 4: Change Account Password Flow ---');
-  const oldPassword = 'PdsTeacher@123';
-  const newPassword = 'PdsTeacher@NewPassword2026!';
+  const oldPassword = 'CpsTeacher@123';
+  const newPassword = 'CpsTeacher@NewPassword2026!';
 
   console.log(`Changing password from ${oldPassword} to ${newPassword}...`);
   const changeRes = await postJson(
@@ -215,7 +215,7 @@ async function runMyProfileVerification() {
 
   console.log('\nVerifying OLD password now FAILS...');
   const oldLoginRes = await postJson(`${BASE_URL}/api/auth/login`, {
-    identifier: 'PDS0011',
+    identifier: 'CPS0011',
     password: oldPassword,
     loginType: 'STAFF_ADMIN',
   });
@@ -226,7 +226,7 @@ async function runMyProfileVerification() {
 
   console.log('\nVerifying NEW password immediately WORKS...');
   const newLoginRes = await postJson(`${BASE_URL}/api/auth/login`, {
-    identifier: 'PDS0011',
+    identifier: 'CPS0011',
     password: newPassword,
     loginType: 'STAFF_ADMIN',
   });
@@ -237,7 +237,7 @@ async function runMyProfileVerification() {
   teacherToken = newLoginRes.data.token;
 
   // Restore original password so test suite is clean and reproducible
-  console.log('\nRestoring original password back to PdsTeacher@123 for test cleanliness...');
+  console.log('\nRestoring original password back to CpsTeacher@123 for test cleanliness...');
   const restoreRes = await postJson(
     `${BASE_URL}/api/auth/change-password`,
     {
@@ -254,7 +254,7 @@ async function runMyProfileVerification() {
 
   // Verify original password works again
   const finalCheck = await postJson(`${BASE_URL}/api/auth/login`, {
-    identifier: 'PDS0011',
+    identifier: 'CPS0011',
     password: oldPassword,
     loginType: 'STAFF_ADMIN',
   });

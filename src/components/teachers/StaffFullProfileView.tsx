@@ -640,7 +640,7 @@ export const StaffFullProfileView: React.FC<StaffFullProfileViewProps> = ({
           <div className="flex flex-row md:flex-col items-center md:items-end justify-between gap-3 border-t md:border-t-0 border-white/10 pt-4 md:pt-0">
             <div className="text-left md:text-right">
               <span className="text-[11px] text-slate-400 block font-medium">School Campus</span>
-              <span className="text-xs font-bold text-white tracking-wide">PDS Residential Sheohar</span>
+              <span className="text-xs font-bold text-white tracking-wide">Chanakya Public School</span>
             </div>
             {staff.classTeacherOf && (
               <div className="px-3 py-1.5 rounded-xl bg-blue-500/20 border border-blue-400/30 text-blue-200 text-xs font-bold text-center">
@@ -940,7 +940,7 @@ export const StaffFullProfileView: React.FC<StaffFullProfileViewProps> = ({
                   <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">Permanent</span>
                 </div>
                 <p className="text-xs text-slate-700 font-medium">
-                  {staff.permanentAddress || staff.address || 'Resident Campus, PDS Residential Public School, Sheohar'}
+                  {staff.permanentAddress || staff.address || 'Resident Campus, Chanakya Public School & Coaching Centre, Sheohar'}
                 </p>
                 <div className="text-[11px] text-slate-500 flex flex-wrap gap-x-3 pt-1 border-t border-slate-200/60">
                   <span>District: <strong className="text-slate-800">{staff.permanentCity || staff.city || 'Sheohar'}</strong></span>
@@ -964,8 +964,8 @@ export const StaffFullProfileView: React.FC<StaffFullProfileViewProps> = ({
                 </div>
                 <p className="text-xs text-slate-700 font-medium">
                   {staff.sameAsPermanentAddress !== false
-                    ? (staff.permanentAddress || staff.address || 'Resident Campus, PDS Residential Public School, Sheohar')
-                    : (staff.currentAddress || staff.permanentAddress || staff.address || 'Resident Campus, PDS Residential Public School, Sheohar')}
+                    ? (staff.permanentAddress || staff.address || 'Resident Campus, Chanakya Public School & Coaching Centre, Sheohar')
+                    : (staff.currentAddress || staff.permanentAddress || staff.address || 'Resident Campus, Chanakya Public School & Coaching Centre, Sheohar')}
                 </p>
                 <div className="text-[11px] text-slate-500 flex flex-wrap gap-x-3 pt-1 border-t border-slate-200/60">
                   <span>District: <strong className="text-slate-800">{staff.currentCity || staff.permanentCity || staff.city || 'Sheohar'}</strong></span>

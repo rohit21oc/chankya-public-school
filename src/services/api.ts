@@ -7,7 +7,7 @@ import { isMonthOnOrAfterEnrollmentDate } from '../utils/feeDateHelper';
 // Shown only until the saved School Settings arrive from the server. No contact,
 // principal or bank details are invented here: screens show "Not configured" instead.
 const defaultSchoolSettings: any = {
-  schoolName: 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+  schoolName: 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
   currentAcademicSession: '2026-2027',
   schoolLogo: '',
   workingDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
@@ -124,7 +124,7 @@ class SchoolApiService {
 
   constructor() {
     // Initialize with local storage if present, otherwise initial database
-    const saved = localStorage.getItem('pds_school_erp');
+    const saved = localStorage.getItem('cps_school_erp');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
@@ -308,7 +308,7 @@ class SchoolApiService {
         // Clean up legacy static placeholder logo if present
         const currentLogo = this.cache.settings?.schoolLogo || '';
         if (currentLogo.includes('6d803721-266e-4895-907b-562d8586e5fd.png')) {
-          const r2UploadedLogoKey = 'school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png';
+          const r2UploadedLogoKey = 'school/school-logo/logo.png';
           this.cache.settings = {
             ...this.cache.settings,
             schoolLogo: r2UploadedLogoKey,
@@ -827,7 +827,7 @@ class SchoolApiService {
           this.cache.staffLeaves = leaves;
           this.persist();
           if (typeof window !== 'undefined') {
-            window.dispatchEvent(new CustomEvent('pradnya_entity_staff_leaves', { detail: leaves }));
+            window.dispatchEvent(new CustomEvent('cps_entity_staff_leaves', { detail: leaves }));
           }
           return leaves;
         }
@@ -847,7 +847,7 @@ class SchoolApiService {
           this.cache.staffPayroll = records;
           this.persist();
           if (typeof window !== 'undefined') {
-            window.dispatchEvent(new CustomEvent('pradnya_entity_staff_payroll', { detail: records }));
+            window.dispatchEvent(new CustomEvent('cps_entity_staff_payroll', { detail: records }));
           }
           return records;
         }
@@ -869,7 +869,7 @@ class SchoolApiService {
           this.cache.auditLogs = logs;
           this.persist();
           if (typeof window !== 'undefined') {
-            window.dispatchEvent(new CustomEvent('pradnya_entity_audit_logs', { detail: logs }));
+            window.dispatchEvent(new CustomEvent('cps_entity_audit_logs', { detail: logs }));
           }
           return logs;
         }
@@ -891,7 +891,7 @@ class SchoolApiService {
           this.cache.adminAccounts = accs;
           this.persist();
           if (typeof window !== 'undefined') {
-            window.dispatchEvent(new CustomEvent('pradnya_entity_admin_accounts', { detail: accs }));
+            window.dispatchEvent(new CustomEvent('cps_entity_admin_accounts', { detail: accs }));
           }
           return accs;
         }
@@ -1331,9 +1331,9 @@ class SchoolApiService {
 
     // 3. Dispatch global browser events for active React components
     if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('pradnya_realtime_event', { detail: event }));
-      window.dispatchEvent(new CustomEvent(`pradnya_entity_${entity.toLowerCase()}`, { detail: event }));
-      window.dispatchEvent(new CustomEvent('pradnya_data_updated', { detail: { entity, action } }));
+      window.dispatchEvent(new CustomEvent('cps_realtime_event', { detail: event }));
+      window.dispatchEvent(new CustomEvent(`cps_entity_${entity.toLowerCase()}`, { detail: event }));
+      window.dispatchEvent(new CustomEvent('cps_data_updated', { detail: { entity, action } }));
 
       if (entity === 'SETTINGS' || entity === 'SESSION') {
         window.dispatchEvent(
@@ -1389,8 +1389,8 @@ class SchoolApiService {
         id: 'admin',
         username: 'admin',
         name: 'School Administrator',
-        email: 'residentialpdspublicschool@gmail.com',
-        phone: '9507595491',
+        email: 'cpskushahar@gmail.com',
+        phone: '8207870192',
         role: 'SUPER_ADMIN' as UserRole,
         status: 'ACTIVE' as const,
         createdAt: '2026-01-05T08:00:00.000Z',
@@ -1400,7 +1400,7 @@ class SchoolApiService {
 
   private persist() {
     try {
-      localStorage.setItem('pds_school_erp', JSON.stringify(this.cache));
+      localStorage.setItem('cps_school_erp', JSON.stringify(this.cache));
     } catch (e) {
       console.warn('Storage quota exceeded, state kept in memory', e);
     }
@@ -1440,8 +1440,8 @@ class SchoolApiService {
     try {
       if (typeof window !== 'undefined') {
         const raw =
-          localStorage.getItem('pradnya_erp_current_user') ||
-          sessionStorage.getItem('pradnya_erp_current_user');
+          localStorage.getItem('cps_erp_current_user') ||
+          sessionStorage.getItem('cps_erp_current_user');
         if (raw) {
           const parsed = JSON.parse(raw);
           if (parsed && parsed.id) {
@@ -1511,7 +1511,7 @@ class SchoolApiService {
         id: student.id,
         username: student.admissionNumber,
         name: student.name,
-        email: student.email || `${student.admissionNumber}@student.pdspublicschool.edu.in`,
+        email: student.email || `${student.admissionNumber}@student.chanakyaschool.example`,
         phone: student.mobile || student.parentPhone,
         role: 'STUDENT',
         studentId: student.id,
@@ -1527,8 +1527,8 @@ class SchoolApiService {
       id: this.cache.adminAccounts?.[0]?.id || 'admin-1',
       username: this.cache.adminAccounts?.[0]?.username || 'admin',
       name: this.cache.adminAccounts?.[0]?.name || 'School Administrator',
-      email: this.cache.adminAccounts?.[0]?.email || 'residentialpdspublicschool@gmail.com',
-      phone: this.cache.adminAccounts?.[0]?.phone || '9507595491',
+      email: this.cache.adminAccounts?.[0]?.email || 'cpskushahar@gmail.com',
+      phone: this.cache.adminAccounts?.[0]?.phone || '8207870192',
       role: 'SUPER_ADMIN',
       status: 'ACTIVE',
       createdAt: '2026-01-05T08:00:00.000Z',
@@ -1545,8 +1545,8 @@ class SchoolApiService {
       id: this.cache.adminAccounts?.[0]?.id || 'admin-1',
       username: this.cache.adminAccounts?.[0]?.username || 'admin',
       name: this.cache.adminAccounts?.[0]?.name || 'School Administrator',
-      email: this.cache.adminAccounts?.[0]?.email || 'residentialpdspublicschool@gmail.com',
-      phone: this.cache.adminAccounts?.[0]?.phone || '9507595491',
+      email: this.cache.adminAccounts?.[0]?.email || 'cpskushahar@gmail.com',
+      phone: this.cache.adminAccounts?.[0]?.phone || '8207870192',
       role: (this.cache.adminAccounts?.[0]?.role || 'SUPER_ADMIN') as UserRole,
       status: 'ACTIVE' as const,
       createdAt: '2026-01-05T08:00:00.000Z',
@@ -2407,7 +2407,7 @@ class SchoolApiService {
     const currentClass = this.cache.classes.find((c) => c.id === classId || c.name === classId);
     const classNum = currentClass ? String(currentClass.numericOrder).padStart(2, '0') : '10';
     const seq = String(this.cache.students.length + 1).padStart(4, '0');
-    const registrationNumber = `PDS2026${classNum}${seq}`;
+    const registrationNumber = `CPS2026${classNum}${seq}`;
 
     const enrolledInClass = this.cache.students.filter(
       (s) => (s.classId === classId || s.className === currentClass?.name) && s.section === section
@@ -2547,11 +2547,11 @@ class SchoolApiService {
     });
     const admissionNumber = data.admissionNumber || String(maxAdm + 1);
 
-    // Generate registration number: PDS2026100001
+    // Generate registration number: CPS2026100001
     const currentClass = this.cache.classes.find((c) => c.id === data.classId || c.name === data.className);
     const classNum = currentClass ? String(currentClass.numericOrder).padStart(2, '0') : '10';
     const seq = String(this.cache.students.length + 1).padStart(4, '0');
-    const registrationNumber = data.registrationNumber || `PDS2026${classNum}${seq}`;
+    const registrationNumber = data.registrationNumber || `CPS2026${classNum}${seq}`;
 
     // Unique class-wise roll number
     const enrolledInClass = this.cache.students.filter(
@@ -3319,7 +3319,7 @@ class SchoolApiService {
         if (num > maxNum) maxNum = num;
       }
     });
-    return `PDS${String(maxNum + 1).padStart(4, '0')}`;
+    return `CPS${String(maxNum + 1).padStart(4, '0')}`;
   }
 
   addStaff(data: Partial<TeacherStaff> & { name: string; phone: string }): TeacherStaff {
@@ -4399,8 +4399,8 @@ class SchoolApiService {
     this.persist();
 
     if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('pds:class-status-changed', { detail: cls }));
-      window.dispatchEvent(new StorageEvent('storage', { key: 'pds_school_erp' }));
+      window.dispatchEvent(new CustomEvent('cps:class-status-changed', { detail: cls }));
+      window.dispatchEvent(new StorageEvent('storage', { key: 'cps_school_erp' }));
     }
 
     try {
@@ -4443,8 +4443,8 @@ class SchoolApiService {
     this.persist();
 
     if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('pds:class-status-changed', { detail: cls }));
-      window.dispatchEvent(new StorageEvent('storage', { key: 'pds_school_erp' }));
+      window.dispatchEvent(new CustomEvent('cps:class-status-changed', { detail: cls }));
+      window.dispatchEvent(new StorageEvent('storage', { key: 'cps_school_erp' }));
     }
 
     this.toggleClassStatusAsync(id).catch((err) => {
@@ -5493,7 +5493,7 @@ class SchoolApiService {
 
   saveTimetableDraft(classId: string, section: string, slots: TimetableSlot[], session?: string): void {
     const activeSession = session || this.cache.settings.currentAcademicSession || '2026-2027';
-    const draftKey = `pradnya_timetable_draft_${activeSession}_${classId}_${section.toUpperCase()}`;
+    const draftKey = `cps_timetable_draft_${activeSession}_${classId}_${section.toUpperCase()}`;
     const payload = {
       savedAt: new Date().toISOString(),
       slots,
@@ -5507,7 +5507,7 @@ class SchoolApiService {
 
   getTimetableDraft(classId: string, section: string, session?: string): { slots: TimetableSlot[]; savedAt: string } | null {
     const activeSession = session || this.cache.settings.currentAcademicSession || '2026-2027';
-    const draftKey = `pradnya_timetable_draft_${activeSession}_${classId}_${section.toUpperCase()}`;
+    const draftKey = `cps_timetable_draft_${activeSession}_${classId}_${section.toUpperCase()}`;
     try {
       const raw = localStorage.getItem(draftKey);
       if (!raw) return null;
@@ -5519,7 +5519,7 @@ class SchoolApiService {
 
   clearTimetableDraft(classId: string, section: string, session?: string): void {
     const activeSession = session || this.cache.settings.currentAcademicSession || '2026-2027';
-    const draftKey = `pradnya_timetable_draft_${activeSession}_${classId}_${section.toUpperCase()}`;
+    const draftKey = `cps_timetable_draft_${activeSession}_${classId}_${section.toUpperCase()}`;
     try {
       localStorage.removeItem(draftKey);
     } catch (e) {
@@ -8999,8 +8999,8 @@ class SchoolApiService {
       totalSent: 0,
       totalFailed: 0,
       activeProvider: '',
-      senderId: 'PDSSHR',
-      schoolName: 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+      senderId: 'CPSKSH',
+      schoolName: 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
     };
   }
 

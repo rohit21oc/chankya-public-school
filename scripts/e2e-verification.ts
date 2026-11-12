@@ -198,7 +198,7 @@ async function main() {
   // Teacher
   const teacherRes = await postJson('/api/auth/login', {
     loginType: 'STAFF',
-    identifier: 'PDS0002',
+    identifier: 'CPS0002',
     password: 'admin123',
   });
   if (!teacherRes.data?.success) throw new Error('Teacher login failed: ' + JSON.stringify(teacherRes));
@@ -519,7 +519,7 @@ async function main() {
   const teacherSettingsRes = await putJson(
     '/api/settings',
     {
-      schoolName: 'Residential PDS Public School Sheohar',
+      schoolName: 'Chanakya Public School & Coaching Centre',
     },
     teacherSession.token
   );

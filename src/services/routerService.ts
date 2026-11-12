@@ -1,5 +1,5 @@
 /**
- * Production SPA Router Service for Residential PDS Public School ERP
+ * Production SPA Router Service for Chanakya Public School & Coaching Centre ERP
  * 
  * Guarantees:
  * 1. Deep linking & route persistence across browser refreshes (/fees/collection, /students, /staff, /attendance, /academic/timetable, etc.)
@@ -21,7 +21,7 @@ export interface ParsedRoute {
   resetToken?: string | null;
 }
 
-const ROUTE_CHANGE_EVENT = 'pds:route_change';
+const ROUTE_CHANGE_EVENT = 'cps:route_change';
 
 export function cleanTokenString(token: string): string {
   let clean = String(token || '').trim();

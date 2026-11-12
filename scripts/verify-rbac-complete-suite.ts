@@ -116,7 +116,7 @@ async function run() {
   try {
     const teacherLogin = await api('/auth/login', {
       method: 'POST',
-      body: { identifier: 'PDS0002', password: 'admin123', loginType: 'STAFF_ADMIN' },
+      body: { identifier: 'CPS0002', password: 'admin123', loginType: 'STAFF_ADMIN' },
     });
 
     teacherToken = teacherLogin.data?.token;
@@ -217,9 +217,9 @@ async function run() {
     // 7.1 Accountant Login
     const accLogin = await api('/auth/login', {
       method: 'POST',
-      body: { identifier: 'PDS0004', password: 'admin123', loginType: 'STAFF_ADMIN' },
+      body: { identifier: 'CPS0004', password: 'admin123', loginType: 'STAFF_ADMIN' },
     });
-    assert(accLogin.ok && accLogin.data?.user?.role === 'ACCOUNTANT', 'Accountant logged in successfully (PDS0004)', `Role: ${accLogin.data?.user?.role}`);
+    assert(accLogin.ok && accLogin.data?.user?.role === 'ACCOUNTANT', 'Accountant logged in successfully (CPS0004)', `Role: ${accLogin.data?.user?.role}`);
     const accHeaders = { Authorization: `Bearer ${accLogin.data?.token}` };
 
     // Accountant has fee permissions
@@ -236,18 +236,18 @@ async function run() {
     // 7.2 Hostel Warden Login
     const wardenLogin = await api('/auth/login', {
       method: 'POST',
-      body: { identifier: 'PDS0006', password: 'admin123', loginType: 'STAFF_ADMIN' },
+      body: { identifier: 'CPS0006', password: 'admin123', loginType: 'STAFF_ADMIN' },
     });
-    assert(wardenLogin.ok && wardenLogin.data?.user?.role === 'HOSTEL_WARDEN', 'Hostel Warden logged in successfully (PDS0006)', `Role: ${wardenLogin.data?.user?.role}`);
+    assert(wardenLogin.ok && wardenLogin.data?.user?.role === 'HOSTEL_WARDEN', 'Hostel Warden logged in successfully (CPS0006)', `Role: ${wardenLogin.data?.user?.role}`);
     assert(wardenLogin.data?.user?.permissions.includes('hostel.manage'), 'Hostel Warden has hostel.manage permission');
     assert(!wardenLogin.data?.user?.permissions.includes('fees.collect'), 'Hostel Warden DOES NOT have fee collection permission');
 
     // 7.3 Transport Manager Login
     const transLogin = await api('/auth/login', {
       method: 'POST',
-      body: { identifier: 'PDS0007', password: 'admin123', loginType: 'STAFF_ADMIN' },
+      body: { identifier: 'CPS0007', password: 'admin123', loginType: 'STAFF_ADMIN' },
     });
-    assert(transLogin.ok && transLogin.data?.user?.role === 'TRANSPORT_MANAGER', 'Transport Manager logged in successfully (PDS0007)', `Role: ${transLogin.data?.user?.role}`);
+    assert(transLogin.ok && transLogin.data?.user?.role === 'TRANSPORT_MANAGER', 'Transport Manager logged in successfully (CPS0007)', `Role: ${transLogin.data?.user?.role}`);
     assert(transLogin.data?.user?.permissions.includes('transport.manage'), 'Transport Manager has transport.manage permission');
     assert(!transLogin.data?.user?.permissions.includes('payroll.manage'), 'Transport Manager DOES NOT have payroll management permission');
   } catch (err: any) {

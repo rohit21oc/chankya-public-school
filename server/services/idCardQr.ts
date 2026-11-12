@@ -4,7 +4,7 @@ import crypto from 'crypto';
  * Signed QR codes for student and staff ID cards.
  *
  * The QR holds only a card type, the record id and a signature:
- *   PDS1.<S|T>.<base64url(record id)>.<signature>
+ *   CPS1.<S|T>.<base64url(record id)>.<signature>
  * No name, date of birth, phone number or address is inside it, so a photo of a
  * card leaks nothing. The signature is an HMAC made with a server-only secret, so
  * a QR cannot be typed up or edited to mark someone else's attendance.
@@ -16,7 +16,7 @@ import crypto from 'crypto';
 
 export type IdCardKind = 'STUDENT' | 'STAFF';
 
-const PREFIX = 'PDS1';
+const PREFIX = 'CPS1';
 const KIND_CODE: Record<IdCardKind, string> = { STUDENT: 'S', STAFF: 'T' };
 const CODE_KIND: Record<string, IdCardKind> = { S: 'STUDENT', T: 'STAFF' };
 const SIG_LENGTH = 22; // 128 bits of base64url

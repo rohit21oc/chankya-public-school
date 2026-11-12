@@ -57,7 +57,7 @@ function assert(description: string, condition: boolean, extraInfo?: any) {
 
 async function runVerificationSuite() {
   console.log('================================================================');
-  console.log('RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR — E2E VERIFICATION SUITE');
+  console.log('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE — E2E VERIFICATION SUITE');
   console.log('Task 1: Student Fee Dues Calculation & Fee Ledger Audit');
   console.log('Task 2: Student Admission Photo Upload & Immediate Preview');
   console.log('================================================================\n');

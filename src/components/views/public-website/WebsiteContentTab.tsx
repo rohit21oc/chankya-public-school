@@ -121,7 +121,7 @@ export const WebsiteContentTab: React.FC<WebsiteContentTabProps> = ({
             rows={5}
             value={formData.aboutSchool || ''}
             onChange={(e) => setFormData({ ...formData, aboutSchool: e.target.value })}
-            placeholder="Comprehensive description of Residential PDS Public School..."
+            placeholder="Comprehensive description of Chanakya Public School & Coaching Centre..."
             className="w-full px-3 py-2 rounded-lg border border-slate-200 leading-relaxed focus:ring-2 focus:ring-amber-500 focus:outline-hidden"
           />
         </div>

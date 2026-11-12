@@ -59,7 +59,7 @@ const endpointsToTest: EndpointTest[] = [
   // Teacher Endpoints
   { method: 'GET', path: '/api/attendance/assigned-classes', authRole: 'TEACHER' },
   { method: 'GET', path: '/api/attendance/teacher-classes', authRole: 'TEACHER' },
-  { method: 'GET', path: '/api/attendance/staff-calendar/PDS0002', authRole: 'TEACHER' },
+  { method: 'GET', path: '/api/attendance/staff-calendar/CPS0002', authRole: 'TEACHER' },
   { method: 'GET', path: '/api/staff-leaves', authRole: 'TEACHER' },
 
   // Student Endpoints
@@ -121,7 +121,7 @@ async function runAudit() {
   console.log('Admin login status:', adminLogin.status, 'token received:', !!adminToken);
 
   const teacherLogin = await makeRequest('POST', '/api/auth/login', undefined, {
-    identifier: 'PDS0002',
+    identifier: 'CPS0002',
     password: 'admin123',
     loginType: 'STAFF_ADMIN',
   });

@@ -68,9 +68,9 @@ export const PublicAllNoticesPage: React.FC<PublicAllNoticesPageProps> = ({
     const handleNoticeUpdate = () => {
       setNotices(api.getNotices());
     };
-    window.addEventListener('pradnya_entity_notices', handleNoticeUpdate);
+    window.addEventListener('cps_entity_notices', handleNoticeUpdate);
     return () => {
-      window.removeEventListener('pradnya_entity_notices', handleNoticeUpdate);
+      window.removeEventListener('cps_entity_notices', handleNoticeUpdate);
     };
   }, [fetchNotices]);
 
@@ -181,10 +181,10 @@ export const PublicAllNoticesPage: React.FC<PublicAllNoticesPageProps> = ({
             />
             <div className="min-w-0">
               <h1 className="text-sm sm:text-base font-extrabold text-[#0B1F4B] truncate tracking-tight font-heading">
-                {settings.schoolName || 'Residential PDS Public School'}
+                {settings.schoolName || 'Chanakya Public School & Coaching Centre'}
               </h1>
               <p className="text-[11px] text-slate-500 truncate hidden sm:block">
-                Affiliated with CBSE New Delhi · School Notice Board & Official Circulars
+                School Notice Board & Official Circulars
               </p>
             </div>
           </div>
@@ -247,7 +247,7 @@ export const PublicAllNoticesPage: React.FC<PublicAllNoticesPageProps> = ({
               School Notice Board & Circulars
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
-              Official archive of announcements, examination dates, academic updates, holiday schedules, and administrative circulars published by Residential PDS Public School.
+              Official archive of announcements, examination dates, academic updates, holiday schedules, and administrative circulars published by Chanakya Public School & Coaching Centre.
             </p>
           </div>
 
@@ -556,7 +556,7 @@ export const PublicAllNoticesPage: React.FC<PublicAllNoticesPageProps> = ({
                 <span>
                   Issued By: {activeNotice.publishedBy || (activeNotice as any).author || "Principal's Office"}
                 </span>
-                <span>Residential PDS Public School Sheohar</span>
+                <span>Chanakya Public School & Coaching Centre</span>
               </div>
             </div>
 

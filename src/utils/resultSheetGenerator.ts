@@ -291,7 +291,7 @@ export function downloadResultSheet(options: ResultSheetOptions): void {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  const schoolClean = (options.settings.schoolName || 'PDS_School').replace(/[^a-zA-Z0-9]/g, '_');
+  const schoolClean = (options.settings.schoolName || 'CPS_School').replace(/[^a-zA-Z0-9]/g, '_');
   const classClean = (options.selectedClass?.name || 'Class').replace(/[^a-zA-Z0-9]/g, '_');
   const secClean = (options.section || 'ALL').replace(/[^a-zA-Z0-9]/g, '_');
   const examClean = (options.exam?.name || options.exam?.title || 'Exam').replace(/[^a-zA-Z0-9]/g, '_');
@@ -579,7 +579,7 @@ export function downloadBulkMarksheets(options: BulkMarksheetOptions): void {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  const schoolClean = (options.settings.schoolName || 'PDS_School').replace(/[^a-zA-Z0-9]/g, '_');
+  const schoolClean = (options.settings.schoolName || 'CPS_School').replace(/[^a-zA-Z0-9]/g, '_');
   const examClean = (options.exam?.name || options.exam?.title || 'Exam').replace(/[^a-zA-Z0-9]/g, '_');
   a.download = `${schoolClean}_All_Marksheets_${examClean}.html`;
   document.body.appendChild(a);

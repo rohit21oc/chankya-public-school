@@ -47,7 +47,7 @@ export const SchoolHeader: React.FC<SchoolHeaderProps> = ({
     if (!onLogout) return;
     Alert.alert(
       'Sign Out',
-      'Are you sure you want to log out from Residential PDS Public School Sheohar?',
+      'Are you sure you want to log out from Chanakya Public School & Coaching Centre?',
       [
         { text: 'Cancel', style: 'cancel' },
         {

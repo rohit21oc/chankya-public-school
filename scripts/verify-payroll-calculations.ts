@@ -18,10 +18,10 @@ const check = (name: string, ok: boolean, detail = '') => {
 };
 const r2 = (n: number) => Math.round(n * 100) / 100;
 
-const base = { id: 's1', employeeId: 'PDS9001', name: 'Test Teacher', status: 'ACTIVE', joiningDate: '2026-01-01', monthlySalary: 30000 };
-const att = (date: string, status: string, extra: any = {}) => ({ id: `${date}-${status}`, date, staffId: 's1', employeeId: 'PDS9001', status, ...extra });
+const base = { id: 's1', employeeId: 'CPS9001', name: 'Test Teacher', status: 'ACTIVE', joiningDate: '2026-01-01', monthlySalary: 30000 };
+const att = (date: string, status: string, extra: any = {}) => ({ id: `${date}-${status}`, date, staffId: 's1', employeeId: 'CPS9001', status, ...extra });
 const leave = (start: string, end: string, status: string, leaveType = 'CASUAL', extra: any = {}) => ({
-  id: `${start}-${status}-${leaveType}`, staffId: 's1', employeeId: 'PDS9001', startDate: start, endDate: end, status, leaveType, ...extra,
+  id: `${start}-${status}-${leaveType}`, staffId: 's1', employeeId: 'CPS9001', startDate: start, endDate: end, status, leaveType, ...extra,
 });
 const run = (opts: { staff?: any; attendance?: any[]; leaves?: any[]; holidays?: any[]; month?: number }) =>
   calculateStaffSalaryForMonth({

@@ -26,8 +26,8 @@ export interface EmailDispatchResult {
   timestamp: string;
 }
 
-const SCHOOL_NAME_DEFAULT = 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR';
-const SCHOOL_ADDRESS_DEFAULT = 'BRC Near Shahpur Road, Sheohar, Bihar - 843329';
+const SCHOOL_NAME_DEFAULT = 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE';
+const SCHOOL_ADDRESS_DEFAULT = 'Kushahar Ward 07, Kushahar, Sheohar, Bihar - 843329';
 const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
 const BREVO_ACCOUNT_URL = 'https://api.brevo.com/v3/account';
 
@@ -52,7 +52,7 @@ class EmailService {
     const rawSenderEmail = (
       process.env.BREVO_SENDER_EMAIL ||
       process.env.EMAIL_FROM ||
-      'residentialpdspublicschool@gmail.com'
+      'cpskushahar@gmail.com'
     )
       .trim()
       .replace(/^["']|["']$/g, '');
@@ -357,8 +357,8 @@ class EmailService {
 
   // =========================================================================
   // EMAIL TEMPLATES WITH OFFICIAL SCHOOL BRANDING
-  // RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR
-  // BRC Near Shahpur Road, Sheohar, Bihar - 843329
+  // CHANAKYA PUBLIC SCHOOL & COACHING CENTRE
+  // Kushahar Ward 07, Kushahar, Sheohar, Bihar - 843329
   // =========================================================================
 
   /**

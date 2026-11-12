@@ -1,6 +1,6 @@
 # AI Development Rules & Operational Directives
 
-## RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR
+## CHANAKYA PUBLIC SCHOOL & COACHING CENTRE
 **Strict Instructions for Future AI Coding Sessions**
 
 ---
@@ -20,12 +20,12 @@
 4. **MongoDB Atlas is the SOLE Production Source of Truth:**
    - All dynamic records MUST persist in MongoDB Atlas across all 35 collections (including `staff_leaves` and `staff_payroll`).
    - **Development & Preview Fallback:** When running in local development or preview mode without a configured `MONGODB_URI`, the server gracefully falls back to an in-memory storage mode. In production deployments, MongoDB Atlas is mandatory.
-   - **Frontend Cache Boundary:** Frontend `localStorage` (key `'pds_school_erp'`) is **strictly an optimistic, read-only, and offline-draft cache** for instantaneous UI responsiveness and offline resilience. It is **NEVER** the backend production source of truth.
+   - **Frontend Cache Boundary:** Frontend `localStorage` (key `'cps_school_erp'`) is **strictly an optimistic, read-only, and offline-draft cache** for instantaneous UI responsiveness and offline resilience. It is **NEVER** the backend production source of truth.
    - **NEVER** write backend mutations to JSON files in `/data` or treat `localStorage` as authoritative. The JSON files in `/data` are one-time migration seeds and static fallbacks, NOT a runtime write target.
    - Any API route performing mutations (POST, PUT, PATCH, DELETE) must write directly to the appropriate Mongoose model in `server/models/`.
 
 5. **Strictly Single-School ERP (NO Multi-Tenancy):**
-   - The institutional identity is RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR.
+   - The institutional identity is CHANAKYA PUBLIC SCHOOL & COACHING CENTRE.
    - Do NOT introduce multi-tenant paradigms, `schoolId` routing, tenant isolation middleware, or organization switches. All data belongs exclusively to this single campus.
 
 6. **NEVER Introduce Mock / Fake Production Data:**

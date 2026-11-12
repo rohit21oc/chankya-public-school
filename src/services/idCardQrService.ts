@@ -5,7 +5,7 @@ import { getApiUrl, getAuthHeaders, getAuthToken } from './apiConfig';
 /**
  * ID card QR codes.
  *
- * The server signs a short code for each card ("PDS1.S.<id>.<signature>") and only
+ * The server signs a short code for each card ("CPS1.S.<id>.<signature>") and only
  * gives it to people allowed to see that card. The code holds no personal data.
  * Cards on screen ask for their code here; requests made in the same moment (for
  * example a bulk print of 40 cards) are sent to the server as one batch.

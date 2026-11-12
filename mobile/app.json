@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR",
-    "slug": "residentialpdsschool",
+    "name": "CHANAKYA PUBLIC SCHOOL & COACHING CENTRE",
+    "slug": "chanakyapublicschool",
     "version": "1.0.0",
     "orientation": "portrait",
     "platforms": [
@@ -15,7 +15,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.pds.schoolerp",
+      "bundleIdentifier": "in.chanakyapublicschool.app",
       "infoPlist": {
         "NSCameraUsageDescription": "The camera is used to scan student and staff ID cards to mark attendance."
       }
@@ -25,7 +25,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "in.residentialpdsschool.app",
+      "package": "in.chanakyapublicschool.app",
       "permissions": [
         "INTERNET",
         "ACCESS_NETWORK_STATE",
@@ -43,10 +43,10 @@
       ]
     },
     "extra": {
-      "schoolName": "RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR",
-      "cbseAffiliation": "10030206405",
-      "schoolCode": "PDS-7821",
-      "productionApiUrl": "https://residentialpdsschool.in"
+      "schoolName": "CHANAKYA PUBLIC SCHOOL & COACHING CENTRE",
+      "cbseAffiliation": "10034104008",
+      "schoolCode": "CPS-KSH",
+      "productionApiUrl": "https://set-your-backend-url.example"
     },
     "plugins": [
       [

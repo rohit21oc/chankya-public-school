@@ -67,7 +67,7 @@ async function api(path: string, options: any = {}) {
 
 async function runTeacherPortalSuite() {
   console.log('====================================================');
-  console.log('RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR');
+  console.log('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE');
   console.log('Teacher Portal End-to-End Verification Suite');
   console.log('====================================================\n');
 
@@ -77,7 +77,7 @@ async function runTeacherPortalSuite() {
   let dbConnected = false;
   if (mongoUri) {
     try {
-      await mongoose.connect(mongoUri, { dbName: 'pds_school_erp' });
+      await mongoose.connect(mongoUri, { dbName: 'cps_school_erp' });
       dbConnected = true;
       console.log('✅ Connected to MongoDB Atlas directly for database assertions.\n');
     } catch (e: any) {
@@ -95,17 +95,17 @@ async function runTeacherPortalSuite() {
   const loginRes = await api('/auth/login', {
     method: 'POST',
     body: {
-      identifier: 'PDS0010',
+      identifier: 'CPS0010',
       password: 'admin123',
       loginType: 'STAFF_ADMIN',
     },
   });
 
-  assert(loginRes.status === 200 && loginRes.data?.success === true, 'Teacher PDS0010 Login', `User: ${loginRes.data?.user?.name}`);
+  assert(loginRes.status === 200 && loginRes.data?.success === true, 'Teacher CPS0010 Login', `User: ${loginRes.data?.user?.name}`);
   teacherToken = loginRes.data?.token;
   teacherUser = loginRes.data?.user;
   assert(teacherUser?.role === 'TEACHER', 'Role resolved as TEACHER', teacherUser?.role);
-  assert(teacherUser?.employeeId === 'PDS0010', 'Employee ID matches PDS0010', teacherUser?.employeeId);
+  assert(teacherUser?.employeeId === 'CPS0010', 'Employee ID matches CPS0010', teacherUser?.employeeId);
 
   const teacherHeaders = {
     Authorization: `Bearer ${teacherToken}`,
@@ -219,7 +219,7 @@ async function runTeacherPortalSuite() {
   // 5. Cross-Class Access Denial (HTTP 403 on unassigned classes)
   // --------------------------------------------------------------------------
   console.log('\n--- Phase 5: Cross-Class Access Denial ---');
-  // Teacher tries to mark attendance for Class 12-A or Class 1-A (which PDS0010 is not assigned to)
+  // Teacher tries to mark attendance for Class 12-A or Class 1-A (which CPS0010 is not assigned to)
   const unassignedClassId = 'c-12';
   const unassignedSection = 'A';
 
@@ -516,7 +516,7 @@ async function runTeacherPortalSuite() {
   });
   const adminHeaders = { Authorization: `Bearer ${superAdminLogin.data?.token}` };
 
-  const auditRes = await api('/audit-logs?search=PDS0010', { headers: adminHeaders });
+  const auditRes = await api('/audit-logs?search=CPS0010', { headers: adminHeaders });
   const logs = auditRes.data?.logs || auditRes.data || [];
   assert(Array.isArray(logs), 'Audit logs retrieved successfully');
 

@@ -31,21 +31,21 @@ Start Android Studio from a terminal opened inside `mobile` if it cannot find `n
 
 ## C. Create the upload key (once; keep it forever)
 ```
-keytool -genkeypair -v -storetype PKCS12 -keystore pds-upload.keystore -alias pds-upload -keyalg RSA -keysize 2048 -validity 10000
+keytool -genkeypair -v -storetype PKCS12 -keystore cps-upload.keystore -alias cps-upload -keyalg RSA -keysize 2048 -validity 10000
 ```
-Use a strong password and answer the name questions. Move `pds-upload.keystore` to a safe folder, for example `mobile/android/keys/`, and **back it up (pen drive and cloud) with the passwords**. Never put it in Git (already ignored).
+Use a strong password and answer the name questions. Move `cps-upload.keystore` to a safe folder, for example `mobile/android/keys/`, and **back it up (pen drive and cloud) with the passwords**. Never put it in Git (already ignored).
 
 Create `mobile/android/keystore.properties`:
 ```
-storeFile=../keys/pds-upload.keystore
+storeFile=../keys/cps-upload.keystore
 storePassword=YOUR_STORE_PASSWORD
-keyAlias=pds-upload
+keyAlias=cps-upload
 keyPassword=YOUR_KEY_PASSWORD
 ```
 `storeFile` is relative to `mobile/android/app`, so `../keys/...` means `mobile/android/keys/...`.
 
 ## D. Build the AAB (for Play Console)
-**Android Studio:** menu **Build > Generate Signed App Bundle / APK > Android App Bundle > Next**. Choose the keystore file, enter the passwords, alias `pds-upload`, tick Remember, **Next**, choose **release**, **Create**. When the event log says "generated successfully", click **locate**.
+**Android Studio:** menu **Build > Generate Signed App Bundle / APK > Android App Bundle > Next**. Choose the keystore file, enter the passwords, alias `cps-upload`, tick Remember, **Next**, choose **release**, **Create**. When the event log says "generated successfully", click **locate**.
 
 **Terminal (same result):**
 ```
@@ -87,7 +87,7 @@ Output: `mobile/android/app/build/outputs/apk/release/app-release.apk`. Copy it 
 | `Java heap space` / `OutOfMemoryError` | Already set to 4 GB in `gradle.properties` by the plugin. Close other apps; on a 4 GB PC use `-Xmx3072m`. |
 | `NDK not configured` / `ndkVersion ... not found` | SDK Manager > SDK Tools > NDK (Side by side) > install the version shown in the error. |
 | `Unsupported class file major version` | Use Studio's JDK 17: Settings > Build Tools > Gradle > Gradle JDK = `jbr-17` / "Embedded JDK". |
-| `google-services.json is missing` or wrong package | The file must be at `mobile/google-services.json` with the package set in `app.json` (`in.residentialpdsschool.app`); run prebuild again. If it is for another package it is skipped and the app builds without push. |
+| `google-services.json is missing` or wrong package | The file must be at `mobile/google-services.json` with the package set in `app.json` (`in.chanakyapublicschool.app`); run prebuild again. If it is for another package it is skipped and the app builds without push. |
 | `bundleRelease needs your upload key` | Create `keystore.properties` (section C). |
 | `Keystore file not found` | Fix `storeFile` (relative to `mobile/android/app`). |
 | Play: "Version code 1 has already been used" | Increase `android.versionCode` (section F). |
@@ -100,7 +100,7 @@ Remote push notifications do not work in Expo Go on Android. For local testing u
 
 ## P. Turning on push notifications (Firebase, no Expo)
 
-1. Firebase console > your project > add an Android app with package `in.residentialpdsschool.app`. Download `google-services.json` into `mobile/` (next to `app.json`). It is not secret-sensitive like a key, but do not commit it.
+1. Firebase console > your project > add an Android app with package `in.chanakyapublicschool.app`. Download `google-services.json` into `mobile/` (next to `app.json`). It is not secret-sensitive like a key, but do not commit it.
 2. Firebase console > Project settings > Service accounts > Generate new private key. This JSON is a SECRET. Never put it in the repo or in chat.
 3. On the server (MilesWeb) open `~/school-api/.env` and add `FIREBASE_SERVICE_ACCOUNT_JSON=` followed by the whole JSON on one line (or its base64: `base64 -w0 key.json`). Restart the Node app.
 4. Rebuild the app (`npx expo prebuild --platform android`, then `bundleRelease`) and install it. Sign in, allow notifications, then use "Send me a test" in the app.

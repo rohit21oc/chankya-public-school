@@ -17,7 +17,7 @@ export function marksheetResultLabel(sheet: Marksheet): string {
 }
 
 export function buildMarksheetQrText(student: Student, sheet: Marksheet): string {
-  const regNo = student.registrationNumber || (student.admissionNumber ? `PDS${student.admissionNumber}` : '');
+  const regNo = student.registrationNumber || (student.admissionNumber ? `CPS${student.admissionNumber}` : '');
   const lines: Array<[string, string]> = [
     ['Student Name', clean(student.name).toUpperCase()],
     ['Class & Section', `${clean(student.className) || 'Class'} - ${clean(student.section) || 'A'}`],

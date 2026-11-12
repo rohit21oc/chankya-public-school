@@ -32,10 +32,10 @@ const reason = arg('reason') || 'Online payment recorded by the old app without 
 
 if (!adm) { console.error('Usage: node scripts/reverse-online-payment.mjs --adm <admission no> [--receipt REC-... | --all | --reset-all] [--apply]'); process.exit(2); }
 // Same connection as the server: quotes around the value are removed and the school database
-// (pds_school_erp) is always used, whatever database name the URI itself carries.
+// (cps_school_erp) is always used, whatever database name the URI itself carries.
 const uri = String(process.env.MONGODB_URI || '').trim().replace(/^(['"])(.*)\1$/, '$2').trim();
 if (!uri) { console.error('MONGODB_URI is not set (put it in .env).'); process.exit(2); }
-const dbName = arg('db') || 'pds_school_erp';
+const dbName = arg('db') || 'cps_school_erp';
 
 const num = (v) => Number(v) || 0;
 const round2 = (v) => Math.round(v * 100) / 100;

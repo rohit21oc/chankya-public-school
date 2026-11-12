@@ -5,7 +5,7 @@ import { useSyncExternalStore } from 'react';
  * is always on. Optional: third-party embedded content (the Google Maps frame on the Contact section).
  * The choice is stored on this device only, under CONSENT_KEY, and is asked again if CONSENT_VERSION changes.
  */
-export const CONSENT_KEY = 'pds.cookieConsent';
+export const CONSENT_KEY = 'cps.cookieConsent';
 export const CONSENT_VERSION = 1;
 
 export interface ConsentState {

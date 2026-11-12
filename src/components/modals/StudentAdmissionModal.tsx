@@ -165,7 +165,7 @@ export const StudentAdmissionModal: React.FC<StudentAdmissionModalProps> = ({
   const [enableStudentPortal, setEnableStudentPortal] = useState(true);
   const [studentInitialPassword, setStudentInitialPassword] = useState('2012-05-15');
   const [enableParentPortal, setEnableParentPortal] = useState(true);
-  const [parentInitialPassword, setParentInitialPassword] = useState('PDS123');
+  const [parentInitialPassword, setParentInitialPassword] = useState('CPS123');
 
   // Automatically keep student initial password in sync with student DOB
   useEffect(() => {
@@ -192,11 +192,11 @@ export const StudentAdmissionModal: React.FC<StudentAdmissionModalProps> = ({
   const [saveStatus, setSaveStatus] = useState<string | null>(null);
   const [previewData, setPreviewData] = useState({
     admissionNumber: '64010009',
-    registrationNumber: 'PDS2026100009',
+    registrationNumber: 'CPS2026100009',
     rollNumber: '1',
   });
 
-  const DRAFT_STORAGE_KEY = 'pds_student_admission_draft';
+  const DRAFT_STORAGE_KEY = 'cps_student_admission_draft';
 
   // Save current form draft state to localStorage
   const saveDraftToStorage = (data: AdmissionFormData, step?: AdmissionStep) => {
@@ -246,7 +246,7 @@ export const StudentAdmissionModal: React.FC<StudentAdmissionModalProps> = ({
     setEnableStudentPortal(true);
     setStudentInitialPassword('2012-05-15');
     setEnableParentPortal(true);
-    setParentInitialPassword('PDS123');
+    setParentInitialPassword('CPS123');
     setSaveStatus(null);
     // Refresh preview identifiers
     const numbers = api.getNextStudentNumbers(initialFormData.classId, initialFormData.section);
@@ -769,7 +769,7 @@ export const StudentAdmissionModal: React.FC<StudentAdmissionModalProps> = ({
       }
 
       // Automatically create and activate Parent Portal account if enabled
-      const effectiveParentPassword = parentInitialPassword || 'PDS123';
+      const effectiveParentPassword = parentInitialPassword || 'CPS123';
       if (enableParentPortal && effectivePhone) {
         await api.updateParentPortalStatus(effectivePhone, { loginEnabled: true, accountStatus: 'ACTIVE' });
         await api.resetParentPassword(effectivePhone, effectiveParentPassword);
@@ -861,7 +861,7 @@ export const StudentAdmissionModal: React.FC<StudentAdmissionModalProps> = ({
               </h3>
             </div>
             <p className="text-xs text-slate-300 mt-0.5">
-              RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR • Single-School Unified System
+              CHANAKYA PUBLIC SCHOOL & COACHING CENTRE • Single-School Unified System
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -2100,7 +2100,7 @@ export const StudentAdmissionModal: React.FC<StudentAdmissionModalProps> = ({
                               </span>
                             </div>
                             <p className="text-[11px] text-slate-600 font-medium">
-                              Initial Parent Password: <strong>PDS123</strong>.
+                              Initial Parent Password: <strong>CPS123</strong>.
                             </p>
                             <div className="relative mt-1">
                               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
@@ -2110,12 +2110,12 @@ export const StudentAdmissionModal: React.FC<StudentAdmissionModalProps> = ({
                                 type="text"
                                 value={parentInitialPassword}
                                 onChange={(e) => setParentInitialPassword(e.target.value)}
-                                placeholder="PDS123"
+                                placeholder="CPS123"
                                 className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono font-bold text-purple-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-500"
                               />
                             </div>
                             <span className="text-[10px] text-slate-400 block">
-                              Standard initial master password is PDS123. Parents can also sign in with their child&apos;s DOB.
+                              Standard initial master password is CPS123. Parents can also sign in with their child&apos;s DOB.
                             </span>
                           </div>
                         </div>

@@ -390,7 +390,7 @@ export const MyProfilePageView: React.FC<MyProfilePageViewProps> = ({
 
       await api.applyStaffLeaveAsync({
         staffId: profileData?.id || user.id,
-        employeeId: profileData?.employeeId || user.employeeId || 'PDS0000',
+        employeeId: profileData?.employeeId || user.employeeId || 'CPS0000',
         staffName: profileData?.name || user.name,
         leaveType: leaveForm.leaveType as any,
         startDate: leaveForm.startDate,
@@ -854,7 +854,7 @@ export const MyProfilePageView: React.FC<MyProfilePageViewProps> = ({
             <div className="text-left md:text-right">
               <span className="text-[11px] text-slate-400 block font-medium">School Campus</span>
               <span className="text-xs font-bold text-white tracking-wide">
-                {settings.schoolName || 'Residential PDS Public School'}
+                {settings.schoolName || 'Chanakya Public School & Coaching Centre'}
               </span>
               <span className="text-[10px] text-slate-400 block mt-0.5 font-mono">
                 Code: {settings.affiliationNumber || settings.affiliationCode || 'Not configured'}
@@ -1006,7 +1006,7 @@ export const MyProfilePageView: React.FC<MyProfilePageViewProps> = ({
                   <div className="text-base sm:text-lg font-black text-slate-900">
                     {settings.currentAcademicSession || '2026-2027'}
                   </div>
-                  <span className="text-[11px] text-slate-500">{settings.affiliatedBoard ? `${settings.affiliatedBoard} affiliated · CBSE pattern` : 'CBSE pattern curriculum'}</span>
+                  <span className="text-[11px] text-slate-500">{settings.affiliatedBoard ? `${settings.affiliatedBoard} affiliated` : 'Recognised school'}</span>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-1">
@@ -1782,7 +1782,7 @@ export const MyProfilePageView: React.FC<MyProfilePageViewProps> = ({
                       My Monthly Attendance & Duty Register
                     </h3>
                     <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">
-                      CBSE Compliance Log
+                      Compliance Log
                     </span>
                   </div>
                   <p className="text-[11px] text-slate-500 mt-0.5">
@@ -3043,7 +3043,7 @@ export const MyProfilePageView: React.FC<MyProfilePageViewProps> = ({
                           type="text"
                           value={formData.certifications}
                           onChange={(e) => setFormData({ ...formData, certifications: e.target.value })}
-                          placeholder="e.g. CTET Qualified, CBSE Master Trainer"
+                          placeholder="e.g. CTET Qualified, Subject Specialist"
                           className="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 outline-hidden"
                         />
                       </div>

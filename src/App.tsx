@@ -168,13 +168,13 @@ export default function App() {
     };
 
     window.addEventListener('academic-session-changed', handleSessionOrSettingsChange);
-    window.addEventListener('pradnya_entity_settings', handleSessionOrSettingsChange);
-    window.addEventListener('pradnya_entity_session', handleSessionOrSettingsChange);
+    window.addEventListener('cps_entity_settings', handleSessionOrSettingsChange);
+    window.addEventListener('cps_entity_session', handleSessionOrSettingsChange);
 
     return () => {
       window.removeEventListener('academic-session-changed', handleSessionOrSettingsChange);
-      window.removeEventListener('pradnya_entity_settings', handleSessionOrSettingsChange);
-      window.removeEventListener('pradnya_entity_session', handleSessionOrSettingsChange);
+      window.removeEventListener('cps_entity_settings', handleSessionOrSettingsChange);
+      window.removeEventListener('cps_entity_session', handleSessionOrSettingsChange);
       realtimeService.stop();
     };
   }, []);

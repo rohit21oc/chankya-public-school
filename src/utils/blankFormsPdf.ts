@@ -27,7 +27,7 @@ const BOTTOM = PAGE_H - 12;
 
 const NOT_SET = 'Not configured';
 /** Old demo values that must never be printed as if they were the school's details. */
-const isPlaceholder = (v?: string) => !v || /vidya vihar|pdsresidential\.edu\.in|94312|campus-1/i.test(v);
+const isPlaceholder = (v?: string) => !v || /vidya vihar|94312|campus-1/i.test(v);
 
 /**
  * Header lines for the letterhead, from saved School Settings only. A missing value
@@ -601,7 +601,7 @@ export function createStaffOnboardingFormPdf(meta: BlankFormMeta): jsPDF {
 
   p.officeBox(() => {
     p.row([
-      { label: 'Employee ID (PDS____)', w: 1.2 },
+      { label: 'Employee ID (CPS____)', w: 1.2 },
       { label: 'Portal role', w: 1.2 },
       { label: 'Reporting to', w: 1.2 },
     ], { h: 9.5 });

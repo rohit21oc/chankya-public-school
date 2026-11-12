@@ -1,17 +1,18 @@
 [
   {
-    "_id": "6ab265d65873cc85ee99ff4b",
     "id": "s-1",
     "name": "Mathematics",
-    "code": "MATH-041",
+    "code": "MATH",
     "type": "CORE",
     "classIds": [
       "c-1",
+      "c-2",
+      "c-3",
+      "c-4",
+      "c-5",
       "c-6",
       "c-7",
-      "c-8",
-      "c-9",
-      "c-10"
+      "c-8"
     ],
     "maxMarks": 100,
     "passMarks": 33,
@@ -23,44 +24,13 @@
     "academicSession": "2026-2027"
   },
   {
-    "_id": "6ab265d65873cc85ee99ff4c",
     "id": "s-2",
-    "name": "English Language & Literature",
-    "code": "ENG-184",
+    "name": "Environmental Studies (EVS)",
+    "code": "EVS",
     "type": "CORE",
     "classIds": [
       "c-1",
-      "c-2",
-      "c-3",
-      "c-4",
-      "c-5",
-      "c-6",
-      "c-7",
-      "c-8",
-      "c-9",
-      "c-10"
-    ],
-    "maxMarks": 100,
-    "passMarks": 33,
-    "theoryMarks": 80,
-    "practicalMarks": 20,
-    "credits": 4,
-    "status": "ACTIVE",
-    "department": "Languages",
-    "academicSession": "2026-2027"
-  },
-  {
-    "_id": "6ab265d65873cc85ee99ff4d",
-    "id": "s-3",
-    "name": "Science",
-    "code": "SCI-086",
-    "type": "CORE",
-    "classIds": [
-      "c-6",
-      "c-7",
-      "c-8",
-      "c-9",
-      "c-10"
+      "c-2"
     ],
     "maxMarks": 100,
     "passMarks": 33,
@@ -72,17 +42,39 @@
     "academicSession": "2026-2027"
   },
   {
-    "_id": "6ab265d65873cc85ee99ff4e",
-    "id": "s-4",
-    "name": "Social Science",
-    "code": "SST-087",
+    "id": "s-3",
+    "name": "Science",
+    "code": "SCI",
     "type": "CORE",
     "classIds": [
+      "c-3",
+      "c-4",
+      "c-5",
       "c-6",
       "c-7",
-      "c-8",
-      "c-9",
-      "c-10"
+      "c-8"
+    ],
+    "maxMarks": 100,
+    "passMarks": 33,
+    "theoryMarks": 80,
+    "practicalMarks": 20,
+    "credits": 4,
+    "status": "ACTIVE",
+    "department": "Science",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "s-4",
+    "name": "Social Science",
+    "code": "SST",
+    "type": "CORE",
+    "classIds": [
+      "c-3",
+      "c-4",
+      "c-5",
+      "c-6",
+      "c-7",
+      "c-8"
     ],
     "maxMarks": 100,
     "passMarks": 33,
@@ -94,22 +86,14 @@
     "academicSession": "2026-2027"
   },
   {
-    "_id": "6ab265d65873cc85ee99ff4f",
     "id": "s-5",
-    "name": "Hindi Course-A",
-    "code": "HIN-002",
+    "name": "Hindi",
+    "code": "HIN",
     "type": "CORE",
     "classIds": [
-      "c-1",
-      "c-2",
-      "c-3",
-      "c-4",
-      "c-5",
       "c-6",
       "c-7",
-      "c-8",
-      "c-9",
-      "c-10"
+      "c-8"
     ],
     "maxMarks": 100,
     "passMarks": 33,
@@ -121,89 +105,88 @@
     "academicSession": "2026-2027"
   },
   {
-    "_id": "6ab265d65873cc85ee99ff50",
     "id": "s-6",
-    "name": "Information Technology",
-    "code": "IT-402",
-    "type": "ELECTIVE",
-    "classIds": [
-      "c-9",
-      "c-10"
-    ],
-    "maxMarks": 100,
-    "passMarks": 33,
-    "theoryMarks": 50,
-    "practicalMarks": 50,
-    "credits": 3,
-    "status": "ACTIVE",
-    "department": "Computer Science",
-    "academicSession": "2026-2027"
-  },
-  {
-    "_id": "6ab265d65873cc85ee99ff51",
-    "id": "s-7",
-    "name": "Physics",
-    "code": "PHY-042",
+    "name": "English",
+    "code": "ENG",
     "type": "CORE",
     "classIds": [
-      "c-11",
-      "c-12"
-    ],
-    "maxMarks": 100,
-    "passMarks": 33,
-    "theoryMarks": 70,
-    "practicalMarks": 30,
-    "credits": 5,
-    "status": "ACTIVE",
-    "department": "Science",
-    "academicSession": "2026-2027"
-  },
-  {
-    "_id": "6ab265d65873cc85ee99ff52",
-    "id": "s-8",
-    "name": "Chemistry",
-    "code": "CHEM-043",
-    "type": "CORE",
-    "classIds": [
-      "c-11",
-      "c-12"
-    ],
-    "maxMarks": 100,
-    "passMarks": 33,
-    "theoryMarks": 70,
-    "practicalMarks": 30,
-    "credits": 5,
-    "status": "ACTIVE",
-    "department": "Science",
-    "academicSession": "2026-2027"
-  },
-  {
-    "_id": "6ab265d65873cc85ee99ff53",
-    "id": "s-9",
-    "name": "Primary Environmental Studies (EVS)",
-    "code": "EVS-010",
-    "type": "CORE",
-    "classIds": [
-      "c-1",
-      "c-2",
-      "c-3",
-      "c-4",
-      "c-5"
+      "c-6",
+      "c-7",
+      "c-8"
     ],
     "maxMarks": 100,
     "passMarks": 33,
     "theoryMarks": 80,
     "practicalMarks": 20,
-    "credits": 3,
+    "credits": 4,
     "status": "ACTIVE",
-    "department": "General",
+    "department": "Languages",
     "academicSession": "2026-2027"
   },
   {
-    "_id": "6ab265d65873cc85ee99ff54",
+    "id": "s-7",
+    "name": "Urdu",
+    "code": "URD",
+    "type": "CORE",
+    "classIds": [
+      "c-6",
+      "c-7",
+      "c-8"
+    ],
+    "maxMarks": 100,
+    "passMarks": 33,
+    "theoryMarks": 80,
+    "practicalMarks": 20,
+    "credits": 4,
+    "status": "ACTIVE",
+    "department": "Languages",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "s-8",
+    "name": "Computer",
+    "code": "COMP",
+    "type": "ELECTIVE",
+    "classIds": [
+      "c-3",
+      "c-4",
+      "c-5",
+      "c-6",
+      "c-7",
+      "c-8"
+    ],
+    "maxMarks": 100,
+    "passMarks": 33,
+    "theoryMarks": 80,
+    "practicalMarks": 20,
+    "credits": 4,
+    "status": "ACTIVE",
+    "department": "Computer",
+    "academicSession": "2026-2027"
+  },
+  {
+    "id": "s-9",
+    "name": "Kaushal Bodh",
+    "code": "KB",
+    "type": "ELECTIVE",
+    "classIds": [
+      "c-6",
+      "c-7",
+      "c-8"
+    ],
+    "maxMarks": 100,
+    "passMarks": 33,
+    "theoryMarks": 80,
+    "practicalMarks": 20,
+    "credits": 4,
+    "status": "ACTIVE",
+    "department": "Skills",
+    "academicSession": "2026-2027"
+  },
+  {
     "id": "s-10",
-    "name": "Physical & Health Education",
-    "code": "PHE-048",
+    "name": "Music",
+    "code": "MUS",
     "type": "ACTIVITY",
     "classIds": [
       "c-1",
@@ -213,174 +196,52 @@
       "c-5",
       "c-6",
       "c-7",
-      "c-8",
-      "c-9",
-      "c-10",
-      "c-11",
-      "c-12"
+      "c-8"
     ],
     "maxMarks": 100,
     "passMarks": 33,
-    "theoryMarks": 30,
-    "practicalMarks": 70,
-    "credits": 2,
+    "theoryMarks": 0,
+    "practicalMarks": 0,
+    "credits": 1,
     "status": "ACTIVE",
-    "department": "Sports",
+    "department": "Co-curricular",
     "academicSession": "2026-2027"
   },
   {
-    "_id": "6ab265d65873cc85ee99ff55",
-    "name": "Robotics & AI",
-    "code": "ROB-101",
-    "type": "ELECTIVE",
+    "id": "s-11",
+    "name": "Dance",
+    "code": "DAN",
+    "type": "ACTIVITY",
     "classIds": [
-      "c-9",
-      "c-10"
+      "c-1",
+      "c-2"
     ],
     "maxMarks": 100,
     "passMarks": 33,
-    "theoryMarks": 40,
-    "practicalMarks": 60,
-    "credits": 4,
+    "theoryMarks": 0,
+    "practicalMarks": 0,
+    "credits": 1,
     "status": "ACTIVE",
-    "department": "Computer Science",
-    "academicSession": "2026-2027",
-    "id": "s-11"
+    "department": "Co-curricular",
+    "academicSession": "2026-2027"
   },
   {
     "id": "s-12",
-    "name": "Computer Studies",
-    "code": "COMP-001",
-    "type": "CORE",
+    "name": "Yoga",
+    "code": "YOG",
+    "type": "ACTIVITY",
     "classIds": [
-      "c-1"
+      "c-6",
+      "c-7",
+      "c-8"
     ],
     "maxMarks": 100,
     "passMarks": 33,
-    "theoryMarks": 50,
-    "practicalMarks": 50,
-    "credits": 3,
-    "status": "ACTIVE",
-    "department": "Computer Science",
-    "academicSession": "2026-2027"
-  },
-  {
-    "id": "s-13",
-    "name": "General Knowledge",
-    "code": "GK-001",
-    "type": "CORE",
-    "classIds": [
-      "c-1"
-    ],
-    "maxMarks": 100,
-    "passMarks": 33,
-    "theoryMarks": 100,
+    "theoryMarks": 0,
     "practicalMarks": 0,
-    "credits": 2,
+    "credits": 1,
     "status": "ACTIVE",
-    "department": "General",
-    "academicSession": "2026-2027"
-  },
-  {
-    "id": "s-14",
-    "name": "Art & Drawing",
-    "code": "ART-101",
-    "type": "ACTIVITY",
-    "classIds": [
-      "c-1"
-    ],
-    "maxMarks": 100,
-    "passMarks": 33,
-    "theoryMarks": 20,
-    "practicalMarks": 80,
-    "credits": 2,
-    "status": "ACTIVE",
-    "department": "Arts",
-    "academicSession": "2026-2027"
-  },
-  {
-    "id": "s-nur-1",
-    "name": "English Rhymes & Oral",
-    "code": "NUR-ENG",
-    "type": "CORE",
-    "classIds": [
-      "c-nursery"
-    ],
-    "maxMarks": 100,
-    "passMarks": 33,
-    "theoryMarks": 50,
-    "practicalMarks": 50,
-    "credits": 2,
-    "status": "ACTIVE",
-    "department": "Pre-Primary",
-    "academicSession": "2026-2027"
-  },
-  {
-    "id": "s-nur-2",
-    "name": "Number Work & Math Readiness",
-    "code": "NUR-MATH",
-    "type": "CORE",
-    "classIds": [
-      "c-nursery"
-    ],
-    "maxMarks": 100,
-    "passMarks": 33,
-    "theoryMarks": 50,
-    "practicalMarks": 50,
-    "credits": 2,
-    "status": "ACTIVE",
-    "department": "Pre-Primary",
-    "academicSession": "2026-2027"
-  },
-  {
-    "id": "s-nur-3",
-    "name": "Hindi Akshar Gyan",
-    "code": "NUR-HIN",
-    "type": "CORE",
-    "classIds": [
-      "c-nursery"
-    ],
-    "maxMarks": 100,
-    "passMarks": 33,
-    "theoryMarks": 50,
-    "practicalMarks": 50,
-    "credits": 2,
-    "status": "ACTIVE",
-    "department": "Pre-Primary",
-    "academicSession": "2026-2027"
-  },
-  {
-    "id": "s-nur-4",
-    "name": "General Awareness & EVS",
-    "code": "NUR-EVS",
-    "type": "CORE",
-    "classIds": [
-      "c-nursery"
-    ],
-    "maxMarks": 100,
-    "passMarks": 33,
-    "theoryMarks": 50,
-    "practicalMarks": 50,
-    "credits": 2,
-    "status": "ACTIVE",
-    "department": "Pre-Primary",
-    "academicSession": "2026-2027"
-  },
-  {
-    "id": "s-nur-5",
-    "name": "Art & Craft",
-    "code": "NUR-ART",
-    "type": "ACTIVITY",
-    "classIds": [
-      "c-nursery"
-    ],
-    "maxMarks": 100,
-    "passMarks": 33,
-    "theoryMarks": 20,
-    "practicalMarks": 80,
-    "credits": 2,
-    "status": "ACTIVE",
-    "department": "Pre-Primary",
+    "department": "Co-curricular",
     "academicSession": "2026-2027"
   }
 ]

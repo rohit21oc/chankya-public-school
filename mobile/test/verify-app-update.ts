@@ -23,8 +23,8 @@ t('below the required version the popup cannot be skipped', () => {
 });
 t('store link is only ever Google Play; label and message passed through', () => {
   const d = decideAppUpdate(5, { latestVersionCode: 6, latestVersionName: '1.0.6', message: ' Fixes ', storeUrl: 'https://evil.example' });
-  assert.equal(d.storeUrl, 'https://play.google.com/store/apps/details?id=in.residentialpdsschool.app');
-  assert.equal(d.packageName, 'in.residentialpdsschool.app');
+  assert.equal(d.storeUrl, 'https://play.google.com/store/apps/details?id=in.chanakyapublicschool.app');
+  assert.equal(d.packageName, 'in.chanakyapublicschool.app');
   assert.equal(d.versionLabel, 'New version 1.0.6');
   assert.equal(d.message, 'Fixes');
 });

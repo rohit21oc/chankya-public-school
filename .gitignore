@@ -21,3 +21,6 @@ mobile/android/keystore.properties
 *.keystore
 *.jks
 data/archives/
+
+# TypeScript build cache
+*.tsbuildinfo

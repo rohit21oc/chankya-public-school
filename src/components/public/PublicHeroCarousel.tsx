@@ -84,10 +84,10 @@ export const PublicHeroCarousel: React.FC<PublicHeroCarouselProps> = ({
 
   const slide = slides[safeIndex];
   // Defaults only when no slides are set up at all; a saved slide shows exactly what the admin entered.
-  const title = slide ? (slide.title || '').trim() : 'Residential PDS Public School';
+  const title = slide ? (slide.title || '').trim() : 'Chanakya Public School & Coaching Centre';
   const subtitle = slide
     ? (slide.subtitle || '').trim()
-    : 'Holistic English-medium schooling blending rigorous academic curriculum, moral integrity, modern laboratories, and complete residential boarding in Sheohar, Bihar.';
+    : 'Quality schooling for Class 1 to Class 8 in Kushahar, Sheohar, Bihar, with strong basics, good values and computer education.';
   const hasText = Boolean(title || subtitle);
   const primary = slide ? { text: slide.primaryCtaText, act: () => handleAction(slide.primaryCtaAction) } : { text: 'Admission enquiry', act: onOpenEnquiry };
   const secondary = slide ? { text: slide.secondaryCtaText, act: () => handleAction(slide.secondaryCtaAction) } : { text: 'Explore campus', act: onExploreFacilities };
@@ -147,14 +147,14 @@ export const PublicHeroCarousel: React.FC<PublicHeroCarouselProps> = ({
             <RiseText text={title} />
           </h1>
         ) : (
-          <h1 className="sr-only">Residential PDS Public School</h1>
+          <h1 className="sr-only">Chanakya Public School & Coaching Centre</h1>
         )}
 
         <div key={`c-${safeIndex}`} className="lp-hero__copy max-w-xl space-y-5 mt-auto">
           {subtitle ? <p className="text-base sm:text-lg leading-relaxed lp-hero__sub">{subtitle}</p> : null}
           {hasText ? (
           <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium text-white lp-hero__sub">
-            {['Nursery to Class 8 · CBSE pattern', 'Residential hostel care', 'English medium'].map((t) => (
+            {['Class 1 to Class 8', 'Co-educational', 'Hindi, English & Urdu'].map((t) => (
               <li key={t} className="inline-flex items-center gap-1.5">
                 <Check className="w-4 h-4 lp-green" aria-hidden="true" />
                 {t}

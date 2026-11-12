@@ -30,7 +30,7 @@ PayPage callback, a redirect back to the site, a pending payment or a webhook bo
    - RBAC: the parent must be linked to the child, a student can only pay their own fees, staff need `fees.collect`.
    - The amount comes from the server's ledger (paise). `amount` can only *lower* a single-bill payment (₹1 … due).
    - If a payment for any of these bills is `PENDING`, the answer is **409** (no double payment). 30 starts/min/user.
-   - The server makes a unique `merchantOrderId` (`PDS-<time>-<random>`, PhonePe rules: ≤63 chars, `A-Z a-z 0-9 _ -`),
+   - The server makes a unique `merchantOrderId` (`CPS-<time>-<random>`, PhonePe rules: ≤63 chars, `A-Z a-z 0-9 _ -`),
      stores the order (`INITIATED`), then calls PhonePe `POST /checkout/v2/pay` (`PG_CHECKOUT`, `expireAfter` 1800,
      `metaInfo.udf1-3` = student, admission no., bill) and returns PhonePe's PayPage URL (`checkoutUrl`).
 2. **Website:** PhonePe's `checkout.js` opens the PayPage in an iframe (`PhonePeCheckout.transact({ tokenUrl, type: 'IFRAME', callback })`).
@@ -82,7 +82,7 @@ PHONEPE_PROD_CLIENT_SECRET=…
 PHONEPE_PROD_CLIENT_VERSION=1
 PHONEPE_PROD_WEBHOOK_USERNAME=…
 PHONEPE_PROD_WEBHOOK_PASSWORD=…
-# PHONEPE_RETURN_BASE_URL=https://residentialpdsschool.in   (optional; else PUBLIC_SITE_URL, else the request host)
+# PHONEPE_RETURN_BASE_URL=https://your-school-domain.example   (optional; else PUBLIC_SITE_URL, else the request host)
 ```
 `PHONEPE_CLIENT_ID` etc. without `SANDBOX_`/`PROD_` also work for the active environment. Sandbox talks to
 `api-preprod.phonepe.com/apis/pg-sandbox`, production to `api.phonepe.com/apis/identity-manager` (token) and
@@ -91,7 +91,7 @@ Remove all `RAZORPAY_*` lines from the server's `.env`; they are no longer read.
 
 ## PhonePe Business Dashboard → Developer Settings → Webhook (once with Test Mode ON, once with it OFF)
 
-* Create Webhook → URL: `https://residentialpdsschool.in/api/payments/phonepe/webhook`
+* Create Webhook → URL: `https://your-school-domain.example/api/payments/phonepe/webhook`
 * Authentication: **SHA** with a username and a long random password (same values in `.env`), or **HMAC** (copy the generated secret into `.env`)
 * Events: `checkout.order.completed`, `checkout.order.failed`, `pg.refund.completed`, `pg.refund.failed`
 * The URL must be HTTPS. If the server firewall limits inbound traffic, allow PhonePe's webhook IPs from their docs.

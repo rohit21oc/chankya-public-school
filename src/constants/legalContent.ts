@@ -188,11 +188,11 @@ export function buildCookiePolicy(settings: SchoolSettings): LegalDocument {
         table: {
           head: ['Name', 'Purpose', 'Duration'],
           rows: [
-            ['pradnya_auth_token, pradnya_auth_user', 'Keeps you signed in to the school portal', 'Until you sign out, or until the browser session ends if you did not choose to stay signed in'],
-            ['pradnya_auth_storage_type', 'Remembers whether you chose to stay signed in', 'Same as sign-in'],
-            ['pds.cookieConsent', 'Records your choice on this page', 'Until you clear site data or change your choice'],
-            ['pds_school_erp, portal_sidebar_collapsed', 'Keeps portal data and layout preferences on your device', 'Until you clear site data'],
-            ['pds_student_admission_draft', 'Saves an admission form you have started so it is not lost', 'Until you submit the form or clear site data'],
+            ['cps_auth_token, cps_auth_user', 'Keeps you signed in to the school portal', 'Until you sign out, or until the browser session ends if you did not choose to stay signed in'],
+            ['cps_auth_storage_type', 'Remembers whether you chose to stay signed in', 'Same as sign-in'],
+            ['cps.cookieConsent', 'Records your choice on this page', 'Until you clear site data or change your choice'],
+            ['cps_school_erp, portal_sidebar_collapsed', 'Keeps portal data and layout preferences on your device', 'Until you clear site data'],
+            ['cps_student_admission_draft', 'Saves an admission form you have started so it is not lost', 'Until you submit the form or clear site data'],
           ],
         },
       },

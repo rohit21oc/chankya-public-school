@@ -1,5 +1,5 @@
 /**
- * Verification Test Suite for Requested PDS School ERP Mobile App Fixes
+ * Verification Test Suite for Requested Chanakya Public School ERP Mobile App Fixes
  * Tests all required scenarios:
  * 1. Slow API response, API failure and retry handling
  * 2. Sidebar open/close and Android back behavior
@@ -37,7 +37,7 @@ function assert(desc: string, condition: boolean, extra?: string) {
 
 async function run() {
   console.log('================================================================');
-  console.log('VERIFYING REQUESTED PDS SCHOOL MOBILE FIXES');
+  console.log('VERIFYING REQUESTED CHANAKYA SCHOOL MOBILE FIXES');
   console.log('================================================================\n');
 
   // 1. Slow API response, API failure and retry
@@ -103,7 +103,7 @@ async function run() {
     const teacherUser: User = {
       id: 't-1',
       name: 'Test Teacher',
-      username: 'PDS0002',
+      username: 'CPS0002',
       role: 'TEACHER',
       permissions: ['students.view', 'attendance.view', 'exams.view'],
     };
@@ -245,7 +245,7 @@ async function run() {
     const allPayrolls: StaffPayrollRecord[] = [
       {
         id: 'pr-1',
-        employeeId: 'PDS0002',
+        employeeId: 'CPS0002',
         staffName: 'Mrs. Sunita Verma',
         month: 'October 2026',
         basicSalary: 32000,
@@ -254,7 +254,7 @@ async function run() {
       },
       {
         id: 'pr-2',
-        employeeId: 'PDS0003',
+        employeeId: 'CPS0003',
         staffName: 'Mr. Rajesh Kumar',
         month: 'October 2026',
         basicSalary: 45000,
@@ -263,7 +263,7 @@ async function run() {
       },
       {
         id: 'pr-3',
-        employeeId: 'PDS0002',
+        employeeId: 'CPS0002',
         staffName: 'Mrs. Sunita Verma',
         month: 'September 2026',
         basicSalary: 32000,
@@ -272,11 +272,11 @@ async function run() {
       },
     ];
 
-    const currentTeacherEmpId = 'PDS0002';
+    const currentTeacherEmpId = 'CPS0002';
     const scopedPayrolls = allPayrolls.filter((p) => p.employeeId === currentTeacherEmpId);
 
-    assert('Teacher receives only their own payroll slips', scopedPayrolls.length === 2 && scopedPayrolls.every((p) => p.employeeId === 'PDS0002'));
-    assert('Other employees salary records (PDS0003) are strictly excluded', !scopedPayrolls.some((p) => p.employeeId === 'PDS0003'));
+    assert('Teacher receives only their own payroll slips', scopedPayrolls.length === 2 && scopedPayrolls.every((p) => p.employeeId === 'CPS0002'));
+    assert('Other employees salary records (CPS0003) are strictly excluded', !scopedPayrolls.some((p) => p.employeeId === 'CPS0003'));
   }
 
   // 7. My ID Card — displays real data and handles missing fields correctly
@@ -284,7 +284,7 @@ async function run() {
   {
     const fullStaff: Staff = {
       id: 'st-1',
-      employeeId: 'PDS-T009',
+      employeeId: 'CPS-T009',
       name: 'Rameshwar Jha',
       designation: 'Senior Faculty',
       department: 'Science',
@@ -296,24 +296,24 @@ async function run() {
 
     const sparseStaff: Staff = {
       id: 'st-2',
-      employeeId: 'PDS-T010',
+      employeeId: 'CPS-T010',
       name: 'Pooja Kumari',
     };
 
     const mockUser: User = {
       id: 'st-1',
       name: 'Rameshwar Jha',
-      username: 'PDS-T009',
+      username: 'CPS-T009',
       role: 'TEACHER',
-      employeeId: 'PDS-T009',
+      employeeId: 'CPS-T009',
     };
 
     const fullView = buildIdCardView(fullStaff, mockUser);
-    assert('Full staff record renders genuine employeeId', fullView.employeeId === 'PDS-T009');
+    assert('Full staff record renders genuine employeeId', fullView.employeeId === 'CPS-T009');
     assert('Full staff record renders genuine designation', fullView.designation === 'Senior Faculty');
     assert('Full staff record renders genuine department', fullView.department === 'Science');
 
-    const sparseView = buildIdCardView(sparseStaff, { ...mockUser, id: 'st-2', name: 'Pooja Kumari', employeeId: 'PDS-T010' });
+    const sparseView = buildIdCardView(sparseStaff, { ...mockUser, id: 'st-2', name: 'Pooja Kumari', employeeId: 'CPS-T010' });
     assert('Sparse record does not fabricate department (stays undefined)', sparseView.department === undefined);
     assert('Sparse record does not fabricate phone (stays undefined)', sparseView.phone === undefined);
     assert('Blood group is not invented when missing', sparseStaff.bloodGroup === undefined);

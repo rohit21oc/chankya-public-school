@@ -33,7 +33,7 @@ async function run() {
   }
 
   console.log('\n--- Step 3: Change School Full Name in School Settings via PUT /api/settings ---');
-  const testSchoolName = 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR - VERIFIED TEST CAMPUS';
+  const testSchoolName = 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE - VERIFIED TEST CAMPUS';
   const updateRes = await fetch('http://localhost:3000/api/settings', {
     method: 'PUT',
     headers: {

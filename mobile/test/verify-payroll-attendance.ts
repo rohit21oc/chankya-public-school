@@ -16,7 +16,7 @@ const check = (name: string, ok: boolean, detail = '') => {
 
 console.log('--- Payroll: server record shape ---');
 const serverRec = {
-  id: 'p1', staffId: 'staff-1', employeeId: 'PDS0002', month: 'September 2026',
+  id: 'p1', staffId: 'staff-1', employeeId: 'CPS0002', month: 'September 2026',
   basicSalary: 20000, totalAllowances: 5000, totalDeductions: 1500, netSalary: 23500,
   paymentStatus: 'PAID', paymentMethod: 'BANK_TRANSFER', paymentDate: '2026-10-01',
 };
@@ -34,15 +34,15 @@ check('non-numeric amounts are dropped', normalizePayrollRecord({ ...serverRec, 
 
 console.log('--- Payroll: ownership ---');
 const all = [
-  { id: 'a', staffId: 'staff-1', employeeId: 'PDS0002' },
-  { id: 'b', staffId: 'staff-2', employeeId: 'PDS0003' },
-  { id: 'c', staffId: 'staff-3', employeeId: 'PDS0004' },
+  { id: 'a', staffId: 'staff-1', employeeId: 'CPS0002' },
+  { id: 'b', staffId: 'staff-2', employeeId: 'CPS0003' },
+  { id: 'c', staffId: 'staff-3', employeeId: 'CPS0004' },
 ];
-check('keeps only own records by employeeId', selectOwnPayroll(all, { id: 'u-9', employeeId: 'pds0003' }).map((r) => r.id).join() === 'b');
+check('keeps only own records by employeeId', selectOwnPayroll(all, { id: 'u-9', employeeId: 'cps0003' }).map((r) => r.id).join() === 'b');
 check('matches own record by staff id', selectOwnPayroll(all, { id: 'staff-1' }).map((r) => r.id).join() === 'a');
-check("never returns other employees' records", !selectOwnPayroll(all, { id: 'u-9', employeeId: 'PDS0002' }).some((r) => r.id !== 'a'));
+check("never returns other employees' records", !selectOwnPayroll(all, { id: 'u-9', employeeId: 'CPS0002' }).some((r) => r.id !== 'a'));
 check('unresolvable identity returns nothing', selectOwnPayroll(all, { id: '', employeeId: '' }).length === 0);
-check('no match returns nothing, not everyone', selectOwnPayroll(all, { id: 'u-1', employeeId: 'PDS9999' }).length === 0);
+check('no match returns nothing, not everyone', selectOwnPayroll(all, { id: 'u-1', employeeId: 'CPS9999' }).length === 0);
 
 console.log('--- Attendance: unmarked by default ---');
 const students = [{ id: 's1' }, { id: 's2' }, { id: 's3' }];
@@ -70,7 +70,7 @@ check('records of students not in this class are ignored', Object.keys(buildInit
 check('counts: present/absent/late', (() => { const c = countAttendance(students, full); return c.present === 1 && c.absent === 1 && c.late === 1 && c.marked === 3; })());
 
 console.log('--- Sidebar: Assignment module removed ---');
-const mk = (role: any) => ({ id: 'u1', name: 'T', username: 'PDS0002', role } as any);
+const mk = (role: any) => ({ id: 'u1', name: 'T', username: 'CPS0002', role } as any);
 for (const role of ['TEACHER', 'STUDENT', 'PARENT', 'PRINCIPAL', 'SUPER_ADMIN']) {
   const mods = getAuthorizedModulesForUser(mk(role));
   check(`${role}: no Assignment module in sidebar`, !mods.some((m) => m.id === 'assignments' || m.title === 'Assignment'));

@@ -118,12 +118,8 @@ async function loadDocumentImageBase64(
         `./data/storage/${target.replace(/^\/+/, '')}`,
         `src/assets/images/${cleanKey}`,
         `src/assets/images/${baseName}`,
-        `src/assets/images/student_photo_1790946584338.jpg`,
-        `src/assets/images/principal_signature_1790946614286.jpg`,
         `data/storage/school/students/photos/2026/09/${baseName}`,
-        `data/storage/school/students/photos/2026/09/rohan-sharma-photo.jpg`,
         `data/storage/school/school-logo/${baseName}`,
-        `data/storage/school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png`,
       ];
 
       for (const p of possiblePaths) {

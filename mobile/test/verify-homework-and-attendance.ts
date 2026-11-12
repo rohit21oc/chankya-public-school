@@ -45,7 +45,7 @@ check('drawer does not render module descriptions', !/module\.description/.test(
 check('drawer keeps module title and icon', /getModuleTitleForUser/.test(drawer) && /module\.iconName/.test(drawer));
 
 console.log('--- Homework: module access ---');
-const mk = (role: any) => ({ id: 'u1', name: 'U', username: 'PDS0002', role } as any);
+const mk = (role: any) => ({ id: 'u1', name: 'U', username: 'CPS0002', role } as any);
 for (const role of ['TEACHER', 'STUDENT', 'PRINCIPAL', 'SUPER_ADMIN', 'SCHOOL_ADMIN']) {
   check(`${role} sees Homework in the sidebar`, getAuthorizedModulesForUser(mk(role)).some((m) => m.id === 'homework' && m.title === 'Homework'));
 }

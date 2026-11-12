@@ -53,11 +53,11 @@ async function verifyReceiptModalResponsive() {
   } as any;
 
   const mockSettings: SchoolSettings = {
-    schoolName: 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
-    schoolAddress: 'BRC Near Shahpur Road, Sheohar, Bihar - 843329',
-    affiliationNumber: '10030206405',
-    schoolCode: 'PDS-SHR-6405',
-    contactNumber: '95075 95491',
+    schoolName: 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
+    schoolAddress: 'Kushahar Ward 07, Kushahar, Sheohar, Bihar - 843329',
+    affiliationNumber: '10034104008',
+    schoolCode: 'CPS-SHR-6405',
+    contactNumber: '82078 70192',
     currentAcademicSession: '2026-2027',
   } as any;
 

@@ -99,7 +99,7 @@ function prepareToday() {
   const staffAtt: any[] = readJson('staffAttendance.json');
   // Keep one record from another day so we can check the file is not truncated by a scan.
   const otherDay = staffAtt.filter((a) => a.date !== TODAY);
-  const seed = otherDay.length ? otherDay : [{ id: 'sa-fixture-old', date: '2026-01-05', staffId: 't-2', staffName: 'Fixture', employeeId: 'PDS0002', status: 'PRESENT' }];
+  const seed = otherDay.length ? otherDay : [{ id: 'sa-fixture-old', date: '2026-01-05', staffId: 't-2', staffName: 'Fixture', employeeId: 'CPS0002', status: 'PRESENT' }];
   writeJson('staffAttendance.json', seed);
   return seed.length;
 }
@@ -151,7 +151,7 @@ async function main() {
     console.log('\n-- 1. QR tokens only for people allowed to see the card');
     const ownCard = await call('GET', `/api/students/${own.id}/id-card`, teacher);
     const ownToken: string = ownCard.json?.qrToken;
-    check('teacher gets QR token for own student card', ownCard.status === 200 && typeof ownToken === 'string' && ownToken.startsWith('PDS1.S.'));
+    check('teacher gets QR token for own student card', ownCard.status === 200 && typeof ownToken === 'string' && ownToken.startsWith('CPS1.S.'));
     const foreignCard = await call('GET', `/api/students/${foreign.id}/id-card`, teacher);
     check('teacher refused for foreign student card (no token)', foreignCard.status === 403 && !foreignCard.json?.qrToken, `got ${foreignCard.status}`);
     const batchT = await call('POST', '/api/id-cards/qr-tokens', teacher, { items: [{ kind: 'STUDENT', id: own.id }, { kind: 'STUDENT', id: foreign.id }, { kind: 'STAFF', id: staffCardOwner.id }] });
@@ -164,7 +164,7 @@ async function main() {
     const tp = batchP.json?.tokens || {};
     check('batch (parent): own child only', !!tp[`STUDENT:${parent.studentIds[0]}`] && Object.keys(tp).length === 1);
     const ownStaffCard = await call('GET', `/api/staff/${teacherRec.id}/id-card`, teacher);
-    check('teacher gets own staff card token', ownStaffCard.status === 200 && String(ownStaffCard.json?.qrToken || '').startsWith('PDS1.T.'));
+    check('teacher gets own staff card token', ownStaffCard.status === 200 && String(ownStaffCard.json?.qrToken || '').startsWith('CPS1.T.'));
     check('signed-out batch -> 401', (await call('POST', '/api/id-cards/qr-tokens', undefined, { items: [] })).status === 401);
 
     console.log('\n-- 2. QR holds no personal data and cannot be forged');
@@ -174,10 +174,10 @@ async function main() {
     check('QR contains no name, DOB, phone or parent name', personal.every((v) => !ownToken.includes(v) && !decodedId.includes(v)));
     const [p0, p1, , sig] = ownToken.split('.');
     const swapped = `${p0}.${p1}.${b64u(foreign.id)}.${sig}`;
-    const fakeSig = crypto.createHmac('sha256', 'attacker-secret').update(`PDS1.S.${b64u(foreign.id)}`).digest('base64url').slice(0, 22);
+    const fakeSig = crypto.createHmac('sha256', 'attacker-secret').update(`CPS1.S.${b64u(foreign.id)}`).digest('base64url').slice(0, 22);
     const kindSwap = `${p0}.T.${ownToken.split('.')[2]}.${sig}`;
     for (const [label, code] of [
-      ['edited record id', swapped], ['signed with another secret', `PDS1.S.${b64u(foreign.id)}.${fakeSig}`],
+      ['edited record id', swapped], ['signed with another secret', `CPS1.S.${b64u(foreign.id)}.${fakeSig}`],
       ['student card relabelled as staff', kindSwap], ['random text', 'hello world'], ['empty', ''],
     ] as const) {
       const r = await call('POST', '/api/attendance/scan', admin, { code });

@@ -69,7 +69,7 @@ export const telUrl = (mobile: string) => `tel:${dialDigits(mobile)}`;
 
 export function whatsappUrl(e: Enquiry): string {
   const about = kindOf(e) === 'CALLBACK' ? 'your call back request' : `your admission enquiry${e.studentName ? ` for ${e.studentName}` : ''}`;
-  const text = `Namaste ${e.parentName}, this is Residential PDS Public School, Sheohar regarding ${about}.`;
+  const text = `Namaste ${e.parentName}, this is Chanakya Public School & Coaching Centre, Sheohar regarding ${about}.`;
   return `https://wa.me/91${dialDigits(e.mobile)}?text=${encodeURIComponent(text)}`;
 }
 

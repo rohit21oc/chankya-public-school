@@ -662,7 +662,7 @@ export const TimetableView: React.FC<TimetableViewProps> = ({ currentUser, userR
 
   // One A4 landscape document drives both Download and Print so they always match.
   const buildTimetableDoc = () => {
-    const schoolName = schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR';
+    const schoolName = schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE';
     if (viewPerspective === 'CLASS') {
       return createTimetablePdf({
         schoolName,
@@ -1751,7 +1751,7 @@ export const TimetableView: React.FC<TimetableViewProps> = ({ currentUser, userR
       <div id="printable-weekly-timetable" className="hidden">
         <div style={{ textAlign: 'center', marginBottom: '14px' }}>
           <h1 style={{ fontSize: '18pt', fontWeight: 'bold', margin: '0 0 4px 0', color: '#0f172a' }}>
-            {schoolSettings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR'}
+            {schoolSettings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE'}
           </h1>
           <h2 style={{ fontSize: '12pt', fontWeight: 'bold', margin: '0 0 4px 0', color: '#1d4ed8' }}>
             WEEKLY MASTER TIMETABLE
@@ -1862,7 +1862,7 @@ export const TimetableView: React.FC<TimetableViewProps> = ({ currentUser, userR
         </table>
 
         <div style={{ marginTop: '16px', fontSize: '7pt', color: '#94a3b8', textAlign: 'center' }}>
-          RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR • Official Master Academic Timetable • Confidential Document
+          CHANAKYA PUBLIC SCHOOL & COACHING CENTRE • Official Master Academic Timetable • Confidential Document
         </div>
       </div>
 

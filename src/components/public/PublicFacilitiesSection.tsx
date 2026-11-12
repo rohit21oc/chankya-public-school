@@ -67,10 +67,10 @@ export const PublicFacilitiesSection: React.FC<PublicFacilitiesSectionProps> = (
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            World-Class Campus Facilities & Residential Care
+            Campus Facilities & Student Care
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            From modern science and computer laboratories to safe residential boarding and GPS-enabled school buses, we provide an environment where children thrive securely.
+            From computer education and co-curricular activities to a safe and caring campus, we provide an environment where children can learn and grow securely.
           </p>
 
           {/* Filter Categories */}
@@ -119,7 +119,7 @@ export const PublicFacilitiesSection: React.FC<PublicFacilitiesSectionProps> = (
                     {!isError ? (
                       <img loading="lazy" decoding="async"
                         src={imgSrc}
-                        alt={`${fac.title} - RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR`}
+                        alt={`${fac.title} - CHANAKYA PUBLIC SCHOOL & COACHING CENTRE`}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         referrerPolicy="no-referrer"
                         onError={() => setImageErrors((prev) => ({ ...prev, [fac.id]: true }))}
@@ -170,31 +170,6 @@ export const PublicFacilitiesSection: React.FC<PublicFacilitiesSectionProps> = (
         </div>
         )}
 
-        {/* Residential Highlight Banner */}
-        <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-blue-950 to-indigo-950 text-white grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-          <div className="lg:col-span-8 space-y-3">
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
-              <Home className="w-4 h-4" />
-              <span>Full Residential Boarding Care</span>
-            </span>
-            <h3 className="text-xl sm:text-2xl font-black">
-              Safe, Caring & Disciplined Hostel for Boys and Girls
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Equipped with round-the-clock wardens, supervised evening prep sessions, 24×7 CCTV perimeter safety, pure RO drinking water, hygienic mess dining, and medical checkups.
-            </p>
-          </div>
-
-          <div className="lg:col-span-4 flex justify-center lg:justify-end">
-            <button
-              type="button"
-              onClick={onOpenEnquiry}
-              className="px-6 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm shadow-lg shadow-amber-400/20 transition-all cursor-pointer whitespace-nowrap"
-            >
-              Enquire for Hostel Admission
-            </button>
-          </div>
-        </div>
       </div>
 
       {/* Facility Detail Modal */}
@@ -210,7 +185,7 @@ export const PublicFacilitiesSection: React.FC<PublicFacilitiesSectionProps> = (
                 {!isModalImgError ? (
                   <img loading="lazy" decoding="async"
                     src={modalImgSrc}
-                    alt={`${activeFacility.title} - RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR`}
+                    alt={`${activeFacility.title} - CHANAKYA PUBLIC SCHOOL & COACHING CENTRE`}
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
                     onError={() => setImageErrors((prev) => ({ ...prev, [activeFacility.id]: true }))}
@@ -221,7 +196,7 @@ export const PublicFacilitiesSection: React.FC<PublicFacilitiesSectionProps> = (
                       <ModalIcon className="w-8 h-8 text-[#F3D27A]" />
                     </div>
                     <h4 className="text-lg font-bold text-white tracking-wide">{activeFacility.title}</h4>
-                    <p className="text-xs text-slate-300 mt-1">RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR</p>
+                    <p className="text-xs text-slate-300 mt-1">CHANAKYA PUBLIC SCHOOL & COACHING CENTRE</p>
                   </div>
                 )}
                 <button

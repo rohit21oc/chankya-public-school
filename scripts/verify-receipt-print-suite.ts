@@ -29,11 +29,11 @@ async function testReceiptSuite() {
 
   // 2. Prepare Realistic Test Data for Sheohar Campus
   const settings: SchoolSettings = {
-    schoolName: 'Residential PDS Public School Sheohar',
-    schoolAddress: 'Zero Mile, Shahpur Road, Sheohar, Bihar - 843329',
+    schoolName: 'Chanakya Public School & Coaching Centre',
+    schoolAddress: 'Zero Mile, Kushahar Ward 07, Kushahar, Sheohar, Bihar - 843329',
     contactNumber: '+91 98350 12345',
     schoolCode: 'SCH-091',
-    affiliationNumber: '10030206405',
+    affiliationNumber: '10034104008',
     currentAcademicSession: '2026-2027',
     currencySymbol: '₹',
   } as any;
@@ -41,7 +41,7 @@ async function testReceiptSuite() {
   const student: Student = {
     id: 's-test-101',
     name: 'Aarav Kumar Sharma',
-    admissionNumber: 'PDS/2026/042',
+    admissionNumber: 'CPS/2026/042',
     rollNumber: '12',
     className: 'Class 10',
     section: 'A',
@@ -141,12 +141,12 @@ async function testReceiptSuite() {
 
   // Check header, student particulars, and receipt details
   const requiredKeywords = [
-    'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR',
+    'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
     'SCHOOL COPY',
     'STUDENT COPY',
     'CUT ALONG THIS LINE',
     'REC-2026-0042',
-    'PDS/2026/042',
+    'CPS/2026/042',
     'Aarav Kumar Sharma',
     'Class 10 - A',
     '3,350',
@@ -160,7 +160,7 @@ async function testReceiptSuite() {
     }
   }
   console.log('  [PASS] All required elements found in PDF:');
-  console.log('    ✓ School Branding (RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR)');
+  console.log('    ✓ School Branding (CHANAKYA PUBLIC SCHOOL & COACHING CENTRE)');
   console.log('    ✓ COPY 1: SCHOOL COPY');
   console.log('    ✓ Perforation Line: CUT ALONG THIS LINE');
   console.log('    ✓ COPY 2: STUDENT COPY');

@@ -146,7 +146,7 @@ export const EnquiriesManagementTab: React.FC<EnquiriesManagementTabProps> = ({ 
   const waLink = (e: AdmissionEnquiry) => {
     const digits = String(e.mobile || '').replace(/\D/g, '').slice(-10);
     const about = kindOf(e) === 'CALLBACK' ? 'your call back request' : `your admission enquiry for ${e.studentName}${e.classApplying ? ` (${e.classApplying})` : ''}`;
-    return `https://wa.me/91${digits}?text=${encodeURIComponent(`Namaste ${e.parentName}, this is Residential PDS Public School, Sheohar regarding ${about}.`)}`;
+    return `https://wa.me/91${digits}?text=${encodeURIComponent(`Namaste ${e.parentName}, this is Chanakya Public School & Coaching Centre, Sheohar regarding ${about}.`)}`;
   };
 
   const tabs: { id: 'ALL' | 'ENQUIRY' | 'CALLBACK'; label: string; n: number }[] = [

@@ -136,7 +136,7 @@ export const AnimatedSplash: React.FC<Props> = ({ ready, onFinish }) => {
       onLayout={hideNativeSplash}
       pointerEvents="auto"
       accessible
-      accessibilityLabel="Residential PDS Public School Sheohar"
+      accessibilityLabel="Chanakya Public School & Coaching Centre"
     >
       <StatusBar style="dark" />
 

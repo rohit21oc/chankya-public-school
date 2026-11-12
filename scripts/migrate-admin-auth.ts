@@ -1,9 +1,9 @@
 /**
  * Idempotent Admin Authentication Migration Script
- * RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR ERP
+ * CHANAKYA PUBLIC SCHOOL & COACHING CENTRE ERP
  *
  * Requirements:
- * 1. Replace hardcoded login ID 'admin' with 'residentialpdsschool'.
+ * 1. Replace hardcoded login ID 'admin' with 'chanakyapublicschool'.
  * 2. Set initial admin password from INITIAL_ADMIN_PASSWORD (.env) and eliminate 'admin123'.
  * 3. Store password only as strong salted bcrypt hash in MongoDB.
  * 4. Idempotent: Never overwrite an existing production password on subsequent runs.
@@ -20,7 +20,7 @@ import path from 'path';
 import { sanitizeMongoUri } from '../server/db/mongo.ts';
 import { UserModel } from '../server/models/User.ts';
 
-const INITIAL_ADMIN_USERNAME = process.env.INITIAL_ADMIN_USERNAME || 'residentialpdsschool';
+const INITIAL_ADMIN_USERNAME = process.env.INITIAL_ADMIN_USERNAME || 'chanakyapublicschool';
 const INITIAL_ADMIN_PASSWORD = (process.env.INITIAL_ADMIN_PASSWORD || '').trim();
 if (!INITIAL_ADMIN_PASSWORD) {
   console.error('[Migration] Set INITIAL_ADMIN_PASSWORD in .env before running this script.');
@@ -41,7 +41,7 @@ async function migrateAdminAuth() {
   const cleanUri = sanitizeMongoUri(rawUri);
   console.log('[Migration] Connecting to MongoDB Atlas cluster...');
   await mongoose.connect(cleanUri, {
-    dbName: 'pds_school_erp',
+    dbName: 'cps_school_erp',
     serverSelectionTimeoutMS: 10000,
   });
   console.log('[Migration] Connected to database:', mongoose.connection.name);
@@ -106,7 +106,7 @@ async function migrateAdminAuth() {
       await UserModel.deleteOne({ _id: legacyAdminDoc._id });
     }
   } else if (legacyAdminDoc) {
-    console.log('[Migration] Found legacy admin document (admin). Migrating to residentialpdsschool...');
+    console.log('[Migration] Found legacy admin document (admin). Migrating to chanakyapublicschool...');
     const isOldAdmin123 = legacyAdminDoc.passwordHash && bcrypt.compareSync('admin123', legacyAdminDoc.passwordHash);
     migratedHash = (!legacyAdminDoc.passwordHash || isOldAdmin123)
       ? bcrypt.hashSync(INITIAL_ADMIN_PASSWORD, 10)
@@ -139,8 +139,8 @@ async function migrateAdminAuth() {
       id: 'admin-1',
       name: 'Shri Ramakant Saxena',
       username: INITIAL_ADMIN_USERNAME.toLowerCase(),
-      email: process.env.BREVO_SENDER_EMAIL || 'residentialpdspublicschool@gmail.com',
-      phone: '9507595491',
+      email: process.env.BREVO_SENDER_EMAIL || 'cpskushahar@gmail.com',
+      phone: '8207870192',
       role: 'SUPER_ADMIN',
       userType: 'ADMIN',
       status: 'ACTIVE',

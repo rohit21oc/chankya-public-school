@@ -30,15 +30,15 @@ export const BRAND_COLORS = {
  * useSchoolIdentity() in services/schoolIdentity.ts.
  */
 export const SCHOOL_INFO = {
-  shortName: 'PDS PUBLIC SCHOOL',
+  shortName: 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE',
   currentSession: '2026-2027',
-  canonicalLogoKey: 'school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png',
+  canonicalLogoKey: 'school/school-logo/logo.png',
 };
 
 /**
  * Resolves a cloud storage file key or URL to a full image URL
  */
-let fileBaseUrl = 'https://residentialpdsschool.in';
+let fileBaseUrl = '';
 
 /** Keeps photo and logo links on the same server the app talks to (set by apiService). */
 export function setFileBaseUrl(url: string): void {

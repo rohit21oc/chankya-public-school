@@ -2,8 +2,8 @@ import assert from 'node:assert/strict';
 import { pageSeo, parseAddress, siteBaseUrl, renderSeoHead, injectSeo, renderNoscript, buildSitemapXml, buildRobotsTxt, normalizeSeoPath, buildJsonLd, buildLlmsTxt } from '../src/utils/seo';
 
 const s: any = {
-  schoolName: 'TEST PUBLIC SCHOOL', schoolAddress: 'BRC Near Shahpur Road, Sheohar, Bihar - 843329', contactNumber: '95075 95491',
-  headerContacts: ['9507595491'], email: 'a@b.in', classesOffered: 'Nursery to 8', currentAcademicSession: '2026-2027',
+  schoolName: 'TEST PUBLIC SCHOOL', schoolAddress: 'Kushahar Ward 07, Kushahar, Sheohar, Bihar - 843329', contactNumber: '82078 70192',
+  headerContacts: ['8207870192'], email: 'a@b.in', classesOffered: 'Nursery to 8', currentAcademicSession: '2026-2027',
   latitude: 26.5, longitude: 85.2, website: 'https://school.example.in/',
 };
 let n = 0;
@@ -78,7 +78,7 @@ t('sitemap lists only public pages; robots blocks API and portal and points to t
 t('llms.txt: Markdown with saved facts, public pages, and a privacy note', () => {
   const l = buildLlmsTxt(s, 'https://school.example.in');
   assert.ok(l.startsWith('# TEST PUBLIC SCHOOL\n\n> '));
-  assert.ok(l.includes('Address: BRC Near Shahpur Road, Sheohar, Bihar - 843329') && l.includes('[Admissions](https://school.example.in/admission)'));
+  assert.ok(l.includes('Address: Kushahar Ward 07, Kushahar, Sheohar, Bihar - 843329') && l.includes('[Admissions](https://school.example.in/admission)'));
   assert.ok(l.includes('Do not try to look them up') && l.includes('Sitemap: https://school.example.in/sitemap.xml'));
   const bare = buildLlmsTxt({ schoolName: 'X' }, 'https://x.in');
   assert.ok(!bare.includes('Address:') && !bare.includes('Phone:') && !bare.includes('Email:'));

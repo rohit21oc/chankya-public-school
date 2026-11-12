@@ -46,9 +46,9 @@ const staff = tabView('STAFF', restricted);
 check('No salary for non-payroll roles', !JSON.stringify(staff).includes('CONFIDENTIAL') && !staff.kpis.some((k) => /payroll/i.test(k.label)));
 
 // Share text carries the saved identity, never invented values
-const sid = toIdentity({ schoolName: 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR', affiliatedBoard: 'BSEB', affiliationNumber: '10030206405' } as any);
+const sid = toIdentity({ schoolName: 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE', affiliatedBoard: 'BSEB', affiliationNumber: '10034104008' } as any);
 const txt = shareText('SUMMARY', restricted, sid, 'Session 2026-2027', 'Principal', new Date('2026-10-22T10:00:00Z'));
-check('Share text has school name', txt.startsWith('RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR'));
+check('Share text has school name', txt.startsWith('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE'));
 check('Share text has BSEB affiliation', txt.includes('BSEB') && !txt.includes('CBSE'));
 check('Share text has filters and author', txt.includes('Session 2026-2027') && txt.includes('by Principal'));
 const blank = shareText('SUMMARY', restricted, toIdentity({} as any), '', 'X');

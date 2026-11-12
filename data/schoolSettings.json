@@ -1,12 +1,12 @@
 {
   "singleSchool": true,
-  "additionalAddress": "BRC ROAD, SHEOHAR, WARD NO. 14",
-  "affiliatedBoard": "BSEB",
-  "affiliationCode": "10030206405",
-  "affiliationNumber": "10030206405",
-  "contactNumber": "95075 95491",
+  "additionalAddress": "",
+  "affiliatedBoard": "",
+  "affiliationCode": "",
+  "affiliationNumber": "",
+  "contactNumber": "82078 70192",
   "currentAcademicSession": "2026-2027",
-  "email": "residentialpdspublicschool@gmail.com",
+  "email": "cpskushahar@gmail.com",
   "gradingSystem": [
     {
       "id": "grd-1",
@@ -89,18 +89,18 @@
       "academicSession": "2026-2027"
     }
   ],
-  "logoFileKey": "school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png",
-  "principalName": "Nilam Devi",
-  "registrationNumber": "10030206405",
-  "schoolAddress": "BRC Near Shahpur Road, Sheohar, Bihar - 843329",
-  "schoolCode": "6400",
-  "schoolLogo": "school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png",
-  "schoolName": "RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR",
+  "logoFileKey": "",
+  "principalName": "Raju Kumar",
+  "registrationNumber": "",
+  "schoolAddress": "Kushahar Ward 07, Kushahar, Sheohar, Bihar - 843329",
+  "schoolCode": "10034104008",
+  "schoolLogo": "",
+  "schoolName": "CHANAKYA PUBLIC SCHOOL & COACHING CENTRE",
   "schoolTiming": {
     "startTime": "08:00 AM",
     "endTime": "02:00 PM"
   },
-  "website": "https://residentialpdssheohar.edu.in",
+  "website": "",
   "workingDays": [
     "Monday",
     "Tuesday",
@@ -122,17 +122,6 @@
       "updatedAt": "2026-10-08T05:51:41.230Z"
     },
     {
-      "id": "ses-1790998818407-u4lku9",
-      "name": "2028-2029",
-      "startDate": "2027-04-01",
-      "endDate": "2028-03-31",
-      "status": "INACTIVE",
-      "description": "",
-      "isDefault": false,
-      "createdAt": "2026-10-03T03:40:18.407Z",
-      "updatedAt": "2026-10-03T03:40:41.192Z"
-    },
-    {
       "id": "ses-1",
       "name": "2026-2027",
       "startDate": "2026-04-01",
@@ -142,61 +131,47 @@
       "isDefault": true,
       "createdAt": "2026-01-01T00:00:00.000Z",
       "updatedAt": "2026-10-08T05:52:09.229Z"
-    },
-    {
-      "id": "ses-2",
-      "name": "2025-2026",
-      "startDate": "2025-04-01",
-      "endDate": "2026-03-31",
-      "status": "INACTIVE",
-      "description": "Preceding academic session (Archived)",
-      "isDefault": false,
-      "createdAt": "2025-01-01T00:00:00.000Z",
-      "updatedAt": "2026-09-24T12:39:39.019Z"
     }
   ],
-  "classesOffered": "Nursery to 8",
+  "classesOffered": "Class 1 to 8",
   "footerContacts": [
-    "9507595491",
-    "8271676713",
-    "9939115492"
+    "82078 70192"
   ],
-  "googleMapsUrl": "https://www.google.com/maps/place/PDS+PUBLIC+SCHOOL/@26.5125425,85.2865357,745m/data=!3m2!1e3!4b1!4m6!3m5!1s0x39ece71e1548a643:0x68ea7ac1528724d4!8m2!3d26.5125425!4d85.2891106!16s%2Fg%2F11rv6286td",
+  "googleMapsUrl": "",
   "headerContacts": [
-    "9507595491",
-    "8271676713"
+    "82078 70192"
   ],
-  "helplineNumber": "06222796505",
-  "latitude": 26.5125425,
-  "longitude": 85.2891106,
-  "plusCode": "G77Q+2J Sheohar, Bihar",
-  "principalSignature": "school/school-logo/4f810c82-2cc5-4300-a78d-94597ee47bca.png",
-  "principalSignatureFileKey": "school/school-logo/4f810c82-2cc5-4300-a78d-94597ee47bca.png",
-  "updatedAt": "2026-10-08T05:52:05.511Z",
+  "helplineNumber": "",
+  "latitude": null,
+  "longitude": null,
+  "plusCode": "",
+  "principalSignature": "",
+  "principalSignatureFileKey": "",
+  "updatedAt": "2026-11-12T00:00:00.000Z",
   "bankDetails": {
-    "accountHolderName": "RESIDENTIAL PDS PUBLIC SCHOOL",
-    "bankName": "State Bank of India (SBI)",
-    "accountNumber": "38947291054",
-    "ifsc": "SBIN0002124",
-    "branch": "Sheohar Main Branch, Collectorate Road, Sheohar",
-    "upiId": "residentialpdspublicschool@sbi",
-    "upiQrCode": "school/school-logo/75f1504b-8949-47d9-9045-05a836c86406.jpeg",
-    "upiQrCodeFileKey": "school/school-logo/75f1504b-8949-47d9-9045-05a836c86406.jpeg",
-    "instructions": "Please mention Student Admission Number in the payment narration. Send payment receipt or UTR screenshot on WhatsApp 9507595491."
+    "accountHolderName": "",
+    "bankName": "",
+    "accountNumber": "",
+    "ifsc": "",
+    "branch": "",
+    "upiId": "",
+    "upiQrCode": "",
+    "upiQrCodeFileKey": "",
+    "instructions": ""
   },
   "paymentOptions": {
-    "accountHolderName": "RESIDENTIAL PDS PUBLIC SCHOOL",
-    "bankName": "State Bank of India (SBI)",
-    "accountNumber": "38947291054",
-    "ifsc": "SBIN0002124",
-    "branch": "Sheohar Main Branch, Collectorate Road, Sheohar",
-    "upiId": "residentialpdspublicschool@sbi",
-    "upiQrCode": "school/school-logo/75f1504b-8949-47d9-9045-05a836c86406.jpeg",
-    "upiQrCodeFileKey": "school/school-logo/75f1504b-8949-47d9-9045-05a836c86406.jpeg",
-    "instructions": "Please mention Student Admission Number in the payment narration. Send payment receipt or UTR screenshot on WhatsApp 9507595491."
+    "accountHolderName": "",
+    "bankName": "",
+    "accountNumber": "",
+    "ifsc": "",
+    "branch": "",
+    "upiId": "",
+    "upiQrCode": "",
+    "upiQrCodeFileKey": "",
+    "instructions": ""
   },
   "feeSettings": {
-    "lateFeeAmount": 50,
+    "lateFeeAmount": 0,
     "dueDayOfMonth": 10,
     "lateFeeStartDay": 11
   },

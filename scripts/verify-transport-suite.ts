@@ -229,7 +229,7 @@ async function runTransportSuite() {
       routeName: 'Route Alpha: Sheohar Town — Station — School Campus',
       routeNumber: 'RT-ALPHA-01',
       startPoint: 'Sheohar Gandhi Chowk',
-      endPoint: 'Residential PDS Public School Campus',
+      endPoint: 'Chanakya Public School & Coaching Centre Campus',
       vehicleId: createdVehicle.id,
       status: 'ACTIVE',
     },
@@ -301,7 +301,7 @@ async function runTransportSuite() {
   const stop3Res = await postJson(
     `/api/transport/routes/${createdRoute.id}/stops`,
     {
-      stopName: 'Residential PDS School Gate',
+      stopName: 'Chanakya Public School Gate',
       landmark: 'Campus Main Entrance Porch',
       pickupTime: '07:15 AM',
       dropTime: '01:45 PM',
@@ -547,8 +547,8 @@ async function runTransportSuite() {
 
   // Teacher login (TEACHER role is not allowed to create vehicles)
   const teacherLogin = await postJson('/api/auth/login', {
-    identifier: 'PDS0011',
-    password: 'PdsTeacher@123',
+    identifier: 'CPS0011',
+    password: 'CpsTeacher@123',
     loginType: 'STAFF_ADMIN',
   });
   if (teacherLogin.data.token) {

@@ -50,7 +50,7 @@ export interface Place {
   full: string;
 }
 
-/** "BRC Near Shahpur Road, Sheohar, Bihar - 843329" -> street / locality / region / PIN. Missing parts stay empty. */
+/** "Kushahar Ward 07, Kushahar, Sheohar, Bihar - 843329" -> street / locality / region / PIN. Missing parts stay empty. */
 export function parseAddress(address: string): Place {
   const full = str(address);
   const pin = (full.match(/\b\d{6}\b/) || [''])[0];
@@ -93,15 +93,15 @@ export function pageSeo(pathname: string, settings: S = {}, opts: { signedIn?: b
   if (path === '/') {
     return {
       title: clip(place ? `${name} | ${place}` : name, 62),
-      description: clip(`${name}: residential school${inPlace}${classText} with hostel. ${session ? `Admissions open ${session}.` : ''}${phoneText}`.replace(/\s+/g, ' ').trim()),
+      description: clip(`${name}: school${inPlace}${classText}. ${session ? `Admission enquiries for ${session}.` : ''}${phoneText}`.replace(/\s+/g, ' ').trim()),
       canonicalPath: '/',
       robots: 'index,follow',
     };
   }
   const pages: Record<string, { t: string; d: string; crumb: string }> = {
-    '/about': { t: `About Us | ${name}`, d: `Learn about ${name}${inPlace}: our values, leadership and the residential school community.`, crumb: 'About Us' },
+    '/about': { t: `About Us | ${name}`, d: `Learn about ${name}${inPlace}: our values, leadership and school community.`, crumb: 'About Us' },
     '/admission': { t: `Admissions${session ? ` ${session}` : ''} | ${name}`, d: `Admission information and online enquiry for ${name}${inPlace}${classText}.${phoneText}`, crumb: 'Admissions' },
-    '/facilities': { t: `Campus & Hostel Facilities | ${name}`, d: `Classrooms, hostel and campus facilities at ${name}${inPlace}.`, crumb: 'Facilities' },
+    '/facilities': { t: `Campus Facilities | ${name}`, d: `Classrooms and campus facilities at ${name}${inPlace}.`, crumb: 'Facilities' },
     '/gallery': { t: `Photo Gallery | ${name}`, d: `Photos from campus life, events and activities at ${name}${inPlace}.`, crumb: 'Gallery' },
     '/contact': { t: `Contact & Location | ${name}`, d: `Address, phone, email and map for ${name}${place ? `, ${str(settings.schoolAddress) || place}` : ''}.${phoneText}`, crumb: 'Contact' },
     '/notices': { t: `Notices & Circulars | ${name}`, d: `Latest public notices, circulars and announcements from ${name}.`, crumb: 'Notices' },

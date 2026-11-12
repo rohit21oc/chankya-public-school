@@ -36,7 +36,7 @@ function request(path: string, options: { method?: string; headers?: Record<stri
 
 async function runAuditTestSuite() {
   console.log('=====================================================');
-  console.log('RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR');
+  console.log('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE');
   console.log('System Security Audit Log Verification Suite');
   console.log('=====================================================\n');
 

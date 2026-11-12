@@ -37,7 +37,7 @@ function get(path: string, headers: Record<string, string> = {}): Promise<{ stat
 async function runTestSuite() {
   console.log('================================================================');
   console.log('FACULTY ID CARD GENERATION & AUTHORIZATION VERIFICATION SUITE');
-  console.log('Project: RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR');
+  console.log('Project: CHANAKYA PUBLIC SCHOOL & COACHING CENTRE');
   console.log('================================================================\n');
 
   let passed = 0;
@@ -58,7 +58,7 @@ async function runTestSuite() {
   const adminHeaders = {
     'x-auth-user-id': 'admin-1',
     'x-auth-user-role': 'SUPER_ADMIN',
-    'x-auth-employee-id': 'PDS0001',
+    'x-auth-employee-id': 'CPS0001',
   };
 
   const staffRes = await get('/api/teachers', adminHeaders);
@@ -113,11 +113,11 @@ async function runTestSuite() {
 
   // 5. Asset resolution & CORS headers
   console.log('\n--- Step 5: Media Assets & Cross-Origin Accessibility ---');
-  const logoRes = await get('/api/files/content?key=school/school-logo/30a46bbd-e5b6-454b-9e47-cb3637a5f2ff.png');
+  const logoRes = await get('/api/files/content?key=school/school-logo/logo.png');
   assert('School logo returns HTTP 200', logoRes.status === 200);
   assert('School logo sets Access-Control-Allow-Origin: *', logoRes.headers['access-control-allow-origin'] === '*');
 
-  const sigRes = await get('/api/files/content?key=school/school-logo/4f810c82-2cc5-4300-a78d-94597ee47bca.png');
+  const sigRes = await get('/api/files/content?key=school/school-logo/principal-signature.png');
   assert('Principal signature returns HTTP 200', sigRes.status === 200);
   assert('Principal signature sets Access-Control-Allow-Origin: *', sigRes.headers['access-control-allow-origin'] === '*');
 

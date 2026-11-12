@@ -45,7 +45,7 @@ async function main() {
   const client = new MongoClient(uri, { serverSelectionTimeoutMS: 15000 });
   await client.connect();
   const named = client.options.dbName;
-  const db = client.db(named && named !== 'test' ? named : 'pds_school_erp');
+  const db = client.db(named && named !== 'test' ? named : 'cps_school_erp');
   try {
     const col = db.collection('fee_configurations');
     const found = await col.find({ id: { $in: SEEDED_IDS } }, { projection: { id: 1, className: 1 } }).toArray();

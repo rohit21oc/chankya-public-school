@@ -1656,7 +1656,7 @@ export const ExamsView: React.FC<ExamsViewProps> = ({ userRole, settings }) => {
 
             {/* CBSE Grade Distribution Strip */}
             <div className="pt-1 flex flex-wrap items-center gap-1.5 text-[11px]">
-              <span className="font-bold text-slate-500 mr-1 text-[10px] uppercase">CBSE Grade Scale:</span>
+              <span className="font-bold text-slate-500 mr-1 text-[10px] uppercase">Grade Scale:</span>
               {(['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'D', 'E/F'] as const).map((grd) => (
                 <span
                   key={grd}
@@ -1775,7 +1775,7 @@ export const ExamsView: React.FC<ExamsViewProps> = ({ userRole, settings }) => {
                     <th className="p-3">Admission No</th>
                     <th className="p-3 w-20 text-center">Absent?</th>
                     <th className="p-3 w-40">Marks (Out of {currentMaxMarks})</th>
-                    <th className="p-3 text-center">CBSE Grade</th>
+                    <th className="p-3 text-center">Grade</th>
                     <th className="p-3 text-center">Status</th>
                     <th className="p-3 text-right">Actions</th>
                   </tr>
@@ -2381,7 +2381,7 @@ export const ExamsView: React.FC<ExamsViewProps> = ({ userRole, settings }) => {
                 )}
                 <div>
                   <h1 className="text-base font-extrabold uppercase text-[#0b1f4b] tracking-wide">
-                    {settings.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR'}
+                    {settings.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE'}
                   </h1>
                   <p className="text-[10px] text-slate-600">{settings.schoolAddress}</p>
                   <p className="text-[10px] font-semibold text-slate-700">

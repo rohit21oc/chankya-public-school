@@ -53,7 +53,7 @@ check('editing a teacher to Class Incharge of their own class works', s === 200,
 check('Class Incharge can be removed again', s === 200, `${s} ${b.error || ''}`);
 
 const mongo = await MongoClient.connect(process.env.MONGODB_URI);
-await mongo.db('pds_school_erp').collection('users').updateMany({ id: { $in: [tI.id, tP.id] } }, { $set: { mustChangePassword: false } });
+await mongo.db('cps_school_erp').collection('users').updateMany({ id: { $in: [tI.id, tP.id] } }, { $set: { mustChangePassword: false } });
 const login = async (emp) => { const [st, bb] = await call('POST', '/api/auth/login', null, { identifier: emp, password: pw, loginType: 'STAFF' }); return bb.token || bb.accessToken; };
 const tokI = await login(tI.employeeId), tokP = await login(tP.employeeId);
 check('teachers sign in', !!tokI && !!tokP);

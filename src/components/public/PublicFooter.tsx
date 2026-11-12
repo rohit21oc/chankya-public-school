@@ -52,7 +52,7 @@ export const PublicFooter: React.FC<PublicFooterProps> = ({
                   <>
                     <img
                       src={getSchoolLogoSrc(settings.schoolLogo)}
-                      alt="RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR"
+                      alt="CHANAKYA PUBLIC SCHOOL & COACHING CENTRE"
                       className="w-full h-full object-contain"
                       referrerPolicy="no-referrer"
                       onError={handleLogoError}
@@ -65,25 +65,25 @@ export const PublicFooter: React.FC<PublicFooterProps> = ({
               </div>
               <div>
                 <h3 className="text-sm font-black text-white uppercase tracking-tight leading-tight">
-                  RESIDENTIAL PDS PUBLIC SCHOOL
+                  CHANAKYA PUBLIC SCHOOL & COACHING CENTRE
                 </h3>
-                <p className="text-[11px] text-amber-400 font-semibold tracking-wide">SHEOHAR, BIHAR</p>
+                <p className="text-[11px] text-amber-400 font-semibold tracking-wide">KUSHAHAR, SHEOHAR, BIHAR</p>
               </div>
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed">
-              Empowering students from Nursery to Class 8 with CBSE curriculum, ethical grounding, computer education, and 24x7 caring residential hostels in Sheohar.
+              Quality education for boys and girls from Class 1 to Class 8, with strong basics, good values and computer education, in Kushahar, Sheohar.
             </p>
 
             <div className="space-y-2 pt-2 text-xs text-slate-300">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <a
-                  href="https://www.google.com/maps/place/PDS+PUBLIC+SCHOOL/@26.5125425,85.2865357,745m/data=!3m2!1e3!4b1!4m6!3m5!1s0x39ece71e1548a643:0x68ea7ac1528724d4!8m2!3d26.5125425!4d85.2891106!16s%2Fg%2F11rv6286td"
+                  href={settings.googleMapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(settings.schoolAddress || '')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-amber-300 transition-colors underline-offset-2 hover:underline"
-                  title="View PDS Public School on Google Maps (Plus Code: G77Q+2J)"
+                  title={`View ${schoolIdentity(settings).name} on Google Maps`}
                 >
                   {settings.schoolAddress || ''}{settings.plusCode ? ` (Plus Code: ${String(settings.plusCode).split(' ')[0]})` : ''}
                 </a>
@@ -171,7 +171,7 @@ export const PublicFooter: React.FC<PublicFooterProps> = ({
                   onClick={() => onNavigateSection('facilities')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Campus & Hostel
+                  Campus & Facilities
                 </button>
               </li>
               <li>
@@ -233,7 +233,7 @@ export const PublicFooter: React.FC<PublicFooterProps> = ({
                   onClick={() => onNavigateSection('facilities')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Residential Hostel Boarding
+                  School Facilities
                 </button>
               </li>
               <li>

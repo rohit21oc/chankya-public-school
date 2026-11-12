@@ -16,7 +16,7 @@ check('backspace over a hyphen ("27-" -> "27")', formatDobInput('27-') === '27')
 check('slashes and dots are converted', formatDobInput('27/12/2003') === '27-12-2003' && formatDobInput('27.12.2003') === '27-12-2003');
 check('extra digits are cut at 8', formatDobInput('271220031234') === '27-12-2003');
 check('empty stays empty', formatDobInput('') === '');
-check('a password with letters is left untouched', formatDobInput('Pds@1234') === 'Pds@1234');
+check('a password with letters is left untouched', formatDobInput('Cps@1234') === 'Cps@1234');
 check('a password with digits and symbols is untouched', formatDobInput('1234#abc') === '1234#abc');
 const step = ['2', '27', '271', '2712', '27122', '271220', '2712200', '27122003'].map(formatDobInput);
 check('typed one digit at a time', step[7] === '27-12-2003' && step[2] === '27-1');

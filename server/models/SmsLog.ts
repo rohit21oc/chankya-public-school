@@ -58,7 +58,7 @@ const SmsLogSchema = new Schema(
     message: { type: String, required: true },
     characterCount: { type: Number, default: 0 },
     smsUnits: { type: Number, default: 1 },
-    provider: { type: String, default: 'PDS_SMS_GATEWAY' },
+    provider: { type: String, default: 'CPS_SMS_GATEWAY' },
     providerMessageId: { type: String, index: true },
     status: {
       type: String,

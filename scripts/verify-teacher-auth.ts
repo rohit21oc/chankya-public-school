@@ -19,11 +19,11 @@ async function postJson(url: string, data: any, token?: string) {
 async function testEndpoint() {
   console.log('--- STARTING REAL TEACHER AUTH VERIFICATION ---\n');
 
-  // Test 1a: Teacher login with uppercase Employee ID (PDS0011) + current password (PdsTeacher@123)
-  console.log('Test 1a: Teacher login with uppercase Employee ID (PDS0011) + current password (PdsTeacher@123)');
+  // Test 1a: Teacher login with uppercase Employee ID (CPS0011) + current password (CpsTeacher@123)
+  console.log('Test 1a: Teacher login with uppercase Employee ID (CPS0011) + current password (CpsTeacher@123)');
   const res1a = await postJson(`${BASE_URL}/api/auth/login`, {
-    identifier: 'PDS0011',
-    password: 'PdsTeacher@123',
+    identifier: 'CPS0011',
+    password: 'CpsTeacher@123',
     loginType: 'STAFF_ADMIN',
   });
   if (res1a.status !== 200 || !res1a.data?.success) {
@@ -32,11 +32,11 @@ async function testEndpoint() {
   }
   console.log(`✓ Status: ${res1a.status}, Success: ${res1a.data.success}, Role: ${res1a.data.user.role}, Name: ${res1a.data.user.name}`);
 
-  // Test 1b: Teacher login with lowercase Employee ID (pds0011) + current password
-  console.log('\nTest 1b: Teacher login with lowercase Employee ID (pds0011) + current password');
+  // Test 1b: Teacher login with lowercase Employee ID (cps0011) + current password
+  console.log('\nTest 1b: Teacher login with lowercase Employee ID (cps0011) + current password');
   const res1b = await postJson(`${BASE_URL}/api/auth/login`, {
-    identifier: 'pds0011',
-    password: 'PdsTeacher@123',
+    identifier: 'cps0011',
+    password: 'CpsTeacher@123',
     loginType: 'STAFF_ADMIN',
   });
   if (res1b.status !== 200 || !res1b.data?.success) {
@@ -49,7 +49,7 @@ async function testEndpoint() {
   console.log('\nTest 1c: Teacher login with Email (sunita.verma.school@gmail.com) + current password');
   const res1c = await postJson(`${BASE_URL}/api/auth/login`, {
     identifier: 'sunita.verma.school@gmail.com',
-    password: 'PdsTeacher@123',
+    password: 'CpsTeacher@123',
     loginType: 'STAFF_ADMIN',
   });
   if (res1c.status !== 200 || !res1c.data?.success) {
@@ -62,7 +62,7 @@ async function testEndpoint() {
   console.log('\nTest 1d: Teacher login with Phone (9811223344) + current password');
   const res1d = await postJson(`${BASE_URL}/api/auth/login`, {
     identifier: '9811223344',
-    password: 'PdsTeacher@123',
+    password: 'CpsTeacher@123',
     loginType: 'STAFF_ADMIN',
   });
   if (res1d.status !== 200 || !res1d.data?.success) {
@@ -74,7 +74,7 @@ async function testEndpoint() {
   // Test 2: Wrong password -> HTTP 401
   console.log('\nTest 2: Wrong password -> HTTP 401');
   const res2 = await postJson(`${BASE_URL}/api/auth/login`, {
-    identifier: 'PDS0011',
+    identifier: 'CPS0011',
     password: 'WrongPassword@999',
     loginType: 'STAFF_ADMIN',
   });
@@ -100,12 +100,12 @@ async function testEndpoint() {
   console.log(`✓ Admin logged in, acquired token.`);
 
   const NEW_PASSWORD = 'NewTeacherSecret@2026';
-  console.log(`Admin resetting password for PDS0011 to "${NEW_PASSWORD}"...`);
+  console.log(`Admin resetting password for CPS0011 to "${NEW_PASSWORD}"...`);
   const resetRes = await postJson(
     `${BASE_URL}/api/admin/reset-password-direct`,
     {
       targetType: 'STAFF',
-      targetId: 'PDS0011',
+      targetId: 'CPS0011',
       newPassword: NEW_PASSWORD,
       sendEmail: false,
     },
@@ -120,8 +120,8 @@ async function testEndpoint() {
   // Test 4: Old password -> MUST FAIL (HTTP 401)
   console.log('\nTest 4: Old password -> MUST FAIL (HTTP 401)');
   const res4 = await postJson(`${BASE_URL}/api/auth/login`, {
-    identifier: 'PDS0011',
-    password: 'PdsTeacher@123',
+    identifier: 'CPS0011',
+    password: 'CpsTeacher@123',
     loginType: 'STAFF_ADMIN',
   });
   if (res4.status === 401) {
@@ -134,7 +134,7 @@ async function testEndpoint() {
   // Test 5: New password -> MUST LOGIN SUCCESSFULLY (HTTP 200)
   console.log('\nTest 5: New password -> MUST LOGIN SUCCESSFULLY (HTTP 200)');
   const res5 = await postJson(`${BASE_URL}/api/auth/login`, {
-    identifier: 'PDS0011',
+    identifier: 'CPS0011',
     password: NEW_PASSWORD,
     loginType: 'STAFF_ADMIN',
   });
@@ -146,9 +146,9 @@ async function testEndpoint() {
 
   // Test 6: Also test resetting via /api/teachers/:id/reset-password
   console.log('\nTest 6: Admin resets password via /api/teachers/:id/reset-password endpoint');
-  const RESTORED_PASSWORD = 'PdsTeacher@123';
+  const RESTORED_PASSWORD = 'CpsTeacher@123';
   const resetRes2 = await postJson(
-    `${BASE_URL}/api/teachers/PDS0011/reset-password`,
+    `${BASE_URL}/api/teachers/CPS0011/reset-password`,
     {
       newPassword: RESTORED_PASSWORD,
       sendEmail: false,
@@ -162,9 +162,9 @@ async function testEndpoint() {
   console.log(`✓ Endpoint reset response:`, resetRes2.data.message);
 
   // Test 7: Verify interim password fails and restored password works
-  console.log('\nTest 7: Verify interim password fails (401) and restored password (PdsTeacher@123) works (200)');
+  console.log('\nTest 7: Verify interim password fails (401) and restored password (CpsTeacher@123) works (200)');
   const res7a = await postJson(`${BASE_URL}/api/auth/login`, {
-    identifier: 'PDS0011',
+    identifier: 'CPS0011',
     password: NEW_PASSWORD,
     loginType: 'STAFF_ADMIN',
   });
@@ -176,7 +176,7 @@ async function testEndpoint() {
   }
 
   const res7b = await postJson(`${BASE_URL}/api/auth/login`, {
-    identifier: 'PDS0011',
+    identifier: 'CPS0011',
     password: RESTORED_PASSWORD,
     loginType: 'STAFF_ADMIN',
   });
@@ -186,10 +186,10 @@ async function testEndpoint() {
   }
   console.log(`✓ Restored password login succeeded! Status: ${res7b.status}, User: ${res7b.data.user.name}`);
 
-  // Test 8: Another real teacher account: Anil Kumar Mishra (PDS0010)
-  console.log('\nTest 8: Real Teacher login for Anil Kumar Mishra (PDS0010 / 9876543210)');
+  // Test 8: Another real teacher account: Anil Kumar Mishra (CPS0010)
+  console.log('\nTest 8: Real Teacher login for Anil Kumar Mishra (CPS0010 / 9876543210)');
   const res8a = await postJson(`${BASE_URL}/api/auth/login`, {
-    identifier: 'PDS0010',
+    identifier: 'CPS0010',
     password: 'admin123',
     loginType: 'STAFF_ADMIN',
   });

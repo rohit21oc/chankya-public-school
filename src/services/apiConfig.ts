@@ -8,12 +8,13 @@
  */
 
 // Storage keys
-const BACKEND_URL_STORAGE_KEY = 'PDS_BACKEND_API_URL';
-const DEFAULT_PROD_BACKEND_URL = 'https://residentialpdsschool.onrender.com';
+const BACKEND_URL_STORAGE_KEY = 'CPS_BACKEND_API_URL';
+// No built-in production backend: set VITE_API_URL when the website is hosted separately from the API.
+const DEFAULT_PROD_BACKEND_URL = '';
 
 declare global {
   interface Window {
-    __PDS_API_URL__?: string;
+    __CPS_API_URL__?: string;
   }
 }
 
@@ -76,13 +77,6 @@ export function getApiBaseUrl(): string {
     return '';
   }
 
-  // 2. Production Render Deployment Mapping:
-  // Frontend: https://residentialpdsschool.in
-  // Backend API: https://residentialpdsschool.onrender.com
-  if (hostname.includes('residentialpdspublicschool.onrender.com') || hostname === 'residentialpdspublicschool.onrender.com') {
-    return 'https://residentialpdsschool.onrender.com';
-  }
-
   // 3. Vite environment variables (e.g. VITE_API_URL set in deployment)
   const envUrl =
     (import.meta as any).env?.VITE_API_URL ||
@@ -103,8 +97,8 @@ export function getApiBaseUrl(): string {
   }
 
   // 5. Global runtime variable injected by server or deployment script
-  if (window.__PDS_API_URL__) {
-    return normalizeUrl(window.__PDS_API_URL__);
+  if (window.__CPS_API_URL__) {
+    return normalizeUrl(window.__CPS_API_URL__);
   }
 
   // 6. If running on a static hosting platform and no backend URL was supplied,
@@ -129,7 +123,7 @@ export function setApiBaseUrl(url: string): void {
     localStorage.removeItem(BACKEND_URL_STORAGE_KEY);
   }
   window.dispatchEvent(
-    new CustomEvent('pds:backend_url_changed', {
+    new CustomEvent('cps:backend_url_changed', {
       detail: { url: normalized },
     })
   );
@@ -142,7 +136,7 @@ export function clearApiBaseUrl(): void {
   if (typeof window === 'undefined') return;
   localStorage.removeItem(BACKEND_URL_STORAGE_KEY);
   window.dispatchEvent(
-    new CustomEvent('pds:backend_url_changed', {
+    new CustomEvent('cps:backend_url_changed', {
       detail: { url: '' },
     })
   );
@@ -295,8 +289,8 @@ export async function testBackendConnection(
   }
 }
 
-export const AUTH_TOKEN_KEY = 'pradnya_auth_token';
-export const AUTH_USER_KEY = 'pradnya_auth_user';
+export const AUTH_TOKEN_KEY = 'cps_auth_token';
+export const AUTH_USER_KEY = 'cps_auth_user';
 
 export function getStoredUser(): any | null {
   if (typeof window === 'undefined') return null;
@@ -304,8 +298,8 @@ export function getStoredUser(): any | null {
     const raw =
       localStorage.getItem(AUTH_USER_KEY) ||
       sessionStorage.getItem(AUTH_USER_KEY) ||
-      localStorage.getItem('pradnya_erp_current_user') ||
-      sessionStorage.getItem('pradnya_erp_current_user');
+      localStorage.getItem('cps_erp_current_user') ||
+      sessionStorage.getItem('cps_erp_current_user');
     return raw ? JSON.parse(raw) : null;
   } catch {
     return null;
@@ -354,14 +348,14 @@ export function getAuthToken(): string | null {
   let prefStorage: Storage = localStorage;
   let fallbackStorage: Storage = sessionStorage;
   try {
-    const storageType = localStorage.getItem('pradnya_auth_storage_type');
+    const storageType = localStorage.getItem('cps_auth_storage_type');
     if (storageType === 'session') {
       prefStorage = sessionStorage;
       fallbackStorage = localStorage;
     }
   } catch {}
 
-  const candidateKeys = [AUTH_TOKEN_KEY, 'pradnya_auth_token', 'pds_auth_token'];
+  const candidateKeys = [AUTH_TOKEN_KEY, 'cps_auth_token', 'cps_auth_token'];
 
   // Check preferred storage first
   for (const key of candidateKeys) {
@@ -419,8 +413,8 @@ export function getAuthHeaders(extraHeaders: Record<string, string> = {}): Recor
     const rawUser =
       localStorage.getItem(AUTH_USER_KEY) ||
       sessionStorage.getItem(AUTH_USER_KEY) ||
-      localStorage.getItem('pradnya_erp_current_user') ||
-      sessionStorage.getItem('pradnya_erp_current_user');
+      localStorage.getItem('cps_erp_current_user') ||
+      sessionStorage.getItem('cps_erp_current_user');
     if (rawUser) {
       const u = JSON.parse(rawUser);
       if (u?.id) headers['x-auth-user-id'] = String(u.id);

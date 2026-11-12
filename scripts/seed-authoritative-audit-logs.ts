@@ -37,7 +37,7 @@ const authoritativeLogs: AuditLog[] = [];
 
 // 1. Initial System Configuration
 authoritativeLogs.push({
-  id: 'log-pds-init-001',
+  id: 'log-cps-init-001',
   timestamp: '2026-04-01 09:00:00',
   userName: 'Shri Ramakant Saxena',
   role: 'SUPER_ADMIN',
@@ -49,7 +49,7 @@ authoritativeLogs.push({
 });
 
 authoritativeLogs.push({
-  id: 'log-pds-init-002',
+  id: 'log-cps-init-002',
   timestamp: '2026-04-01 09:30:15',
   userName: 'Shri Ramakant Saxena',
   role: 'SUPER_ADMIN',
@@ -57,11 +57,11 @@ authoritativeLogs.push({
   entity: 'SchoolSettings',
   entityId: 'config',
   ipAddress: '10.0.4.12',
-  details: 'Configured school profile: RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR, Affiliation Code 10030206405',
+  details: 'Configured school profile: CHANAKYA PUBLIC SCHOOL & COACHING CENTRE, Affiliation Code 10034104008',
 });
 
 authoritativeLogs.push({
-  id: 'log-pds-init-003',
+  id: 'log-cps-init-003',
   timestamp: '2026-04-02 10:15:22',
   userName: 'Nandini Raut',
   role: 'PRINCIPAL',
@@ -84,13 +84,13 @@ for (let i = 0; i < Math.min(teachers.length, 10); i++) {
     entity: 'TeacherStaff',
     entityId: t.id || `staff-${i}`,
     ipAddress: '10.0.4.12',
-    details: `Registered staff profile for ${t.name || t.fullName || 'Faculty Member'} (${t.designation || 'Teacher'}, Emp ID: ${t.employeeId || 'PDS' + i})`,
+    details: `Registered staff profile for ${t.name || t.fullName || 'Faculty Member'} (${t.designation || 'Teacher'}, Emp ID: ${t.employeeId || 'CPS' + i})`,
   });
 }
 
 // 3. Timetable and Academic Structure
 authoritativeLogs.push({
-  id: 'log-pds-acad-001',
+  id: 'log-cps-acad-001',
   timestamp: '2026-04-10 14:20:00',
   userName: 'Prof. Anirudh Sharma',
   role: 'PRINCIPAL',
@@ -102,7 +102,7 @@ authoritativeLogs.push({
 });
 
 authoritativeLogs.push({
-  id: 'log-pds-acad-002',
+  id: 'log-cps-acad-002',
   timestamp: '2026-04-12 11:45:00',
   userName: 'Mr. Vikram Sethi',
   role: 'SCHOOL_ADMIN',

@@ -5,12 +5,12 @@ const BASE_URL = 'http://localhost:3000';
 async function run() {
   console.log('=== VERIFYING STAFF PROFILE ATTENDANCE & LEAVE FLOW ===');
 
-  // 1. Login Teacher (PDS0002)
+  // 1. Login Teacher (CPS0002)
   const teacherLoginRes = await fetch(`${BASE_URL}/api/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      identifier: 'PDS0002',
+      identifier: 'CPS0002',
       password: 'admin123',
       loginType: 'STAFF_ADMIN',
     }),
@@ -84,7 +84,7 @@ async function run() {
     },
     body: JSON.stringify({
       staffId: teacherUser.id,
-      employeeId: teacherUser.employeeId || 'PDS0002',
+      employeeId: teacherUser.employeeId || 'CPS0002',
       staffName: teacherUser.name,
       leaveType: 'CASUAL',
       startDate: leaveStartDate,

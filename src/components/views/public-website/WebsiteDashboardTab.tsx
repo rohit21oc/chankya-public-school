@@ -154,7 +154,7 @@ export const WebsiteDashboardTab: React.FC<WebsiteDashboardTabProps> = ({
             <span>Public Website Management & Content Control</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
-            Residential PDS Public School Sheohar
+            Chanakya Public School & Coaching Centre
           </h2>
           <p className="text-sm text-slate-300 leading-relaxed">
             Welcome to the centralized content administrative hub for the public-facing school website.
@@ -310,7 +310,7 @@ export const WebsiteDashboardTab: React.FC<WebsiteDashboardTabProps> = ({
                 <strong>Media Storage & CDN:</strong> Connected & Serving Public Media
               </span>
             </div>
-            <span className="text-slate-500 font-medium">Residential PDS Public School Sheohar</span>
+            <span className="text-slate-500 font-medium">Chanakya Public School & Coaching Centre</span>
           </div>
         </div>
 

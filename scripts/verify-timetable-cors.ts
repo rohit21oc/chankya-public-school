@@ -1,7 +1,7 @@
 import assert from 'assert';
 
 const BASE_URL = 'http://127.0.0.1:3000';
-const PROD_FRONTEND_ORIGIN = 'https://residentialpdsschool.in';
+const PROD_FRONTEND_ORIGIN = 'https://your-school-domain.example';
 const AI_STUDIO_DEV_ORIGIN = 'https://ais-dev-ajiw6cywequ5jq45d3ssxu-783761109390.asia-southeast1.run.app';
 
 async function main() {
@@ -158,7 +158,7 @@ async function main() {
       'Content-Type': 'application/json',
       'x-auth-user-id': 'admin-1',
       'x-auth-user-role': 'SUPER_ADMIN',
-      'x-auth-employee-id': 'PDS0001',
+      'x-auth-employee-id': 'CPS0001',
     },
     body: JSON.stringify({
       classId: 'c-10',
@@ -214,7 +214,7 @@ async function main() {
       'Content-Type': 'application/json',
       'x-auth-user-id': 'admin-1',
       'x-auth-user-role': 'SUPER_ADMIN',
-      'x-auth-employee-id': 'PDS0001',
+      'x-auth-employee-id': 'CPS0001',
     },
     body: JSON.stringify({
       classId: 'c-10',

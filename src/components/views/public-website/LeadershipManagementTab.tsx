@@ -405,7 +405,7 @@ export const LeadershipManagementTab: React.FC<LeadershipManagementTabProps> = (
             </h3>
             <p className="text-xs text-slate-500">
               Manage leadership profiles, designations, messages, photos, and public display order for
-              Residential PDS Public School Sheohar.
+              Chanakya Public School & Coaching Centre.
             </p>
           </div>
 
@@ -991,7 +991,7 @@ export const LeadershipManagementTab: React.FC<LeadershipManagementTabProps> = (
                   </label>
                   <input
                     type="text"
-                    placeholder="e.g. Curriculum planning, faculty development, residential hostel supervision"
+                    placeholder="e.g. Curriculum planning, faculty development, student welfare"
                     value={responsibilities}
                     onChange={(e) => setResponsibilities(e.target.value)}
                     className="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-200 focus:border-blue-500 focus:outline-hidden"
@@ -1018,7 +1018,7 @@ export const LeadershipManagementTab: React.FC<LeadershipManagementTabProps> = (
                     </label>
                     <input
                       type="email"
-                      placeholder="e.g. principal@pdsresidential.edu"
+                      placeholder="e.g. principal@school.example"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-200 focus:border-blue-500 focus:outline-hidden"
@@ -1031,7 +1031,7 @@ export const LeadershipManagementTab: React.FC<LeadershipManagementTabProps> = (
                     </label>
                     <input
                       type="tel"
-                      placeholder="e.g. +91 9507595491"
+                      placeholder="e.g. +91 8207870192"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-200 focus:border-blue-500 focus:outline-hidden"

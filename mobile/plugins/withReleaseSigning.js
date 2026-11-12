@@ -10,30 +10,30 @@
  *   storePassword=...
  *   keyAlias=upload
  *   keyPassword=...
- * The same four values may instead come from the environment: PDS_KEYSTORE_FILE, PDS_KEYSTORE_PASSWORD,
- * PDS_KEY_ALIAS, PDS_KEY_PASSWORD.
+ * The same four values may instead come from the environment: CPS_KEYSTORE_FILE, CPS_KEYSTORE_PASSWORD,
+ * CPS_KEY_ALIAS, CPS_KEY_PASSWORD.
  */
 const { withAppBuildGradle, withGradleProperties } = require('expo/config-plugins');
 
-const MARK = '// pds-release-signing';
+const MARK = '// cps-release-signing';
 
 const LOADER = `${MARK}
-def pdsKeystoreProps = new Properties()
-def pdsKeystoreFile = rootProject.file('keystore.properties')
-if (pdsKeystoreFile.exists()) {
-    pdsKeystoreFile.withInputStream { pdsKeystoreProps.load(it) }
+def cpsKeystoreProps = new Properties()
+def cpsKeystoreFile = rootProject.file('keystore.properties')
+if (cpsKeystoreFile.exists()) {
+    cpsKeystoreFile.withInputStream { cpsKeystoreProps.load(it) }
 }
-def pdsSigning = { String prop, String env -> pdsKeystoreProps.getProperty(prop) ?: System.getenv(env) }
+def cpsSigning = { String prop, String env -> cpsKeystoreProps.getProperty(prop) ?: System.getenv(env) }
 `;
 
 const RELEASE_CONFIG = `        ${MARK}
         release {
-            def storePath = pdsSigning('storeFile', 'PDS_KEYSTORE_FILE')
+            def storePath = cpsSigning('storeFile', 'CPS_KEYSTORE_FILE')
             if (storePath) {
                 storeFile file(storePath)
-                storePassword pdsSigning('storePassword', 'PDS_KEYSTORE_PASSWORD')
-                keyAlias pdsSigning('keyAlias', 'PDS_KEY_ALIAS')
-                keyPassword pdsSigning('keyPassword', 'PDS_KEY_PASSWORD')
+                storePassword cpsSigning('storePassword', 'CPS_KEYSTORE_PASSWORD')
+                keyAlias cpsSigning('keyAlias', 'CPS_KEY_ALIAS')
+                keyPassword cpsSigning('keyPassword', 'CPS_KEY_PASSWORD')
             }
         }
 `;
@@ -45,12 +45,12 @@ gradle.taskGraph.whenReady { graph ->
     // On EAS Build (EAS_BUILD=true) the upload key comes from EAS's own credentials, which EAS wires into this
     // file after prebuild, so the local keystore.properties check must not run there.
     if (graph.hasTask(':app:bundleRelease') && System.getenv('EAS_BUILD') != 'true') {
-        def pdsStore = pdsSigning('storeFile', 'PDS_KEYSTORE_FILE')
-        if (!pdsStore) {
+        def cpsStore = cpsSigning('storeFile', 'CPS_KEYSTORE_FILE')
+        if (!cpsStore) {
             throw new GradleException('bundleRelease needs your upload key. Create mobile/android/keystore.properties (see mobile/ANDROID_STUDIO_RELEASE.md). Without it the bundle would be signed with the debug key, which Play Console rejects.')
         }
-        if (!file(pdsStore).exists()) {
-            throw new GradleException("Keystore file not found: " + file(pdsStore).absolutePath + ". storeFile in keystore.properties is relative to mobile/android/app.")
+        if (!file(cpsStore).exists()) {
+            throw new GradleException("Keystore file not found: " + file(cpsStore).absolutePath + ". storeFile in keystore.properties is relative to mobile/android/app.")
         }
     }
 }
@@ -74,7 +74,7 @@ module.exports = function withReleaseSigning(config) {
     // 3. use it for the release build type when a key is configured
     src = src.replace(
       /(buildTypes \{[\s\S]*?release \{[\s\S]*?)signingConfig signingConfigs\.debug/,
-      `$1signingConfig pdsSigning('storeFile', 'PDS_KEYSTORE_FILE') ? signingConfigs.release : signingConfigs.debug`
+      `$1signingConfig cpsSigning('storeFile', 'CPS_KEYSTORE_FILE') ? signingConfigs.release : signingConfigs.debug`
     );
     cfg.modResults.contents = `${src.trimEnd()}\n${BUNDLE_GUARD}`;
     return cfg;

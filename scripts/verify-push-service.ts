@@ -111,7 +111,7 @@ check('Web push without VAPID keys is a quiet no-op', (await noKeys.sendWeb([{ .
   const { isFcmToken, parseFcmServiceAccount, buildFcmAssertion } = await import('../server/services/pushService.ts');
   const { privateKey, publicKey } = generateKeyPairSync('rsa', { modulusLength: 2048 });
   const pem = privateKey.export({ type: 'pkcs8', format: 'pem' }).toString();
-  const saJson = JSON.stringify({ project_id: 'pds-test', client_email: 'svc@pds-test.iam.gserviceaccount.com', private_key: pem });
+  const saJson = JSON.stringify({ project_id: 'cps-test', client_email: 'svc@cps-test.iam.gserviceaccount.com', private_key: pem });
   const fcmTok = (n: number) => `fcm${n}:APA91b${'x'.repeat(60)}`;
 
   check('A Firebase device token is accepted, garbage refused', isFcmToken(fcmTok(1)) && !isFcmToken('short') && !isFcmToken('a b'.repeat(30)) && !isFcmToken(7));
@@ -145,7 +145,7 @@ check('Web push without VAPID keys is a quiet no-op', (await noKeys.sendWeb([{ .
   const goneKeys = await rt.sendFcm([mk(2), mk(3), mk(4)], { type: 'MESSAGE', title: 'T', body: 'B', data: { threadId: 'x' }, category: 'fee_due' });
   const sendCalls = calls.filter((c) => c.url.includes('fcm.googleapis.com'));
   const m = JSON.parse(sendCalls[0].init.body).message;
-  check('FCM request: project URL, bearer token, channel, string-only data', sendCalls[0].url === 'https://fcm.googleapis.com/v1/projects/pds-test/messages:send' && sendCalls[0].init.headers.Authorization === 'Bearer tok' && m.android.notification.channel_id === 'school-alerts' && m.data.threadId === 'x' && m.data.type === 'MESSAGE' && Object.values(m.data).every((v) => typeof v === 'string') && m.notification.title === 'T');
+  check('FCM request: project URL, bearer token, channel, string-only data', sendCalls[0].url === 'https://fcm.googleapis.com/v1/projects/cps-test/messages:send' && sendCalls[0].init.headers.Authorization === 'Bearer tok' && m.android.notification.channel_id === 'school-alerts' && m.data.threadId === 'x' && m.data.type === 'MESSAGE' && Object.values(m.data).every((v) => typeof v === 'string') && m.notification.title === 'T');
   check('Only an UNREGISTERED token is reported gone; a server error is not', goneKeys.length === 1 && goneKeys[0] === fcmTok(3));
   check('Access token is fetched once and reused', calls.filter((c) => c.url.includes('oauth2')).length === 1);
   const quiet = createRealTransport({});

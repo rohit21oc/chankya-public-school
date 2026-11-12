@@ -234,7 +234,7 @@ export const AddStaffPageView: React.FC<AddStaffPageViewProps> = ({
 
   // 6. Portal Access
   const [enableLogin, setEnableLogin] = useState(true);
-  const [initialPassword, setInitialPassword] = useState('Pds@2026');
+  const [initialPassword, setInitialPassword] = useState('Cps@2026');
   const [showPassword, setShowPassword] = useState(false);
   const [accountStatus, setAccountStatus] = useState<'ACTIVE' | 'INACTIVE' | 'SUSPENDED' | 'LEFT_SCHOOL'>('ACTIVE');
 
@@ -588,7 +588,7 @@ export const AddStaffPageView: React.FC<AddStaffPageViewProps> = ({
         phone: mobileNumber.trim(),
         email: emailAddress.trim() || undefined,
         alternatePhone: alternateMobile.trim() || undefined,
-        address: addressState.permanentAddress.trim() || 'Staff Quarters, PDS Campus',
+        address: addressState.permanentAddress.trim() || 'Staff Quarters, School Campus',
         city: addressState.permanentCity || 'Sheohar',
         state: addressState.permanentState || 'Bihar',
         pincode: addressState.permanentPincode || '843329',
@@ -740,7 +740,7 @@ export const AddStaffPageView: React.FC<AddStaffPageViewProps> = ({
 
         status: 'ACTIVE',
         loginEnabled: isNoLoginStaffRole(portalRole) ? false : enableLogin,
-        initialPassword: isNoLoginStaffRole(portalRole) ? undefined : initialPassword.trim() || 'Pds@2026',
+        initialPassword: isNoLoginStaffRole(portalRole) ? undefined : initialPassword.trim() || 'Cps@2026',
         accountStatus,
       };
 
@@ -968,7 +968,7 @@ export const AddStaffPageView: React.FC<AddStaffPageViewProps> = ({
               </span>
             </div>
             <p className="text-xs text-slate-500 mt-0.5">
-              Residential PDS Public School Sheohar • Complete employee profile and access provisioning
+              Chanakya Public School & Coaching Centre • Complete employee profile and access provisioning
             </p>
           </div>
         </div>
@@ -976,7 +976,7 @@ export const AddStaffPageView: React.FC<AddStaffPageViewProps> = ({
         <div className="flex items-center gap-2">
           <span className="text-xs text-slate-500">Auto Employee ID:</span>
           <span className="px-3 py-1 rounded-xl bg-blue-50 border border-blue-200 text-blue-800 font-mono font-bold text-xs">
-            {employeeId || 'PDS...'}
+            {employeeId || 'CPS...'}
           </span>
         </div>
       </div>
@@ -1131,7 +1131,7 @@ export const AddStaffPageView: React.FC<AddStaffPageViewProps> = ({
               </label>
               <input
                 type="email"
-                placeholder="staff@pdspublicschool.edu.in"
+                placeholder="staff@chanakyaschool.example"
                 value={emailAddress}
                 onChange={(e) => setEmailAddress(e.target.value)}
                 className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-hidden"
@@ -2105,7 +2105,7 @@ export const AddStaffPageView: React.FC<AddStaffPageViewProps> = ({
                 <div>
                   <span className="block text-xs font-bold text-slate-700 mb-1">Portal User ID</span>
                   <div className="px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white font-mono font-bold text-purple-900 text-xs">
-                    {employeeId || 'PDS0001'}
+                    {employeeId || 'CPS0001'}
                   </div>
                 </div>
 

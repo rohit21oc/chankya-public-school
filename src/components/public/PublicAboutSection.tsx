@@ -45,7 +45,7 @@ export const PublicAboutSection: React.FC = () => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            About RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR
+            About CHANAKYA PUBLIC SCHOOL & COACHING CENTRE
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             Founded with the noble mission of delivering transformative, values-centered, and disciplined education in Sheohar, Bihar.
@@ -94,14 +94,14 @@ export const PublicAboutSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center animate-in fade-in duration-200">
             <div className="lg:col-span-7 space-y-5">
               <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug">
-                A Beacon of Academic Distinction & Character Building in Sheohar
+                Quality Education & Character Building in Kushahar, Sheohar
               </h3>
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                {schoolIdentity(api.getSettings()).name} is a co-educational residential school
+                {schoolIdentity(api.getSettings()).name} is a co-educational school
                 {schoolIdentity(api.getSettings()).address ? `, located at ${schoolIdentity(api.getSettings()).address}` : ''}. Our campus provides a safe and caring place to learn for boys and girls.
               </p>
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                Our pedagogical approach blends rigorous CBSE syllabi, hands-on scientific experimentation, computerized education, spoken English mastery, and cultural grounding. As a residential school, we ensure continuous mentoring, structured evening prep sessions, and wholesome organic nutrition.
+                Our classes run from Class 1 to Class 8, with Mathematics, Science, Social Science, Computer education, Music and Yoga, and Hindi, English and Urdu as language subjects, supported by caring teachers and strong values.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
@@ -123,9 +123,9 @@ export const PublicAboutSection: React.FC = () => {
                     <Users className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900">Residential Care</h4>
+                    <h4 className="text-xs font-bold text-slate-900">Student Care</h4>
                     <p className="text-[11px] text-slate-500 mt-0.5">
-                      Secure hostels, supervised study hours, and balanced dietary meals.
+                      A safe, caring campus with attention to every child.
                     </p>
                   </div>
                 </div>
@@ -165,11 +165,11 @@ export const PublicAboutSection: React.FC = () => {
                 )}
                 <div className="p-4 bg-slate-900 text-white rounded-b-xl mt-2 space-y-2">
                   <div className="flex items-center justify-between text-xs text-amber-400 font-bold">
-                    <span>RESIDENTIAL PDS PUBLIC SCHOOL</span>
-                    <span className="font-mono">SHEOHAR, BIHAR</span>
+                    <span>CHANAKYA PUBLIC SCHOOL & COACHING CENTRE</span>
+                    <span className="font-mono">KUSHAHAR, SHEOHAR</span>
                   </div>
                   <p className="text-[11px] text-slate-300">
-                    Located near Shahpur Road on BRC Road, offering modern academic buildings, well-ventilated classrooms, lush campus grounds, and comprehensive residential blocks.
+                    A welcoming campus in Kushahar, Sheohar, for boys and girls from Class 1 to Class 8.
                   </p>
                 </div>
               </div>
@@ -212,7 +212,7 @@ export const PublicAboutSection: React.FC = () => {
               </div>
               <h3 className="text-xl font-black text-slate-900">Our Mission</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                To provide a stimulating learning environment through modern instructional techniques, dedicated residential mentorship, and state-of-the-art facilities that unlock the full intellectual, physical, and emotional potential of every student.
+                To provide a stimulating learning environment through modern instructional techniques, dedicated mentorship, and good facilities that unlock the full intellectual, physical, and emotional potential of every student.
               </p>
               <ul className="space-y-2 text-xs text-slate-700 pt-2 border-t border-slate-100">
                 <li className="flex items-center gap-2">
@@ -225,7 +225,7 @@ export const PublicAboutSection: React.FC = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>Safe, supportive residential home away from home with 24x7 supervision</span>
+                  <span>Safe, caring and supportive school environment for every child</span>
                 </li>
               </ul>
             </div>

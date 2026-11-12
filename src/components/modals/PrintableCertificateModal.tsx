@@ -151,7 +151,7 @@ export const PrintableCertificateModal: React.FC<PrintableCertificateModalProps>
   const studentFather = currentStudent.fatherName || currentStudent.parentName || 'Father';
   const studentMother = currentStudent.motherName || 'Verified Mother';
   const session = currentStudent.academicSession || activeSettings.currentAcademicSession || '2026-2027';
-  const regNo = currentStudent.registrationNumber || `PDS${currentStudent.admissionNumber}`;
+  const regNo = currentStudent.registrationNumber || `CPS${currentStudent.admissionNumber}`;
   const studentAddress = `${currentStudent.address || ''}, ${currentStudent.city || ''}, ${currentStudent.state || 'Bihar'} - ${currentStudent.pincode || '843329'}`.trim();
   // Only saved School Settings values; missing ones print as "Not configured".
   const affiliationCode = activeSettings.affiliationCode || activeSettings.affiliationNumber || NOT_CONFIGURED;

@@ -237,7 +237,7 @@ export const TeacherDashboardView: React.FC<TeacherDashboardViewProps> = ({
       teacher: {
         id: currentStaff?.id || user.id,
         name: currentStaff?.name || user.name,
-        employeeId: currentStaff?.employeeId || user.employeeId || 'PDS0001',
+        employeeId: currentStaff?.employeeId || user.employeeId || 'CPS0001',
         designation: currentStaff?.designation || 'Teacher / Faculty',
         department: currentStaff?.department || 'ACADEMICS',
         classTeacherOf: currentStaff?.classTeacherOf || '',
@@ -279,7 +279,7 @@ export const TeacherDashboardView: React.FC<TeacherDashboardViewProps> = ({
 
   const teacher = teacherSummary?.teacher || {
     name: user.name,
-    employeeId: user.employeeId || 'PDS0001',
+    employeeId: user.employeeId || 'CPS0001',
     designation: 'Teacher / Faculty',
     department: 'ACADEMICS',
     classTeacherOf: '',
@@ -361,7 +361,7 @@ export const TeacherDashboardView: React.FC<TeacherDashboardViewProps> = ({
                 <span>•</span>
                 <span>Academic Session: <strong>{teacherSummary?.academicSession || settings.currentAcademicSession || '2026-2027'}</strong></span>
                 <span>•</span>
-                <span>RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR</span>
+                <span>CHANAKYA PUBLIC SCHOOL & COACHING CENTRE</span>
               </p>
 
               {/* Assigned Subjects Badges */}

@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Page title, description, canonical, Open Graph and structured data are added per page by the server (see src/utils/seo.ts). These are the fallback for static hosting. -->
-    <title>RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR</title>
-    <meta name="description" content="RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR, a co-educational residential school in Sheohar, Bihar. Admissions, notices and results." />
+    <title>CHANAKYA PUBLIC SCHOOL &amp; COACHING CENTRE</title>
+    <meta name="description" content="CHANAKYA PUBLIC SCHOOL &amp; COACHING CENTRE, a co-educational school in Kushahar, Sheohar, Bihar (Classes 1 to 8). Admissions, notices and results." />
     <meta name="theme-color" content="#0B1F4B" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,7 +17,7 @@
     <script>
       (function() {
         try {
-          var stored = localStorage.getItem('pds_school_erp');
+          var stored = localStorage.getItem('cps_school_erp');
           if (stored) {
             var cache = JSON.parse(stored);
             var logoKey = cache && cache.settings && (cache.settings.schoolLogo || cache.settings.logoFileKey);
@@ -30,11 +30,7 @@
                 !cleanLogo.startsWith('data:') &&
                 !cleanLogo.startsWith('blob:')
               ) {
-                var host = window.location.hostname.toLowerCase();
-                var apiBase = '';
-                if (host.includes('residentialpdspublicschool.onrender.com')) {
-                  apiBase = 'https://residentialpdsschool.onrender.com';
-                }
+                var apiBase = (window.__CPS_API_URL__ || '').replace(/\/+$/, '');
                 var cleanPath = cleanLogo.replace(/^\/+/, '');
                 resolvedUrl = apiBase + '/api/files/content?key=' + encodeURIComponent(cleanPath);
               }

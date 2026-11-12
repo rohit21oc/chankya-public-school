@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const BASE_URL = 'http://localhost:3000';
-const JWT_SECRET = process.env.JWT_SECRET || 'residential_pds_sheohar_jwt_production_secret_key_2026';
+const JWT_SECRET = process.env.JWT_SECRET || 'residential_cps_sheohar_jwt_production_secret_key_2026';
 
 interface RoleTestConfig {
   role: string;
@@ -16,14 +16,14 @@ interface RoleTestConfig {
 const ROLES_TO_TEST: RoleTestConfig[] = [
   { role: 'SUPER_ADMIN', identifier: 'admin', password: 'admin123', canManageStudents: true },
   { role: 'SCHOOL_ADMIN', identifier: 'schooladmin', password: 'admin123', canManageStudents: true },
-  { role: 'PRINCIPAL', identifier: 'PDS0001', password: 'admin123', canManageStudents: true },
-  { role: 'VICE_PRINCIPAL', identifier: 'PDS0009', password: 'admin123', canManageStudents: true },
-  { role: 'ACADEMIC_COORDINATOR', identifier: 'PDS0008', password: 'admin123', canManageStudents: false },
-  { role: 'ACCOUNTANT', identifier: 'PDS0004', password: 'admin123', canManageStudents: false },
-  { role: 'TEACHER', identifier: 'PDS0002', password: 'admin123', canManageStudents: false },
-  { role: 'HOSTEL_WARDEN', identifier: 'PDS0006', password: 'admin123', canManageStudents: false },
-  { role: 'TRANSPORT_MANAGER', identifier: 'PDS0007', password: 'admin123', canManageStudents: false },
-  { role: 'HR_STAFF', identifier: 'PDS0005', password: 'admin123', canManageStudents: false },
+  { role: 'PRINCIPAL', identifier: 'CPS0001', password: 'admin123', canManageStudents: true },
+  { role: 'VICE_PRINCIPAL', identifier: 'CPS0009', password: 'admin123', canManageStudents: true },
+  { role: 'ACADEMIC_COORDINATOR', identifier: 'CPS0008', password: 'admin123', canManageStudents: false },
+  { role: 'ACCOUNTANT', identifier: 'CPS0004', password: 'admin123', canManageStudents: false },
+  { role: 'TEACHER', identifier: 'CPS0002', password: 'admin123', canManageStudents: false },
+  { role: 'HOSTEL_WARDEN', identifier: 'CPS0006', password: 'admin123', canManageStudents: false },
+  { role: 'TRANSPORT_MANAGER', identifier: 'CPS0007', password: 'admin123', canManageStudents: false },
+  { role: 'HR_STAFF', identifier: 'CPS0005', password: 'admin123', canManageStudents: false },
 ];
 
 async function run() {

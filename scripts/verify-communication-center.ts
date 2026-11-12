@@ -5,7 +5,7 @@ const BASE_URL = 'http://127.0.0.1:3000';
 async function main() {
   console.log('========================================================================');
   console.log('COMMUNICATION CENTER & SMS GATEWAY AUTOMATED VERIFICATION');
-  console.log('RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR');
+  console.log('CHANAKYA PUBLIC SCHOOL & COACHING CENTRE');
   console.log('========================================================================\n');
 
   let passedTests = 0;
@@ -150,7 +150,7 @@ async function main() {
           idempotencyKey: testIdempotencyKey,
         },
       ],
-      message: 'RESIDENTIAL PDS PUBLIC SCHOOL: Verification alert. Idempotency test.',
+      message: 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE: Verification alert. Idempotency test.',
       triggerType: 'CUSTOM',
     }),
   });
@@ -173,7 +173,7 @@ async function main() {
           idempotencyKey: testIdempotencyKey,
         },
       ],
-      message: 'RESIDENTIAL PDS PUBLIC SCHOOL: Verification alert. Idempotency test.',
+      message: 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE: Verification alert. Idempotency test.',
       triggerType: 'CUSTOM',
     }),
   });

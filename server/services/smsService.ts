@@ -39,13 +39,13 @@ export interface SmsBatchDispatchResult {
 }
 
 export class SmsService {
-  private defaultProvider = 'PDS_SMS_GATEWAY';
+  private defaultProvider = 'CPS_SMS_GATEWAY';
   // Read on use so values loaded from .env after this module is imported are honoured.
   private get apiKey(): string {
     return process.env.SMS_API_KEY || '';
   }
   private get senderId(): string {
-    return process.env.SMS_SENDER_ID || 'PDSSHR';
+    return process.env.SMS_SENDER_ID || 'CPSKSH';
   }
 
   /**
@@ -197,7 +197,7 @@ export class SmsService {
 
     // 3. Dispatch to Gateway
     let gatewaySuccess = false;
-    let providerMessageId = `PDS-SMS-${Date.now()}-${Math.floor(1000 + Math.random() * 9000)}`;
+    let providerMessageId = `CPS-SMS-${Date.now()}-${Math.floor(1000 + Math.random() * 9000)}`;
     let activeProvider = this.defaultProvider;
     let gatewayError: string | undefined = undefined;
 

@@ -1,7 +1,7 @@
 import { BRAND_COLORS } from '../utils/branding';
 
 /**
- * Design tokens for the teacher Home Dashboard (Figma file "pds-school",
+ * Design tokens for the teacher Home Dashboard (Figma file "cps-school",
  * frame "Home · Teacher Dashboard"). Brand colors are reused from BRAND_COLORS;
  * only values that the shared palette does not already define are added here.
  */

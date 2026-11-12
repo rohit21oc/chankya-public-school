@@ -1295,7 +1295,7 @@ export const StudentProfileView: React.FC<StudentProfileViewProps> = ({
                 </div>
                 <div>
                   <span className="text-slate-500 block text-[11px]">Consulting Physician</span>
-                  <strong className="text-slate-900">{student.doctorName || 'Dr. Rajeshwar Sharma'} ({student.doctorContact || '95075 95491'})</strong>
+                  <strong className="text-slate-900">{student.doctorName || 'Not provided'} ({student.doctorContact || 'Not provided'})</strong>
                 </div>
               </div>
             </div>
@@ -1348,7 +1348,7 @@ export const StudentProfileView: React.FC<StudentProfileViewProps> = ({
               </div>
               <div className="p-3 bg-slate-50 rounded-lg border border-slate-200">
                 <span className="text-slate-400 block text-[10px] uppercase font-semibold">Previous School</span>
-                <span className="font-semibold text-slate-900">{student.previousSchool || 'Direct Entry / PDS Sheohar'}</span>
+                <span className="font-semibold text-slate-900">{student.previousSchool || 'Direct Entry'}</span>
               </div>
               <div className="p-3 bg-slate-50 rounded-lg border border-slate-200">
                 <span className="text-slate-400 block text-[10px] uppercase font-semibold">Previous Class & Marks</span>
@@ -1821,7 +1821,7 @@ export const StudentProfileView: React.FC<StudentProfileViewProps> = ({
                   Examination Assessment & Academic Performance
                 </h4>
                 <p className="text-xs text-slate-500 mt-0.5">
-                  Published examinations, admit cards, and official CBSE marksheets for {student.className || `Class ${student.classId}`} ({student.section || 'A'})
+                  Published examinations, admit cards, and official marksheets for {student.className || `Class ${student.classId}`} ({student.section || 'A'})
                 </p>
               </div>
               <button
@@ -2489,10 +2489,10 @@ export const StudentProfileView: React.FC<StudentProfileViewProps> = ({
                   />
                   <button
                     type="button"
-                    onClick={() => setStudentNewPassword('PDS123')}
+                    onClick={() => setStudentNewPassword('CPS123')}
                     className="px-3 py-2 border border-slate-200 hover:bg-slate-50 text-slate-600 rounded-lg text-xs cursor-pointer"
                   >
-                    Use "PDS123"
+                    Use "CPS123"
                   </button>
                   <button
                     type="submit"
@@ -2550,10 +2550,10 @@ export const StudentProfileView: React.FC<StudentProfileViewProps> = ({
                   />
                   <button
                     type="button"
-                    onClick={() => setParentNewPassword('PDS123')}
+                    onClick={() => setParentNewPassword('CPS123')}
                     className="px-3 py-2 border border-slate-200 hover:bg-slate-50 text-slate-600 rounded-lg text-xs cursor-pointer"
                   >
-                    Use "PDS123"
+                    Use "CPS123"
                   </button>
                   <button
                     type="submit"

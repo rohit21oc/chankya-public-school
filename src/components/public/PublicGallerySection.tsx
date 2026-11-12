@@ -120,7 +120,7 @@ export const PublicGallerySection: React.FC = () => {
                   {!isError ? (
                     <img loading="lazy" decoding="async"
                       src={imgSrc}
-                      alt={item.title ? `${item.title} - RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR` : 'Campus photo - RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR'}
+                      alt={item.title ? `${item.title} - CHANAKYA PUBLIC SCHOOL & COACHING CENTRE` : 'Campus photo - CHANAKYA PUBLIC SCHOOL & COACHING CENTRE'}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       referrerPolicy="no-referrer"
                       onError={() => setImageErrors((prev) => ({ ...prev, [item.id]: true }))}
@@ -187,7 +187,7 @@ export const PublicGallerySection: React.FC = () => {
               {!isModalError ? (
                 <img
                   src={modalImgSrc}
-                  alt={activePhoto.title ? `${activePhoto.title} - RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR` : 'Enlarged campus photo - RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR'}
+                  alt={activePhoto.title ? `${activePhoto.title} - CHANAKYA PUBLIC SCHOOL & COACHING CENTRE` : 'Enlarged campus photo - CHANAKYA PUBLIC SCHOOL & COACHING CENTRE'}
                   className="max-h-[70vh] w-auto max-w-full rounded-xl object-contain shadow-2xl"
                   referrerPolicy="no-referrer"
                   onError={() => setImageErrors((prev) => ({ ...prev, [activePhoto.id]: true }))}

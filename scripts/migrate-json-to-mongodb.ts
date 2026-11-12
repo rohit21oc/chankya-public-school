@@ -79,7 +79,7 @@ async function runMigration() {
   const cleanUri = sanitizeMongoUri(rawUri);
   console.log('[Migration] Connecting to MongoDB Atlas via Mongoose...');
   await mongoose.connect(cleanUri, {
-    dbName: 'pds_school_erp',
+    dbName: 'cps_school_erp',
     serverSelectionTimeoutMS: 15000,
   });
   console.log('[Migration] Connected successfully to database:', mongoose.connection.name);

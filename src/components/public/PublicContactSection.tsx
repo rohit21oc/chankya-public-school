@@ -29,6 +29,11 @@ export const PublicContactSection: React.FC<PublicContactSectionProps> = ({ sett
 
   // Saved School Settings only; nothing is invented when a value is missing.
   const sid = schoolIdentity(settings);
+  // Map link / embed come from School Settings; without saved coordinates the saved address is searched instead.
+  const hasCoords = Number.isFinite(Number(settings?.latitude)) && Number.isFinite(Number(settings?.longitude)) && (Number(settings?.latitude) !== 0 || Number(settings?.longitude) !== 0);
+  const mapQuery = hasCoords ? `${settings?.latitude},${settings?.longitude}` : (sid.address || '');
+  const mapsHref = settings?.googleMapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`;
+  const mapEmbedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&t=k&z=17&ie=UTF8&iwloc=&output=embed`;
   const address = sid.address;
   const email = sid.email;
   const helpline = sid.helpline;
@@ -91,15 +96,17 @@ export const PublicContactSection: React.FC<PublicContactSectionProps> = ({ sett
                   Campus Address
                 </h4>
                 <p className="text-sm font-bold text-slate-900 leading-snug">
-                  RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR
+                  CHANAKYA PUBLIC SCHOOL & COACHING CENTRE
                 </p>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   {address}
                 </p>
                 <div className="pt-1 flex flex-wrap items-center gap-2 text-[11px]">
-                  <span className="font-mono text-emerald-700 font-medium">
-                    Plus Code: G77Q+2J Sheohar, Bihar
-                  </span>
+                  {settings?.plusCode ? (
+                    <span className="font-mono text-emerald-700 font-medium">
+                      Plus Code: {settings.plusCode}
+                    </span>
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -191,10 +198,10 @@ export const PublicContactSection: React.FC<PublicContactSectionProps> = ({ sett
               <div className="p-3 bg-slate-900 text-white flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-2">
                 <div className="flex items-center gap-2">
                   <Navigation className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span className="font-bold">RESIDENTIAL PDS PUBLIC SCHOOL • Sheohar, Bihar (G77Q+2J)</span>
+                  <span className="font-bold">{sid.name || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE'} • Kushahar, Sheohar, Bihar</span>
                 </div>
                 <a
-                  href="https://www.google.com/maps/place/PDS+PUBLIC+SCHOOL/@26.5125425,85.2865357,745m/data=!3m2!1e3!4b1!4m6!3m5!1s0x39ece71e1548a643:0x68ea7ac1528724d4!8m2!3d26.5125425!4d85.2891106!16s%2Fg%2F11rv6286td"
+                  href={mapsHref}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-amber-400 hover:underline flex items-center gap-1 font-semibold text-[11px] self-start sm:self-auto"
@@ -208,8 +215,8 @@ export const PublicContactSection: React.FC<PublicContactSectionProps> = ({ sett
               <div className="w-full h-72 sm:h-80 bg-slate-100">
                 {embedsAllowed ? (
                   <iframe
-                    title="Residential PDS Public School Sheohar Satellite Map"
-                    src="https://maps.google.com/maps?q=26.5125425,85.2891106&t=k&z=17&ie=UTF8&iwloc=&output=embed"
+                    title="Chanakya Public School & Coaching Centre Satellite Map"
+                    src={mapEmbedSrc}
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -233,7 +240,7 @@ export const PublicContactSection: React.FC<PublicContactSectionProps> = ({ sett
                   <span>{address}</span>
                 </span>
                 <span className="flex items-center gap-1.5 font-mono text-emerald-700 font-semibold">
-                  <span>Plus Code: G77Q+2J Sheohar, Bihar</span>
+                  {settings?.plusCode ? <span>Plus Code: {settings.plusCode}</span> : null}
                 </span>
               </div>
             </div>

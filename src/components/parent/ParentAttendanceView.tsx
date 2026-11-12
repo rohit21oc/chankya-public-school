@@ -279,7 +279,7 @@ export const ParentAttendanceView: React.FC<ParentAttendanceViewProps> = ({
                 Student Attendance Calendar
               </h1>
               <p className="text-xs text-slate-500 font-medium">
-                RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR • CBSE Attendance Benchmark 75%
+                CHANAKYA PUBLIC SCHOOL & COACHING CENTRE • Attendance Benchmark 75%
               </p>
             </div>
           </div>
@@ -448,7 +448,7 @@ export const ParentAttendanceView: React.FC<ParentAttendanceViewProps> = ({
                       {attendanceMetrics.percentage}%
                     </strong>
                     <span className="text-[10px] font-semibold text-slate-500">
-                      {attendanceMetrics.percentage >= 75 ? 'Meets CBSE Req' : 'Below 75%'}
+                      {attendanceMetrics.percentage >= 75 ? 'Meets 75% Req' : 'Below 75%'}
                     </span>
                   </div>
                 </div>

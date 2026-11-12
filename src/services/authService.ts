@@ -12,9 +12,9 @@ import {
 import { api } from './api';
 import { getApiUrl, getAuthToken, getAuthHeaders } from './apiConfig';
 
-const TOKEN_KEY = 'pradnya_auth_token';
-const USER_KEY = 'pradnya_auth_user';
-const STORAGE_TYPE_KEY = 'pradnya_auth_storage_type';
+const TOKEN_KEY = 'cps_auth_token';
+const USER_KEY = 'cps_auth_user';
+const STORAGE_TYPE_KEY = 'cps_auth_storage_type';
 
 export interface UserQueryParams {
   search?: string;

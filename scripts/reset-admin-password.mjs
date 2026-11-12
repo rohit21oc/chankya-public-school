@@ -16,7 +16,7 @@ import bcrypt from 'bcryptjs';
 
 const env = (k) => (process.env[k] || '').trim();
 const uri = env('MONGODB_URI').replace(/^['"]|['"]$/g, '');
-const username = (env('INITIAL_ADMIN_USERNAME') || 'residentialpdsschool').toLowerCase();
+const username = (env('INITIAL_ADMIN_USERNAME') || 'chanakyapublicschool').toLowerCase();
 const password = env('INITIAL_ADMIN_PASSWORD');
 const phone = env('INITIAL_ADMIN_PHONE').replace(/\D/g, '').slice(-10);
 const email = env('INITIAL_ADMIN_EMAIL').toLowerCase();
@@ -26,7 +26,7 @@ const confirm = process.argv.includes('--confirm');
 if (!uri) { console.error('MONGODB_URI is not set.'); process.exit(1); }
 if (!password) { console.error('INITIAL_ADMIN_PASSWORD is not set.'); process.exit(1); }
 
-await mongoose.connect(uri, { dbName: 'pds_school_erp', serverSelectionTimeoutMS: 15000 });
+await mongoose.connect(uri, { dbName: 'cps_school_erp', serverSelectionTimeoutMS: 15000 });
 const users = mongoose.connection.db.collection('users');
 
 const admins = await users.find({ userType: 'ADMIN', $or: [{ id: 'admin-1' }, { username }] }).toArray();

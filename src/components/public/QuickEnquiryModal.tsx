@@ -116,7 +116,7 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({ isOpen, on
             </div>
             <div>
               <h3 className="text-base font-bold text-slate-900">Online Admission Enquiry (2026-27)</h3>
-              <p className="text-[11px] text-slate-500">RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR</p>
+              <p className="text-[11px] text-slate-500">CHANAKYA PUBLIC SCHOOL & COACHING CENTRE</p>
             </div>
           </div>
           <button
@@ -291,7 +291,7 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({ isOpen, on
                   className="mt-0.5 w-4 h-4 rounded text-blue-900 border-slate-300 focus:ring-blue-600 shrink-0 cursor-pointer"
                 />
                 <span className="text-[11px] text-slate-600 leading-snug">
-                  I understand that the information submitted through this form may be used by RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR to respond to my enquiry or process my request. I have read and agree to the{' '}
+                  I understand that the information submitted through this form may be used by CHANAKYA PUBLIC SCHOOL & COACHING CENTRE to respond to my enquiry or process my request. I have read and agree to the{' '}
                   <a
                     href="/privacy-policy"
                     onClick={(e) => {

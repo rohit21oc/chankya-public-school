@@ -22,12 +22,12 @@ async function run() {
   const adminToken = adminAuth.token;
   console.log('✓ 1. Admin authenticated successfully');
 
-  // 2. Authenticate Teacher (PDS0002)
+  // 2. Authenticate Teacher (CPS0002)
   const teacherLoginRes = await fetch(`${BASE_URL}/api/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      identifier: 'PDS0002',
+      identifier: 'CPS0002',
       password: 'admin123',
       loginType: 'STAFF_ADMIN',
     }),
@@ -36,7 +36,7 @@ async function run() {
   const teacherAuth: any = await teacherLoginRes.json();
   const teacherToken = teacherAuth.token;
   const teacherUser = teacherAuth.user;
-  console.log(`✓ 2. Teacher PDS0002 authenticated: ${teacherUser.name} (${teacherUser.id})`);
+  console.log(`✓ 2. Teacher CPS0002 authenticated: ${teacherUser.name} (${teacherUser.id})`);
 
   // 3. Register a new Staff Member with UAN Number, Father's Name, Mother's Name, Monthly Salary
   const testEmpId = `TEST${Date.now().toString().slice(-4)}`;
@@ -48,7 +48,7 @@ async function run() {
     gender: 'MALE',
     bloodGroup: 'O+',
     phone: '9876501234',
-    email: `vikram.${Date.now()}@pdsschool.edu.in`,
+    email: `vikram.${Date.now()}@chanakyaschool.example`,
     designation: 'Senior TGT Science Teacher',
     department: 'SCIENCE',
     qualification: 'M.Sc. Physics, B.Ed.',
@@ -256,7 +256,7 @@ async function run() {
   console.log('✓ 11. Salary payment recorded successfully (Status: PAID, Ref: NEFT-SBI-202609001)');
 
   // 9. Test Self-Access & Salary Slip View for Teacher
-  // Generate September 2026 payroll for teacher PDS0002
+  // Generate September 2026 payroll for teacher CPS0002
   const teacherHistoryRes = await fetch(`${BASE_URL}/api/staff-payroll/history/${teacherUser.id}`, {
     headers: { Authorization: `Bearer ${teacherToken}` },
   });

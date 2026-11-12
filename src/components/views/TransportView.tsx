@@ -116,7 +116,7 @@ export const TransportView: React.FC = () => {
     routeName: '',
     routeNumber: '',
     startPoint: 'Sheohar Zero Mile',
-    endPoint: 'BRC School Campus',
+    endPoint: 'School Campus',
     vehicleId: '',
     status: 'ACTIVE' as 'ACTIVE' | 'INACTIVE',
   });
@@ -1185,7 +1185,7 @@ export const TransportView: React.FC = () => {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Route 1: Sheohar Town — Shahpur Road — BRC Campus"
+                  placeholder="e.g. Route 1: Sheohar Town — Kushahar — School Campus"
                   value={routeForm.routeName}
                   onChange={(e) => setRouteForm({ ...routeForm, routeName: e.target.value })}
                   className="w-full px-3 py-2 border border-slate-300 rounded-lg font-medium"
@@ -1210,7 +1210,7 @@ export const TransportView: React.FC = () => {
                   <input
                     type="text"
                     required
-                    placeholder="e.g. BRC School Campus"
+                    placeholder="e.g. School Campus"
                     value={routeForm.endPoint}
                     onChange={(e) => setRouteForm({ ...routeForm, endPoint: e.target.value })}
                     className="w-full px-3 py-2 border border-slate-300 rounded-lg"
@@ -1293,7 +1293,7 @@ export const TransportView: React.FC = () => {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Shahpur Road Crossing"
+                  placeholder="e.g. Main Road Crossing"
                   value={stopForm.stopName}
                   onChange={(e) => setStopForm({ ...stopForm, stopName: e.target.value })}
                   className="w-full px-3 py-2 border border-slate-300 rounded-lg font-bold"

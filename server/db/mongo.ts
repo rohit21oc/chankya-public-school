@@ -141,7 +141,7 @@ class MongoService {
       const parsedDbName =
         this.client.options.dbName && this.client.options.dbName !== 'test'
           ? this.client.options.dbName
-          : 'pds_school_erp';
+          : 'cps_school_erp';
       this.db = this.client.db(parsedDbName);
 
       this.status.connected = true;

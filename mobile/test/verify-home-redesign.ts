@@ -8,10 +8,10 @@ console.log('=== VERIFYING MOBILE HOME SCREEN REDESIGN ===\n');
 // 1. School Information Verification
 console.log('1. School Header & Branding Check:');
 // Institute details come only from saved School Settings; nothing is built in.
-const id = toIdentity({ schoolName: 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR', affiliatedBoard: 'BSEB', affiliationNumber: '10030206405', schoolCode: '6400' } as any);
+const id = toIdentity({ schoolName: 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE', affiliatedBoard: 'BSEB', affiliationNumber: '10034104008', schoolCode: '6400' } as any);
 const line = affiliationLine(id);
 console.log(`   Affiliation line: ${line}`);
-if (line !== 'BSEB Affiliation: 10030206405 • Code: 6400') throw new Error(`Unexpected affiliation line: ${line}`);
+if (line !== 'BSEB Affiliation: 10034104008 • Code: 6400') throw new Error(`Unexpected affiliation line: ${line}`);
 if (affiliationLine(toIdentity({ schoolName: 'X' } as any)) !== '') throw new Error('Missing affiliation must not be invented');
 if ((SCHOOL_INFO as any).affiliationNumber || (SCHOOL_INFO as any).board || (SCHOOL_INFO as any).phone) {
   throw new Error('SCHOOL_INFO must not carry built-in affiliation, board or phone values');
@@ -23,7 +23,7 @@ console.log('2. Teacher Role Grid Modules Check:');
 const teacherUser: User = {
   id: 'tch-1',
   name: 'Mrs. Sunita Verma',
-  username: 'PDS0002',
+  username: 'CPS0002',
   role: 'TEACHER',
   permissions: ['attendance.view', 'attendance.mark', 'exams.view', 'exams.marks.enter', 'timetable.view', 'students.view', 'communication.view'],
 };
@@ -61,7 +61,7 @@ console.log('3. Principal / Admin Role Grid Modules Check:');
 const principalUser: User = {
   id: 'adm-1',
   name: 'Principal Office',
-  username: 'PDS0001',
+  username: 'CPS0001',
   role: 'PRINCIPAL',
   permissions: ['attendance.view', 'exams.view', 'timetable.view', 'students.view', 'staff.manage', 'payroll.view', 'communication.view'],
 };
@@ -93,7 +93,7 @@ console.log('4. Staff Role Grid Modules Check:');
 const accountantUser: User = {
   id: 'acc-1',
   name: 'Ramesh Kumar',
-  username: 'PDS0005',
+  username: 'CPS0005',
   role: 'ACCOUNTANT',
   permissions: ['payroll.view', 'timetable.view', 'communication.view'],
 };

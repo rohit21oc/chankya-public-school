@@ -669,14 +669,14 @@ export const AdmissionPreviewPage: React.FC<AdmissionPreviewPageProps> = ({
                     </span>
                     <div className="flex items-center gap-2 mt-1">
                       <strong className="font-mono text-xs font-black text-purple-900 bg-purple-50 px-2.5 py-1 rounded border border-purple-200">
-                        {parentInitialPassword || 'PDS123'}
+                        {parentInitialPassword || 'CPS123'}
                       </strong>
                       <span className="text-[10px] text-purple-700 font-semibold bg-purple-50/80 px-2 py-0.5 rounded">
                         Default Password
                       </span>
                     </div>
                     <p className="text-[10px] text-slate-500 mt-1">
-                      Initial parent master password is PDS123. Parents may also sign in using their child&apos;s DOB.
+                      Initial parent master password is CPS123. Parents may also sign in using their child&apos;s DOB.
                     </p>
                   </div>
                 </div>

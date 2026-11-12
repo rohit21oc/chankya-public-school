@@ -307,14 +307,14 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
       setStudyMaterials(api.getStudyMaterials());
     };
 
-    window.addEventListener('pradnya_entity_students', handleSync);
-    window.addEventListener('pradnya_entity_staff', handleSync);
-    window.addEventListener('pradnya_entity_exams', handleSync);
+    window.addEventListener('cps_entity_students', handleSync);
+    window.addEventListener('cps_entity_staff', handleSync);
+    window.addEventListener('cps_entity_exams', handleSync);
 
     return () => {
-      window.removeEventListener('pradnya_entity_students', handleSync);
-      window.removeEventListener('pradnya_entity_staff', handleSync);
-      window.removeEventListener('pradnya_entity_exams', handleSync);
+      window.removeEventListener('cps_entity_students', handleSync);
+      window.removeEventListener('cps_entity_staff', handleSync);
+      window.removeEventListener('cps_entity_exams', handleSync);
     };
   }, [refreshAllData]);
 
@@ -1514,7 +1514,7 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
                               <button
                                 onClick={() => setSelectedStudentForReport(st)}
                                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs shadow-2xs transition-colors cursor-pointer"
-                                title="Generate and print comprehensive CBSE report card marksheet"
+                                title="Generate and print comprehensive report card marksheet"
                               >
                                 <Printer className="w-3.5 h-3.5" />
                                 <span>Print Marksheet</span>
@@ -1632,7 +1632,7 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
                 <input
                   type="text"
                   required
-                  placeholder="e.g. CBSE Class 10 Physics Ray Diagrams Guide"
+                  placeholder="e.g. Class 7 Science Diagrams Guide"
                   value={uploadFormData.title}
                   onChange={(e) => setUploadFormData({ ...uploadFormData, title: e.target.value })}
                   className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-blue-600"

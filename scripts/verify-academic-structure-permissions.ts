@@ -49,18 +49,18 @@ async function runAcademicStructureTests() {
   console.log('ACADEMIC STRUCTURE READ-ONLY & ASSIGNMENT ENFORCEMENT');
   console.log('====================================================\n');
 
-  // 1. Authenticate as Teacher PDS0010
+  // 1. Authenticate as Teacher CPS0010
   console.log('--- Step 1: Teacher Authentication ---');
   const teacherLogin = await api('/auth/login', {
     method: 'POST',
     body: {
-      identifier: 'PDS0010',
+      identifier: 'CPS0010',
       password: 'admin123',
       loginType: 'STAFF_ADMIN',
     },
   });
 
-  assert(teacherLogin.status === 200 && teacherLogin.data?.token, 'Teacher Login PDS0010');
+  assert(teacherLogin.status === 200 && teacherLogin.data?.token, 'Teacher Login CPS0010');
   const teacherToken = teacherLogin.data?.token;
   const teacherHeaders = { Authorization: `Bearer ${teacherToken}` };
 

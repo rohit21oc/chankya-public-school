@@ -133,12 +133,12 @@ export const ResetPasswordPage: React.FC<ResetPasswordPageProps> = ({
               />
             ) : (
               <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold text-xl shadow-inner">
-                PDS
+                CPS
               </div>
             )}
           </div>
           <h1 className="text-xl sm:text-2xl font-black tracking-tight text-white uppercase">
-            {settings?.schoolName || 'RESIDENTIAL PDS PUBLIC SCHOOL SHEOHAR'}
+            {settings?.schoolName || 'CHANAKYA PUBLIC SCHOOL & COACHING CENTRE'}
           </h1>
           <p className="text-xs font-semibold text-blue-400 tracking-wider uppercase mt-1">
             School Management Portal

@@ -13,7 +13,7 @@ ok('hostel resident rule', isHostelResident(stu) && !isHostelResident({}) && !is
 ok('invalid aadhaar → not recorded', maskAadhaar('12') === NOT_RECORDED && maskAadhaar(undefined) === NOT_RECORDED);
 ok('dates formatted', /2016/.test(find(s, 'personal', 'Date of birth')));
 
-const staff = { employeeId: 'PDS0014', name: 'T', designation: 'Maths Teacher', department: 'ACADEMICS', status: 'ACTIVE', bankAccountNo: '1234567890', ifscCode: 'SBIN0001', monthlySalary: 25000, subjects: ['Maths'] };
+const staff = { employeeId: 'CPS0014', name: 'T', designation: 'Maths Teacher', department: 'ACADEMICS', status: 'ACTIVE', bankAccountNo: '1234567890', ifscCode: 'SBIN0001', monthlySalary: 25000, subjects: ['Maths'] };
 const a = buildStaffSections(staff, { canSeeFinancial: false });
 const b = buildStaffSections(staff, { canSeeFinancial: true });
 ok('no bank / salary section without payroll permission', !a.some((x) => x.key === 'bank') && !JSON.stringify(a).includes('1234567890') && !JSON.stringify(a).includes('25,000'));
